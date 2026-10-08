@@ -1,0 +1,50 @@
+{
+  "document": "ph1 manifest",
+  "label": "POST-HOC (ph1): not pre-registered; reported separately from pre-registered results",
+  "code_version": "ph1",
+  "code_revision": "r2",
+  "timestamp": "2026-10-05T23:27:14.507696+03:30",
+  "output_dir": "D:\\ptbxl-metadata-audit\\outputs\\ph1",
+  "outputs": [
+    {
+      "file": "ph1_analysis_plan.json",
+      "bytes": 4450,
+      "sha256": "aaa18d93c5c18813cea2a31dcfc35d7cc604335dc2627cdb069e82228a52f20a"
+    },
+    {
+      "file": "ph1_fold10_probs.csv",
+      "bytes": 11627253,
+      "sha256": "4519b99c90c6e9e575f12b15819c42ca25cf391c3577760e0a4f3a60ea30f29b"
+    },
+    {
+      "file": "ph1_frozen_outputs.json",
+      "bytes": 1559,
+      "sha256": "1fdfc9bf06cd9aedd77fc265c72151707de12309af1772adb9cd72a657542381"
+    },
+    {
+      "file": "ph1_decision_table.csv",
+      "bytes": 1497,
+      "sha256": "517a9482264f6d234d2fb435565d176f7e60139e737016b774470d5804bbeb3e"
+    },
+    {
+      "file": "ph1_bootstrap_deltas.csv",
+      "bytes": 91057,
+      "sha256": "139933ef584d83034082b19f941af918f078e15a75f548f4feadedba9f946165"
+    },
+    {
+      "file": "ph1_metric_rows.csv",
+      "bytes": 23501,
+      "sha256": "f4eef7720ef29e1e7c13dce90ca371031e25fd315678d3fc09d52c2a596d75fb"
+    },
+    {
+      "file": "ph1_results.json",
+      "bytes": 49533,
+      "sha256": "1947d0779c3f2f1a01cd86eddb0b51f1552aeda03a12f16270350d3043b94b1d"
+    }
+  ],
+  "plan_self_sha256": "34effc0fda5cb2b7fda1bce1fc43de0e17aa55f566a0902de75455e33a31c5c0",
+  "frozen_outputs_self_sha256": "a3183532cfb48ada58e299ce77df2484df59c3e607181d9c5012f59acb7d8fff",
+  "results_self_sha256": "f096bf9390c2cf5ee0d43a453482049ac07051ea4aeeb24b5aa01a6315f23b94",
+  "self_sha256_procedure": "Load the JSON file; remove the key 'self_sha256' (the key must be absent, not empty); serialize the remaining dict with json.dumps(d, sort_keys=True, ensure_ascii=False, separators=(',', ':')); compute SHA-256 of the UTF-8 bytes; the hex digest must equal the stored 'self_sha256'. (At write time numpy scalars were converted to plain JSON types first, so the loaded file hashes identically.)",
+  "self_sha256": "406006ac40bdebc83d6a0cccbcf07fab1c2faa59f390a83667fe93b26b6a9780"
+}

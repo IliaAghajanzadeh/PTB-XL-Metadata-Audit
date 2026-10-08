@@ -1,0 +1,75 @@
+{
+  "document": "verify manifest",
+  "version": "verify-1.0",
+  "run_id": "run_20261008-022605",
+  "root": "D:\\ptbxl-metadata-audit",
+  "own_source_sha256": "c245de73643ce3438e742fd45f3059909b5fda74b15a13d1e2cc2b38ff7f8e7c",
+  "outputs": [
+    {
+      "file": "paper_numbers.json",
+      "bytes": 26458,
+      "sha256": "e540d16d65d9247669e8488bcc834ea854cdd5bf94f0181f3c9ceb6ff49e524c"
+    },
+    {
+      "file": "table_1_metadata_only.csv",
+      "bytes": 783,
+      "sha256": "a0fb807647dfb8cb06553e98cbdd359cf8e15fc2ba461fec10183be9181c05ca"
+    },
+    {
+      "file": "table_2_h2.csv",
+      "bytes": 832,
+      "sha256": "2a5930c9a5635d7fe38f1b4b5841b88cbe349a5bd563896d4a75ddd7ad41d849"
+    },
+    {
+      "file": "table_3_ecg_h3.csv",
+      "bytes": 702,
+      "sha256": "594eeb3d0aef1d7026fe5d5b1d364d43b1f3f2280baf5d9390daff7339b02e26"
+    },
+    {
+      "file": "table_4_h3_per_seed.csv",
+      "bytes": 911,
+      "sha256": "f675e399728baf542ac1e0aae9edf1f69fce8be3a7e1e7fa35b62196a63327f2"
+    },
+    {
+      "file": "table_5_provenance.csv",
+      "bytes": 1204,
+      "sha256": "d6a58c42d19f88b592d4b957fbc38d75f67fc12c4168b9f48cd8aacff4a636ef"
+    },
+    {
+      "file": "tables.md",
+      "bytes": 5121,
+      "sha256": "60bdd361d5a9b7f202fe546aa420bb7a9e5ec6dfbacbd36b644d657bb02a2df0"
+    },
+    {
+      "file": "verify_report.json",
+      "bytes": 224290,
+      "sha256": "eb4a7ae03f7697fb2270255f4e928d0409fcfcffd905c65c3e98fa89d4ad4619"
+    },
+    {
+      "file": "verify_report.txt",
+      "bytes": 59175,
+      "sha256": "66c959ba9a8773aa7e6526b433f91641feb1ab89059f50dd710450eaf8eb5bdb"
+    }
+  ],
+  "summary": {
+    "version": "verify-1.0",
+    "run_id": "run_20261008-022605",
+    "started": "2026-10-08T02:26:05.835558+03:30",
+    "finished": "2026-10-08T02:30:25.596525+03:30",
+    "all_checks_passed": true,
+    "n_checks": 370,
+    "n_failed": 0,
+    "n_skipped": 0,
+    "paper_final": true,
+    "versions": {
+      "python": "3.10.20",
+      "numpy": "1.26.4",
+      "pandas": "2.3.3",
+      "scipy": "1.15.3",
+      "sklearn": "1.7.2",
+      "os": "Windows-10-10.0.19045-SP0"
+    }
+  },
+  "self_sha256_procedure": "Load the JSON file; remove the key 'self_sha256' (the key must be absent, not empty); serialize the remaining dict with json.dumps(d, sort_keys=True, ensure_ascii=False, separators=(',', ':')); compute SHA-256 of the UTF-8 bytes; the hex digest must equal the stored 'self_sha256'. (At write time numpy scalars were converted to plain JSON types first, so the loaded file hashes identically.)",
+  "self_sha256": "074f124bf4bed7a1c154922e324c73c8bf925a612a985c4f20bbc9bf01348899"
+}

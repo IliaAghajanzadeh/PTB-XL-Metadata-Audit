@@ -1,0 +1,356 @@
+{
+  "note": "inspection copy, NOT write-once; the binding values are in final_run_protocol.json",
+  "locked_quantities": {
+    "fit_rows": "folds 1-9 of PTB-XL v1.0.3 (strat_fold <= 9): 19601 records",
+    "categorical_encoder": {
+      "procedure": "to_level_string (v0.2.1, zero-padded numeric levels) then encode_categorical with train_mask = all folds 1-9 rows; categories = sorted(training levels | {'__MISSING__'}) + ['__UNKNOWN__']; any level not among the training categories -> '__UNKNOWN__'",
+      "categories": {
+        "device": [
+          "AT-6     6",
+          "AT-6 C",
+          "AT-6 C 5.0",
+          "AT-6 C 5.3",
+          "AT-6 C 5.5",
+          "AT-6 C 5.6",
+          "AT-6 C 5.8",
+          "AT-60    3",
+          "CS-12",
+          "CS-12   E",
+          "CS100    3",
+          "__MISSING__",
+          "__UNKNOWN__"
+        ],
+        "site": [
+          "000",
+          "001",
+          "002",
+          "003",
+          "004",
+          "005",
+          "006",
+          "007",
+          "008",
+          "009",
+          "010",
+          "011",
+          "012",
+          "013",
+          "014",
+          "015",
+          "016",
+          "017",
+          "018",
+          "019",
+          "020",
+          "021",
+          "022",
+          "023",
+          "024",
+          "025",
+          "026",
+          "027",
+          "028",
+          "029",
+          "030",
+          "031",
+          "032",
+          "033",
+          "034",
+          "035",
+          "036",
+          "037",
+          "038",
+          "039",
+          "040",
+          "041",
+          "042",
+          "043",
+          "044",
+          "045",
+          "046",
+          "047",
+          "048",
+          "049",
+          "050",
+          "__MISSING__",
+          "__UNKNOWN__"
+        ],
+        "nurse": [
+          "000",
+          "001",
+          "002",
+          "003",
+          "004",
+          "005",
+          "006",
+          "007",
+          "008",
+          "009",
+          "010",
+          "011",
+          "__MISSING__",
+          "__UNKNOWN__"
+        ]
+      },
+      "widths": {
+        "device": 13,
+        "site": 53,
+        "nurse": 14
+      },
+      "widths_folds1to8_development": {
+        "device": 13,
+        "site": 52,
+        "nurse": 14
+      },
+      "new_levels_vs_folds1to8": {
+        "device": [],
+        "site": [
+          "049"
+        ],
+        "nurse": []
+      },
+      "signal_plus_all_column_order": [
+        "age_imputed",
+        "age_censored",
+        "sex",
+        "device=AT-6     6",
+        "device=AT-6 C",
+        "device=AT-6 C 5.0",
+        "device=AT-6 C 5.3",
+        "device=AT-6 C 5.5",
+        "device=AT-6 C 5.6",
+        "device=AT-6 C 5.8",
+        "device=AT-60    3",
+        "device=CS-12",
+        "device=CS-12   E",
+        "device=CS100    3",
+        "device=__MISSING__",
+        "device=__UNKNOWN__",
+        "site=000",
+        "site=001",
+        "site=002",
+        "site=003",
+        "site=004",
+        "site=005",
+        "site=006",
+        "site=007",
+        "site=008",
+        "site=009",
+        "site=010",
+        "site=011",
+        "site=012",
+        "site=013",
+        "site=014",
+        "site=015",
+        "site=016",
+        "site=017",
+        "site=018",
+        "site=019",
+        "site=020",
+        "site=021",
+        "site=022",
+        "site=023",
+        "site=024",
+        "site=025",
+        "site=026",
+        "site=027",
+        "site=028",
+        "site=029",
+        "site=030",
+        "site=031",
+        "site=032",
+        "site=033",
+        "site=034",
+        "site=035",
+        "site=036",
+        "site=037",
+        "site=038",
+        "site=039",
+        "site=040",
+        "site=041",
+        "site=042",
+        "site=043",
+        "site=044",
+        "site=045",
+        "site=046",
+        "site=047",
+        "site=048",
+        "site=049",
+        "site=050",
+        "site=__MISSING__",
+        "site=__UNKNOWN__",
+        "nurse=000",
+        "nurse=001",
+        "nurse=002",
+        "nurse=003",
+        "nurse=004",
+        "nurse=005",
+        "nurse=006",
+        "nurse=007",
+        "nurse=008",
+        "nurse=009",
+        "nurse=010",
+        "nurse=011",
+        "nurse=__MISSING__",
+        "nurse=__UNKNOWN__"
+      ],
+      "allzero_training_columns_folds1to9": [
+        "device=__MISSING__",
+        "device=__UNKNOWN__",
+        "nurse=__UNKNOWN__",
+        "site=__UNKNOWN__"
+      ],
+      "allzero_training_columns_folds1to8": [
+        "device=__MISSING__",
+        "device=__UNKNOWN__",
+        "nurse=__UNKNOWN__",
+        "site=__UNKNOWN__"
+      ],
+      "fold10_level_mapping": "for each of device/site/nurse: to_level_string applied to the concatenation [folds 1-9 column, fold-10 column]; the folds 1-9 part must equal the folds 1-9-only level strings (asserted in v0.6); the fold-10 part is remapped with the categories above (same rule as encode_categorical)"
+    },
+    "physio_columns": {
+      "order": [
+        "age_imputed",
+        "age_censored",
+        "sex"
+      ],
+      "age_sentinel": "age == 300 -> age_censored = 1, age_imputed = 90; else age_censored = 0, age_imputed = age",
+      "sex": "raw 0/1",
+      "age_imputed": "standardized with age_scaler"
+    },
+    "meta_dim": {
+      "signal_only": 0,
+      "signal_plus_physio": 3,
+      "signal_plus_all": 83
+    },
+    "head_first_linear_in_features": {
+      "signal_only": 256,
+      "signal_plus_physio": 259,
+      "signal_plus_all": 339
+    },
+    "meta_dim_development_folds1to8": {
+      "signal_only": 0,
+      "signal_plus_physio": 3,
+      "signal_plus_all": 82
+    },
+    "age_scaler": {
+      "fit_on": "age_imputed, folds 1-9 (sklearn StandardScaler, population std)",
+      "mean": 59.8140400999949,
+      "scale": 16.943345119479446,
+      "var": 287.07694383778795,
+      "n_samples_seen": 19601
+    },
+    "lead_normalization": {
+      "fit_on": "v0.4 signal cache, all 19601 folds 1-9 records, sha256 17558f9d09b39b990d7f3a5ca2ea10e1527980288a49a6828c89b7c3df61745a",
+      "procedure": "two-pass float64: pass 1 sums per lead over chunks of 1000 records in cache row order, mean = sum / (n_records * 1000); pass 2 sums squared deviations the same way; std = sqrt(ss / (n_records * 1000)) (population std); applied as (x - mean) / std in float32",
+      "lead_order": [
+        "I",
+        "II",
+        "III",
+        "AVR",
+        "AVL",
+        "AVF",
+        "V1",
+        "V2",
+        "V3",
+        "V4",
+        "V5",
+        "V6"
+      ],
+      "mean": [
+        -0.001667916176076091,
+        -0.001400349250029868,
+        0.00026774308297086317,
+        0.0015151871299122577,
+        -0.0009162438417490271,
+        -0.0005420611824550329,
+        0.00017253189402884406,
+        -0.0009167115577443147,
+        -0.0014979976833024273,
+        -0.0018135529198390352,
+        -0.0007793029883489702,
+        -0.002204078528036869
+      ],
+      "std": [
+        0.1599947879496417,
+        0.16458963393062723,
+        0.16699463504425363,
+        0.1392066260824717,
+        0.14131442154725454,
+        0.14511792059860368,
+        0.2336938605073115,
+        0.3371688913862834,
+        0.33347801649294856,
+        0.30663276207563556,
+        0.2730193592916126,
+        0.2774082434851488
+      ],
+      "comparison_rule_for_v0.8_v0.9": "recomputed values must equal these with atol 1e-12 (as v0.5 did)"
+    },
+    "final_training_steps": {
+      "n_records": 19601,
+      "batch_size": 128,
+      "n_batches_per_epoch": 154,
+      "last_batch_size": 17,
+      "epochs": 50,
+      "onecycle_total_steps": 7700
+    },
+    "development_training_steps": {
+      "n_records": 17418,
+      "n_batches_per_epoch": 137,
+      "onecycle_total_steps": 6850
+    },
+    "untrained_column_weight_shrink": {
+      "development_folds1to8": {
+        "total_steps": 6850,
+        "sum_lr": 34.656095920000006,
+        "shrink_factor_exact": 0.7071065546268486,
+        "shrink_factor_exp_approx": 0.7071157127652574
+      },
+      "final_folds1to9": {
+        "total_steps": 7700,
+        "sum_lr": 38.957107820000004,
+        "shrink_factor_exact": 0.6773374799203207,
+        "shrink_factor_exp_approx": 0.6773473412407827
+      }
+    },
+    "fold9_records_on_untrained_columns_under_folds1to8_encoder": {
+      "device": 0,
+      "site": 2,
+      "nurse": 0
+    },
+    "fold10": {
+      "n_records": 2198,
+      "n_patients": 1904,
+      "patient_disjoint_from_folds1to9": true,
+      "n_unknown_under_folds1to9_encoder": {
+        "device": 0,
+        "site": 0,
+        "nurse": 0,
+        "any": 0
+      },
+      "n_on_untrained_column_under_folds1to9_encoder": {
+        "device": 0,
+        "site": 0,
+        "nurse": 0,
+        "any": 0
+      },
+      "columns_read_in_v0.6": [
+        "ecg_id (index)",
+        "patient_id",
+        "device",
+        "site",
+        "nurse"
+      ]
+    }
+  },
+  "bootstrap_locked_hashes": {
+    "fold10_ids_file_order_sha256": "1196970d92da54ed0e24b47483509b10f66d6bce27b21c852a35ddd83330b228",
+    "fold10_patients_sorted_sha256": "4235648ae1c5de15f3e92b4cf7efbf9639a2241daaded8a325c75d4bd59f11ac",
+    "boot_idx_sha256": "70b771a356d30f1109bb2b44dc177d412d4562238ab9dc02dc4a601651b1c6dd",
+    "perm_idx_sha256": "ab9b45fb96161985864f3a2a0a819ff6a3ba6bcb5e67950b221b1025fbcc3a73",
+    "serialization": "fold10_ids: (n, 2) array [ecg_id, patient_id] in fold-10 file order, cast to '<i8', C-order bytes; fold10_patients: np.unique(patient_id) as '<i8' bytes; boot_idx: BOOT_IDX (2000 x 1904) as '<i8' C-order bytes; perm_idx: PERM_IDX (20 x 2198) as '<i8' C-order bytes",
+    "v0.9_rule": "v0.9 regenerates all four with reference_implementation and asserts equality before any metric"
+  },
+  "reference_implementation_sha256": "48ac837c07880f0bd88a7bd01475e7da3edbeab46019f8288976884ad7662856"
+}

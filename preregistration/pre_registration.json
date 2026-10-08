@@ -1,0 +1,197 @@
+{
+  "timestamp": "2026-10-02T00:12:23.130619+03:30",
+  "code_version": "v0.3",
+  "input_files_sha256": {
+    "ptbxl_database.csv": "7600de9c1b27d181d850b3c6038a35d7c3ddb6bb33b702e3a20252a6859d216b",
+    "scp_statements.csv": "ad05b0b1fcae83bb1230755ad9cfc7c96f303feddc08a4a9ad5bdc9ca63bac8f"
+  },
+  "framing": "H1 and H2 are CONFIRMATORY-AFTER-THE-FACT / POST-HOC: their statistics were already seen in v0.2.1 (the week-1 death experiment was a read-only feasibility gate run before this document existed; inherent design limitation). Only H3 and the one-time fold-10 analysis are genuinely prospective; locking THOSE is the purpose of this document.",
+  "epistemic_status": {
+    "H1": "confirmatory-after-the-fact",
+    "H2": "confirmatory-after-the-fact",
+    "H3": "prospective, pending signal model",
+    "fold10_final_analysis": "prospective, sealed until week 8"
+  },
+  "H1": {
+    "statement": "B3 fold-9 macro-AUROC >= 0.60",
+    "status": "already PASSED in v0.2.1",
+    "values": {
+      "LogisticRegression_B3": 0.6972,
+      "HistGradientBoosting_B3_3seed_mean": 0.6937
+    }
+  },
+  "H2": {
+    "statement": "after controlling for age/sex, adding device/site/nurse does not change fold-9 macro-AUROC by a practically relevant amount",
+    "comparison": "B3_physio_plus_acquisition vs B1_physio, delta = B3 - B1, seed 42 refit",
+    "tests": {
+      "difference_test": "0 inside the 95% percentile CI of the paired delta -> no statistically significant difference; otherwise significant difference (sign, magnitude)",
+      "equivalence_test_TOST": "'practically negligible' only if the ENTIRE 90% percentile CI of the paired delta lies within [-SESOI_H2, +SESOI_H2]; otherwise 'inconclusive / not shown negligible'",
+      "achieved_equivalence_bound": "max(|lower_90|, |upper_90|): smallest margin at which TOST passes"
+    },
+    "results_per_learner": {
+      "LogisticRegression": {
+        "point_macro_auroc_B1": 0.6889687936822659,
+        "point_macro_auroc_B3": 0.6971647470153735,
+        "point_delta": 0.00819595333310752,
+        "mean_delta": 0.00833919366348715,
+        "SE_delta": 0.004298597691363125,
+        "ci95_percentile": [
+          -0.00011587489117776397,
+          0.016753300327342055
+        ],
+        "ci90_percentile": [
+          0.0012949891857372998,
+          0.015339306876725932
+        ],
+        "n_boot_valid": 2000,
+        "n_boot_invalid": 0,
+        "MDE": 0.012,
+        "difference_test_verdict": "no statistically significant difference between B1 and B3",
+        "tost_verdict": "practically negligible",
+        "achieved_equivalence_bound": 0.015339306876725932
+      },
+      "HistGradientBoosting": {
+        "point_macro_auroc_B1": 0.6723847074341072,
+        "point_macro_auroc_B3": 0.6923187581059075,
+        "point_delta": 0.01993405067180032,
+        "mean_delta": 0.020167168392890858,
+        "SE_delta": 0.004940134426475028,
+        "ci95_percentile": [
+          0.010578999747639886,
+          0.029816994339120502
+        ],
+        "ci90_percentile": [
+          0.012002730586778625,
+          0.02823543494791869
+        ],
+        "n_boot_valid": 2000,
+        "n_boot_invalid": 0,
+        "MDE": 0.0138,
+        "difference_test_verdict": "significant difference: B3 higher than B1 by +0.0199 (point delta)",
+        "tost_verdict": "inconclusive / not shown negligible",
+        "achieved_equivalence_bound": 0.02823543494791869
+      }
+    },
+    "learner_disagreement": [
+      "difference test: LogisticRegression -> 'no statistically significant difference between B1 and B3'; HistGradientBoosting -> 'significant difference: B3 higher than B1 by +0.0199 (point delta)'",
+      "TOST: LogisticRegression -> 'practically negligible'; HistGradientBoosting -> 'inconclusive / not shown negligible'"
+    ],
+    "sanity_check_vs_v0.2.1": {
+      "tolerance_abs": 0.0002,
+      "rows": [
+        {
+          "learner": "LogisticRegression",
+          "quantity": "B1",
+          "refit": 0.6889687936822659,
+          "v0.2.1": 0.689,
+          "abs_diff": 3.120631773401161e-05,
+          "pass": true
+        },
+        {
+          "learner": "LogisticRegression",
+          "quantity": "B3",
+          "refit": 0.6971647470153735,
+          "v0.2.1": 0.6972,
+          "abs_diff": 3.52529846265881e-05,
+          "pass": true
+        },
+        {
+          "learner": "LogisticRegression",
+          "quantity": "delta",
+          "refit": 0.00819595333310752,
+          "v0.2.1": 0.0082,
+          "abs_diff": 4.0466668924810795e-06,
+          "pass": true
+        },
+        {
+          "learner": "HistGradientBoosting",
+          "quantity": "B1",
+          "refit": 0.6723847074341072,
+          "v0.2.1": 0.6724,
+          "abs_diff": 1.5292565892832677e-05,
+          "pass": true
+        },
+        {
+          "learner": "HistGradientBoosting",
+          "quantity": "B3",
+          "refit": 0.6923187581059075,
+          "v0.2.1": 0.6923,
+          "abs_diff": 1.875810590745708e-05,
+          "pass": true
+        },
+        {
+          "learner": "HistGradientBoosting",
+          "quantity": "delta",
+          "refit": 0.01993405067180032,
+          "v0.2.1": 0.0199,
+          "abs_diff": 3.405067180031751e-05,
+          "pass": true
+        }
+      ],
+      "all_pass": true
+    }
+  },
+  "SESOI_H2": 0.02,
+  "SESOI_H2_note": "chosen by the researcher on 2026-10-01 AFTER v0.2.1's deltas were visible, consistent with H2's confirmatory-after-the-fact status; lenient relative to the ~0.01 spread between published architectures on PTB-XL superclasses (0.926-0.937); achieved_equivalence_bound is reported so readers can apply their own margin",
+  "primary_learner": "LogisticRegression",
+  "robustness_learner": "HistGradientBoosting",
+  "learner_rule": "disagreement is reported, never resolved by selection",
+  "MDE": {
+    "values": {
+      "LogisticRegression": 0.012,
+      "HistGradientBoosting": 0.0138
+    },
+    "formula": "MDE = (z_{1-alpha/2} + z_{power}) * SE_delta",
+    "alpha": 0.05,
+    "alpha_sided": "two-sided",
+    "power": 0.8,
+    "z_alpha_2": 1.959964,
+    "z_power": 0.841621,
+    "N_BOOT": 2000,
+    "BOOT_SEED": 7,
+    "deviation_note": "N_BOOT=2000 reuses v0.2.1's exact scheme; the original plan specified 10,000 -- stated, logged deviation.",
+    "blocks": "B3_physio_plus_acquisition vs B1_physio",
+    "model_seed": 42,
+    "note": "MDE is a power quantity (smallest true effect detectable at 80% power on this eval set). It is NOT a decision threshold; see Part C."
+  },
+  "stopping_rule": "decisions use the CI of the PAIRED delta distribution, never overlap of two separate CIs",
+  "kill_criterion_week3": {
+    "verbatim": "metadata-only macro-AUROC <= 0.55 AND acquisition contribution after age/sex < MDE",
+    "annotation": "first condition already false (H1 passed, 0.697); second condition is superseded by the TOST rule and is no longer a decision criterion anywhere in the project; recorded for completeness"
+  },
+  "H3": {
+    "statement": "adding acquisition metadata (device, site, nurse) to a signal model that already receives age and sex does not materially CHANGE -- inflate OR deflate -- held-out macro-AUROC",
+    "status": "pending, not yet tested"
+  },
+  "H3_protocol": {
+    "comparison": "signal_plus_physio [age, sex] vs signal_plus_all [age, sex, device, site, nurse]",
+    "metadata_fusion": "metadata vector, encoded exactly as in v0.2.1 (encoder fit on training folds only), concatenated to the network's global-pooled embedding before the final linear classification head",
+    "primary_architecture": "resnet1d_wang on 100 Hz",
+    "robustness_architecture": "inception1d",
+    "architecture_rule": "disagreement is reported, never resolved by selection",
+    "development": "weeks 4-5: train folds 1-8, validate fold 9; all hyperparameters AND number of epochs fixed there",
+    "final_run": "train folds 1-9 with those fixed settings, no early stopping, no tuning; fold 10 evaluated exactly once",
+    "seeds": [
+      42,
+      123,
+      2024
+    ],
+    "primary_estimate": "per-record probabilities averaged over the 3 seeds, then macro-AUROC; per-seed results secondary",
+    "test": "paired patient-level bootstrap on fold 10, N_BOOT=2000, BOOT_SEED=7, delta = macro_auroc(signal_plus_all) - macro_auroc(signal_plus_physio)",
+    "decision": {
+      "a": "95% CI excludes 0 -> 'acquisition metadata changes performance' (report sign; either direction counts)",
+      "b": "90% CI entirely within [-0.01, +0.01] -> 'no material change'",
+      "c": "otherwise -> 'inconclusive'"
+    },
+    "SESOI_H3": 0.01,
+    "SESOI_H3_note": "comparable to the spread between published architectures on PTB-XL superclasses; an effect this size could reorder them. Fixed BEFORE any signal model is trained.",
+    "exploratory": "any analysis not specified here (ablations, per-class results, other block comparisons) is EXPLORATORY"
+  },
+  "notes": {
+    "fold9_as_proxy": "Fold 9 is a STATED PROXY for fold 10's sampling variability (fold 9: 2,183 records / 1,942 patients; fold 10: 2,198 records).",
+    "temporal_confounding": "Temporal confounding: v0.2.1 B5_all (B3 + recording_year) ~= B3 (LR 0.6969 vs 0.6972; HGB 3-seed mean 0.6935 vs 0.6937) -> the temporal covariate adds nothing material on the metadata-only side; this does NOT address H3."
+  },
+  "self_sha256_procedure": "Load the JSON file; remove the key 'self_sha256' (the key must be absent, not empty); serialize the remaining dict with json.dumps(d, sort_keys=True, ensure_ascii=False, separators=(',', ':')); compute SHA-256 of the UTF-8 bytes; the hex digest must equal the stored 'self_sha256'. (At write time numpy scalars were converted to plain JSON types first, so the loaded file hashes identically.)",
+  "sealed": true,
+  "self_sha256": "5183f54569f3358a5339b16a2c3c3be49f5c7798eabe6b0bb25946119c2ba469"
+}

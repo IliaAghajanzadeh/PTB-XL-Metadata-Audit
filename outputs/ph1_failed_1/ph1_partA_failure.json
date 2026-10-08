@@ -1,0 +1,2489 @@
+{
+  "document": "ph1 Part A failure - the validation gate did not pass; no fold-10 model was fit and no fold-10 metric was computed",
+  "label": "POST-HOC (ph1): not pre-registered; reported separately from pre-registered results",
+  "code_version": "ph1",
+  "code_revision": "r1",
+  "timestamp": "2026-10-05T20:53:24.909308+03:30",
+  "plan_self_sha256": "bacbd0b2a56f366add7416e38ff9181d7b50b2c05220a6eb84918a7078f0311f",
+  "tolerance": 1e-12,
+  "exception": "PartAFailure: Part A validation gate FAILED (2 check(s): ['A2_decision_table', 'A2_metric_rows']) - nothing is computed on fold 10.",
+  "failed_checks": [
+    "A2_decision_table",
+    "A2_metric_rows"
+  ],
+  "checks": [
+    {
+      "id": "A1_fold9_positives",
+      "section": "A1",
+      "description": "fold-9 positives (v0.2.1 label code) == v0.2.1 counts",
+      "status": "PASS",
+      "kind": "exact",
+      "expected": {
+        "NORM": 955,
+        "MI": 540,
+        "STTC": 528,
+        "CD": 495,
+        "HYP": 268
+      },
+      "observed": {
+        "NORM": 955,
+        "MI": 540,
+        "STTC": 528,
+        "CD": 495,
+        "HYP": 268
+      }
+    },
+    {
+      "id": "A1_split_sizes",
+      "section": "A1",
+      "description": "train folds 1-8 / eval fold 9 records and patients == v0.2.1 / v0.3",
+      "status": "PASS",
+      "kind": "exact",
+      "expected": {
+        "n_train": 17418,
+        "n_eval": 2183,
+        "n_train_patients": 15023,
+        "n_eval_patients": 1942
+      },
+      "observed": {
+        "n_train": 17418,
+        "n_eval": 2183,
+        "n_train_patients": 15023,
+        "n_eval_patients": 1942
+      }
+    },
+    {
+      "id": "A1_encoder_folds1to8",
+      "section": "A1",
+      "description": "folds 1-8 categories == FRP folds 1-9 categories minus new_levels_vs_folds1to8 (widths == FRP widths_folds1to8_development)",
+      "status": "PASS",
+      "kind": "exact",
+      "expected": {
+        "device": 13,
+        "site": 52,
+        "nurse": 14
+      },
+      "observed": {
+        "device": 13,
+        "site": 52,
+        "nurse": 14
+      }
+    },
+    {
+      "id": "A2_decision_table",
+      "section": "A2",
+      "description": "12 rows x 5 numeric columns == v0.2.1_decision_table.csv",
+      "status": "FAIL",
+      "kind": "numeric",
+      "max_abs_diff": 1.5784986938660595e-06,
+      "tolerance": 1e-12,
+      "shape_equal": true,
+      "identifiers_equal": true,
+      "max_abs_diff_per_column": {
+        "macro_auroc_mean": 6.972562557328033e-07,
+        "macro_auroc_std_across_seeds": 0.0,
+        "ci_low_mean": 1.242272428259028e-07,
+        "ci_high_mean": 1.5784986938660595e-06,
+        "delta_vs_B1_physio": 6.972562557328033e-07
+      }
+    },
+    {
+      "id": "A2_metric_rows",
+      "section": "A2",
+      "description": "all 216 metric rows == v0.2.1_metrics_full.csv",
+      "status": "FAIL",
+      "kind": "numeric",
+      "max_abs_diff": 5.653550429668419e-05,
+      "tolerance": 1e-12,
+      "shape_equal": true,
+      "identifiers_equal": true,
+      "max_abs_diff_per_column": {
+        "auroc": 2.9227231985728963e-06,
+        "auroc_chance": 0.0,
+        "auprc": 5.653550429668419e-05,
+        "auprc_chance": 0.0,
+        "ci_low": 1.242272428259028e-07,
+        "ci_high": 1.5784986938660595e-06
+      }
+    },
+    {
+      "id": "A3_fields_LogisticRegression",
+      "section": "A3",
+      "description": "LogisticRegression: field set == pre_registration.json fields + n_patients",
+      "status": "PASS",
+      "kind": "exact",
+      "expected": [
+        "MDE",
+        "SE_delta",
+        "achieved_equivalence_bound",
+        "ci90_percentile",
+        "ci95_percentile",
+        "difference_test_verdict",
+        "mean_delta",
+        "n_boot_invalid",
+        "n_boot_valid",
+        "point_delta",
+        "point_macro_auroc_B1",
+        "point_macro_auroc_B3",
+        "tost_verdict"
+      ],
+      "observed": [
+        "MDE",
+        "SE_delta",
+        "achieved_equivalence_bound",
+        "ci90_percentile",
+        "ci95_percentile",
+        "difference_test_verdict",
+        "mean_delta",
+        "n_boot_invalid",
+        "n_boot_valid",
+        "n_patients",
+        "point_delta",
+        "point_macro_auroc_B1",
+        "point_macro_auroc_B3",
+        "tost_verdict"
+      ]
+    },
+    {
+      "id": "A3_LogisticRegression_point_macro_auroc_B1",
+      "section": "A3",
+      "description": "LogisticRegression point_macro_auroc_B1 == pre_registration.json",
+      "status": "PASS",
+      "kind": "numeric",
+      "expected": 0.6889687936822659,
+      "observed": 0.6889687936822659,
+      "max_abs_diff": 0.0,
+      "tolerance": 1e-12
+    },
+    {
+      "id": "A3_LogisticRegression_point_macro_auroc_B3",
+      "section": "A3",
+      "description": "LogisticRegression point_macro_auroc_B3 == pre_registration.json",
+      "status": "PASS",
+      "kind": "numeric",
+      "expected": 0.6971647470153735,
+      "observed": 0.6971647470153735,
+      "max_abs_diff": 0.0,
+      "tolerance": 1e-12
+    },
+    {
+      "id": "A3_LogisticRegression_point_delta",
+      "section": "A3",
+      "description": "LogisticRegression point_delta == pre_registration.json",
+      "status": "PASS",
+      "kind": "numeric",
+      "expected": 0.00819595333310752,
+      "observed": 0.00819595333310752,
+      "max_abs_diff": 0.0,
+      "tolerance": 1e-12
+    },
+    {
+      "id": "A3_LogisticRegression_mean_delta",
+      "section": "A3",
+      "description": "LogisticRegression mean_delta == pre_registration.json",
+      "status": "PASS",
+      "kind": "numeric",
+      "expected": 0.00833919366348715,
+      "observed": 0.00833919366348715,
+      "max_abs_diff": 0.0,
+      "tolerance": 1e-12
+    },
+    {
+      "id": "A3_LogisticRegression_SE_delta",
+      "section": "A3",
+      "description": "LogisticRegression SE_delta == pre_registration.json",
+      "status": "PASS",
+      "kind": "numeric",
+      "expected": 0.004298597691363125,
+      "observed": 0.004298597691363125,
+      "max_abs_diff": 0.0,
+      "tolerance": 1e-12
+    },
+    {
+      "id": "A3_LogisticRegression_ci95_percentile",
+      "section": "A3",
+      "description": "LogisticRegression ci95_percentile == pre_registration.json",
+      "status": "PASS",
+      "kind": "numeric",
+      "expected": [
+        -0.00011587489117776397,
+        0.016753300327342055
+      ],
+      "observed": [
+        -0.00011587489117776397,
+        0.016753300327342055
+      ],
+      "max_abs_diff": 0.0,
+      "tolerance": 1e-12
+    },
+    {
+      "id": "A3_LogisticRegression_ci90_percentile",
+      "section": "A3",
+      "description": "LogisticRegression ci90_percentile == pre_registration.json",
+      "status": "PASS",
+      "kind": "numeric",
+      "expected": [
+        0.0012949891857372998,
+        0.015339306876725932
+      ],
+      "observed": [
+        0.0012949891857372998,
+        0.015339306876725932
+      ],
+      "max_abs_diff": 0.0,
+      "tolerance": 1e-12
+    },
+    {
+      "id": "A3_LogisticRegression_n_boot_valid",
+      "section": "A3",
+      "description": "LogisticRegression n_boot_valid == pre_registration.json",
+      "status": "PASS",
+      "kind": "numeric",
+      "expected": 2000,
+      "observed": 2000,
+      "max_abs_diff": 0.0,
+      "tolerance": 1e-12
+    },
+    {
+      "id": "A3_LogisticRegression_n_boot_invalid",
+      "section": "A3",
+      "description": "LogisticRegression n_boot_invalid == pre_registration.json",
+      "status": "PASS",
+      "kind": "numeric",
+      "expected": 0,
+      "observed": 0,
+      "max_abs_diff": 0.0,
+      "tolerance": 1e-12
+    },
+    {
+      "id": "A3_LogisticRegression_MDE",
+      "section": "A3",
+      "description": "LogisticRegression MDE == pre_registration.json",
+      "status": "PASS",
+      "kind": "numeric",
+      "expected": 0.012,
+      "observed": 0.012,
+      "max_abs_diff": 0.0,
+      "tolerance": 1e-12
+    },
+    {
+      "id": "A3_LogisticRegression_difference_test_verdict",
+      "section": "A3",
+      "description": "LogisticRegression difference_test_verdict == pre_registration.json",
+      "status": "PASS",
+      "kind": "exact",
+      "expected": "no statistically significant difference between B1 and B3",
+      "observed": "no statistically significant difference between B1 and B3",
+      "max_abs_diff": null,
+      "tolerance": null
+    },
+    {
+      "id": "A3_LogisticRegression_tost_verdict",
+      "section": "A3",
+      "description": "LogisticRegression tost_verdict == pre_registration.json",
+      "status": "PASS",
+      "kind": "exact",
+      "expected": "practically negligible",
+      "observed": "practically negligible",
+      "max_abs_diff": null,
+      "tolerance": null
+    },
+    {
+      "id": "A3_LogisticRegression_achieved_equivalence_bound",
+      "section": "A3",
+      "description": "LogisticRegression achieved_equivalence_bound == pre_registration.json",
+      "status": "PASS",
+      "kind": "numeric",
+      "expected": 0.015339306876725932,
+      "observed": 0.015339306876725932,
+      "max_abs_diff": 0.0,
+      "tolerance": 1e-12
+    },
+    {
+      "id": "A3_n_patients_LogisticRegression",
+      "section": "A3",
+      "description": "LogisticRegression n_patients == 1942",
+      "status": "PASS",
+      "kind": "exact",
+      "expected": 1942,
+      "observed": 1942
+    },
+    {
+      "id": "A3_fields_HistGradientBoosting",
+      "section": "A3",
+      "description": "HistGradientBoosting: field set == pre_registration.json fields + n_patients",
+      "status": "PASS",
+      "kind": "exact",
+      "expected": [
+        "MDE",
+        "SE_delta",
+        "achieved_equivalence_bound",
+        "ci90_percentile",
+        "ci95_percentile",
+        "difference_test_verdict",
+        "mean_delta",
+        "n_boot_invalid",
+        "n_boot_valid",
+        "point_delta",
+        "point_macro_auroc_B1",
+        "point_macro_auroc_B3",
+        "tost_verdict"
+      ],
+      "observed": [
+        "MDE",
+        "SE_delta",
+        "achieved_equivalence_bound",
+        "ci90_percentile",
+        "ci95_percentile",
+        "difference_test_verdict",
+        "mean_delta",
+        "n_boot_invalid",
+        "n_boot_valid",
+        "n_patients",
+        "point_delta",
+        "point_macro_auroc_B1",
+        "point_macro_auroc_B3",
+        "tost_verdict"
+      ]
+    },
+    {
+      "id": "A3_HistGradientBoosting_point_macro_auroc_B1",
+      "section": "A3",
+      "description": "HistGradientBoosting point_macro_auroc_B1 == pre_registration.json",
+      "status": "PASS",
+      "kind": "numeric",
+      "expected": 0.6723847074341072,
+      "observed": 0.6723847074341072,
+      "max_abs_diff": 0.0,
+      "tolerance": 1e-12
+    },
+    {
+      "id": "A3_HistGradientBoosting_point_macro_auroc_B3",
+      "section": "A3",
+      "description": "HistGradientBoosting point_macro_auroc_B3 == pre_registration.json",
+      "status": "PASS",
+      "kind": "numeric",
+      "expected": 0.6923187581059075,
+      "observed": 0.6923187581059075,
+      "max_abs_diff": 0.0,
+      "tolerance": 1e-12
+    },
+    {
+      "id": "A3_HistGradientBoosting_point_delta",
+      "section": "A3",
+      "description": "HistGradientBoosting point_delta == pre_registration.json",
+      "status": "PASS",
+      "kind": "numeric",
+      "expected": 0.01993405067180032,
+      "observed": 0.01993405067180032,
+      "max_abs_diff": 0.0,
+      "tolerance": 1e-12
+    },
+    {
+      "id": "A3_HistGradientBoosting_mean_delta",
+      "section": "A3",
+      "description": "HistGradientBoosting mean_delta == pre_registration.json",
+      "status": "PASS",
+      "kind": "numeric",
+      "expected": 0.020167168392890858,
+      "observed": 0.020167168392890858,
+      "max_abs_diff": 0.0,
+      "tolerance": 1e-12
+    },
+    {
+      "id": "A3_HistGradientBoosting_SE_delta",
+      "section": "A3",
+      "description": "HistGradientBoosting SE_delta == pre_registration.json",
+      "status": "PASS",
+      "kind": "numeric",
+      "expected": 0.004940134426475028,
+      "observed": 0.004940134426475028,
+      "max_abs_diff": 0.0,
+      "tolerance": 1e-12
+    },
+    {
+      "id": "A3_HistGradientBoosting_ci95_percentile",
+      "section": "A3",
+      "description": "HistGradientBoosting ci95_percentile == pre_registration.json",
+      "status": "PASS",
+      "kind": "numeric",
+      "expected": [
+        0.010578999747639886,
+        0.029816994339120502
+      ],
+      "observed": [
+        0.010578999747639886,
+        0.029816994339120502
+      ],
+      "max_abs_diff": 0.0,
+      "tolerance": 1e-12
+    },
+    {
+      "id": "A3_HistGradientBoosting_ci90_percentile",
+      "section": "A3",
+      "description": "HistGradientBoosting ci90_percentile == pre_registration.json",
+      "status": "PASS",
+      "kind": "numeric",
+      "expected": [
+        0.012002730586778625,
+        0.02823543494791869
+      ],
+      "observed": [
+        0.012002730586778625,
+        0.02823543494791869
+      ],
+      "max_abs_diff": 0.0,
+      "tolerance": 1e-12
+    },
+    {
+      "id": "A3_HistGradientBoosting_n_boot_valid",
+      "section": "A3",
+      "description": "HistGradientBoosting n_boot_valid == pre_registration.json",
+      "status": "PASS",
+      "kind": "numeric",
+      "expected": 2000,
+      "observed": 2000,
+      "max_abs_diff": 0.0,
+      "tolerance": 1e-12
+    },
+    {
+      "id": "A3_HistGradientBoosting_n_boot_invalid",
+      "section": "A3",
+      "description": "HistGradientBoosting n_boot_invalid == pre_registration.json",
+      "status": "PASS",
+      "kind": "numeric",
+      "expected": 0,
+      "observed": 0,
+      "max_abs_diff": 0.0,
+      "tolerance": 1e-12
+    },
+    {
+      "id": "A3_HistGradientBoosting_MDE",
+      "section": "A3",
+      "description": "HistGradientBoosting MDE == pre_registration.json",
+      "status": "PASS",
+      "kind": "numeric",
+      "expected": 0.0138,
+      "observed": 0.0138,
+      "max_abs_diff": 0.0,
+      "tolerance": 1e-12
+    },
+    {
+      "id": "A3_HistGradientBoosting_difference_test_verdict",
+      "section": "A3",
+      "description": "HistGradientBoosting difference_test_verdict == pre_registration.json",
+      "status": "PASS",
+      "kind": "exact",
+      "expected": "significant difference: B3 higher than B1 by +0.0199 (point delta)",
+      "observed": "significant difference: B3 higher than B1 by +0.0199 (point delta)",
+      "max_abs_diff": null,
+      "tolerance": null
+    },
+    {
+      "id": "A3_HistGradientBoosting_tost_verdict",
+      "section": "A3",
+      "description": "HistGradientBoosting tost_verdict == pre_registration.json",
+      "status": "PASS",
+      "kind": "exact",
+      "expected": "inconclusive / not shown negligible",
+      "observed": "inconclusive / not shown negligible",
+      "max_abs_diff": null,
+      "tolerance": null
+    },
+    {
+      "id": "A3_HistGradientBoosting_achieved_equivalence_bound",
+      "section": "A3",
+      "description": "HistGradientBoosting achieved_equivalence_bound == pre_registration.json",
+      "status": "PASS",
+      "kind": "numeric",
+      "expected": 0.02823543494791869,
+      "observed": 0.02823543494791869,
+      "max_abs_diff": 0.0,
+      "tolerance": 1e-12
+    },
+    {
+      "id": "A3_n_patients_HistGradientBoosting",
+      "section": "A3",
+      "description": "HistGradientBoosting n_patients == 1942",
+      "status": "PASS",
+      "kind": "exact",
+      "expected": 1942,
+      "observed": 1942
+    },
+    {
+      "id": "A3_learner_disagreement",
+      "section": "A3",
+      "description": "learner disagreement list == pre_registration.json (exact strings)",
+      "status": "PASS",
+      "kind": "exact",
+      "expected": [
+        "difference test: LogisticRegression -> 'no statistically significant difference between B1 and B3'; HistGradientBoosting -> 'significant difference: B3 higher than B1 by +0.0199 (point delta)'",
+        "TOST: LogisticRegression -> 'practically negligible'; HistGradientBoosting -> 'inconclusive / not shown negligible'"
+      ],
+      "observed": [
+        "difference test: LogisticRegression -> 'no statistically significant difference between B1 and B3'; HistGradientBoosting -> 'significant difference: B3 higher than B1 by +0.0199 (point delta)'",
+        "TOST: LogisticRegression -> 'practically negligible'; HistGradientBoosting -> 'inconclusive / not shown negligible'"
+      ]
+    },
+    {
+      "id": "A3_per_draw_deltas",
+      "section": "A3",
+      "description": "2000 per-draw deltas (LR, HGB) == v0.3_bootstrap_deltas.csv",
+      "status": "PASS",
+      "kind": "numeric",
+      "max_abs_diff": 0.0,
+      "tolerance": 1e-12,
+      "shape_equal": true,
+      "identifiers_equal": true,
+      "max_abs_diff_per_column": {
+        "delta_LR": 0.0,
+        "delta_HGB": 0.0
+      }
+    },
+    {
+      "id": "A3_v021_index_matrix_eq_REF",
+      "section": "A3",
+      "description": "v0.2.1 marginal-bootstrap index matrix on fold 9 == REF.build_boot_idx(1942, 2000, 7)",
+      "status": "PASS",
+      "kind": "exact"
+    }
+  ],
+  "diagnostics": {
+    "decision_table": {
+      "columns_expected": [
+        "block",
+        "learner",
+        "macro_auroc_mean",
+        "macro_auroc_std_across_seeds",
+        "ci_low_mean",
+        "ci_high_mean",
+        "delta_vs_B1_physio"
+      ],
+      "columns_observed": [
+        "block",
+        "learner",
+        "macro_auroc_mean",
+        "macro_auroc_std_across_seeds",
+        "ci_low_mean",
+        "ci_high_mean",
+        "delta_vs_B1_physio"
+      ],
+      "n_rows_expected": 12,
+      "n_rows_observed": 12,
+      "max_abs_diff_per_column": {
+        "macro_auroc_mean": 6.972562557328033e-07,
+        "macro_auroc_std_across_seeds": 0.0,
+        "ci_low_mean": 1.242272428259028e-07,
+        "ci_high_mean": 1.5784986938660595e-06,
+        "delta_vs_B1_physio": 6.972562557328033e-07
+      },
+      "max_abs_diff_per_row": [
+        {
+          "block": "B0_intercept",
+          "learner": "LogisticRegression",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B0_intercept",
+          "learner": "HistGradientBoosting",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B1_physio",
+          "learner": "LogisticRegression",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B1_physio",
+          "learner": "HistGradientBoosting",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B2_acquisition",
+          "learner": "LogisticRegression",
+          "max_abs_diff": 1.5784986938660595e-06
+        },
+        {
+          "block": "B2_acquisition",
+          "learner": "HistGradientBoosting",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B3_physio_plus_acquisition",
+          "learner": "LogisticRegression",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B3_physio_plus_acquisition",
+          "learner": "HistGradientBoosting",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B4_temporal",
+          "learner": "LogisticRegression",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B4_temporal",
+          "learner": "HistGradientBoosting",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B5_all",
+          "learner": "LogisticRegression",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B5_all",
+          "learner": "HistGradientBoosting",
+          "max_abs_diff": 0.0
+        }
+      ]
+    },
+    "metrics_full": {
+      "columns_expected": [
+        "block",
+        "learner",
+        "seed",
+        "class",
+        "auroc",
+        "auroc_chance",
+        "auprc",
+        "auprc_chance",
+        "ci_low",
+        "ci_high"
+      ],
+      "columns_observed": [
+        "block",
+        "learner",
+        "seed",
+        "class",
+        "auroc",
+        "auroc_chance",
+        "auprc",
+        "auprc_chance",
+        "ci_low",
+        "ci_high"
+      ],
+      "n_rows_expected": 216,
+      "n_rows_observed": 216,
+      "max_abs_diff_per_column": {
+        "auroc": 2.9227231985728963e-06,
+        "auroc_chance": 0.0,
+        "auprc": 5.653550429668419e-05,
+        "auprc_chance": 0.0,
+        "ci_low": 1.242272428259028e-07,
+        "ci_high": 1.5784986938660595e-06
+      },
+      "max_abs_diff_per_row": [
+        {
+          "block": "B0_intercept",
+          "learner": "LogisticRegression",
+          "seed": 42,
+          "class": "NORM",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B0_intercept",
+          "learner": "LogisticRegression",
+          "seed": 42,
+          "class": "MI",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B0_intercept",
+          "learner": "LogisticRegression",
+          "seed": 42,
+          "class": "STTC",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B0_intercept",
+          "learner": "LogisticRegression",
+          "seed": 42,
+          "class": "CD",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B0_intercept",
+          "learner": "LogisticRegression",
+          "seed": 42,
+          "class": "HYP",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B0_intercept",
+          "learner": "LogisticRegression",
+          "seed": 42,
+          "class": "MACRO",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B0_intercept",
+          "learner": "LogisticRegression",
+          "seed": 123,
+          "class": "NORM",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B0_intercept",
+          "learner": "LogisticRegression",
+          "seed": 123,
+          "class": "MI",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B0_intercept",
+          "learner": "LogisticRegression",
+          "seed": 123,
+          "class": "STTC",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B0_intercept",
+          "learner": "LogisticRegression",
+          "seed": 123,
+          "class": "CD",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B0_intercept",
+          "learner": "LogisticRegression",
+          "seed": 123,
+          "class": "HYP",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B0_intercept",
+          "learner": "LogisticRegression",
+          "seed": 123,
+          "class": "MACRO",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B0_intercept",
+          "learner": "LogisticRegression",
+          "seed": 2024,
+          "class": "NORM",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B0_intercept",
+          "learner": "LogisticRegression",
+          "seed": 2024,
+          "class": "MI",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B0_intercept",
+          "learner": "LogisticRegression",
+          "seed": 2024,
+          "class": "STTC",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B0_intercept",
+          "learner": "LogisticRegression",
+          "seed": 2024,
+          "class": "CD",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B0_intercept",
+          "learner": "LogisticRegression",
+          "seed": 2024,
+          "class": "HYP",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B0_intercept",
+          "learner": "LogisticRegression",
+          "seed": 2024,
+          "class": "MACRO",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B0_intercept",
+          "learner": "HistGradientBoosting",
+          "seed": 42,
+          "class": "NORM",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B0_intercept",
+          "learner": "HistGradientBoosting",
+          "seed": 42,
+          "class": "MI",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B0_intercept",
+          "learner": "HistGradientBoosting",
+          "seed": 42,
+          "class": "STTC",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B0_intercept",
+          "learner": "HistGradientBoosting",
+          "seed": 42,
+          "class": "CD",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B0_intercept",
+          "learner": "HistGradientBoosting",
+          "seed": 42,
+          "class": "HYP",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B0_intercept",
+          "learner": "HistGradientBoosting",
+          "seed": 42,
+          "class": "MACRO",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B0_intercept",
+          "learner": "HistGradientBoosting",
+          "seed": 123,
+          "class": "NORM",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B0_intercept",
+          "learner": "HistGradientBoosting",
+          "seed": 123,
+          "class": "MI",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B0_intercept",
+          "learner": "HistGradientBoosting",
+          "seed": 123,
+          "class": "STTC",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B0_intercept",
+          "learner": "HistGradientBoosting",
+          "seed": 123,
+          "class": "CD",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B0_intercept",
+          "learner": "HistGradientBoosting",
+          "seed": 123,
+          "class": "HYP",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B0_intercept",
+          "learner": "HistGradientBoosting",
+          "seed": 123,
+          "class": "MACRO",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B0_intercept",
+          "learner": "HistGradientBoosting",
+          "seed": 2024,
+          "class": "NORM",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B0_intercept",
+          "learner": "HistGradientBoosting",
+          "seed": 2024,
+          "class": "MI",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B0_intercept",
+          "learner": "HistGradientBoosting",
+          "seed": 2024,
+          "class": "STTC",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B0_intercept",
+          "learner": "HistGradientBoosting",
+          "seed": 2024,
+          "class": "CD",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B0_intercept",
+          "learner": "HistGradientBoosting",
+          "seed": 2024,
+          "class": "HYP",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B0_intercept",
+          "learner": "HistGradientBoosting",
+          "seed": 2024,
+          "class": "MACRO",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B1_physio",
+          "learner": "LogisticRegression",
+          "seed": 42,
+          "class": "NORM",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B1_physio",
+          "learner": "LogisticRegression",
+          "seed": 42,
+          "class": "MI",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B1_physio",
+          "learner": "LogisticRegression",
+          "seed": 42,
+          "class": "STTC",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B1_physio",
+          "learner": "LogisticRegression",
+          "seed": 42,
+          "class": "CD",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B1_physio",
+          "learner": "LogisticRegression",
+          "seed": 42,
+          "class": "HYP",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B1_physio",
+          "learner": "LogisticRegression",
+          "seed": 42,
+          "class": "MACRO",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B1_physio",
+          "learner": "LogisticRegression",
+          "seed": 123,
+          "class": "NORM",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B1_physio",
+          "learner": "LogisticRegression",
+          "seed": 123,
+          "class": "MI",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B1_physio",
+          "learner": "LogisticRegression",
+          "seed": 123,
+          "class": "STTC",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B1_physio",
+          "learner": "LogisticRegression",
+          "seed": 123,
+          "class": "CD",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B1_physio",
+          "learner": "LogisticRegression",
+          "seed": 123,
+          "class": "HYP",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B1_physio",
+          "learner": "LogisticRegression",
+          "seed": 123,
+          "class": "MACRO",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B1_physio",
+          "learner": "LogisticRegression",
+          "seed": 2024,
+          "class": "NORM",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B1_physio",
+          "learner": "LogisticRegression",
+          "seed": 2024,
+          "class": "MI",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B1_physio",
+          "learner": "LogisticRegression",
+          "seed": 2024,
+          "class": "STTC",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B1_physio",
+          "learner": "LogisticRegression",
+          "seed": 2024,
+          "class": "CD",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B1_physio",
+          "learner": "LogisticRegression",
+          "seed": 2024,
+          "class": "HYP",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B1_physio",
+          "learner": "LogisticRegression",
+          "seed": 2024,
+          "class": "MACRO",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B1_physio",
+          "learner": "HistGradientBoosting",
+          "seed": 42,
+          "class": "NORM",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B1_physio",
+          "learner": "HistGradientBoosting",
+          "seed": 42,
+          "class": "MI",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B1_physio",
+          "learner": "HistGradientBoosting",
+          "seed": 42,
+          "class": "STTC",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B1_physio",
+          "learner": "HistGradientBoosting",
+          "seed": 42,
+          "class": "CD",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B1_physio",
+          "learner": "HistGradientBoosting",
+          "seed": 42,
+          "class": "HYP",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B1_physio",
+          "learner": "HistGradientBoosting",
+          "seed": 42,
+          "class": "MACRO",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B1_physio",
+          "learner": "HistGradientBoosting",
+          "seed": 123,
+          "class": "NORM",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B1_physio",
+          "learner": "HistGradientBoosting",
+          "seed": 123,
+          "class": "MI",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B1_physio",
+          "learner": "HistGradientBoosting",
+          "seed": 123,
+          "class": "STTC",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B1_physio",
+          "learner": "HistGradientBoosting",
+          "seed": 123,
+          "class": "CD",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B1_physio",
+          "learner": "HistGradientBoosting",
+          "seed": 123,
+          "class": "HYP",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B1_physio",
+          "learner": "HistGradientBoosting",
+          "seed": 123,
+          "class": "MACRO",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B1_physio",
+          "learner": "HistGradientBoosting",
+          "seed": 2024,
+          "class": "NORM",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B1_physio",
+          "learner": "HistGradientBoosting",
+          "seed": 2024,
+          "class": "MI",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B1_physio",
+          "learner": "HistGradientBoosting",
+          "seed": 2024,
+          "class": "STTC",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B1_physio",
+          "learner": "HistGradientBoosting",
+          "seed": 2024,
+          "class": "CD",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B1_physio",
+          "learner": "HistGradientBoosting",
+          "seed": 2024,
+          "class": "HYP",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B1_physio",
+          "learner": "HistGradientBoosting",
+          "seed": 2024,
+          "class": "MACRO",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B2_acquisition",
+          "learner": "LogisticRegression",
+          "seed": 42,
+          "class": "NORM",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B2_acquisition",
+          "learner": "LogisticRegression",
+          "seed": 42,
+          "class": "MI",
+          "max_abs_diff": 5.635580803131646e-07
+        },
+        {
+          "block": "B2_acquisition",
+          "learner": "LogisticRegression",
+          "seed": 42,
+          "class": "STTC",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B2_acquisition",
+          "learner": "LogisticRegression",
+          "seed": 42,
+          "class": "CD",
+          "max_abs_diff": 3.2002956579235686e-07
+        },
+        {
+          "block": "B2_acquisition",
+          "learner": "LogisticRegression",
+          "seed": 42,
+          "class": "HYP",
+          "max_abs_diff": 5.653550429668419e-05
+        },
+        {
+          "block": "B2_acquisition",
+          "learner": "LogisticRegression",
+          "seed": 42,
+          "class": "MACRO",
+          "max_abs_diff": 1.1243094946156162e-05
+        },
+        {
+          "block": "B2_acquisition",
+          "learner": "LogisticRegression",
+          "seed": 123,
+          "class": "NORM",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B2_acquisition",
+          "learner": "LogisticRegression",
+          "seed": 123,
+          "class": "MI",
+          "max_abs_diff": 5.635580803131646e-07
+        },
+        {
+          "block": "B2_acquisition",
+          "learner": "LogisticRegression",
+          "seed": 123,
+          "class": "STTC",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B2_acquisition",
+          "learner": "LogisticRegression",
+          "seed": 123,
+          "class": "CD",
+          "max_abs_diff": 3.2002956579235686e-07
+        },
+        {
+          "block": "B2_acquisition",
+          "learner": "LogisticRegression",
+          "seed": 123,
+          "class": "HYP",
+          "max_abs_diff": 5.653550429668419e-05
+        },
+        {
+          "block": "B2_acquisition",
+          "learner": "LogisticRegression",
+          "seed": 123,
+          "class": "MACRO",
+          "max_abs_diff": 1.1243094946156162e-05
+        },
+        {
+          "block": "B2_acquisition",
+          "learner": "LogisticRegression",
+          "seed": 2024,
+          "class": "NORM",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B2_acquisition",
+          "learner": "LogisticRegression",
+          "seed": 2024,
+          "class": "MI",
+          "max_abs_diff": 5.635580803131646e-07
+        },
+        {
+          "block": "B2_acquisition",
+          "learner": "LogisticRegression",
+          "seed": 2024,
+          "class": "STTC",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B2_acquisition",
+          "learner": "LogisticRegression",
+          "seed": 2024,
+          "class": "CD",
+          "max_abs_diff": 3.2002956579235686e-07
+        },
+        {
+          "block": "B2_acquisition",
+          "learner": "LogisticRegression",
+          "seed": 2024,
+          "class": "HYP",
+          "max_abs_diff": 5.653550429668419e-05
+        },
+        {
+          "block": "B2_acquisition",
+          "learner": "LogisticRegression",
+          "seed": 2024,
+          "class": "MACRO",
+          "max_abs_diff": 1.1243094946156162e-05
+        },
+        {
+          "block": "B2_acquisition",
+          "learner": "HistGradientBoosting",
+          "seed": 42,
+          "class": "NORM",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B2_acquisition",
+          "learner": "HistGradientBoosting",
+          "seed": 42,
+          "class": "MI",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B2_acquisition",
+          "learner": "HistGradientBoosting",
+          "seed": 42,
+          "class": "STTC",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B2_acquisition",
+          "learner": "HistGradientBoosting",
+          "seed": 42,
+          "class": "CD",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B2_acquisition",
+          "learner": "HistGradientBoosting",
+          "seed": 42,
+          "class": "HYP",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B2_acquisition",
+          "learner": "HistGradientBoosting",
+          "seed": 42,
+          "class": "MACRO",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B2_acquisition",
+          "learner": "HistGradientBoosting",
+          "seed": 123,
+          "class": "NORM",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B2_acquisition",
+          "learner": "HistGradientBoosting",
+          "seed": 123,
+          "class": "MI",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B2_acquisition",
+          "learner": "HistGradientBoosting",
+          "seed": 123,
+          "class": "STTC",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B2_acquisition",
+          "learner": "HistGradientBoosting",
+          "seed": 123,
+          "class": "CD",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B2_acquisition",
+          "learner": "HistGradientBoosting",
+          "seed": 123,
+          "class": "HYP",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B2_acquisition",
+          "learner": "HistGradientBoosting",
+          "seed": 123,
+          "class": "MACRO",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B2_acquisition",
+          "learner": "HistGradientBoosting",
+          "seed": 2024,
+          "class": "NORM",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B2_acquisition",
+          "learner": "HistGradientBoosting",
+          "seed": 2024,
+          "class": "MI",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B2_acquisition",
+          "learner": "HistGradientBoosting",
+          "seed": 2024,
+          "class": "STTC",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B2_acquisition",
+          "learner": "HistGradientBoosting",
+          "seed": 2024,
+          "class": "CD",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B2_acquisition",
+          "learner": "HistGradientBoosting",
+          "seed": 2024,
+          "class": "HYP",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B2_acquisition",
+          "learner": "HistGradientBoosting",
+          "seed": 2024,
+          "class": "MACRO",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B3_physio_plus_acquisition",
+          "learner": "LogisticRegression",
+          "seed": 42,
+          "class": "NORM",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B3_physio_plus_acquisition",
+          "learner": "LogisticRegression",
+          "seed": 42,
+          "class": "MI",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B3_physio_plus_acquisition",
+          "learner": "LogisticRegression",
+          "seed": 42,
+          "class": "STTC",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B3_physio_plus_acquisition",
+          "learner": "LogisticRegression",
+          "seed": 42,
+          "class": "CD",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B3_physio_plus_acquisition",
+          "learner": "LogisticRegression",
+          "seed": 42,
+          "class": "HYP",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B3_physio_plus_acquisition",
+          "learner": "LogisticRegression",
+          "seed": 42,
+          "class": "MACRO",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B3_physio_plus_acquisition",
+          "learner": "LogisticRegression",
+          "seed": 123,
+          "class": "NORM",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B3_physio_plus_acquisition",
+          "learner": "LogisticRegression",
+          "seed": 123,
+          "class": "MI",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B3_physio_plus_acquisition",
+          "learner": "LogisticRegression",
+          "seed": 123,
+          "class": "STTC",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B3_physio_plus_acquisition",
+          "learner": "LogisticRegression",
+          "seed": 123,
+          "class": "CD",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B3_physio_plus_acquisition",
+          "learner": "LogisticRegression",
+          "seed": 123,
+          "class": "HYP",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B3_physio_plus_acquisition",
+          "learner": "LogisticRegression",
+          "seed": 123,
+          "class": "MACRO",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B3_physio_plus_acquisition",
+          "learner": "LogisticRegression",
+          "seed": 2024,
+          "class": "NORM",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B3_physio_plus_acquisition",
+          "learner": "LogisticRegression",
+          "seed": 2024,
+          "class": "MI",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B3_physio_plus_acquisition",
+          "learner": "LogisticRegression",
+          "seed": 2024,
+          "class": "STTC",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B3_physio_plus_acquisition",
+          "learner": "LogisticRegression",
+          "seed": 2024,
+          "class": "CD",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B3_physio_plus_acquisition",
+          "learner": "LogisticRegression",
+          "seed": 2024,
+          "class": "HYP",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B3_physio_plus_acquisition",
+          "learner": "LogisticRegression",
+          "seed": 2024,
+          "class": "MACRO",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B3_physio_plus_acquisition",
+          "learner": "HistGradientBoosting",
+          "seed": 42,
+          "class": "NORM",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B3_physio_plus_acquisition",
+          "learner": "HistGradientBoosting",
+          "seed": 42,
+          "class": "MI",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B3_physio_plus_acquisition",
+          "learner": "HistGradientBoosting",
+          "seed": 42,
+          "class": "STTC",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B3_physio_plus_acquisition",
+          "learner": "HistGradientBoosting",
+          "seed": 42,
+          "class": "CD",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B3_physio_plus_acquisition",
+          "learner": "HistGradientBoosting",
+          "seed": 42,
+          "class": "HYP",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B3_physio_plus_acquisition",
+          "learner": "HistGradientBoosting",
+          "seed": 42,
+          "class": "MACRO",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B3_physio_plus_acquisition",
+          "learner": "HistGradientBoosting",
+          "seed": 123,
+          "class": "NORM",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B3_physio_plus_acquisition",
+          "learner": "HistGradientBoosting",
+          "seed": 123,
+          "class": "MI",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B3_physio_plus_acquisition",
+          "learner": "HistGradientBoosting",
+          "seed": 123,
+          "class": "STTC",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B3_physio_plus_acquisition",
+          "learner": "HistGradientBoosting",
+          "seed": 123,
+          "class": "CD",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B3_physio_plus_acquisition",
+          "learner": "HistGradientBoosting",
+          "seed": 123,
+          "class": "HYP",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B3_physio_plus_acquisition",
+          "learner": "HistGradientBoosting",
+          "seed": 123,
+          "class": "MACRO",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B3_physio_plus_acquisition",
+          "learner": "HistGradientBoosting",
+          "seed": 2024,
+          "class": "NORM",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B3_physio_plus_acquisition",
+          "learner": "HistGradientBoosting",
+          "seed": 2024,
+          "class": "MI",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B3_physio_plus_acquisition",
+          "learner": "HistGradientBoosting",
+          "seed": 2024,
+          "class": "STTC",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B3_physio_plus_acquisition",
+          "learner": "HistGradientBoosting",
+          "seed": 2024,
+          "class": "CD",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B3_physio_plus_acquisition",
+          "learner": "HistGradientBoosting",
+          "seed": 2024,
+          "class": "HYP",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B3_physio_plus_acquisition",
+          "learner": "HistGradientBoosting",
+          "seed": 2024,
+          "class": "MACRO",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B4_temporal",
+          "learner": "LogisticRegression",
+          "seed": 42,
+          "class": "NORM",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B4_temporal",
+          "learner": "LogisticRegression",
+          "seed": 42,
+          "class": "MI",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B4_temporal",
+          "learner": "LogisticRegression",
+          "seed": 42,
+          "class": "STTC",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B4_temporal",
+          "learner": "LogisticRegression",
+          "seed": 42,
+          "class": "CD",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B4_temporal",
+          "learner": "LogisticRegression",
+          "seed": 42,
+          "class": "HYP",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B4_temporal",
+          "learner": "LogisticRegression",
+          "seed": 42,
+          "class": "MACRO",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B4_temporal",
+          "learner": "LogisticRegression",
+          "seed": 123,
+          "class": "NORM",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B4_temporal",
+          "learner": "LogisticRegression",
+          "seed": 123,
+          "class": "MI",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B4_temporal",
+          "learner": "LogisticRegression",
+          "seed": 123,
+          "class": "STTC",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B4_temporal",
+          "learner": "LogisticRegression",
+          "seed": 123,
+          "class": "CD",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B4_temporal",
+          "learner": "LogisticRegression",
+          "seed": 123,
+          "class": "HYP",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B4_temporal",
+          "learner": "LogisticRegression",
+          "seed": 123,
+          "class": "MACRO",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B4_temporal",
+          "learner": "LogisticRegression",
+          "seed": 2024,
+          "class": "NORM",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B4_temporal",
+          "learner": "LogisticRegression",
+          "seed": 2024,
+          "class": "MI",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B4_temporal",
+          "learner": "LogisticRegression",
+          "seed": 2024,
+          "class": "STTC",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B4_temporal",
+          "learner": "LogisticRegression",
+          "seed": 2024,
+          "class": "CD",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B4_temporal",
+          "learner": "LogisticRegression",
+          "seed": 2024,
+          "class": "HYP",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B4_temporal",
+          "learner": "LogisticRegression",
+          "seed": 2024,
+          "class": "MACRO",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B4_temporal",
+          "learner": "HistGradientBoosting",
+          "seed": 42,
+          "class": "NORM",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B4_temporal",
+          "learner": "HistGradientBoosting",
+          "seed": 42,
+          "class": "MI",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B4_temporal",
+          "learner": "HistGradientBoosting",
+          "seed": 42,
+          "class": "STTC",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B4_temporal",
+          "learner": "HistGradientBoosting",
+          "seed": 42,
+          "class": "CD",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B4_temporal",
+          "learner": "HistGradientBoosting",
+          "seed": 42,
+          "class": "HYP",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B4_temporal",
+          "learner": "HistGradientBoosting",
+          "seed": 42,
+          "class": "MACRO",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B4_temporal",
+          "learner": "HistGradientBoosting",
+          "seed": 123,
+          "class": "NORM",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B4_temporal",
+          "learner": "HistGradientBoosting",
+          "seed": 123,
+          "class": "MI",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B4_temporal",
+          "learner": "HistGradientBoosting",
+          "seed": 123,
+          "class": "STTC",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B4_temporal",
+          "learner": "HistGradientBoosting",
+          "seed": 123,
+          "class": "CD",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B4_temporal",
+          "learner": "HistGradientBoosting",
+          "seed": 123,
+          "class": "HYP",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B4_temporal",
+          "learner": "HistGradientBoosting",
+          "seed": 123,
+          "class": "MACRO",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B4_temporal",
+          "learner": "HistGradientBoosting",
+          "seed": 2024,
+          "class": "NORM",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B4_temporal",
+          "learner": "HistGradientBoosting",
+          "seed": 2024,
+          "class": "MI",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B4_temporal",
+          "learner": "HistGradientBoosting",
+          "seed": 2024,
+          "class": "STTC",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B4_temporal",
+          "learner": "HistGradientBoosting",
+          "seed": 2024,
+          "class": "CD",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B4_temporal",
+          "learner": "HistGradientBoosting",
+          "seed": 2024,
+          "class": "HYP",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B4_temporal",
+          "learner": "HistGradientBoosting",
+          "seed": 2024,
+          "class": "MACRO",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B5_all",
+          "learner": "LogisticRegression",
+          "seed": 42,
+          "class": "NORM",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B5_all",
+          "learner": "LogisticRegression",
+          "seed": 42,
+          "class": "MI",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B5_all",
+          "learner": "LogisticRegression",
+          "seed": 42,
+          "class": "STTC",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B5_all",
+          "learner": "LogisticRegression",
+          "seed": 42,
+          "class": "CD",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B5_all",
+          "learner": "LogisticRegression",
+          "seed": 42,
+          "class": "HYP",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B5_all",
+          "learner": "LogisticRegression",
+          "seed": 42,
+          "class": "MACRO",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B5_all",
+          "learner": "LogisticRegression",
+          "seed": 123,
+          "class": "NORM",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B5_all",
+          "learner": "LogisticRegression",
+          "seed": 123,
+          "class": "MI",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B5_all",
+          "learner": "LogisticRegression",
+          "seed": 123,
+          "class": "STTC",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B5_all",
+          "learner": "LogisticRegression",
+          "seed": 123,
+          "class": "CD",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B5_all",
+          "learner": "LogisticRegression",
+          "seed": 123,
+          "class": "HYP",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B5_all",
+          "learner": "LogisticRegression",
+          "seed": 123,
+          "class": "MACRO",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B5_all",
+          "learner": "LogisticRegression",
+          "seed": 2024,
+          "class": "NORM",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B5_all",
+          "learner": "LogisticRegression",
+          "seed": 2024,
+          "class": "MI",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B5_all",
+          "learner": "LogisticRegression",
+          "seed": 2024,
+          "class": "STTC",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B5_all",
+          "learner": "LogisticRegression",
+          "seed": 2024,
+          "class": "CD",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B5_all",
+          "learner": "LogisticRegression",
+          "seed": 2024,
+          "class": "HYP",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B5_all",
+          "learner": "LogisticRegression",
+          "seed": 2024,
+          "class": "MACRO",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B5_all",
+          "learner": "HistGradientBoosting",
+          "seed": 42,
+          "class": "NORM",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B5_all",
+          "learner": "HistGradientBoosting",
+          "seed": 42,
+          "class": "MI",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B5_all",
+          "learner": "HistGradientBoosting",
+          "seed": 42,
+          "class": "STTC",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B5_all",
+          "learner": "HistGradientBoosting",
+          "seed": 42,
+          "class": "CD",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B5_all",
+          "learner": "HistGradientBoosting",
+          "seed": 42,
+          "class": "HYP",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B5_all",
+          "learner": "HistGradientBoosting",
+          "seed": 42,
+          "class": "MACRO",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B5_all",
+          "learner": "HistGradientBoosting",
+          "seed": 123,
+          "class": "NORM",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B5_all",
+          "learner": "HistGradientBoosting",
+          "seed": 123,
+          "class": "MI",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B5_all",
+          "learner": "HistGradientBoosting",
+          "seed": 123,
+          "class": "STTC",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B5_all",
+          "learner": "HistGradientBoosting",
+          "seed": 123,
+          "class": "CD",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B5_all",
+          "learner": "HistGradientBoosting",
+          "seed": 123,
+          "class": "HYP",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B5_all",
+          "learner": "HistGradientBoosting",
+          "seed": 123,
+          "class": "MACRO",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B5_all",
+          "learner": "HistGradientBoosting",
+          "seed": 2024,
+          "class": "NORM",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B5_all",
+          "learner": "HistGradientBoosting",
+          "seed": 2024,
+          "class": "MI",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B5_all",
+          "learner": "HistGradientBoosting",
+          "seed": 2024,
+          "class": "STTC",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B5_all",
+          "learner": "HistGradientBoosting",
+          "seed": 2024,
+          "class": "CD",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B5_all",
+          "learner": "HistGradientBoosting",
+          "seed": 2024,
+          "class": "HYP",
+          "max_abs_diff": 0.0
+        },
+        {
+          "block": "B5_all",
+          "learner": "HistGradientBoosting",
+          "seed": 2024,
+          "class": "MACRO",
+          "max_abs_diff": 0.0
+        }
+      ],
+      "any_auroc_changed": true,
+      "n_auroc_changed": 9
+    },
+    "h2_fields": [
+      {
+        "learner": "LogisticRegression",
+        "field": "point_macro_auroc_B1",
+        "expected": 0.6889687936822659,
+        "observed": 0.6889687936822659,
+        "abs_diff": 0.0,
+        "pass": true
+      },
+      {
+        "learner": "LogisticRegression",
+        "field": "point_macro_auroc_B3",
+        "expected": 0.6971647470153735,
+        "observed": 0.6971647470153735,
+        "abs_diff": 0.0,
+        "pass": true
+      },
+      {
+        "learner": "LogisticRegression",
+        "field": "point_delta",
+        "expected": 0.00819595333310752,
+        "observed": 0.00819595333310752,
+        "abs_diff": 0.0,
+        "pass": true
+      },
+      {
+        "learner": "LogisticRegression",
+        "field": "mean_delta",
+        "expected": 0.00833919366348715,
+        "observed": 0.00833919366348715,
+        "abs_diff": 0.0,
+        "pass": true
+      },
+      {
+        "learner": "LogisticRegression",
+        "field": "SE_delta",
+        "expected": 0.004298597691363125,
+        "observed": 0.004298597691363125,
+        "abs_diff": 0.0,
+        "pass": true
+      },
+      {
+        "learner": "LogisticRegression",
+        "field": "ci95_percentile",
+        "expected": [
+          -0.00011587489117776397,
+          0.016753300327342055
+        ],
+        "observed": [
+          -0.00011587489117776397,
+          0.016753300327342055
+        ],
+        "abs_diff": 0.0,
+        "pass": true
+      },
+      {
+        "learner": "LogisticRegression",
+        "field": "ci90_percentile",
+        "expected": [
+          0.0012949891857372998,
+          0.015339306876725932
+        ],
+        "observed": [
+          0.0012949891857372998,
+          0.015339306876725932
+        ],
+        "abs_diff": 0.0,
+        "pass": true
+      },
+      {
+        "learner": "LogisticRegression",
+        "field": "n_boot_valid",
+        "expected": 2000,
+        "observed": 2000,
+        "abs_diff": 0.0,
+        "pass": true
+      },
+      {
+        "learner": "LogisticRegression",
+        "field": "n_boot_invalid",
+        "expected": 0,
+        "observed": 0,
+        "abs_diff": 0.0,
+        "pass": true
+      },
+      {
+        "learner": "LogisticRegression",
+        "field": "MDE",
+        "expected": 0.012,
+        "observed": 0.012,
+        "abs_diff": 0.0,
+        "pass": true
+      },
+      {
+        "learner": "LogisticRegression",
+        "field": "difference_test_verdict",
+        "expected": "no statistically significant difference between B1 and B3",
+        "observed": "no statistically significant difference between B1 and B3",
+        "abs_diff": null,
+        "pass": true
+      },
+      {
+        "learner": "LogisticRegression",
+        "field": "tost_verdict",
+        "expected": "practically negligible",
+        "observed": "practically negligible",
+        "abs_diff": null,
+        "pass": true
+      },
+      {
+        "learner": "LogisticRegression",
+        "field": "achieved_equivalence_bound",
+        "expected": 0.015339306876725932,
+        "observed": 0.015339306876725932,
+        "abs_diff": 0.0,
+        "pass": true
+      },
+      {
+        "learner": "HistGradientBoosting",
+        "field": "point_macro_auroc_B1",
+        "expected": 0.6723847074341072,
+        "observed": 0.6723847074341072,
+        "abs_diff": 0.0,
+        "pass": true
+      },
+      {
+        "learner": "HistGradientBoosting",
+        "field": "point_macro_auroc_B3",
+        "expected": 0.6923187581059075,
+        "observed": 0.6923187581059075,
+        "abs_diff": 0.0,
+        "pass": true
+      },
+      {
+        "learner": "HistGradientBoosting",
+        "field": "point_delta",
+        "expected": 0.01993405067180032,
+        "observed": 0.01993405067180032,
+        "abs_diff": 0.0,
+        "pass": true
+      },
+      {
+        "learner": "HistGradientBoosting",
+        "field": "mean_delta",
+        "expected": 0.020167168392890858,
+        "observed": 0.020167168392890858,
+        "abs_diff": 0.0,
+        "pass": true
+      },
+      {
+        "learner": "HistGradientBoosting",
+        "field": "SE_delta",
+        "expected": 0.004940134426475028,
+        "observed": 0.004940134426475028,
+        "abs_diff": 0.0,
+        "pass": true
+      },
+      {
+        "learner": "HistGradientBoosting",
+        "field": "ci95_percentile",
+        "expected": [
+          0.010578999747639886,
+          0.029816994339120502
+        ],
+        "observed": [
+          0.010578999747639886,
+          0.029816994339120502
+        ],
+        "abs_diff": 0.0,
+        "pass": true
+      },
+      {
+        "learner": "HistGradientBoosting",
+        "field": "ci90_percentile",
+        "expected": [
+          0.012002730586778625,
+          0.02823543494791869
+        ],
+        "observed": [
+          0.012002730586778625,
+          0.02823543494791869
+        ],
+        "abs_diff": 0.0,
+        "pass": true
+      },
+      {
+        "learner": "HistGradientBoosting",
+        "field": "n_boot_valid",
+        "expected": 2000,
+        "observed": 2000,
+        "abs_diff": 0.0,
+        "pass": true
+      },
+      {
+        "learner": "HistGradientBoosting",
+        "field": "n_boot_invalid",
+        "expected": 0,
+        "observed": 0,
+        "abs_diff": 0.0,
+        "pass": true
+      },
+      {
+        "learner": "HistGradientBoosting",
+        "field": "MDE",
+        "expected": 0.0138,
+        "observed": 0.0138,
+        "abs_diff": 0.0,
+        "pass": true
+      },
+      {
+        "learner": "HistGradientBoosting",
+        "field": "difference_test_verdict",
+        "expected": "significant difference: B3 higher than B1 by +0.0199 (point delta)",
+        "observed": "significant difference: B3 higher than B1 by +0.0199 (point delta)",
+        "abs_diff": null,
+        "pass": true
+      },
+      {
+        "learner": "HistGradientBoosting",
+        "field": "tost_verdict",
+        "expected": "inconclusive / not shown negligible",
+        "observed": "inconclusive / not shown negligible",
+        "abs_diff": null,
+        "pass": true
+      },
+      {
+        "learner": "HistGradientBoosting",
+        "field": "achieved_equivalence_bound",
+        "expected": 0.02823543494791869,
+        "observed": 0.02823543494791869,
+        "abs_diff": 0.0,
+        "pass": true
+      }
+    ],
+    "bootstrap_deltas": {
+      "columns_expected": [
+        "replicate",
+        "delta_LR",
+        "delta_HGB"
+      ],
+      "columns_observed": [
+        "replicate",
+        "delta_LR",
+        "delta_HGB"
+      ],
+      "n_rows_expected": 2000,
+      "n_rows_observed": 2000,
+      "max_abs_diff_per_column": {
+        "delta_LR": 0.0,
+        "delta_HGB": 0.0
+      }
+    }
+  },
+  "versions": {
+    "python": "3.10.20",
+    "numpy": "1.26.4",
+    "pandas": "2.3.3",
+    "scipy": "1.15.3",
+    "sklearn": "1.7.2",
+    "os": "Windows-10-10.0.19045-SP0"
+  },
+  "cpu_count": 12,
+  "threadpool_info": [
+    {
+      "user_api": "blas",
+      "internal_api": "openblas",
+      "num_threads": 12,
+      "prefix": "libopenblas",
+      "filepath": "C:\\Users\\ILIA\\anaconda3\\envs\\medssl\\Lib\\site-packages\\numpy.libs\\libopenblas64__v0.3.23-293-gc2f4bdbb-gcc_10_3_0-2bde3a66a51006b2b53eb373ff767a3f.dll",
+      "version": "0.3.23.dev",
+      "threading_layer": "pthreads",
+      "architecture": "Prescott"
+    },
+    {
+      "user_api": "blas",
+      "internal_api": "openblas",
+      "num_threads": 12,
+      "prefix": "libscipy_openblas",
+      "filepath": "C:\\Users\\ILIA\\anaconda3\\envs\\medssl\\Lib\\site-packages\\scipy.libs\\libscipy_openblas-f07f5a5d207a3a47104dca54d6d0c86a.dll",
+      "version": "0.3.28",
+      "threading_layer": "pthreads",
+      "architecture": "Haswell"
+    },
+    {
+      "user_api": "openmp",
+      "internal_api": "openmp",
+      "num_threads": 12,
+      "prefix": "vcomp",
+      "filepath": "C:\\Users\\ILIA\\anaconda3\\envs\\medssl\\Lib\\site-packages\\sklearn\\.libs\\vcomp140.dll",
+      "version": null
+    }
+  ],
+  "warnings": [],
+  "self_sha256": "d48b8c77ccbdc957d54f0907503e7463197fb2570e6ec26c7bb67e2c40c77807"
+}

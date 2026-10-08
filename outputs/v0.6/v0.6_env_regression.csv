@@ -1,0 +1,3 @@
+﻿block,learner,seed,macro_auroc_now,macro_auroc_v0.3,abs_diff,tolerance,pass,python,numpy,pandas,scipy,sklearn,os
+B1_physio,LogisticRegression,42,0.6889687936822659,0.688969,2.063177341193878e-07,1e-05,True,3.10.20,1.26.4,2.3.3,1.15.3,1.7.2,Windows-10-10.0.19045-SP0
+B3_physio_plus_acquisition,LogisticRegression,42,0.6971647470153735,0.697165,2.529846265808544e-07,1e-05,True,3.10.20,1.26.4,2.3.3,1.15.3,1.7.2,Windows-10-10.0.19045-SP0

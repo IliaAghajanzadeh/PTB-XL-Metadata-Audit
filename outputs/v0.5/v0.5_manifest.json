@@ -1,0 +1,346 @@
+{
+  "code_version": "v0.5",
+  "run_started": "2026-10-02T01:58:39.328453+03:30",
+  "run_finished": "2026-10-02T02:35:08.771077+03:30",
+  "versions": {
+    "python": "3.10.20",
+    "numpy": "1.26.4",
+    "pandas": "2.3.3",
+    "scipy": "1.15.3",
+    "sklearn": "1.7.2",
+    "torch": "2.7.1+cu118",
+    "torch_cuda": "11.8",
+    "os": "Windows-10-10.0.19045-SP0"
+  },
+  "gpu": "NVIDIA GeForce RTX 3050 6GB Laptop GPU",
+  "input_files_sha256": {
+    "ptbxl_database.csv": "7600de9c1b27d181d850b3c6038a35d7c3ddb6bb33b702e3a20252a6859d216b",
+    "scp_statements.csv": "ad05b0b1fcae83bb1230755ad9cfc7c96f303feddc08a4a9ad5bdc9ca63bac8f"
+  },
+  "parent_hashes": {
+    "pre_registration": "5183f54569f3358a5339b16a2c3c3be49f5c7798eabe6b0bb25946119c2ba469",
+    "dev_protocol": "c967ac38c8cc9382bf41fdd3785c8bbd730db196e349846b8052d856bbac5fc6",
+    "training_details": "c12c33a2f649984fb1b70a46445823c46b57d1b024d87655e16661789f04b46f",
+    "lr_selection": "c70cbfa65e0ab75321dfef9c64714a64705c60a967685d79a878a1d40450749d",
+    "v0.4_signals_npy": "17558f9d09b39b990d7f3a5ca2ea10e1527980288a49a6828c89b7c3df61745a",
+    "v0.4_signals_index": "06b49ecdafc6a74c9bdbcfa0177bb357eb845ece187b40e3a777496a8cf72203"
+  },
+  "recipe_from_dev_protocol": {
+    "epochs": 50,
+    "lr_grid": [
+      0.001,
+      0.003,
+      0.01
+    ],
+    "weight_decay": 0.01,
+    "batch_size": {
+      "resnet1d_wang": 128,
+      "inception1d": 128
+    },
+    "crop": 250,
+    "eval_stride": 125,
+    "window_starts": [
+      0,
+      125,
+      250,
+      375,
+      500,
+      625,
+      750
+    ],
+    "aggregation": "mean"
+  },
+  "env_regression": [
+    {
+      "block": "B1_physio",
+      "learner": "LogisticRegression",
+      "seed": 42,
+      "macro_auroc_now": 0.6889687936822659,
+      "macro_auroc_v0.3": 0.688969,
+      "abs_diff": 2.063177341193878e-07,
+      "tolerance": 1e-05,
+      "pass": true,
+      "python": "3.10.20",
+      "numpy": "1.26.4",
+      "pandas": "2.3.3",
+      "scipy": "1.15.3",
+      "sklearn": "1.7.2",
+      "torch": "2.7.1+cu118",
+      "torch_cuda": "11.8",
+      "os": "Windows-10-10.0.19045-SP0"
+    },
+    {
+      "block": "B3_physio_plus_acquisition",
+      "learner": "LogisticRegression",
+      "seed": 42,
+      "macro_auroc_now": 0.6971647470153735,
+      "macro_auroc_v0.3": 0.697165,
+      "abs_diff": 2.529846265808544e-07,
+      "tolerance": 1e-05,
+      "pass": true,
+      "python": "3.10.20",
+      "numpy": "1.26.4",
+      "pandas": "2.3.3",
+      "scipy": "1.15.3",
+      "sklearn": "1.7.2",
+      "torch": "2.7.1+cu118",
+      "torch_cuda": "11.8",
+      "os": "Windows-10-10.0.19045-SP0"
+    }
+  ],
+  "part_b_skipped": false,
+  "lr_selection_table": [
+    {
+      "arch": "resnet1d_wang",
+      "arm": "signal_plus_physio",
+      "seed": 42,
+      "lr": 0.001,
+      "fold9_macro_auroc": 0.9333878193949301,
+      "auroc_NORM": 0.9512901410372291,
+      "auroc_MI": 0.9359628953359933,
+      "auroc_STTC": 0.9331616771949098,
+      "auroc_CD": 0.9399229259418833,
+      "auroc_HYP": 0.906601457464635,
+      "final_epoch_train_loss": 0.18079977065499306,
+      "wall_time_s": 179.4,
+      "peak_vram_mb": 193.2
+    },
+    {
+      "arch": "resnet1d_wang",
+      "arm": "signal_plus_physio",
+      "seed": 42,
+      "lr": 0.003,
+      "fold9_macro_auroc": 0.9348726345498491,
+      "auroc_NORM": 0.9501986800143254,
+      "auroc_MI": 0.9380401704199635,
+      "auroc_STTC": 0.9321225853703196,
+      "auroc_CD": 0.940489013356312,
+      "auroc_HYP": 0.9135127235883247,
+      "final_epoch_train_loss": 0.17999291105842,
+      "wall_time_s": 178.7,
+      "peak_vram_mb": 195.0
+    },
+    {
+      "arch": "resnet1d_wang",
+      "arm": "signal_plus_physio",
+      "seed": 42,
+      "lr": 0.01,
+      "fold9_macro_auroc": 0.9357103407613359,
+      "auroc_NORM": 0.9512824667019117,
+      "auroc_MI": 0.93906246477762,
+      "auroc_STTC": 0.9332337727730476,
+      "auroc_CD": 0.9429352769400163,
+      "auroc_HYP": 0.9120377226140837,
+      "final_epoch_train_loss": 0.18287974942331406,
+      "wall_time_s": 195.5,
+      "peak_vram_mb": 195.0
+    },
+    {
+      "arch": "inception1d",
+      "arm": "signal_plus_physio",
+      "seed": 42,
+      "lr": 0.001,
+      "fold9_macro_auroc": 0.9243056686626684,
+      "auroc_NORM": 0.9425576001500758,
+      "auroc_MI": 0.9281880480602331,
+      "auroc_STTC": 0.9239940950288382,
+      "auroc_CD": 0.9314746996026617,
+      "auroc_HYP": 0.8953139004715327,
+      "final_epoch_train_loss": 0.11691728482387112,
+      "wall_time_s": 462.1,
+      "peak_vram_mb": 594.5
+    },
+    {
+      "arch": "inception1d",
+      "arm": "signal_plus_physio",
+      "seed": 42,
+      "lr": 0.003,
+      "fold9_macro_auroc": 0.9245861042815575,
+      "auroc_NORM": 0.9418711734911404,
+      "auroc_MI": 0.9263485944861477,
+      "auroc_STTC": 0.9244964753272911,
+      "auroc_CD": 0.930155823639236,
+      "auroc_HYP": 0.9000584544639726,
+      "final_epoch_train_loss": 0.12173027401232449,
+      "wall_time_s": 470.6,
+      "peak_vram_mb": 592.7
+    },
+    {
+      "arch": "inception1d",
+      "arm": "signal_plus_physio",
+      "seed": 42,
+      "lr": 0.01,
+      "fold9_macro_auroc": 0.928783377015025,
+      "auroc_NORM": 0.9463853880655558,
+      "auroc_MI": 0.9298821036496021,
+      "auroc_STTC": 0.9288073331502334,
+      "auroc_CD": 0.9340897122887645,
+      "auroc_HYP": 0.9047523479209696,
+      "final_epoch_train_loss": 0.14869076821160435,
+      "wall_time_s": 479.3,
+      "peak_vram_mb": 594.6
+    }
+  ],
+  "selected_lr": {
+    "resnet1d_wang": 0.01,
+    "inception1d": 0.01
+  },
+  "sanity_gate": {
+    "threshold": 0.9,
+    "result": {
+      "arch": "resnet1d_wang",
+      "arm": "signal_only",
+      "seed": 42,
+      "lr": 0.01,
+      "fold9_macro_auroc": 0.9340473497425782,
+      "auroc_NORM": 0.950011937854938,
+      "auroc_MI": 0.9367699105069769,
+      "auroc_STTC": 0.9332349171473039,
+      "auroc_CD": 0.9375041888075063,
+      "auroc_HYP": 0.9127157943961653,
+      "final_epoch_train_loss": 0.18015451833497972,
+      "wall_time_s": 194.5,
+      "peak_vram_mb": 193.5,
+      "reused_saved_probabilities": false
+    },
+    "pass": true
+  },
+  "exploratory": {
+    "label": "EXPLORATORY -- not part of H3",
+    "arch": "resnet1d_wang",
+    "seed": 42,
+    "lr": 0.01,
+    "signal_only_macro_auroc": 0.9340473497425782,
+    "signal_plus_physio_macro_auroc": 0.9357103407613359
+  },
+  "signal_plus_all_trained": false,
+  "fold10_opened": false,
+  "warnings": [],
+  "outputs": [
+    {
+      "file": "D:\\ptbxl-metadata-audit\\outputs\\v0.5\\v0.5_env_regression.csv",
+      "bytes": 493,
+      "sha256": "5f1acdb1b476099bc619451ebc4a90794521494ac315e4b986bfb4d2575c3996"
+    },
+    {
+      "file": "D:\\ptbxl-metadata-audit\\preregistration\\v0.5_training_details.json",
+      "bytes": 4174,
+      "sha256": "6480c191aeaed9ff1e6b1da5caa0c1e46908d453d30106a32beb7cf83678be11"
+    },
+    {
+      "file": "D:\\ptbxl-metadata-audit\\outputs\\v0.5\\v0.5_resnet1d_wang_signal_plus_physio_seed42_lr0.001_fold9_probs.csv",
+      "bytes": 252533,
+      "sha256": "0727cafe12f1e41f9bc701cbce36da315c7cfcfe4e0fa0d9bb7f22ce0e6996f7"
+    },
+    {
+      "file": "D:\\ptbxl-metadata-audit\\outputs\\v0.5\\v0.5_resnet1d_wang_signal_plus_physio_seed42_lr0.001_train_loss.csv",
+      "bytes": 2317,
+      "sha256": "ca716e40e71932e2f0dcbe65a281963a6bb58cd042f2ef45d1c7037fb27284af"
+    },
+    {
+      "file": "D:\\ptbxl-metadata-audit\\outputs\\v0.5\\v0.5_resnet1d_wang_signal_plus_physio_seed42_lr0.001_state_dict.pt",
+      "bytes": 1935623,
+      "sha256": "153f579d5b6ef653517e7490e0734b41b3a353c25a2556964e7ae02729141afc"
+    },
+    {
+      "file": "D:\\ptbxl-metadata-audit\\outputs\\v0.5\\v0.5_resnet1d_wang_signal_plus_physio_seed42_lr0.003_fold9_probs.csv",
+      "bytes": 252812,
+      "sha256": "51d4d187b70ea3a47ac219892324474772fa2900bbf0e03e624042575374061a"
+    },
+    {
+      "file": "D:\\ptbxl-metadata-audit\\outputs\\v0.5\\v0.5_resnet1d_wang_signal_plus_physio_seed42_lr0.003_train_loss.csv",
+      "bytes": 2293,
+      "sha256": "49593d6c0547a2a2164f1747842df47e3ebaf67a88a89e9cd653399cbc8d4fc8"
+    },
+    {
+      "file": "D:\\ptbxl-metadata-audit\\outputs\\v0.5\\v0.5_resnet1d_wang_signal_plus_physio_seed42_lr0.003_state_dict.pt",
+      "bytes": 1935623,
+      "sha256": "b64e47a4f6b46919eab7602c9a05a4562d57ef2c3ecb474928c2fddbb99ee3a3"
+    },
+    {
+      "file": "D:\\ptbxl-metadata-audit\\outputs\\v0.5\\v0.5_resnet1d_wang_signal_plus_physio_seed42_lr0.01_fold9_probs.csv",
+      "bytes": 252764,
+      "sha256": "0191f0aa0a0b2d00113da706843213fd8b622a18d679693c745676a204ad6f32"
+    },
+    {
+      "file": "D:\\ptbxl-metadata-audit\\outputs\\v0.5\\v0.5_resnet1d_wang_signal_plus_physio_seed42_lr0.01_train_loss.csv",
+      "bytes": 2275,
+      "sha256": "3406b7428ba6f261946b5e9fc900aa64e5fbbd6b487fd425db1440862e7d038d"
+    },
+    {
+      "file": "D:\\ptbxl-metadata-audit\\outputs\\v0.5\\v0.5_resnet1d_wang_signal_plus_physio_seed42_lr0.01_state_dict.pt",
+      "bytes": 1934909,
+      "sha256": "61582d68eee3ccda6e742883d0daa1ec3272acdec92c763173551bdaadc398f0"
+    },
+    {
+      "file": "D:\\ptbxl-metadata-audit\\outputs\\v0.5\\v0.5_inception1d_signal_plus_physio_seed42_lr0.001_fold9_probs.csv",
+      "bytes": 254594,
+      "sha256": "157eac7dc3e38c96a7cc56b1aacfa6049c0c4fefad2ec1da11ecafa8ae8f5a98"
+    },
+    {
+      "file": "D:\\ptbxl-metadata-audit\\outputs\\v0.5\\v0.5_inception1d_signal_plus_physio_seed42_lr0.001_train_loss.csv",
+      "bytes": 2323,
+      "sha256": "4a9edc75fcffda984816d13e10b4ef2c3d8e780498d3aac7932e3da8c6c648dc"
+    },
+    {
+      "file": "D:\\ptbxl-metadata-audit\\outputs\\v0.5\\v0.5_inception1d_signal_plus_physio_seed42_lr0.001_state_dict.pt",
+      "bytes": 2080585,
+      "sha256": "af11affc970c27b2a7b6ff683e7d38c31d37923e42f815725ceda42e8c4c45e4"
+    },
+    {
+      "file": "D:\\ptbxl-metadata-audit\\outputs\\v0.5\\v0.5_inception1d_signal_plus_physio_seed42_lr0.003_fold9_probs.csv",
+      "bytes": 255013,
+      "sha256": "502b725fd0535943465acf46e2b7e5a6f0cd9826784b29a735234e4d524d59b3"
+    },
+    {
+      "file": "D:\\ptbxl-metadata-audit\\outputs\\v0.5\\v0.5_inception1d_signal_plus_physio_seed42_lr0.003_train_loss.csv",
+      "bytes": 2306,
+      "sha256": "463a064733a4b2b172a005b2fb8cef0f8114b42d0236e3b7585a9e8cfd0bd1c9"
+    },
+    {
+      "file": "D:\\ptbxl-metadata-audit\\outputs\\v0.5\\v0.5_inception1d_signal_plus_physio_seed42_lr0.003_state_dict.pt",
+      "bytes": 2080585,
+      "sha256": "188f78a186e63f8e4d64d63b79624fc461922554cc2bd1f03b054792f558f5cc"
+    },
+    {
+      "file": "D:\\ptbxl-metadata-audit\\outputs\\v0.5\\v0.5_inception1d_signal_plus_physio_seed42_lr0.01_fold9_probs.csv",
+      "bytes": 254044,
+      "sha256": "5d9573e2fee1486147a2ef73a8cc206abf1a2c8cdaf9a3a65a4b8791afb1e517"
+    },
+    {
+      "file": "D:\\ptbxl-metadata-audit\\outputs\\v0.5\\v0.5_inception1d_signal_plus_physio_seed42_lr0.01_train_loss.csv",
+      "bytes": 2284,
+      "sha256": "4fcf176de6d31016cbbcc43b885f050dc010214ea25d2b657db9d6beb535c5ba"
+    },
+    {
+      "file": "D:\\ptbxl-metadata-audit\\outputs\\v0.5\\v0.5_inception1d_signal_plus_physio_seed42_lr0.01_state_dict.pt",
+      "bytes": 2080493,
+      "sha256": "d198d219cbf0b2167079dd9785d6e3c3dfe6e58f0452c1642c9e0fb4b80c2438"
+    },
+    {
+      "file": "D:\\ptbxl-metadata-audit\\outputs\\v0.5\\v0.5_lr_selection_table.csv",
+      "bytes": 1254,
+      "sha256": "d50fb59716cd97e6afe4009e63014aeb226b3deba967ab7c73b4b8e7a457b36f"
+    },
+    {
+      "file": "D:\\ptbxl-metadata-audit\\preregistration\\lr_selection.json",
+      "bytes": 5113,
+      "sha256": "358d783b37bba6fcf61237a43817c1fd8594fe192f8ecdfca2c25b871a21415b"
+    },
+    {
+      "file": "D:\\ptbxl-metadata-audit\\outputs\\v0.5\\v0.5_resnet1d_wang_signal_only_seed42_lr0.01_fold9_probs.csv",
+      "bytes": 252889,
+      "sha256": "ca886d3b45d837ca7ca6c1a93f2540e6188d5b2b1265db6090b63aea20885da0"
+    },
+    {
+      "file": "D:\\ptbxl-metadata-audit\\outputs\\v0.5\\v0.5_resnet1d_wang_signal_only_seed42_lr0.01_train_loss.csv",
+      "bytes": 2277,
+      "sha256": "2ea466289e220e1b2d2d8fa5d62ecd1c9003646796963168bd5c87595dfc5de6"
+    },
+    {
+      "file": "D:\\ptbxl-metadata-audit\\outputs\\v0.5\\v0.5_resnet1d_wang_signal_only_seed42_lr0.01_state_dict.pt",
+      "bytes": 1932791,
+      "sha256": "4e7504ecfaebb62eca9723e62171d1c7cc1b44cab94d7c8aa46150d0d5d02a64"
+    }
+  ]
+}

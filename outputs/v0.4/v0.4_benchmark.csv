@@ -1,0 +1,3 @@
+﻿arch,arm,batch_size,oom_events,n_train_records,n_batches,crop_samples,seconds_per_epoch,max_memory_allocated_mb,training_loss_finite
+resnet1d_wang,signal_plus_all,128,0,17418,137,250,5.14,193.5,True
+inception1d,signal_plus_all,128,0,17418,137,250,10.2,593.0,True

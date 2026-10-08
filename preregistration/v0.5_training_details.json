@@ -1,0 +1,57 @@
+{
+  "document": "v0.5 training / evaluation implementation details (not specified in dev_protocol.json)",
+  "timestamp": "2026-10-02T01:58:52.520381+03:30",
+  "code_version": "v0.5",
+  "parent_seal_self_sha256": "5183f54569f3358a5339b16a2c3c3be49f5c7798eabe6b0bb25946119c2ba469",
+  "parent_dev_protocol_self_sha256": "c967ac38c8cc9382bf41fdd3785c8bbd730db196e349846b8052d856bbac5fc6",
+  "written_before_first_training_run": true,
+  "details": {
+    "optimizer": {
+      "name": "torch.optim.AdamW",
+      "betas": [
+        0.9,
+        0.99
+      ],
+      "eps": 1e-08,
+      "weight_decay": 0.01,
+      "weight_decay_source": "dev_protocol.json",
+      "applied_to": "all parameters (incl. BatchNorm and biases)"
+    },
+    "lr_scheduler": {
+      "name": "torch.optim.lr_scheduler.OneCycleLR",
+      "max_lr": "the run's lr",
+      "total_steps": "epochs * len(train_loader)",
+      "stepped": "every batch (after optimizer.step())",
+      "pct_start": 0.3,
+      "div_factor": 25.0,
+      "final_div_factor": 10000.0,
+      "anneal_strategy": "cos",
+      "cycle_momentum": true,
+      "base_momentum": 0.85,
+      "max_momentum": 0.95,
+      "three_phase": false,
+      "momentum_note": "cycle_momentum/base_momentum/max_momentum are torch defaults: AdamW beta1 is cycled 0.95 -> 0.85 -> 0.95 in the opposite phase of the lr"
+    },
+    "epochs": 50,
+    "epochs_source": "dev_protocol.json",
+    "batch_size": {
+      "resnet1d_wang": 128,
+      "inception1d": 128
+    },
+    "batch_size_source": "dev_protocol.json",
+    "train_data": "folds 1-8; RandomCropDataset (v0.4): random 250-sample crop per record per epoch, start uniform over [0, 750], per-lead normalized with folds 1-8 statistics",
+    "data_order": "DataLoader(shuffle=True, generator=torch.Generator().manual_seed(run_seed), num_workers=0, pin_memory=True, drop_last=False); RandomCropDataset rng = np.random.default_rng(run_seed)",
+    "seeding": "set_all_seeds(run_seed) (python random, numpy, torch, torch.cuda) immediately before model construction; cudnn.deterministic=True, cudnn.benchmark=False",
+    "training_loss": "BCEWithLogitsLoss (mean over batch and the 5 classes)",
+    "training_loss_logging": "per-epoch MEAN TRAINING loss = sample-weighted mean of batch losses over the epoch (training data only), saved per run",
+    "validation": "NO validation metric is computed at any epoch other than the end of epoch 50; no checkpoint selection; the model after the last optimizer step is evaluated",
+    "evaluation": "model.eval(); torch.no_grad(); 7 windows (starts [0, 125, 250, 375, 500, 625, 750]) of 250 samples per fold-9 record, per-lead normalized with folds 1-8 statistics; per-window sigmoid PROBABILITIES averaged per record (mean of probabilities, not of logits); metadata identical for all windows of a record; inference batch size 512 (no effect on results)",
+    "metric": "macro-AUROC = mean over NORM, MI, STTC, CD, HYP of fast_auc (v0.2.1 function); verified once against sklearn.metrics.roc_auc_score (abs tol 1e-09)",
+    "lr_tie_break": "highest fold-9 macro-AUROC; if two lrs are within 0.0001 of each other, choose the SMALLER lr (implemented as: among lrs with macro-AUROC >= best - 0.0001, take the smallest)",
+    "per_run_outputs": "v0.5_{arch}_{arm}_seed{seed}_lr{lr}_fold9_probs.csv (ecg_id, patient_id, 5 probabilities), _train_loss.csv (per-epoch mean training loss), _state_dict.pt (final model); all hashed in the manifest",
+    "determinism_note": "torch.use_deterministic_algorithms is NOT enabled; some CUDA kernels may not be bitwise reproducible across re-runs"
+  },
+  "self_sha256_procedure": "Load the JSON file; remove the key 'self_sha256' (the key must be absent, not empty); serialize the remaining dict with json.dumps(d, sort_keys=True, ensure_ascii=False, separators=(',', ':')); compute SHA-256 of the UTF-8 bytes; the hex digest must equal the stored 'self_sha256'. (At write time numpy scalars were converted to plain JSON types first, so the loaded file hashes identically.)",
+  "write_once": true,
+  "self_sha256": "c12c33a2f649984fb1b70a46445823c46b57d1b024d87655e16661789f04b46f"
+}

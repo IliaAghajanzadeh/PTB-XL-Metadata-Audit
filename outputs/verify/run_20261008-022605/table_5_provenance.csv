@@ -1,0 +1,10 @@
+﻿document,role,file_sha256_12,self_sha256_12,bitcoin_block,block_time
+pre_registration.json,"sealed pre-registration: H1-H3, fold-10 analysis plan, SESOI",11dd44627265,5183f54569f3,969577,2026-10-02
+dev_protocol.json,"development protocol: training recipe, lr grid, sanity gate",babf101c1d69,c967ac38c8cc,969577,2026-10-02
+v0.5_training_details.json,training / evaluation implementation details,6480c191aeae,c12c33a2f649,969577,2026-10-02
+lr_selection.json,"learning-rate selection on fold 9 (signal_plus_physio, seed 42)",358d783b37bb,c70cbfa65e0a,969577,2026-10-02
+final_run_protocol.json,"final-run and fold-10 analysis protocol (bootstrap, H3 decision, closed list)",e1a5260e72d2,834acddec288,969584,2026-10-02 15:21:18 +03:30
+v0.8_manifest.json,"final models: state_dict hashes, written before fold 10 was opened",9725a0ee5027,—,969763,2026-10-04 00:48:05 +03:30
+v0.9_frozen_outputs.json,fold-10 model outputs frozen before any label was read,133ca5fe9c9f,8dfa1ebdfede,969863,2026-10-04
+v0.9_results.json,fold-10 H3 and exploratory results,8996ac975f70,77c9cae439ed,969863,2026-10-04
+v0.9_manifest.json,v0.9 run manifest (every v0.9 output file hash),710e3519bbb7,2007bee22651,969863,2026-10-04

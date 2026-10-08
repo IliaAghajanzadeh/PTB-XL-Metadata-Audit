@@ -1,0 +1,959 @@
+{
+  "schema_version": "1",
+  "verify": {
+    "version": "verify-1.0",
+    "run_id": "run_20261008-022605",
+    "started": "2026-10-08T02:26:05.835558+03:30",
+    "finished": "2026-10-08T02:30:25.596525+03:30",
+    "all_checks_passed": true,
+    "n_checks": 370,
+    "n_failed": 0,
+    "n_skipped": 0,
+    "paper_final": true,
+    "versions": {
+      "python": "3.10.20",
+      "numpy": "1.26.4",
+      "pandas": "2.3.3",
+      "scipy": "1.15.3",
+      "sklearn": "1.7.2",
+      "os": "Windows-10-10.0.19045-SP0"
+    }
+  },
+  "dataset": {
+    "n_records": 21799,
+    "n_patients": 18869,
+    "superclass_counts": {
+      "NORM": 9514,
+      "MI": 5469,
+      "STTC": 5235,
+      "CD": 4898,
+      "HYP": 2649
+    },
+    "n_without_superclass": 411,
+    "splits": {
+      "folds_1_8": {
+        "n_records": 17418,
+        "n_patients": 15023
+      },
+      "fold_9": {
+        "n_records": 2183,
+        "n_patients": 1942
+      },
+      "fold_10": {
+        "n_records": 2198,
+        "n_patients": 1904
+      },
+      "folds_1_9": {
+        "n_records": 19601,
+        "n_patients": 16965
+      }
+    },
+    "positives_fold_9": {
+      "NORM": 955,
+      "MI": 540,
+      "STTC": 528,
+      "CD": 495,
+      "HYP": 268
+    },
+    "positives_fold_10": {
+      "NORM": 963,
+      "MI": 550,
+      "STTC": 521,
+      "CD": 496,
+      "HYP": 262
+    },
+    "age_sentinel_300": {
+      "all": 293,
+      "folds_1_9": 259,
+      "fold_10": 34
+    }
+  },
+  "metadata_only": {
+    "fold9": {
+      "B0_intercept": {
+        "LogisticRegression": {
+          "auroc": 0.5,
+          "ci95": [
+            0.5,
+            0.5
+          ],
+          "std_across_seeds": 0.0
+        },
+        "HistGradientBoosting": {
+          "auroc": 0.5,
+          "ci95": [
+            0.5,
+            0.5
+          ],
+          "std_across_seeds": 0.0
+        }
+      },
+      "B1_physio": {
+        "LogisticRegression": {
+          "auroc": 0.688968793682266,
+          "ci95": [
+            0.674261253344417,
+            0.7042120577840029
+          ],
+          "std_across_seeds": 1.1102230246251565e-16
+        },
+        "HistGradientBoosting": {
+          "auroc": 0.6725103917542502,
+          "ci95": [
+            0.6568237242257575,
+            0.6879761921052542
+          ],
+          "std_across_seeds": 0.0002242999250261392
+        }
+      },
+      "B2_acquisition": {
+        "LogisticRegression": {
+          "auroc": 0.6103784656077057,
+          "ci95": [
+            0.5953992277305704,
+            0.6257482124585879
+          ],
+          "std_across_seeds": 0.0
+        },
+        "HistGradientBoosting": {
+          "auroc": 0.6102324165053429,
+          "ci95": [
+            0.5948406225874283,
+            0.6259079083717417
+          ],
+          "std_across_seeds": 0.0013768999365400972
+        }
+      },
+      "B3_physio_plus_acquisition": {
+        "LogisticRegression": {
+          "auroc": 0.6971647470153735,
+          "ci95": [
+            0.6825351133813079,
+            0.7118524258596978
+          ],
+          "std_across_seeds": 0.0
+        },
+        "HistGradientBoosting": {
+          "auroc": 0.6936999804213227,
+          "ci95": [
+            0.6790125587503394,
+            0.708373908147723
+          ],
+          "std_across_seeds": 0.0022973999093063298
+        }
+      },
+      "B4_temporal": {
+        "LogisticRegression": {
+          "auroc": 0.5093767944717417,
+          "ci95": [
+            0.49022914476027496,
+            0.5296451601704594
+          ],
+          "std_across_seeds": 0.0
+        },
+        "HistGradientBoosting": {
+          "auroc": 0.49797895406899584,
+          "ci95": [
+            0.48123821578211023,
+            0.5158227588284855
+          ],
+          "std_across_seeds": 0.0010926303995035778
+        }
+      },
+      "B5_all": {
+        "LogisticRegression": {
+          "auroc": 0.6969411044501305,
+          "ci95": [
+            0.6822711777980426,
+            0.711687425452281
+          ],
+          "std_across_seeds": 1.1102230246251565e-16
+        },
+        "HistGradientBoosting": {
+          "auroc": 0.6935340660393668,
+          "ci95": [
+            0.6790313903446384,
+            0.7082767254045906
+          ],
+          "std_across_seeds": 0.0015641404578356718
+        }
+      }
+    },
+    "fold10_posthoc": {
+      "B0_intercept": {
+        "LogisticRegression": {
+          "auroc": 0.5,
+          "ci95": [
+            0.5,
+            0.5
+          ],
+          "std_across_seeds": 0.0
+        },
+        "HistGradientBoosting": {
+          "auroc": 0.5,
+          "ci95": [
+            0.5,
+            0.5
+          ],
+          "std_across_seeds": 0.0
+        }
+      },
+      "B1_physio": {
+        "LogisticRegression": {
+          "auroc": 0.6845918481566521,
+          "ci95": [
+            0.6687426909336333,
+            0.700749211985543
+          ],
+          "std_across_seeds": 1.1102230246251565e-16
+        },
+        "HistGradientBoosting": {
+          "auroc": 0.6738861101367789,
+          "ci95": [
+            0.6581646811891584,
+            0.6902539524345487
+          ],
+          "std_across_seeds": 0.0007245724414537651
+        }
+      },
+      "B2_acquisition": {
+        "LogisticRegression": {
+          "auroc": 0.6268728781538162,
+          "ci95": [
+            0.6097309367272333,
+            0.6431630721391527
+          ],
+          "std_across_seeds": 0.0
+        },
+        "HistGradientBoosting": {
+          "auroc": 0.6199779231812333,
+          "ci95": [
+            0.6031226207887933,
+            0.6363594100190735
+          ],
+          "std_across_seeds": 0.0010110511425535352
+        }
+      },
+      "B3_physio_plus_acquisition": {
+        "LogisticRegression": {
+          "auroc": 0.7065236964836413,
+          "ci95": [
+            0.6909689403402575,
+            0.7213182679151601
+          ],
+          "std_across_seeds": 0.0
+        },
+        "HistGradientBoosting": {
+          "auroc": 0.7056549332441328,
+          "ci95": [
+            0.690717923963978,
+            0.7203347245420461
+          ],
+          "std_across_seeds": 0.0012752697136183219
+        }
+      },
+      "B4_temporal": {
+        "LogisticRegression": {
+          "auroc": 0.5257038423093077,
+          "ci95": [
+            0.5067839173371302,
+            0.5444191767478882
+          ],
+          "std_across_seeds": 0.0
+        },
+        "HistGradientBoosting": {
+          "auroc": 0.5145188929182926,
+          "ci95": [
+            0.4975647813848491,
+            0.5326228457641352
+          ],
+          "std_across_seeds": 0.001187680032957008
+        }
+      },
+      "B5_all": {
+        "LogisticRegression": {
+          "auroc": 0.7061441111631904,
+          "ci95": [
+            0.6905819663728089,
+            0.7210056045332762
+          ],
+          "std_across_seeds": 1.1102230246251565e-16
+        },
+        "HistGradientBoosting": {
+          "auroc": 0.7060195245282612,
+          "ci95": [
+            0.6909030797764236,
+            0.7206648698121327
+          ],
+          "std_across_seeds": 0.0007647953956372107
+        }
+      }
+    },
+    "note": "ci95 = mean of the three per-seed marginal 95% percentile CIs (v0.2.1 convention); for LogisticRegression the three seeds are identical"
+  },
+  "h1": {
+    "threshold": 0.6,
+    "fold9": {
+      "LogisticRegression": {
+        "auroc_B3": 0.6971647470153735,
+        "pass": true
+      },
+      "HistGradientBoosting": {
+        "auroc_B3": 0.6936999804213227,
+        "pass": true
+      }
+    },
+    "fold10_posthoc": {
+      "LogisticRegression": {
+        "auroc_B3": 0.7065236964836413,
+        "pass": true
+      },
+      "HistGradientBoosting": {
+        "auroc_B3": 0.7056549332441328,
+        "pass": true
+      }
+    }
+  },
+  "h2": {
+    "fold9": {
+      "LogisticRegression": {
+        "auroc_B1": 0.6889687936822659,
+        "auroc_B3": 0.6971647470153735,
+        "point_delta": 0.00819595333310752,
+        "se": 0.004298597691363125,
+        "mde": 0.012,
+        "ci95": [
+          -0.00011587489117776397,
+          0.016753300327342055
+        ],
+        "ci90": [
+          0.0012949891857372998,
+          0.015339306876725932
+        ],
+        "difference_test_verdict": "no statistically significant difference between B1 and B3",
+        "tost_verdict": "practically negligible",
+        "achieved_equivalence_bound": 0.015339306876725932
+      },
+      "HistGradientBoosting": {
+        "auroc_B1": 0.6723847074341072,
+        "auroc_B3": 0.6923187581059075,
+        "point_delta": 0.01993405067180032,
+        "se": 0.004940134426475028,
+        "mde": 0.0138,
+        "ci95": [
+          0.010578999747639886,
+          0.029816994339120502
+        ],
+        "ci90": [
+          0.012002730586778625,
+          0.02823543494791869
+        ],
+        "difference_test_verdict": "significant difference: B3 higher than B1 by +0.0199 (point delta)",
+        "tost_verdict": "inconclusive / not shown negligible",
+        "achieved_equivalence_bound": 0.02823543494791869
+      }
+    },
+    "fold10_posthoc": {
+      "LogisticRegression": {
+        "auroc_B1": 0.684591848156652,
+        "auroc_B3": 0.7065236964836413,
+        "point_delta": 0.021931848326989356,
+        "se": 0.004395076388626772,
+        "mde": 0.0123,
+        "ci95": [
+          0.013246637939694276,
+          0.03039160371847723
+        ],
+        "ci90": [
+          0.014851917992601927,
+          0.02887897596042219
+        ],
+        "difference_test_verdict": "significant difference: B3 higher than B1 by +0.0219 (point delta)",
+        "tost_verdict": "inconclusive / not shown negligible",
+        "achieved_equivalence_bound": 0.02887897596042219
+      },
+      "HistGradientBoosting": {
+        "auroc_B1": 0.6732245166067298,
+        "auroc_B3": 0.7041698179944498,
+        "point_delta": 0.030945301387720003,
+        "se": 0.005010617944748946,
+        "mde": 0.014,
+        "ci95": [
+          0.0210209402485235,
+          0.04053925478080226
+        ],
+        "ci90": [
+          0.02221303624780418,
+          0.03888355134124771
+        ],
+        "difference_test_verdict": "significant difference: B3 higher than B1 by +0.0309 (point delta)",
+        "tost_verdict": "inconclusive / not shown negligible",
+        "achieved_equivalence_bound": 0.03888355134124771
+      }
+    },
+    "sesoi_h2": 0.02
+  },
+  "ecg_fold10": {
+    "resnet1d_wang": {
+      "signal_only": {
+        "auroc": 0.9354833282549763,
+        "ci95_descriptive": [
+          0.9283500417334335,
+          0.9422951772830968
+        ],
+        "n_valid": 2000,
+        "n_nan": 0
+      },
+      "signal_plus_physio": {
+        "auroc": 0.9361913698723111,
+        "ci95_descriptive": [
+          0.9291823417827775,
+          0.942787313333703
+        ],
+        "n_valid": 2000,
+        "n_nan": 0
+      },
+      "signal_plus_all": {
+        "auroc": 0.9389717694034339,
+        "ci95_descriptive": [
+          0.9322674213540821,
+          0.9455309625876678
+        ],
+        "n_valid": 2000,
+        "n_nan": 0
+      }
+    },
+    "inception1d": {
+      "signal_only": {
+        "auroc": 0.932655595933831,
+        "ci95_descriptive": [
+          0.9250846876725052,
+          0.9394530377255774
+        ],
+        "n_valid": 2000,
+        "n_nan": 0
+      },
+      "signal_plus_physio": {
+        "auroc": 0.9339992471998497,
+        "ci95_descriptive": [
+          0.9271574544504508,
+          0.940186246981683
+        ],
+        "n_valid": 2000,
+        "n_nan": 0
+      },
+      "signal_plus_all": {
+        "auroc": 0.9348738399253544,
+        "ci95_descriptive": [
+          0.9281474561729823,
+          0.9414782480405642
+        ],
+        "n_valid": 2000,
+        "n_nan": 0
+      }
+    }
+  },
+  "h3": {
+    "sesoi_h3": 0.01,
+    "primary": {
+      "arch": "resnet1d_wang",
+      "auroc_A": 0.9361913698723111,
+      "auroc_B": 0.9389717694034339,
+      "point_delta": 0.002780399531122746,
+      "ci95": [
+        0.0009588669405627914,
+        0.004752806367481346
+      ],
+      "ci90": [
+        0.0012738938636371877,
+        0.0044401157996218354
+      ],
+      "a_holds": true,
+      "b_holds": true,
+      "material": false,
+      "sign": "+",
+      "verdict": "statistically detectable, below the materiality threshold",
+      "sealed_rules_holding": [
+        "a",
+        "b"
+      ]
+    },
+    "robustness": {
+      "arch": "inception1d",
+      "auroc_A": 0.9339992471998497,
+      "auroc_B": 0.9348738399253544,
+      "point_delta": 0.0008745927255047192,
+      "ci95": [
+        -0.0016252846156839529,
+        0.0033450914282506833
+      ],
+      "ci90": [
+        -0.001258363982861399,
+        0.0030187805001734513
+      ],
+      "a_holds": false,
+      "b_holds": true,
+      "material": false,
+      "sign": null,
+      "verdict": "no material change",
+      "sealed_rules_holding": [
+        "b"
+      ]
+    },
+    "per_seed": [
+      {
+        "arch": "resnet1d_wang",
+        "seed": 42,
+        "point_delta": 0.0035440399925519284,
+        "ci95": [
+          0.0013170114490049234,
+          0.005913996160552082
+        ],
+        "ci90": [
+          0.0016369851553324822,
+          0.005519857296493197
+        ],
+        "verdict": "statistically detectable, below the materiality threshold",
+        "label": "secondary (per-seed); not the H3 verdict"
+      },
+      {
+        "arch": "resnet1d_wang",
+        "seed": 123,
+        "point_delta": 0.0027767422614412007,
+        "ci95": [
+          7.14703710310988e-05,
+          0.005496863840102297
+        ],
+        "ci90": [
+          0.0005300258104570576,
+          0.00512671356836576
+        ],
+        "verdict": "statistically detectable, below the materiality threshold",
+        "label": "secondary (per-seed); not the H3 verdict"
+      },
+      {
+        "arch": "resnet1d_wang",
+        "seed": 2024,
+        "point_delta": 0.001724625877232322,
+        "ci95": [
+          -0.0006851430907878486,
+          0.004314026336156303
+        ],
+        "ci90": [
+          -0.00032140390136130016,
+          0.00393332466733336
+        ],
+        "verdict": "no material change",
+        "label": "secondary (per-seed); not the H3 verdict"
+      },
+      {
+        "arch": "inception1d",
+        "seed": 42,
+        "point_delta": 0.002098218672586194,
+        "ci95": [
+          -0.0015166785893651947,
+          0.005711545673593604
+        ],
+        "ci90": [
+          -0.0009727140062088412,
+          0.00517924452666979
+        ],
+        "verdict": "no material change",
+        "label": "secondary (per-seed); not the H3 verdict"
+      },
+      {
+        "arch": "inception1d",
+        "seed": 123,
+        "point_delta": 0.0022704548191136986,
+        "ci95": [
+          -0.0010890918567946078,
+          0.0056397574716696595
+        ],
+        "ci90": [
+          -0.0005455030104395242,
+          0.005144802811910964
+        ],
+        "verdict": "no material change",
+        "label": "secondary (per-seed); not the H3 verdict"
+      },
+      {
+        "arch": "inception1d",
+        "seed": 2024,
+        "point_delta": 0.0019185704176297724,
+        "ci95": [
+          -0.002064132590218862,
+          0.005672871000825311
+        ],
+        "ci90": [
+          -0.0012991190802171925,
+          0.0049907616611909065
+        ],
+        "verdict": "no material change",
+        "label": "secondary (per-seed); not the H3 verdict"
+      }
+    ]
+  },
+  "exploratory": {
+    "E1_physio_minus_signal_only": {
+      "resnet1d_wang": {
+        "point_delta": 0.0007080416173348425,
+        "ci95": [
+          -0.000815395249955883,
+          0.002322208028918967
+        ],
+        "ci90": [
+          -0.0005887051538666366,
+          0.0020823342723085944
+        ]
+      },
+      "inception1d": {
+        "point_delta": 0.0013436512660187638,
+        "ci95": [
+          -0.0008580444858330288,
+          0.0035664040154186204
+        ],
+        "ci90": [
+          -0.0005638806986157762,
+          0.003223704806546607
+        ]
+      }
+    },
+    "E2_per_class_h3_pair": {
+      "resnet1d_wang": {
+        "NORM": {
+          "point_delta": 0.0032506379776423566,
+          "ci95": [
+            0.0014040459546186713,
+            0.005113837757710207
+          ]
+        },
+        "MI": {
+          "point_delta": 0.003185127978817315,
+          "ci95": [
+            0.00041173061047112267,
+            0.006128407049184947
+          ]
+        },
+        "STTC": {
+          "point_delta": 0.0029116979525407594,
+          "ci95": [
+            0.0005617824837754582,
+            0.005382288068742712
+          ]
+        },
+        "CD": {
+          "point_delta": 0.005029661498806015,
+          "ci95": [
+            0.0003870763220083451,
+            0.010179441778214178
+          ]
+        },
+        "HYP": {
+          "point_delta": -0.00047512775219227255,
+          "ci95": [
+            -0.006298835771202366,
+            0.005242014404133712
+          ]
+        }
+      },
+      "inception1d": {
+        "NORM": {
+          "point_delta": 0.0004220952573141812,
+          "ci95": [
+            -0.002338528202930526,
+            0.0031924290958365176
+          ]
+        },
+        "MI": {
+          "point_delta": 0.004738526037069701,
+          "ci95": [
+            0.0004792030159521482,
+            0.009188594529392758
+          ]
+        },
+        "STTC": {
+          "point_delta": -0.0006375061947976324,
+          "ci95": [
+            -0.004514656456913499,
+            0.0031359863667467943
+          ]
+        },
+        "CD": {
+          "point_delta": 0.0020066525150677084,
+          "ci95": [
+            -0.004161990516247033,
+            0.007867877712849166
+          ]
+        },
+        "HYP": {
+          "point_delta": -0.0021568039871301403,
+          "ci95": [
+            -0.009747829417773256,
+            0.0048884251171167235
+          ]
+        }
+      }
+    },
+    "E3_acquisition_permutation": {
+      "resnet1d_wang": {
+        "unpermuted": 0.9389717694034339,
+        "drop_mean": 0.00529054514428674,
+        "drop_min": 0.0036022906786911113,
+        "drop_max": 0.006894847550881655,
+        "drops": [
+          0.005898641488747303,
+          0.0036022906786911113,
+          0.005699175742541862,
+          0.006894847550881655,
+          0.005154518094241611,
+          0.006151909691743951,
+          0.005331293361593881,
+          0.004209469896457874,
+          0.004890676057977217,
+          0.006043759137744131,
+          0.004756502991802192,
+          0.0057702786634090675,
+          0.006258866311424804,
+          0.004971985760369835,
+          0.004106821479302303,
+          0.005369976544445265,
+          0.00412955048831698,
+          0.00558686032875233,
+          0.005210954670859302,
+          0.005772523946432129
+        ]
+      },
+      "inception1d": {
+        "unpermuted": 0.9348738399253544,
+        "drop_mean": 0.004175946630564415,
+        "drop_min": 0.0028494784612339563,
+        "drop_max": 0.005124068599297038,
+        "drops": [
+          0.0047654021549279335,
+          0.0030205114932074784,
+          0.004527136281081479,
+          0.005124068599297038,
+          0.004082296991829493,
+          0.004898597814036121,
+          0.004118510518713037,
+          0.003464292092636212,
+          0.0035161383450013073,
+          0.004937343598288901,
+          0.0041078592035220796,
+          0.00405289872679504,
+          0.005112980666090228,
+          0.0036159265605225643,
+          0.0028494784612339563,
+          0.004481527529381357,
+          0.0035772749253799585,
+          0.004518632423606284,
+          0.004555959538304233,
+          0.0041920966874335885
+        ]
+      }
+    }
+  },
+  "reference_published": {
+    "resnet1d_wang": 0.93,
+    "inception1d": 0.921,
+    "source": "Strodthoff et al., IEEE JBHI 2021, PTB-XL diagnostic superclasses (helme/ecg_ptbxl_benchmarking README)"
+  },
+  "locked_settings": {
+    "lr_grid": {
+      "value": [
+        0.001,
+        0.003,
+        0.01
+      ],
+      "source_document": "lr_selection.json",
+      "json_path": "lr_grid"
+    },
+    "lr_grid_dev_protocol": {
+      "value": [
+        0.001,
+        0.003,
+        0.01
+      ],
+      "source_document": "dev_protocol.json",
+      "json_path": "tuning_grid.learning_rate"
+    },
+    "selected_lr": {
+      "value": {
+        "resnet1d_wang": 0.01,
+        "inception1d": 0.01
+      },
+      "source_document": "lr_selection.json",
+      "json_path": "selected_lr"
+    },
+    "epochs": {
+      "value": 50,
+      "source_document": "dev_protocol.json",
+      "json_path": "training_recipe.epochs"
+    },
+    "SESOI_H2": {
+      "value": 0.02,
+      "source_document": "pre_registration.json",
+      "json_path": "SESOI_H2"
+    },
+    "SESOI_H3": {
+      "value": 0.01,
+      "source_document": "final_run_protocol.json",
+      "json_path": "H3_decision.SESOI_H3"
+    },
+    "N_BOOT": {
+      "value": 2000,
+      "source_document": "final_run_protocol.json",
+      "json_path": "bootstrap.N_BOOT"
+    },
+    "BOOT_SEED": {
+      "value": 7,
+      "source_document": "final_run_protocol.json",
+      "json_path": "bootstrap.BOOT_SEED"
+    },
+    "seeds_signal_models": {
+      "value": [
+        42,
+        123,
+        2024
+      ],
+      "source_document": "final_run_protocol.json",
+      "json_path": "sealed_H3_protocol_verbatim.seeds"
+    },
+    "seeds_metadata_only": {
+      "value": [
+        42,
+        123,
+        2024
+      ],
+      "source_document": "v0.2.1_manifest.json",
+      "json_path": "seeds",
+      "flag": "INFO: not in a locked document; the ph1 plan says 'seeds as in v0.2.1'"
+    },
+    "N_PERM": {
+      "value": 20,
+      "source_document": "final_run_protocol.json",
+      "json_path": "exploratory_fold10_comparisons.acquisition_permutation.repetitions (text)"
+    },
+    "PERM_SEED": {
+      "value": 42,
+      "source_document": "final_run_protocol.json",
+      "json_path": "exploratory_fold10_comparisons.acquisition_permutation.repetitions (text)"
+    }
+  },
+  "provenance": {
+    "documents": [
+      {
+        "document": "pre_registration.json",
+        "role": "sealed pre-registration: H1-H3, fold-10 analysis plan, SESOI",
+        "file_sha256": "11dd446272654fc80d65b2fdd40259fa674bbb419a44fde84e589b6e297cde32",
+        "self_sha256": "5183f54569f3358a5339b16a2c3c3be49f5c7798eabe6b0bb25946119c2ba469",
+        "bitcoin_block": 969577,
+        "block_time": "2026-10-02"
+      },
+      {
+        "document": "dev_protocol.json",
+        "role": "development protocol: training recipe, lr grid, sanity gate",
+        "file_sha256": "babf101c1d69b322daef6907175fdc4c17b5a53755a68f13a998eefa0148dc2d",
+        "self_sha256": "c967ac38c8cc9382bf41fdd3785c8bbd730db196e349846b8052d856bbac5fc6",
+        "bitcoin_block": 969577,
+        "block_time": "2026-10-02"
+      },
+      {
+        "document": "v0.5_training_details.json",
+        "role": "training / evaluation implementation details",
+        "file_sha256": "6480c191aeaed9ff1e6b1da5caa0c1e46908d453d30106a32beb7cf83678be11",
+        "self_sha256": "c12c33a2f649984fb1b70a46445823c46b57d1b024d87655e16661789f04b46f",
+        "bitcoin_block": 969577,
+        "block_time": "2026-10-02"
+      },
+      {
+        "document": "lr_selection.json",
+        "role": "learning-rate selection on fold 9 (signal_plus_physio, seed 42)",
+        "file_sha256": "358d783b37bba6fcf61237a43817c1fd8594fe192f8ecdfca2c25b871a21415b",
+        "self_sha256": "c70cbfa65e0ab75321dfef9c64714a64705c60a967685d79a878a1d40450749d",
+        "bitcoin_block": 969577,
+        "block_time": "2026-10-02"
+      },
+      {
+        "document": "final_run_protocol.json",
+        "role": "final-run and fold-10 analysis protocol (bootstrap, H3 decision, closed list)",
+        "file_sha256": "e1a5260e72d2e8b0d27dc709639468b7f9a48a7c8e2f8af2d663e105dbd329d4",
+        "self_sha256": "834acddec288862d0418e9ee70204898c9d371788eed7eb362f4c0d63d305c6b",
+        "bitcoin_block": 969584,
+        "block_time": "2026-10-02 15:21:18 +03:30"
+      },
+      {
+        "document": "v0.8_manifest.json",
+        "role": "final models: state_dict hashes, written before fold 10 was opened",
+        "file_sha256": "9725a0ee502784ffc267b1021ec3cb427966708205db9a09ce7e8c1fc8f30415",
+        "self_sha256": null,
+        "bitcoin_block": 969763,
+        "block_time": "2026-10-04 00:48:05 +03:30"
+      },
+      {
+        "document": "v0.9_frozen_outputs.json",
+        "role": "fold-10 model outputs frozen before any label was read",
+        "file_sha256": "133ca5fe9c9faf299cec5270483eb6ac2abf568a1c6fcc6bb5998d351528867f",
+        "self_sha256": "8dfa1ebdfede5b3a9a3360bcac1c161be475758ffe7cd7219854ee3b6f9ee95f",
+        "bitcoin_block": 969863,
+        "block_time": "2026-10-04"
+      },
+      {
+        "document": "v0.9_results.json",
+        "role": "fold-10 H3 and exploratory results",
+        "file_sha256": "8996ac975f7091fd07d0127521d8413e14e957f878a930334fdf69983bbc506f",
+        "self_sha256": "77c9cae439edf7e0b31757c392853354033470c3fc154578d953b5f7a4b8e3ba",
+        "bitcoin_block": 969863,
+        "block_time": "2026-10-04"
+      },
+      {
+        "document": "v0.9_manifest.json",
+        "role": "v0.9 run manifest (every v0.9 output file hash)",
+        "file_sha256": "710e3519bbb750fc427cf9bafe2f6075806610401d1f52f7682f1670417cdca6",
+        "self_sha256": "2007bee22651c8dc8cc9c9de6f47a5eb79d7bdfdbf523c377fd799fb2984c612",
+        "bitcoin_block": 969863,
+        "block_time": "2026-10-04"
+      }
+    ],
+    "bitcoin_anchors": [
+      {
+        "block": 969577,
+        "time": "2026-10-02",
+        "time_precision": "date",
+        "documents": [
+          "pre_registration.json",
+          "dev_protocol.json",
+          "v0.5_training_details.json",
+          "lr_selection.json"
+        ]
+      },
+      {
+        "block": 969584,
+        "time": "2026-10-02 15:21:18 +03:30",
+        "time_precision": "second",
+        "documents": [
+          "final_run_protocol.json"
+        ]
+      },
+      {
+        "block": 969763,
+        "time": "2026-10-04 00:48:05 +03:30",
+        "time_precision": "second",
+        "documents": [
+          "v0.8_manifest.json"
+        ]
+      },
+      {
+        "block": 969863,
+        "time": "2026-10-04",
+        "time_precision": "date",
+        "documents": [
+          "v0.9_frozen_outputs.json",
+          "v0.9_results.json",
+          "v0.9_manifest.json"
+        ]
+      }
+    ],
+    "note": "anchors verified manually on opentimestamps.org; not machine-checked"
+  }
+}

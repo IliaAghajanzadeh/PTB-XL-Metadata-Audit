@@ -1,0 +1,162 @@
+{
+  "code_version": "v0.3",
+  "run_started": "2026-10-02T00:11:58.017894+03:30",
+  "run_finished": "2026-10-02T00:12:23.134606+03:30",
+  "dataset_root": "D:\\ptbxl-metadata-audit\\data\\ptb-xl-a-large-publicly-available-electrocardiography-dataset-1.0.3",
+  "output_dir": "D:\\ptbxl-metadata-audit\\outputs\\v0.3",
+  "seal_path": "D:\\ptbxl-metadata-audit\\preregistration\\pre_registration.json",
+  "input_files_sha256": {
+    "ptbxl_database.csv": "7600de9c1b27d181d850b3c6038a35d7c3ddb6bb33b702e3a20252a6859d216b",
+    "scp_statements.csv": "ad05b0b1fcae83bb1230755ad9cfc7c96f303feddc08a4a9ad5bdc9ca63bac8f"
+  },
+  "input_files_match_v0.2.1": true,
+  "split_protocol": {
+    "train_folds": "1-8",
+    "eval_fold": 9,
+    "fold10_touched": false,
+    "n_fold10_records_in_source_untouched": 2198,
+    "n_train_records": 17418,
+    "n_eval_records": 2183,
+    "n_train_patients": 15023,
+    "n_eval_patients": 1942
+  },
+  "learners": {
+    "primary": "LogisticRegression",
+    "robustness": "HistGradientBoosting"
+  },
+  "blocks_compared": [
+    "B1_physio",
+    "B3_physio_plus_acquisition"
+  ],
+  "model_seed": 42,
+  "n_boot": 2000,
+  "boot_seed": 7,
+  "deviations": [
+    "N_BOOT=2000 reuses v0.2.1's exact scheme; the original plan specified 10,000 -- stated, logged deviation."
+  ],
+  "sanity_check": {
+    "tolerance_abs": 0.0002,
+    "rows": [
+      {
+        "learner": "LogisticRegression",
+        "quantity": "B1",
+        "refit": 0.6889687936822659,
+        "v0.2.1": 0.689,
+        "abs_diff": 3.120631773401161e-05,
+        "pass": true
+      },
+      {
+        "learner": "LogisticRegression",
+        "quantity": "B3",
+        "refit": 0.6971647470153735,
+        "v0.2.1": 0.6972,
+        "abs_diff": 3.52529846265881e-05,
+        "pass": true
+      },
+      {
+        "learner": "LogisticRegression",
+        "quantity": "delta",
+        "refit": 0.00819595333310752,
+        "v0.2.1": 0.0082,
+        "abs_diff": 4.0466668924810795e-06,
+        "pass": true
+      },
+      {
+        "learner": "HistGradientBoosting",
+        "quantity": "B1",
+        "refit": 0.6723847074341072,
+        "v0.2.1": 0.6724,
+        "abs_diff": 1.5292565892832677e-05,
+        "pass": true
+      },
+      {
+        "learner": "HistGradientBoosting",
+        "quantity": "B3",
+        "refit": 0.6923187581059075,
+        "v0.2.1": 0.6923,
+        "abs_diff": 1.875810590745708e-05,
+        "pass": true
+      },
+      {
+        "learner": "HistGradientBoosting",
+        "quantity": "delta",
+        "refit": 0.01993405067180032,
+        "v0.2.1": 0.0199,
+        "abs_diff": 3.405067180031751e-05,
+        "pass": true
+      }
+    ],
+    "marginal_ci_reproduced_v0.2.1": true
+  },
+  "h2_results": {
+    "LogisticRegression": {
+      "point_macro_auroc_B1": 0.6889687936822659,
+      "point_macro_auroc_B3": 0.6971647470153735,
+      "point_delta": 0.00819595333310752,
+      "mean_delta": 0.00833919366348715,
+      "SE_delta": 0.004298597691363125,
+      "ci95_percentile": [
+        -0.00011587489117776397,
+        0.016753300327342055
+      ],
+      "ci90_percentile": [
+        0.0012949891857372998,
+        0.015339306876725932
+      ],
+      "n_boot_valid": 2000,
+      "n_boot_invalid": 0,
+      "MDE": 0.012,
+      "difference_test_verdict": "no statistically significant difference between B1 and B3",
+      "tost_verdict": "practically negligible",
+      "achieved_equivalence_bound": 0.015339306876725932
+    },
+    "HistGradientBoosting": {
+      "point_macro_auroc_B1": 0.6723847074341072,
+      "point_macro_auroc_B3": 0.6923187581059075,
+      "point_delta": 0.01993405067180032,
+      "mean_delta": 0.020167168392890858,
+      "SE_delta": 0.004940134426475028,
+      "ci95_percentile": [
+        0.010578999747639886,
+        0.029816994339120502
+      ],
+      "ci90_percentile": [
+        0.012002730586778625,
+        0.02823543494791869
+      ],
+      "n_boot_valid": 2000,
+      "n_boot_invalid": 0,
+      "MDE": 0.0138,
+      "difference_test_verdict": "significant difference: B3 higher than B1 by +0.0199 (point delta)",
+      "tost_verdict": "inconclusive / not shown negligible",
+      "achieved_equivalence_bound": 0.02823543494791869
+    }
+  },
+  "learner_disagreement": [
+    "difference test: LogisticRegression -> 'no statistically significant difference between B1 and B3'; HistGradientBoosting -> 'significant difference: B3 higher than B1 by +0.0199 (point delta)'",
+    "TOST: LogisticRegression -> 'practically negligible'; HistGradientBoosting -> 'inconclusive / not shown negligible'"
+  ],
+  "pre_registration_self_sha256": "5183f54569f3358a5339b16a2c3c3be49f5c7798eabe6b0bb25946119c2ba469",
+  "checks": {
+    "fold10_excluded_by_construction": true,
+    "train_eval_patient_disjoint": true
+  },
+  "warnings": [],
+  "outputs": [
+    {
+      "file": "v0.3_bootstrap_deltas.csv",
+      "bytes": 94238,
+      "sha256": "a8a535d52ba068bac06afa5385c766c48c62b6e69f110fd34ce3fdf10298c1da"
+    },
+    {
+      "file": "v0.3_h2_summary.csv",
+      "bytes": 879,
+      "sha256": "e655573e1643e85eec9e6c651039e391387a3b55e67ddd2e3911a3a7de56c6a3"
+    },
+    {
+      "file": "D:\\ptbxl-metadata-audit\\preregistration\\pre_registration.json",
+      "bytes": 10039,
+      "sha256": "11dd446272654fc80d65b2fdd40259fa674bbb419a44fde84e589b6e297cde32"
+    }
+  ]
+}

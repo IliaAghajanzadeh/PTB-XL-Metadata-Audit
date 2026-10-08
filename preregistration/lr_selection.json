@@ -1,0 +1,135 @@
+{
+  "document": "learning-rate selection for H3 development (write-once)",
+  "timestamp": "2026-10-02T02:31:52.913704+03:30",
+  "code_version": "v0.5",
+  "parent_hashes": {
+    "pre_registration": "5183f54569f3358a5339b16a2c3c3be49f5c7798eabe6b0bb25946119c2ba469",
+    "dev_protocol": "c967ac38c8cc9382bf41fdd3785c8bbd730db196e349846b8052d856bbac5fc6",
+    "training_details": "c12c33a2f649984fb1b70a46445823c46b57d1b024d87655e16661789f04b46f"
+  },
+  "arm": "signal_plus_physio",
+  "seed": 42,
+  "epochs": 50,
+  "lr_grid": [
+    0.001,
+    0.003,
+    0.01
+  ],
+  "table": [
+    {
+      "arch": "resnet1d_wang",
+      "arm": "signal_plus_physio",
+      "seed": 42,
+      "lr": 0.001,
+      "fold9_macro_auroc": 0.9333878193949301,
+      "auroc_NORM": 0.9512901410372291,
+      "auroc_MI": 0.9359628953359933,
+      "auroc_STTC": 0.9331616771949098,
+      "auroc_CD": 0.9399229259418833,
+      "auroc_HYP": 0.906601457464635,
+      "final_epoch_train_loss": 0.18079977065499306,
+      "wall_time_s": 179.4,
+      "peak_vram_mb": 193.2
+    },
+    {
+      "arch": "resnet1d_wang",
+      "arm": "signal_plus_physio",
+      "seed": 42,
+      "lr": 0.003,
+      "fold9_macro_auroc": 0.9348726345498491,
+      "auroc_NORM": 0.9501986800143254,
+      "auroc_MI": 0.9380401704199635,
+      "auroc_STTC": 0.9321225853703196,
+      "auroc_CD": 0.940489013356312,
+      "auroc_HYP": 0.9135127235883247,
+      "final_epoch_train_loss": 0.17999291105842,
+      "wall_time_s": 178.7,
+      "peak_vram_mb": 195.0
+    },
+    {
+      "arch": "resnet1d_wang",
+      "arm": "signal_plus_physio",
+      "seed": 42,
+      "lr": 0.01,
+      "fold9_macro_auroc": 0.9357103407613359,
+      "auroc_NORM": 0.9512824667019117,
+      "auroc_MI": 0.93906246477762,
+      "auroc_STTC": 0.9332337727730476,
+      "auroc_CD": 0.9429352769400163,
+      "auroc_HYP": 0.9120377226140837,
+      "final_epoch_train_loss": 0.18287974942331406,
+      "wall_time_s": 195.5,
+      "peak_vram_mb": 195.0
+    },
+    {
+      "arch": "inception1d",
+      "arm": "signal_plus_physio",
+      "seed": 42,
+      "lr": 0.001,
+      "fold9_macro_auroc": 0.9243056686626684,
+      "auroc_NORM": 0.9425576001500758,
+      "auroc_MI": 0.9281880480602331,
+      "auroc_STTC": 0.9239940950288382,
+      "auroc_CD": 0.9314746996026617,
+      "auroc_HYP": 0.8953139004715327,
+      "final_epoch_train_loss": 0.11691728482387112,
+      "wall_time_s": 462.1,
+      "peak_vram_mb": 594.5
+    },
+    {
+      "arch": "inception1d",
+      "arm": "signal_plus_physio",
+      "seed": 42,
+      "lr": 0.003,
+      "fold9_macro_auroc": 0.9245861042815575,
+      "auroc_NORM": 0.9418711734911404,
+      "auroc_MI": 0.9263485944861477,
+      "auroc_STTC": 0.9244964753272911,
+      "auroc_CD": 0.930155823639236,
+      "auroc_HYP": 0.9000584544639726,
+      "final_epoch_train_loss": 0.12173027401232449,
+      "wall_time_s": 470.6,
+      "peak_vram_mb": 592.7
+    },
+    {
+      "arch": "inception1d",
+      "arm": "signal_plus_physio",
+      "seed": 42,
+      "lr": 0.01,
+      "fold9_macro_auroc": 0.928783377015025,
+      "auroc_NORM": 0.9463853880655558,
+      "auroc_MI": 0.9298821036496021,
+      "auroc_STTC": 0.9288073331502334,
+      "auroc_CD": 0.9340897122887645,
+      "auroc_HYP": 0.9047523479209696,
+      "final_epoch_train_loss": 0.14869076821160435,
+      "wall_time_s": 479.3,
+      "peak_vram_mb": 594.6
+    }
+  ],
+  "selected_lr": {
+    "resnet1d_wang": 0.01,
+    "inception1d": 0.01
+  },
+  "selection_detail": {
+    "resnet1d_wang": {
+      "best_macro_auroc": 0.9357103407613359,
+      "lrs_within_tie_tolerance": [
+        0.01
+      ],
+      "selected_lr": 0.01
+    },
+    "inception1d": {
+      "best_macro_auroc": 0.928783377015025,
+      "lrs_within_tie_tolerance": [
+        0.01
+      ],
+      "selected_lr": 0.01
+    }
+  },
+  "selection_rule_from_dev_protocol": "Only the learning rate is tuned. lr is chosen ONLY by the fold-9 macro-AUROC, computed once at the end of epoch 50, of the signal_plus_physio arm, seed 42, per architecture; the chosen lr is applied IDENTICALLY to signal_only and signal_plus_all. No setting may be chosen, changed, or re-run based on the between-arm delta. The selected lr is recorded in a later write-once file before the final fold 1-9 run.",
+  "tie_break_from_training_details": "highest fold-9 macro-AUROC; if two lrs are within 0.0001 of each other, choose the SMALLER lr (implemented as: among lrs with macro-AUROC >= best - 0.0001, take the smallest)",
+  "self_sha256_procedure": "Load the JSON file; remove the key 'self_sha256' (the key must be absent, not empty); serialize the remaining dict with json.dumps(d, sort_keys=True, ensure_ascii=False, separators=(',', ':')); compute SHA-256 of the UTF-8 bytes; the hex digest must equal the stored 'self_sha256'. (At write time numpy scalars were converted to plain JSON types first, so the loaded file hashes identically.)",
+  "write_once": true,
+  "self_sha256": "c70cbfa65e0ab75321dfef9c64714a64705c60a967685d79a878a1d40450749d"
+}

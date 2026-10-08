@@ -1,0 +1,580 @@
+{
+  "code_version": "v0.1.2",
+  "run_started": "2026-10-02T03:35:48.860252+03:30",
+  "run_finished": "2026-10-02T03:35:59.538301+03:30",
+  "dataset_root": "D:\\ptbxl-metadata-audit\\data\\ptb-xl-a-large-publicly-available-electrocardiography-dataset-1.0.3",
+  "dataset_folder_name": "ptb-xl-a-large-publicly-available-electrocardiography-dataset-1.0.3",
+  "output_dir": "D:\\ptbxl-metadata-audit\\outputs\\v0.1.2",
+  "input_files_sha256": {
+    "ptbxl_database.csv": "7600de9c1b27d181d850b3c6038a35d7c3ddb6bb33b702e3a20252a6859d216b",
+    "scp_statements.csv": "ad05b0b1fcae83bb1230755ad9cfc7c96f303feddc08a4a9ad5bdc9ca63bac8f"
+  },
+  "other_inputs_sha256": {
+    "RECORDS": "56d37274b0b02339e9c30bff8c9a9f2a6fb3cb2bb7bcd5d7c55355451d53896a",
+    "ptbxl_v102_changelog.txt": "331265c6900fad3d62c08f8df66eb2a4b724491a3c1975d6264385d6b57a72a4",
+    "ptbxl_v103_changelog.txt": "1874df343c4ceb706151fbb55bd60bd2954fba4372a445341343939524b2c34c"
+  },
+  "sha256sums_verification": {
+    "ptbxl_database.csv": {
+      "status": "MATCH",
+      "expected": "7600de9c1b27d181d850b3c6038a35d7c3ddb6bb33b702e3a20252a6859d216b",
+      "computed": "7600de9c1b27d181d850b3c6038a35d7c3ddb6bb33b702e3a20252a6859d216b",
+      "source_file": "SHA256SUMS.txt"
+    },
+    "scp_statements.csv": {
+      "status": "MATCH",
+      "expected": "ad05b0b1fcae83bb1230755ad9cfc7c96f303feddc08a4a9ad5bdc9ca63bac8f",
+      "computed": "ad05b0b1fcae83bb1230755ad9cfc7c96f303feddc08a4a9ad5bdc9ca63bac8f",
+      "source_file": "SHA256SUMS.txt"
+    }
+  },
+  "records_mismatch_diagnosis": {
+    "explained_lines": [
+      {
+        "raw_line": "records100/21000/21837_lrrecords500/00000/00001_hr",
+        "split_into": [
+          "records100/21000/21837_lr",
+          "records500/00000/00001_hr"
+        ]
+      }
+    ],
+    "unexplained_lines": []
+  },
+  "library_versions": {
+    "python": "3.10.20 | packaged by Anaconda, Inc. | (main, Jun 11 2026, 15:13:20) [MSC v.1942 64 bit (AMD64)]",
+    "numpy": "1.26.4",
+    "pandas": "2.3.3",
+    "platform": "Windows-10-10.0.19045-SP0"
+  },
+  "dataset_summary": {
+    "n_records": 21799,
+    "n_patients": 18869,
+    "n_devices": 11,
+    "n_sites": 51,
+    "n_nurses": 12,
+    "superclass_counts": {
+      "NORM": 9514,
+      "MI": 5469,
+      "STTC": 5235,
+      "CD": 4898,
+      "HYP": 2649
+    },
+    "n_records_without_superclass": 411,
+    "n_age_sentinel_ge120": 293
+  },
+  "fold_tab": {
+    "1": {
+      "n_records": 2175,
+      "pct": 9.978,
+      "n_patients": 1878
+    },
+    "2": {
+      "n_records": 2181,
+      "pct": 10.005,
+      "n_patients": 1849
+    },
+    "3": {
+      "n_records": 2192,
+      "pct": 10.056,
+      "n_patients": 1887
+    },
+    "4": {
+      "n_records": 2174,
+      "pct": 9.973,
+      "n_patients": 1883
+    },
+    "5": {
+      "n_records": 2174,
+      "pct": 9.973,
+      "n_patients": 1890
+    },
+    "6": {
+      "n_records": 2173,
+      "pct": 9.968,
+      "n_patients": 1884
+    },
+    "7": {
+      "n_records": 2176,
+      "pct": 9.982,
+      "n_patients": 1871
+    },
+    "8": {
+      "n_records": 2173,
+      "pct": 9.968,
+      "n_patients": 1881
+    },
+    "9": {
+      "n_records": 2183,
+      "pct": 10.014,
+      "n_patients": 1942
+    },
+    "10": {
+      "n_records": 2198,
+      "pct": 10.083,
+      "n_patients": 1904
+    }
+  },
+  "metadata_patient_entanglement": {
+    "device": {
+      "n_patients_total": 18869,
+      "n_patients_with_multiple_values": 174,
+      "pct_patients_with_multiple_values": 0.9221,
+      "distinct_values_per_patient_distribution": {
+        "1": 18695,
+        "2": 173,
+        "3": 1
+      }
+    },
+    "site": {
+      "n_patients_total": 18869,
+      "n_patients_with_multiple_values": 46,
+      "pct_patients_with_multiple_values": 0.2438,
+      "distinct_values_per_patient_distribution": {
+        "0": 14,
+        "1": 18809,
+        "2": 46
+      }
+    },
+    "nurse": {
+      "n_patients_total": 18869,
+      "n_patients_with_multiple_values": 247,
+      "pct_patients_with_multiple_values": 1.309,
+      "distinct_values_per_patient_distribution": {
+        "0": 1347,
+        "1": 17275,
+        "2": 226,
+        "3": 15,
+        "4": 6
+      }
+    }
+  },
+  "metadata_concentration": {
+    "device": {
+      "n_categories_nominal": 11,
+      "top1_share_pct": 28.166,
+      "top3_share_pct": 64.856,
+      "top5_share_pct": 88.486,
+      "shannon_entropy_bits": 2.722,
+      "effective_n_categories": 6.598
+    },
+    "site": {
+      "n_categories_nominal": 51,
+      "top1_share_pct": 41.043,
+      "top3_share_pct": 93.238,
+      "top5_share_pct": 96.341,
+      "shannon_entropy_bits": 2.0732,
+      "effective_n_categories": 4.208
+    },
+    "nurse": {
+      "n_categories_nominal": 12,
+      "top1_share_pct": 40.81,
+      "top3_share_pct": 72.085,
+      "top5_share_pct": 78.387,
+      "shannon_entropy_bits": 2.5995,
+      "effective_n_categories": 6.061
+    }
+  },
+  "label_convention": "all keys of scp_codes mapped via diagnostic==1 (no likelihood threshold)",
+  "label_likelihood_sensitivity": {
+    "alt_rule": "keep only codes with likelihood > 0",
+    "n_changed": 127,
+    "pct_changed": 0.5826,
+    "superclass_counts_primary": {
+      "NORM": 9514,
+      "MI": 5469,
+      "STTC": 5235,
+      "CD": 4898,
+      "HYP": 2649
+    },
+    "superclass_counts_alt": {
+      "NORM": 9514,
+      "MI": 5469,
+      "STTC": 5108,
+      "CD": 4898,
+      "HYP": 2649
+    }
+  },
+  "cramers_v": {
+    "device_x_fold": {
+      "n": 21799,
+      "shape": [
+        11,
+        10
+      ],
+      "chi2": 2331.5595928453054,
+      "dof": 90,
+      "cramers_v": 0.10901436255725211,
+      "cramers_v_biascorrected": 0.10691161227014254
+    },
+    "site_x_fold": {
+      "n": 21799,
+      "shape": [
+        52,
+        10
+      ],
+      "chi2": 1701.6083100309536,
+      "dof": 459,
+      "cramers_v": 0.09313014057642918,
+      "cramers_v_biascorrected": 0.07960009413610875
+    },
+    "nurse_x_fold": {
+      "n": 21799,
+      "shape": [
+        13,
+        10
+      ],
+      "chi2": 1410.6952440351706,
+      "dof": 108,
+      "cramers_v": 0.08479633085082756,
+      "cramers_v_biascorrected": 0.08150246091536187
+    },
+    "recording_year_x_fold": {
+      "n": 21799,
+      "shape": [
+        18,
+        10
+      ],
+      "chi2": 337.74462337609145,
+      "dof": 153,
+      "cramers_v": 0.04149107447092048,
+      "cramers_v_biascorrected": 0.030692183639752287
+    },
+    "device_x_recording_year": {
+      "n": 21799,
+      "shape": [
+        11,
+        18
+      ],
+      "chi2": 7015.208579003032,
+      "dof": 170,
+      "cramers_v": 0.17939156076828064,
+      "cramers_v_biascorrected": 0.17724518689439017
+    }
+  },
+  "auprc_chance_baseline_fold10": {
+    "n_records_fold10": 2198,
+    "prevalence": {
+      "NORM": 0.4381255686988171,
+      "MI": 0.2502274795268426,
+      "STTC": 0.2370336669699727,
+      "CD": 0.2256596906278435,
+      "HYP": 0.1191992720655141
+    },
+    "counts": {
+      "NORM": 963,
+      "MI": 550,
+      "STTC": 521,
+      "CD": 496,
+      "HYP": 262
+    }
+  },
+  "unseen_categories": {
+    "device": {
+      "n_categories_total": 11,
+      "n_categories_in_folds1to8": 11,
+      "in_fold9_not_in_folds1to8": [],
+      "in_fold10_not_in_folds1to8": [],
+      "single_fold_only": []
+    },
+    "site": {
+      "n_categories_total": 52,
+      "n_categories_in_folds1to8": 51,
+      "in_fold9_not_in_folds1to8": [
+        {
+          "category": "site_049",
+          "n_records_in_fold9": 2
+        }
+      ],
+      "in_fold10_not_in_folds1to8": [
+        {
+          "category": "site_049",
+          "n_records_in_fold10": 1
+        }
+      ],
+      "single_fold_only": []
+    },
+    "nurse": {
+      "n_categories_total": 13,
+      "n_categories_in_folds1to8": 13,
+      "in_fold9_not_in_folds1to8": [],
+      "in_fold10_not_in_folds1to8": [],
+      "single_fold_only": []
+    }
+  },
+  "metadata_label_association_permutation": {
+    "N_PERM": 1000,
+    "PERM_SEED": 42,
+    "restricted_to": "strat_fold <= 9",
+    "results": {
+      "device": [
+        {
+          "superclass": "NORM",
+          "v_observed": 0.311629497202217,
+          "v_null_mean": 0.005764968699803694,
+          "v_null_p95": 0.020508851733209467,
+          "v_pvalue": 0.000999000999000999,
+          "maxdev_pp_observed": 35.93223313920581,
+          "maxdev_pp_null_mean": 8.85094435016183,
+          "maxdev_pp_null_p95": 15.465583852400854,
+          "maxdev_pp_pvalue": 0.000999000999000999
+        },
+        {
+          "superclass": "MI",
+          "v_observed": 0.21784498749957043,
+          "v_null_mean": 0.0058402339380446925,
+          "v_null_p95": 0.02165656237251572,
+          "v_pvalue": 0.000999000999000999,
+          "maxdev_pp_observed": 18.868702219270347,
+          "maxdev_pp_null_mean": 7.506591135599153,
+          "maxdev_pp_null_p95": 13.42899171810962,
+          "maxdev_pp_pvalue": 0.003996003996003996
+        },
+        {
+          "superclass": "STTC",
+          "v_observed": 0.16673914925773176,
+          "v_null_mean": 0.005524108366366176,
+          "v_null_p95": 0.0209759100572056,
+          "v_pvalue": 0.000999000999000999,
+          "maxdev_pp_observed": 18.10960493053124,
+          "maxdev_pp_null_mean": 7.319574693826218,
+          "maxdev_pp_null_p95": 12.511331839427346,
+          "maxdev_pp_pvalue": 0.002997002997002997
+        },
+        {
+          "superclass": "CD",
+          "v_observed": 0.10826752476611406,
+          "v_null_mean": 0.005811309572896592,
+          "v_null_p95": 0.020402926170409487,
+          "v_pvalue": 0.000999000999000999,
+          "maxdev_pp_observed": 11.028295946157803,
+          "maxdev_pp_null_mean": 7.3786062131790535,
+          "maxdev_pp_null_p95": 12.54196214478853,
+          "maxdev_pp_pvalue": 0.08891108891108891
+        },
+        {
+          "superclass": "HYP",
+          "v_observed": 0.13978114167679276,
+          "v_null_mean": 0.005384007121517255,
+          "v_null_p95": 0.020884237763430076,
+          "v_pvalue": 0.000999000999000999,
+          "maxdev_pp_observed": 10.006708810035086,
+          "maxdev_pp_null_mean": 5.690648011961923,
+          "maxdev_pp_null_p95": 10.254873181509577,
+          "maxdev_pp_pvalue": 0.057942057942057944
+        }
+      ],
+      "site": [
+        {
+          "superclass": "NORM",
+          "v_observed": 0.06235674122165722,
+          "v_null_mean": 0.008798294506599977,
+          "v_null_p95": 0.028753332275513063,
+          "v_pvalue": 0.000999000999000999,
+          "maxdev_pp_observed": 56.37467476149176,
+          "maxdev_pp_null_mean": 48.4715955379558,
+          "maxdev_pp_null_p95": 56.37467476149176,
+          "maxdev_pp_pvalue": 0.45854145854145856
+        },
+        {
+          "superclass": "MI",
+          "v_observed": 0.07239593407365269,
+          "v_null_mean": 0.00830136647588613,
+          "v_null_p95": 0.028784861085529977,
+          "v_pvalue": 0.000999000999000999,
+          "maxdev_pp_observed": 25.095658384776286,
+          "maxdev_pp_null_mean": 38.46334366736948,
+          "maxdev_pp_null_p95": 74.90434161522371,
+          "maxdev_pp_pvalue": 0.997002997002997
+        },
+        {
+          "superclass": "STTC",
+          "v_observed": 0.07953662446822403,
+          "v_null_mean": 0.009089245694744192,
+          "v_null_p95": 0.030664421315269093,
+          "v_pvalue": 0.000999000999000999,
+          "maxdev_pp_observed": 25.950206622111118,
+          "maxdev_pp_null_mean": 39.647106841171684,
+          "maxdev_pp_null_p95": 75.95020662211111,
+          "maxdev_pp_pvalue": 0.9760239760239761
+        },
+        {
+          "superclass": "CD",
+          "v_observed": 0.06217242860374502,
+          "v_null_mean": 0.009042728358401945,
+          "v_null_p95": 0.030081592577349762,
+          "v_pvalue": 0.000999000999000999,
+          "maxdev_pp_observed": 27.541962144788535,
+          "maxdev_pp_null_mean": 38.35804119041767,
+          "maxdev_pp_null_p95": 77.54196214478853,
+          "maxdev_pp_pvalue": 0.965034965034965
+        },
+        {
+          "superclass": "HYP",
+          "v_observed": 0.06745820431023682,
+          "v_null_mean": 0.00886202651267547,
+          "v_null_p95": 0.03263965819889346,
+          "v_pvalue": 0.000999000999000999,
+          "maxdev_pp_observed": 21.15538322874683,
+          "maxdev_pp_null_mean": 34.31596612243333,
+          "maxdev_pp_null_p95": 62.8220498954135,
+          "maxdev_pp_pvalue": 0.8911088911088911
+        }
+      ],
+      "nurse": [
+        {
+          "superclass": "NORM",
+          "v_observed": 0.13147919904598607,
+          "v_null_mean": 0.0061555401186839005,
+          "v_null_p95": 0.020918912762864936,
+          "v_pvalue": 0.000999000999000999,
+          "maxdev_pp_observed": NaN,
+          "maxdev_pp_null_mean": NaN,
+          "maxdev_pp_null_p95": NaN,
+          "maxdev_pp_pvalue": NaN
+        },
+        {
+          "superclass": "MI",
+          "v_observed": 0.10451551933072886,
+          "v_null_mean": 0.005817387744695022,
+          "v_null_p95": 0.02150606272310737,
+          "v_pvalue": 0.000999000999000999,
+          "maxdev_pp_observed": NaN,
+          "maxdev_pp_null_mean": NaN,
+          "maxdev_pp_null_p95": NaN,
+          "maxdev_pp_pvalue": NaN
+        },
+        {
+          "superclass": "STTC",
+          "v_observed": 0.09084193936404752,
+          "v_null_mean": 0.006158645103340704,
+          "v_null_p95": 0.022122594696310064,
+          "v_pvalue": 0.000999000999000999,
+          "maxdev_pp_observed": NaN,
+          "maxdev_pp_null_mean": NaN,
+          "maxdev_pp_null_p95": NaN,
+          "maxdev_pp_pvalue": NaN
+        },
+        {
+          "superclass": "CD",
+          "v_observed": 0.07189564592150462,
+          "v_null_mean": 0.005928575589713676,
+          "v_null_p95": 0.02083827076172914,
+          "v_pvalue": 0.000999000999000999,
+          "maxdev_pp_observed": NaN,
+          "maxdev_pp_null_mean": NaN,
+          "maxdev_pp_null_p95": NaN,
+          "maxdev_pp_pvalue": NaN
+        },
+        {
+          "superclass": "HYP",
+          "v_observed": 0.0722857987851159,
+          "v_null_mean": 0.006004300870097717,
+          "v_null_p95": 0.021526691516513728,
+          "v_pvalue": 0.000999000999000999,
+          "maxdev_pp_observed": NaN,
+          "maxdev_pp_null_mean": NaN,
+          "maxdev_pp_null_p95": NaN,
+          "maxdev_pp_pvalue": NaN
+        }
+      ]
+    }
+  },
+  "checks": {
+    "patient_disjoint_folds": "PASS",
+    "n_patients_in_multiple_folds": 0,
+    "records_manifest_mismatch_csv_only": 2,
+    "records_manifest_mismatch_records_only": 1
+  },
+  "warnings": [
+    "sentinel value found in age (293 records with age>=120). These are censored ages and must be handled explicitly before any modeling.",
+    "site: effective cardinality (4.2) is far below the nominal category count (51) - the column is much less informative than its cardinality suggests.",
+    "site: unseen categories exist in val/test - encoding must explicitly handle an unknown category or it will break or silently zero out at inference."
+  ],
+  "outputs": [
+    {
+      "file": "v0.1.2_column_inventory.csv",
+      "bytes": 935,
+      "sha256": "edf4b0da7a96152e4e0a4cd39733769f807bebd9bea18a7e84a7e53188cced18"
+    },
+    {
+      "file": "v0.1.2_labels.csv",
+      "bytes": 569411,
+      "sha256": "236dc3d8d608ca96554b3a974834b00b522a28746e37b3f514d878facf3e437b"
+    },
+    {
+      "file": "v0.1.2_crosstab_device_fold.csv",
+      "bytes": 564,
+      "sha256": "641ec20e4bbf8fb06c2710c9829ab4eecdbc6503032f2994a8b092a3aa783dfd"
+    },
+    {
+      "file": "v0.1.2_crosstab_device_fold_rowshare_raw.csv",
+      "bytes": 2186,
+      "sha256": "ba1307d0ee704dfac01483a9ef89b24ff224e9edfceb26665a8542efb7cd2e45"
+    },
+    {
+      "file": "v0.1.2_crosstab_site_fold.csv",
+      "bytes": 1832,
+      "sha256": "c938acade57b1113510733ca359c9f3e3d04eb8beafbac48ff0710e552a74274"
+    },
+    {
+      "file": "v0.1.2_crosstab_site_fold_rowshare_raw.csv",
+      "bytes": 7834,
+      "sha256": "7d39da025ace14282c5accf71ab1891c1d67325b81bf52848dff387dbb888bfa"
+    },
+    {
+      "file": "v0.1.2_crosstab_nurse_fold.csv",
+      "bytes": 659,
+      "sha256": "5df712c06739aea66fe3cf49a59e25520b68880f34fbc5e1b3036cd7856f9c88"
+    },
+    {
+      "file": "v0.1.2_crosstab_nurse_fold_rowshare_raw.csv",
+      "bytes": 2761,
+      "sha256": "24a525b13b07c3fa32da0ddf19c4f5f83d1ccc9216c0e64d1a6110b6f287a590"
+    },
+    {
+      "file": "v0.1.2_prevalence_device_superclass_folds1to9.csv",
+      "bytes": 581,
+      "sha256": "56b14e16491aaf7fa89b6dc3cabf9ab1288760dbd67e89f7b36d6a726e187144"
+    },
+    {
+      "file": "v0.1.2_prevalence_device_superclass_folds1to9_raw.csv",
+      "bytes": 1275,
+      "sha256": "85e0b257718de63991e1d33bc06a4656694b430c72f445f58b50c6a4f56fd4d1"
+    },
+    {
+      "file": "v0.1.2_prevalence_site_superclass_folds1to9.csv",
+      "bytes": 2185,
+      "sha256": "bb2536fe0e0c541312830c762ae90b0336d61104477f36d79b9d9ae46d92cfe9"
+    },
+    {
+      "file": "v0.1.2_prevalence_site_superclass_folds1to9_raw.csv",
+      "bytes": 4328,
+      "sha256": "da7019748059bcdbaa94a5516033863db0b6f018242ec1d59a27f8160603b62a"
+    },
+    {
+      "file": "v0.1.2_crosstab_recording_year_fold.csv",
+      "bytes": 866,
+      "sha256": "87b4e0b811aafe93369b3fab24880a8bc19b665a55e6408f2499aa3f8ea45001"
+    },
+    {
+      "file": "v0.1.2_crosstab_device_recording_year.csv",
+      "bytes": 832,
+      "sha256": "33b56c38fb3dcdd19b012592f0ae1c2b8c9a96db3878ddcf63fd6fab20da8b47"
+    },
+    {
+      "file": "v0.1.2_assoc_permutation_device.csv",
+      "bytes": 949,
+      "sha256": "952a7f2e2528db5b45c24ffae2317864a54fb50852df5542ddd69d45f18b3c6b"
+    },
+    {
+      "file": "v0.1.2_assoc_permutation_site.csv",
+      "bytes": 936,
+      "sha256": "3a8bedf5b69be89af2af2aaa88f6dfde31efd0762568ce7556eee18eceeb6f14"
+    },
+    {
+      "file": "v0.1.2_assoc_permutation_nurse.csv",
+      "bytes": 591,
+      "sha256": "4cbf3de8bddb500d5576031c21c51ea83bad54e755a48ea1de4527e8957a7b02"
+    }
+  ]
+}

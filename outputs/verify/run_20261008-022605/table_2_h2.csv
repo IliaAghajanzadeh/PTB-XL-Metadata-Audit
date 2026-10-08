@@ -1,0 +1,5 @@
+﻿fold,learner,delta_B3_minus_B1,ci95,ci90,difference_test,tost,achieved_bound
+fold 9,LogisticRegression,+0.0082,"[−0.0001, +0.0168]","[+0.0013, +0.0153]",no statistically significant difference between B1 and B3,practically negligible,0.0153
+fold 9,HistGradientBoosting,+0.0199,"[+0.0106, +0.0298]","[+0.0120, +0.0282]",significant difference: B3 higher than B1 by +0.0199 (point delta),inconclusive / not shown negligible,0.0282
+fold 10 (post hoc),LogisticRegression,+0.0219,"[+0.0132, +0.0304]","[+0.0149, +0.0289]",significant difference: B3 higher than B1 by +0.0219 (point delta),inconclusive / not shown negligible,0.0289
+fold 10 (post hoc),HistGradientBoosting,+0.0309,"[+0.0210, +0.0405]","[+0.0222, +0.0389]",significant difference: B3 higher than B1 by +0.0309 (point delta),inconclusive / not shown negligible,0.0389

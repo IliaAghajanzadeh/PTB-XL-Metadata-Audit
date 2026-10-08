@@ -1,0 +1,224 @@
+{
+  "document": "v0.7 exploratory analysis plan (fold-9 development matrix; write-once, written before the first v0.7 training run)",
+  "timestamp": "2026-10-02T20:39:47.433074+03:30",
+  "code_version": "v0.7",
+  "status": "EXPLORATORY: no setting may be chosen, changed or re-run based on any v0.7 number",
+  "parent_hashes": {
+    "pre_registration": {
+      "self_sha256": "5183f54569f3358a5339b16a2c3c3be49f5c7798eabe6b0bb25946119c2ba469",
+      "file_sha256": "11dd446272654fc80d65b2fdd40259fa674bbb419a44fde84e589b6e297cde32"
+    },
+    "dev_protocol": {
+      "self_sha256": "c967ac38c8cc9382bf41fdd3785c8bbd730db196e349846b8052d856bbac5fc6",
+      "file_sha256": "babf101c1d69b322daef6907175fdc4c17b5a53755a68f13a998eefa0148dc2d"
+    },
+    "training_details": {
+      "self_sha256": "c12c33a2f649984fb1b70a46445823c46b57d1b024d87655e16661789f04b46f",
+      "file_sha256": "6480c191aeaed9ff1e6b1da5caa0c1e46908d453d30106a32beb7cf83678be11"
+    },
+    "lr_selection": {
+      "self_sha256": "c70cbfa65e0ab75321dfef9c64714a64705c60a967685d79a878a1d40450749d",
+      "file_sha256": "358d783b37bba6fcf61237a43817c1fd8594fe192f8ecdfca2c25b871a21415b"
+    },
+    "final_run_protocol": {
+      "self_sha256": "834acddec288862d0418e9ee70204898c9d371788eed7eb362f4c0d63d305c6b",
+      "file_sha256": "e1a5260e72d2e8b0d27dc709639468b7f9a48a7c8e2f8af2d663e105dbd329d4"
+    }
+  },
+  "reference_implementation_sha256": "48ac837c07880f0bd88a7bd01475e7da3edbeab46019f8288976884ad7662856",
+  "locked_stage_plan_v0.7": "EXPLORATORY development matrix on fold 9: 2 architectures (resnet1d_wang, inception1d) x 3 arms (signal_only, signal_plus_physio, signal_plus_all) x 3 seeds (42, 123, 2024) at the locked lr 0.01; training on folds 1-8, fold-9 evaluation once at the end of epoch 50; recipe, folds 1-8 encoder (widths 256/259/338), age scaler and lead normalization exactly as dev_protocol.json, v0.5_training_details.json and the v0.5 code. Reused, NOT retrained (sha256-verified against v0.5_manifest.json, file sha256 59968bfb50d8c919de0e8004ef878a44a115560de438b7e74582877495e95f87; per-file hashes in v0.7_reused_v0.5_files): v0.5 resnet1d_wang signal_plus_physio seed 42 lr 0.01, v0.5 inception1d signal_plus_physio seed 42 lr 0.01, v0.5 resnet1d_wang signal_only seed 42 lr 0.01 -> 15 new runs. Status: EXPLORATORY; no setting may be chosen or changed from it. Known bias: lr was selected on fold 9 with signal_plus_physio, so on fold 9 the physio - signal_only delta is biased UPWARD and the all - physio delta DOWNWARD.",
+  "runs": [
+    {
+      "arch": "resnet1d_wang",
+      "arm": "signal_only",
+      "seed": 42,
+      "lr": 0.01,
+      "reused_from_v0.5": true,
+      "probs_file": "v0.5_resnet1d_wang_signal_only_seed42_lr0.01_fold9_probs.csv"
+    },
+    {
+      "arch": "resnet1d_wang",
+      "arm": "signal_only",
+      "seed": 123,
+      "lr": 0.01,
+      "reused_from_v0.5": false,
+      "probs_file": "v0.7_resnet1d_wang_signal_only_seed123_lr0.01_fold9_probs.csv"
+    },
+    {
+      "arch": "resnet1d_wang",
+      "arm": "signal_only",
+      "seed": 2024,
+      "lr": 0.01,
+      "reused_from_v0.5": false,
+      "probs_file": "v0.7_resnet1d_wang_signal_only_seed2024_lr0.01_fold9_probs.csv"
+    },
+    {
+      "arch": "resnet1d_wang",
+      "arm": "signal_plus_physio",
+      "seed": 42,
+      "lr": 0.01,
+      "reused_from_v0.5": true,
+      "probs_file": "v0.5_resnet1d_wang_signal_plus_physio_seed42_lr0.01_fold9_probs.csv"
+    },
+    {
+      "arch": "resnet1d_wang",
+      "arm": "signal_plus_physio",
+      "seed": 123,
+      "lr": 0.01,
+      "reused_from_v0.5": false,
+      "probs_file": "v0.7_resnet1d_wang_signal_plus_physio_seed123_lr0.01_fold9_probs.csv"
+    },
+    {
+      "arch": "resnet1d_wang",
+      "arm": "signal_plus_physio",
+      "seed": 2024,
+      "lr": 0.01,
+      "reused_from_v0.5": false,
+      "probs_file": "v0.7_resnet1d_wang_signal_plus_physio_seed2024_lr0.01_fold9_probs.csv"
+    },
+    {
+      "arch": "resnet1d_wang",
+      "arm": "signal_plus_all",
+      "seed": 42,
+      "lr": 0.01,
+      "reused_from_v0.5": false,
+      "probs_file": "v0.7_resnet1d_wang_signal_plus_all_seed42_lr0.01_fold9_probs.csv"
+    },
+    {
+      "arch": "resnet1d_wang",
+      "arm": "signal_plus_all",
+      "seed": 123,
+      "lr": 0.01,
+      "reused_from_v0.5": false,
+      "probs_file": "v0.7_resnet1d_wang_signal_plus_all_seed123_lr0.01_fold9_probs.csv"
+    },
+    {
+      "arch": "resnet1d_wang",
+      "arm": "signal_plus_all",
+      "seed": 2024,
+      "lr": 0.01,
+      "reused_from_v0.5": false,
+      "probs_file": "v0.7_resnet1d_wang_signal_plus_all_seed2024_lr0.01_fold9_probs.csv"
+    },
+    {
+      "arch": "inception1d",
+      "arm": "signal_only",
+      "seed": 42,
+      "lr": 0.01,
+      "reused_from_v0.5": false,
+      "probs_file": "v0.7_inception1d_signal_only_seed42_lr0.01_fold9_probs.csv"
+    },
+    {
+      "arch": "inception1d",
+      "arm": "signal_only",
+      "seed": 123,
+      "lr": 0.01,
+      "reused_from_v0.5": false,
+      "probs_file": "v0.7_inception1d_signal_only_seed123_lr0.01_fold9_probs.csv"
+    },
+    {
+      "arch": "inception1d",
+      "arm": "signal_only",
+      "seed": 2024,
+      "lr": 0.01,
+      "reused_from_v0.5": false,
+      "probs_file": "v0.7_inception1d_signal_only_seed2024_lr0.01_fold9_probs.csv"
+    },
+    {
+      "arch": "inception1d",
+      "arm": "signal_plus_physio",
+      "seed": 42,
+      "lr": 0.01,
+      "reused_from_v0.5": true,
+      "probs_file": "v0.5_inception1d_signal_plus_physio_seed42_lr0.01_fold9_probs.csv"
+    },
+    {
+      "arch": "inception1d",
+      "arm": "signal_plus_physio",
+      "seed": 123,
+      "lr": 0.01,
+      "reused_from_v0.5": false,
+      "probs_file": "v0.7_inception1d_signal_plus_physio_seed123_lr0.01_fold9_probs.csv"
+    },
+    {
+      "arch": "inception1d",
+      "arm": "signal_plus_physio",
+      "seed": 2024,
+      "lr": 0.01,
+      "reused_from_v0.5": false,
+      "probs_file": "v0.7_inception1d_signal_plus_physio_seed2024_lr0.01_fold9_probs.csv"
+    },
+    {
+      "arch": "inception1d",
+      "arm": "signal_plus_all",
+      "seed": 42,
+      "lr": 0.01,
+      "reused_from_v0.5": false,
+      "probs_file": "v0.7_inception1d_signal_plus_all_seed42_lr0.01_fold9_probs.csv"
+    },
+    {
+      "arch": "inception1d",
+      "arm": "signal_plus_all",
+      "seed": 123,
+      "lr": 0.01,
+      "reused_from_v0.5": false,
+      "probs_file": "v0.7_inception1d_signal_plus_all_seed123_lr0.01_fold9_probs.csv"
+    },
+    {
+      "arch": "inception1d",
+      "arm": "signal_plus_all",
+      "seed": 2024,
+      "lr": 0.01,
+      "reused_from_v0.5": false,
+      "probs_file": "v0.7_inception1d_signal_plus_all_seed2024_lr0.01_fold9_probs.csv"
+    }
+  ],
+  "run_order_new_runs": [
+    "v0.7_resnet1d_wang_signal_plus_all_seed42_lr0.01",
+    "v0.7_resnet1d_wang_signal_only_seed123_lr0.01",
+    "v0.7_resnet1d_wang_signal_plus_physio_seed123_lr0.01",
+    "v0.7_resnet1d_wang_signal_plus_all_seed123_lr0.01",
+    "v0.7_resnet1d_wang_signal_only_seed2024_lr0.01",
+    "v0.7_resnet1d_wang_signal_plus_physio_seed2024_lr0.01",
+    "v0.7_resnet1d_wang_signal_plus_all_seed2024_lr0.01",
+    "v0.7_inception1d_signal_only_seed42_lr0.01",
+    "v0.7_inception1d_signal_plus_all_seed42_lr0.01",
+    "v0.7_inception1d_signal_only_seed123_lr0.01",
+    "v0.7_inception1d_signal_plus_physio_seed123_lr0.01",
+    "v0.7_inception1d_signal_plus_all_seed123_lr0.01",
+    "v0.7_inception1d_signal_only_seed2024_lr0.01",
+    "v0.7_inception1d_signal_plus_physio_seed2024_lr0.01",
+    "v0.7_inception1d_signal_plus_all_seed2024_lr0.01"
+  ],
+  "training": "verbatim v0.5 train_run with the documented changes: FORBIDDEN_ARM guard removed; lr = SELECTED_LR[arch]; after epoch 50: predict_fold9 -> save state_dict, train-loss CSV, probability CSV (atomic rename) -> log 'completed' with sha256 of the three files -> compute AUROC; head first-Linear widths 256/259/338 and OneCycle total_steps 6850 asserted; recipe = dev_protocol.json + v0.5_training_details.json",
+  "crash_and_rerun_rule_locked": "a run may be re-run from scratch with the same seed only if it crashed or produced a non-finite training loss BEFORE its fold-9 evaluation; a run whose fold-9 evaluation was computed is never re-run; every attempt (including failed ones) is logged in the v0.7 manifest",
+  "crash_and_rerun_rule_implementation": "append-only OUT_DIR/v0.7_attempt_log.jsonl: 'started' before a run, 'completed' (sha256 of probs/loss/state) after its files are saved, 'failed' (error message) on any exception or non-finite loss, then the exception is re-raised. On re-execution: probability CSV exists -> run COMPLETE, never re-run, hashes verified against the 'completed' entry (if none: accept, log 'completed_recovered', WARN); no probability CSV and the log shows started/failed -> delete partial files of that run (logged as 'deleted_partial_files') and re-run from scratch with the same seed as attempt n+1; at most 2 attempts per run, then STOP and report without changing any setting.",
+  "analyses": {
+    "E1": "per-run table: arch, arm, seed, reused (bool), macro-AUROC, 5 per-class AUROCs, final-epoch train loss (reused runs: from their v0.5 loss CSV), wall time, peak VRAM (reused: from lr_selection.json table / v0.5_manifest.json sanity_gate, else NaN). Saved as v0.7_runs_table.csv.",
+    "E2": "seed summary per (arch, arm): mean, SD (ddof=1), min, max of macro-AUROC over the 3 seeds. Saved as v0.7_seed_summary.csv.",
+    "E3": "seed ensemble per (arch, arm): P_ens = arithmetic mean of the 3 seeds' probabilities per record and class; macro- and per-class AUROC. Saved as v0.7_ensemble_table.csv and v0.7_ensemble_{arch}_{arm}_fold9_probs.csv (ecg_id, patient_id, 5 probabilities).",
+    "E4": "paired patient-level bootstrap on fold 9 with the reference implementation only: _pat9, _rows9 = REF['patient_rows_in_file_order'](fold-9 patient_id as int64); BOOT9 = REF['build_boot_idx'](len(_pat9), 2000, 7); assert len(_pat9) == 1942. Closed list (delta = B - A), for EACH architecture: C1 = signal_plus_all - signal_plus_physio; C2 = signal_plus_physio - signal_only. Each comparison (a) on the seed-ensemble probabilities [primary for v0.7] and (b) per seed (same seed in both arms) [secondary]; REF['paired_bootstrap'] and REF['summarize_deltas'] (point on the full fold 9, 95% and 90% percentile CIs, NaN-draw count); for (a) also per-class point deltas and 95% CIs from class_delta; SD (ddof=1) of the 3 per-seed point deltas. Saved as v0.7_bootstrap_summary.csv (arch x comparison x {ensemble, seed42, seed123, seed2024}) and v0.7_bootstrap_deltas_ensemble.csv (2000 x 4: arch x comparison). REF['h3_verdict'] is NOT called; no verdict string, no a/b/material flag and no 'within +/-0.01' label is computed or printed for fold 9.",
+    "E5": "lr was selected on fold 9 with signal_plus_physio (seed 42): on fold 9, C2 (physio - signal_only) is biased UPWARD and C1 (all - physio) is biased DOWNWARD. Fold 10 (v0.9) is not affected. EXPLORATORY.",
+    "E6": "untrained-column note: the fold-9 records that map to an all-zero training column (site=__UNKNOWN__) under the folds 1-8 encoder are reported as a COUNT only and asserted == 2 (final_run_protocol locked_quantities); no sensitivity analysis.",
+    "E7": "plausibility (WARN only, never stop, never retrain): any signal_only or signal_plus_physio run with fold-9 macro-AUROC < 0.90; any run whose final-epoch train loss is > 2x the median of the same arch.",
+    "closed_list": "Anything not in E1-E7 is not computed in v0.7."
+  },
+  "bootstrap": {
+    "N_BOOT": 2000,
+    "BOOT_SEED": 7,
+    "fold9_patients": 1942,
+    "comparisons": {
+      "C1": {
+        "A": "signal_plus_physio",
+        "B": "signal_plus_all"
+      },
+      "C2": {
+        "A": "signal_only",
+        "B": "signal_plus_physio"
+      }
+    }
+  },
+  "self_sha256_procedure": "Load the JSON file; remove the key 'self_sha256' (the key must be absent, not empty); serialize the remaining dict with json.dumps(d, sort_keys=True, ensure_ascii=False, separators=(',', ':')); compute SHA-256 of the UTF-8 bytes; the hex digest must equal the stored 'self_sha256'. (At write time numpy scalars were converted to plain JSON types first, so the loaded file hashes identically.)",
+  "write_once": true,
+  "self_sha256": "8b6fb052ffaf07cee6dccad4d4ac4e6c3ece0a5b37e557b2ceacb3bb35bb0c74"
+}

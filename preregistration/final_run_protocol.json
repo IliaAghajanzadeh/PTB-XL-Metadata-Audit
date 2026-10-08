@@ -1,0 +1,600 @@
+{
+  "document": "final run and fold-10 analysis protocol for H3 (write-once)",
+  "timestamp": "2026-10-02T14:16:35.065463+03:30",
+  "code_version": "v0.6",
+  "parent_hashes": {
+    "pre_registration": {
+      "self_sha256": "5183f54569f3358a5339b16a2c3c3be49f5c7798eabe6b0bb25946119c2ba469",
+      "file_sha256": "11dd446272654fc80d65b2fdd40259fa674bbb419a44fde84e589b6e297cde32"
+    },
+    "dev_protocol": {
+      "self_sha256": "c967ac38c8cc9382bf41fdd3785c8bbd730db196e349846b8052d856bbac5fc6",
+      "file_sha256": "babf101c1d69b322daef6907175fdc4c17b5a53755a68f13a998eefa0148dc2d"
+    },
+    "training_details": {
+      "self_sha256": "c12c33a2f649984fb1b70a46445823c46b57d1b024d87655e16661789f04b46f",
+      "file_sha256": "6480c191aeaed9ff1e6b1da5caa0c1e46908d453d30106a32beb7cf83678be11"
+    },
+    "lr_selection": {
+      "self_sha256": "c70cbfa65e0ab75321dfef9c64714a64705c60a967685d79a878a1d40450749d",
+      "file_sha256": "358d783b37bba6fcf61237a43817c1fd8594fe192f8ecdfca2c25b871a21415b"
+    }
+  },
+  "input_files_sha256": {
+    "ptbxl_database.csv": "7600de9c1b27d181d850b3c6038a35d7c3ddb6bb33b702e3a20252a6859d216b",
+    "scp_statements.csv": "ad05b0b1fcae83bb1230755ad9cfc7c96f303feddc08a4a9ad5bdc9ca63bac8f"
+  },
+  "v0.4_signal_cache_sha256": {
+    "v0.4_signals_folds1to9_100hz.npy": "17558f9d09b39b990d7f3a5ca2ea10e1527980288a49a6828c89b7c3df61745a",
+    "v0.4_signals_index.csv": "06b49ecdafc6a74c9bdbcfa0177bb357eb845ece187b40e3a777496a8cf72203",
+    "v0.4_lead_norm_params.csv": "07fb6d6dc8f0f1e2379fdd45b6462f1102518621eb242ba585fb8600acff35aa"
+  },
+  "earlier_manifests_sha256": {
+    "v0.3_manifest.json": "c7e1bec283d11a3d4cd94a3f2509640651e8069d26424cfd14b5d6b975053e35",
+    "v0.4_manifest.json": "3781f90c4cf5a85ea612efabb1fd81cc61b77cbeb38a54cc644c10c66afe1d9b",
+    "v0.5_manifest.json": "59968bfb50d8c919de0e8004ef878a44a115560de438b7e74582877495e95f87"
+  },
+  "written_before": "any signal_plus_all model is trained and before any H3-type delta (signal_plus_all vs signal_plus_physio) is computed on any fold",
+  "sealed_H3_protocol_verbatim": {
+    "comparison": "signal_plus_physio [age, sex] vs signal_plus_all [age, sex, device, site, nurse]",
+    "metadata_fusion": "metadata vector, encoded exactly as in v0.2.1 (encoder fit on training folds only), concatenated to the network's global-pooled embedding before the final linear classification head",
+    "primary_architecture": "resnet1d_wang on 100 Hz",
+    "robustness_architecture": "inception1d",
+    "architecture_rule": "disagreement is reported, never resolved by selection",
+    "development": "weeks 4-5: train folds 1-8, validate fold 9; all hyperparameters AND number of epochs fixed there",
+    "final_run": "train folds 1-9 with those fixed settings, no early stopping, no tuning; fold 10 evaluated exactly once",
+    "seeds": [
+      42,
+      123,
+      2024
+    ],
+    "primary_estimate": "per-record probabilities averaged over the 3 seeds, then macro-AUROC; per-seed results secondary",
+    "test": "paired patient-level bootstrap on fold 10, N_BOOT=2000, BOOT_SEED=7, delta = macro_auroc(signal_plus_all) - macro_auroc(signal_plus_physio)",
+    "decision": {
+      "a": "95% CI excludes 0 -> 'acquisition metadata changes performance' (report sign; either direction counts)",
+      "b": "90% CI entirely within [-0.01, +0.01] -> 'no material change'",
+      "c": "otherwise -> 'inconclusive'"
+    },
+    "SESOI_H3": 0.01,
+    "SESOI_H3_note": "comparable to the spread between published architectures on PTB-XL superclasses; an effect this size could reorder them. Fixed BEFORE any signal model is trained.",
+    "exploratory": "any analysis not specified here (ablations, per-class results, other block comparisons) is EXPLORATORY"
+  },
+  "stage_plan": {
+    "v0.7": "EXPLORATORY development matrix on fold 9: 2 architectures (resnet1d_wang, inception1d) x 3 arms (signal_only, signal_plus_physio, signal_plus_all) x 3 seeds (42, 123, 2024) at the locked lr 0.01; training on folds 1-8, fold-9 evaluation once at the end of epoch 50; recipe, folds 1-8 encoder (widths 256/259/338), age scaler and lead normalization exactly as dev_protocol.json, v0.5_training_details.json and the v0.5 code. Reused, NOT retrained (sha256-verified against v0.5_manifest.json, file sha256 59968bfb50d8c919de0e8004ef878a44a115560de438b7e74582877495e95f87; per-file hashes in v0.7_reused_v0.5_files): v0.5 resnet1d_wang signal_plus_physio seed 42 lr 0.01, v0.5 inception1d signal_plus_physio seed 42 lr 0.01, v0.5 resnet1d_wang signal_only seed 42 lr 0.01 -> 15 new runs. Status: EXPLORATORY; no setting may be chosen or changed from it. Known bias: lr was selected on fold 9 with signal_plus_physio, so on fold 9 the physio - signal_only delta is biased UPWARD and the all - physio delta DOWNWARD.",
+    "v0.8": "final training on folds 1-9: 2 architectures x 3 arms x 3 seeds = 18 runs, lr 0.01, 50 epochs, everything else exactly as v0.5_training_details.json with the v0.8_overrides below; encoder, age scaler and lead normalization = the locked folds 1-9 values in locked_quantities (asserted equal at v0.8 STEP 0). signal_only is trained as an EXPLORATORY arm (used only in exploratory_fold10_comparisons). NO evaluation of any kind. v0.8 opens no fold-10 signal file and builds no fold-10 tensor (asserted). Saves per run the final state_dict, the training-loss CSV, and the sha256 of both in the v0.8 manifest.",
+    "v0.9": "the single opening of fold 10 (effort = Max). First and only stage that reads fold-10 signals or labels; asserted by code. STEP 0 verifies this document, regenerates BOOT_IDX / PERM_IDX / the fold-10 id list with reference_implementation and asserts the locked hashes. Evaluation runs FROM THE SAVED, HASH-VERIFIED v0.8 state_dicts (CUDA kernels are not bitwise deterministic, so no model is re-trained or re-created by training). Evaluation = 7 windows, mean of sigmoid probabilities per record, exactly as v0.5, with the locked folds 1-9 lead normalization, age scaler and encoder applied to fold 10. The fold-10 probabilities of all 18 models are written to files and their sha256 recorded BEFORE any metric is computed. Fold-10 labels are derived with the v0.2.1 label code (verbatim)."
+  },
+  "v0.7_reused_v0.5_files": {
+    "v0.5_resnet1d_wang_signal_plus_physio_seed42_lr0.01_fold9_probs.csv": "0191f0aa0a0b2d00113da706843213fd8b622a18d679693c745676a204ad6f32",
+    "v0.5_resnet1d_wang_signal_plus_physio_seed42_lr0.01_train_loss.csv": "3406b7428ba6f261946b5e9fc900aa64e5fbbd6b487fd425db1440862e7d038d",
+    "v0.5_resnet1d_wang_signal_plus_physio_seed42_lr0.01_state_dict.pt": "61582d68eee3ccda6e742883d0daa1ec3272acdec92c763173551bdaadc398f0",
+    "v0.5_inception1d_signal_plus_physio_seed42_lr0.01_fold9_probs.csv": "5d9573e2fee1486147a2ef73a8cc206abf1a2c8cdaf9a3a65a4b8791afb1e517",
+    "v0.5_inception1d_signal_plus_physio_seed42_lr0.01_train_loss.csv": "4fcf176de6d31016cbbcc43b885f050dc010214ea25d2b657db9d6beb535c5ba",
+    "v0.5_inception1d_signal_plus_physio_seed42_lr0.01_state_dict.pt": "d198d219cbf0b2167079dd9785d6e3c3dfe6e58f0452c1642c9e0fb4b80c2438",
+    "v0.5_resnet1d_wang_signal_only_seed42_lr0.01_fold9_probs.csv": "ca886d3b45d837ca7ca6c1a93f2540e6188d5b2b1265db6090b63aea20885da0",
+    "v0.5_resnet1d_wang_signal_only_seed42_lr0.01_train_loss.csv": "2ea466289e220e1b2d2d8fa5d62ecd1c9003646796963168bd5c87595dfc5de6",
+    "v0.5_resnet1d_wang_signal_only_seed42_lr0.01_state_dict.pt": "4e7504ecfaebb62eca9723e62171d1c7cc1b44cab94d7c8aa46150d0d5d02a64"
+  },
+  "v0.8_overrides": {
+    "train_data": "folds 1-9 (19601 records), RandomCropDataset as v0.5; per-lead normalization = locked folds 1-9 values",
+    "metadata_encoding": "categorical encoder and age_imputed scaler = locked folds 1-9 values",
+    "not_applicable_in_v0.8": [
+      "validation",
+      "evaluation",
+      "metric",
+      "lr_tie_break",
+      "per_run_outputs: fold9_probs file"
+    ],
+    "per_run_outputs_v0.8": "final state_dict and train_loss csv, sha256 of both in the v0.8 manifest",
+    "lr_scheduler_total_steps_v0.8": 7700,
+    "applies_unchanged": [
+      "optimizer",
+      "lr_scheduler (except total_steps)",
+      "epochs",
+      "batch_size",
+      "data_order",
+      "seeding",
+      "training_loss",
+      "training_loss_logging",
+      "determinism_note",
+      "explicit rule (from 'validation'): no checkpoint selection; the model after the last optimizer step is final"
+    ],
+    "v0.9_evaluation": "the 'evaluation' and 'metric' fields apply to fold-10 records in v0.9, with 'folds 1-8 statistics' replaced by the locked folds 1-9 lead normalization and age scaler"
+  },
+  "crash_and_rerun_rules": {
+    "v0.7": "a run may be re-run from scratch with the same seed only if it crashed or produced a non-finite training loss BEFORE its fold-9 evaluation; a run whose fold-9 evaluation was computed is never re-run; every attempt (including failed ones) is logged in the v0.7 manifest",
+    "v0.8": "because v0.8 performs no evaluation, a run that crashes or yields a non-finite loss may be re-run from scratch with the same seed BEFORE v0.9; every attempt is logged in the v0.8 manifest. If the re-run fails again: stop and report; no setting may be changed except through a written, externally timestamped amendment made before v0.9. Once v0.9 has started, no re-run is allowed.",
+    "v0.9": "re-execution only as in post_fold10_rules 2"
+  },
+  "locked_quantities": {
+    "fit_rows": "folds 1-9 of PTB-XL v1.0.3 (strat_fold <= 9): 19601 records",
+    "categorical_encoder": {
+      "procedure": "to_level_string (v0.2.1, zero-padded numeric levels) then encode_categorical with train_mask = all folds 1-9 rows; categories = sorted(training levels | {'__MISSING__'}) + ['__UNKNOWN__']; any level not among the training categories -> '__UNKNOWN__'",
+      "categories": {
+        "device": [
+          "AT-6     6",
+          "AT-6 C",
+          "AT-6 C 5.0",
+          "AT-6 C 5.3",
+          "AT-6 C 5.5",
+          "AT-6 C 5.6",
+          "AT-6 C 5.8",
+          "AT-60    3",
+          "CS-12",
+          "CS-12   E",
+          "CS100    3",
+          "__MISSING__",
+          "__UNKNOWN__"
+        ],
+        "site": [
+          "000",
+          "001",
+          "002",
+          "003",
+          "004",
+          "005",
+          "006",
+          "007",
+          "008",
+          "009",
+          "010",
+          "011",
+          "012",
+          "013",
+          "014",
+          "015",
+          "016",
+          "017",
+          "018",
+          "019",
+          "020",
+          "021",
+          "022",
+          "023",
+          "024",
+          "025",
+          "026",
+          "027",
+          "028",
+          "029",
+          "030",
+          "031",
+          "032",
+          "033",
+          "034",
+          "035",
+          "036",
+          "037",
+          "038",
+          "039",
+          "040",
+          "041",
+          "042",
+          "043",
+          "044",
+          "045",
+          "046",
+          "047",
+          "048",
+          "049",
+          "050",
+          "__MISSING__",
+          "__UNKNOWN__"
+        ],
+        "nurse": [
+          "000",
+          "001",
+          "002",
+          "003",
+          "004",
+          "005",
+          "006",
+          "007",
+          "008",
+          "009",
+          "010",
+          "011",
+          "__MISSING__",
+          "__UNKNOWN__"
+        ]
+      },
+      "widths": {
+        "device": 13,
+        "site": 53,
+        "nurse": 14
+      },
+      "widths_folds1to8_development": {
+        "device": 13,
+        "site": 52,
+        "nurse": 14
+      },
+      "new_levels_vs_folds1to8": {
+        "device": [],
+        "site": [
+          "049"
+        ],
+        "nurse": []
+      },
+      "signal_plus_all_column_order": [
+        "age_imputed",
+        "age_censored",
+        "sex",
+        "device=AT-6     6",
+        "device=AT-6 C",
+        "device=AT-6 C 5.0",
+        "device=AT-6 C 5.3",
+        "device=AT-6 C 5.5",
+        "device=AT-6 C 5.6",
+        "device=AT-6 C 5.8",
+        "device=AT-60    3",
+        "device=CS-12",
+        "device=CS-12   E",
+        "device=CS100    3",
+        "device=__MISSING__",
+        "device=__UNKNOWN__",
+        "site=000",
+        "site=001",
+        "site=002",
+        "site=003",
+        "site=004",
+        "site=005",
+        "site=006",
+        "site=007",
+        "site=008",
+        "site=009",
+        "site=010",
+        "site=011",
+        "site=012",
+        "site=013",
+        "site=014",
+        "site=015",
+        "site=016",
+        "site=017",
+        "site=018",
+        "site=019",
+        "site=020",
+        "site=021",
+        "site=022",
+        "site=023",
+        "site=024",
+        "site=025",
+        "site=026",
+        "site=027",
+        "site=028",
+        "site=029",
+        "site=030",
+        "site=031",
+        "site=032",
+        "site=033",
+        "site=034",
+        "site=035",
+        "site=036",
+        "site=037",
+        "site=038",
+        "site=039",
+        "site=040",
+        "site=041",
+        "site=042",
+        "site=043",
+        "site=044",
+        "site=045",
+        "site=046",
+        "site=047",
+        "site=048",
+        "site=049",
+        "site=050",
+        "site=__MISSING__",
+        "site=__UNKNOWN__",
+        "nurse=000",
+        "nurse=001",
+        "nurse=002",
+        "nurse=003",
+        "nurse=004",
+        "nurse=005",
+        "nurse=006",
+        "nurse=007",
+        "nurse=008",
+        "nurse=009",
+        "nurse=010",
+        "nurse=011",
+        "nurse=__MISSING__",
+        "nurse=__UNKNOWN__"
+      ],
+      "allzero_training_columns_folds1to9": [
+        "device=__MISSING__",
+        "device=__UNKNOWN__",
+        "nurse=__UNKNOWN__",
+        "site=__UNKNOWN__"
+      ],
+      "allzero_training_columns_folds1to8": [
+        "device=__MISSING__",
+        "device=__UNKNOWN__",
+        "nurse=__UNKNOWN__",
+        "site=__UNKNOWN__"
+      ],
+      "fold10_level_mapping": "for each of device/site/nurse: to_level_string applied to the concatenation [folds 1-9 column, fold-10 column]; the folds 1-9 part must equal the folds 1-9-only level strings (asserted in v0.6); the fold-10 part is remapped with the categories above (same rule as encode_categorical)"
+    },
+    "physio_columns": {
+      "order": [
+        "age_imputed",
+        "age_censored",
+        "sex"
+      ],
+      "age_sentinel": "age == 300 -> age_censored = 1, age_imputed = 90; else age_censored = 0, age_imputed = age",
+      "sex": "raw 0/1",
+      "age_imputed": "standardized with age_scaler"
+    },
+    "meta_dim": {
+      "signal_only": 0,
+      "signal_plus_physio": 3,
+      "signal_plus_all": 83
+    },
+    "head_first_linear_in_features": {
+      "signal_only": 256,
+      "signal_plus_physio": 259,
+      "signal_plus_all": 339
+    },
+    "meta_dim_development_folds1to8": {
+      "signal_only": 0,
+      "signal_plus_physio": 3,
+      "signal_plus_all": 82
+    },
+    "age_scaler": {
+      "fit_on": "age_imputed, folds 1-9 (sklearn StandardScaler, population std)",
+      "mean": 59.8140400999949,
+      "scale": 16.943345119479446,
+      "var": 287.07694383778795,
+      "n_samples_seen": 19601
+    },
+    "lead_normalization": {
+      "fit_on": "v0.4 signal cache, all 19601 folds 1-9 records, sha256 17558f9d09b39b990d7f3a5ca2ea10e1527980288a49a6828c89b7c3df61745a",
+      "procedure": "two-pass float64: pass 1 sums per lead over chunks of 1000 records in cache row order, mean = sum / (n_records * 1000); pass 2 sums squared deviations the same way; std = sqrt(ss / (n_records * 1000)) (population std); applied as (x - mean) / std in float32",
+      "lead_order": [
+        "I",
+        "II",
+        "III",
+        "AVR",
+        "AVL",
+        "AVF",
+        "V1",
+        "V2",
+        "V3",
+        "V4",
+        "V5",
+        "V6"
+      ],
+      "mean": [
+        -0.001667916176076091,
+        -0.001400349250029868,
+        0.00026774308297086317,
+        0.0015151871299122577,
+        -0.0009162438417490271,
+        -0.0005420611824550329,
+        0.00017253189402884406,
+        -0.0009167115577443147,
+        -0.0014979976833024273,
+        -0.0018135529198390352,
+        -0.0007793029883489702,
+        -0.002204078528036869
+      ],
+      "std": [
+        0.1599947879496417,
+        0.16458963393062723,
+        0.16699463504425363,
+        0.1392066260824717,
+        0.14131442154725454,
+        0.14511792059860368,
+        0.2336938605073115,
+        0.3371688913862834,
+        0.33347801649294856,
+        0.30663276207563556,
+        0.2730193592916126,
+        0.2774082434851488
+      ],
+      "comparison_rule_for_v0.8_v0.9": "recomputed values must equal these with atol 1e-12 (as v0.5 did)"
+    },
+    "final_training_steps": {
+      "n_records": 19601,
+      "batch_size": 128,
+      "n_batches_per_epoch": 154,
+      "last_batch_size": 17,
+      "epochs": 50,
+      "onecycle_total_steps": 7700
+    },
+    "development_training_steps": {
+      "n_records": 17418,
+      "n_batches_per_epoch": 137,
+      "onecycle_total_steps": 6850
+    },
+    "untrained_column_weight_shrink": {
+      "development_folds1to8": {
+        "total_steps": 6850,
+        "sum_lr": 34.656095920000006,
+        "shrink_factor_exact": 0.7071065546268486,
+        "shrink_factor_exp_approx": 0.7071157127652574
+      },
+      "final_folds1to9": {
+        "total_steps": 7700,
+        "sum_lr": 38.957107820000004,
+        "shrink_factor_exact": 0.6773374799203207,
+        "shrink_factor_exp_approx": 0.6773473412407827
+      }
+    },
+    "fold9_records_on_untrained_columns_under_folds1to8_encoder": {
+      "device": 0,
+      "site": 2,
+      "nurse": 0
+    },
+    "fold10": {
+      "n_records": 2198,
+      "n_patients": 1904,
+      "patient_disjoint_from_folds1to9": true,
+      "n_unknown_under_folds1to9_encoder": {
+        "device": 0,
+        "site": 0,
+        "nurse": 0,
+        "any": 0
+      },
+      "n_on_untrained_column_under_folds1to9_encoder": {
+        "device": 0,
+        "site": 0,
+        "nurse": 0,
+        "any": 0
+      },
+      "columns_read_in_v0.6": [
+        "ecg_id (index)",
+        "patient_id",
+        "device",
+        "site",
+        "nurse"
+      ]
+    }
+  },
+  "encoder_width_note": "The 256/259/338 widths in dev_protocol.json 'metadata_fusion' describe the folds 1-8 fit used in development (device/site/nurse one-hot widths 13/52/14, signal_plus_all meta_dim 82). The sealed principle 'encoder fit on training folds only' is applied in the final run by refitting on folds 1-9, which gives one-hot widths 13/53/14 (new levels: site: ['049']), meta_dim 0 / 3 / 83 and head first-Linear input widths 256 / 259 / 339 for signal_only / signal_plus_physio / signal_plus_all. Fusion location, raw metadata entry, and everything else in 'metadata_fusion' are unchanged.",
+  "untrained_onehot_columns_note": "One-hot columns that are all-zero in training (__UNKNOWN__, and __MISSING__ where absent in training: folds 1-8 fit ['device=__MISSING__', 'device=__UNKNOWN__', 'nurse=__UNKNOWN__', 'site=__UNKNOWN__']; folds 1-9 fit ['device=__MISSING__', 'device=__UNKNOWN__', 'nurse=__UNKNOWN__', 'site=__UNKNOWN__']) receive zero gradient, but AdamW's decoupled weight decay only shrinks their first-Linear weights multiplicatively: prod over steps of (1 - wd * lr_step) = 0.7071 over 6850 development steps and 0.6773 over 7700 final steps (computed from the actual OneCycle lr schedule with max_lr 0.01). So ~68% of the random initial weight remains: a record mapped to such a column gets a small random input shift in signal_plus_all. Affects fold-9 signal_plus_all results in v0.7 (2 fold-9 records under the folds 1-8 encoder: {'device': 0, 'site': 2, 'nurse': 0}). Under the folds 1-9 encoder, 0 fold-10 records map to such a column (cross-check: expected 0).",
+  "post_fold10_rules": [
+    "1. No model that enters the H3 analysis or any comparison listed in this file is trained after fold 10 is opened.",
+    "2. Any re-execution of v0.9 uses only the saved, sha256-verified v0.8 state_dicts and the saved, sha256-verified fold-10 probability files.",
+    "3. Ablations listed in the project plan that require training (random-split ablation; height/weight sensitivity) are POST-HOC studies: they run under their own version ids, never modify or overwrite any H3 / listed-comparison artifact, and are reported separately from pre-registered results.",
+    "4. The device/site permutation ablation (device + site + nurse one-hot block; specification in exploratory_fold10_comparisons) is done at inference time on the saved v0.8 state_dicts (permutation of metadata input), exploratory."
+  ],
+  "bootstrap": {
+    "data": "fold 10 (2198 records), labels NORM/MI/STTC/CD/HYP derived with the v0.2.1 code",
+    "patients": "patients = np.unique(fold-10 patient_id as int64) (sorted); patient_row_list[i] = array of fold-10 row positions of patients[i], rows in fold-10 file order (ptbxl_database.csv row order); reference_implementation.patient_rows_in_file_order",
+    "index_matrix": "BOOT_IDX is built by N_BOOT sequential calls rng.integers(0, n_patients, size=n_patients) on one Generator(BOOT_SEED=7), row b = call b, exactly as v0.3; a single call with size=(N_BOOT, n_patients) is not used (reference_implementation.build_boot_idx). Each draw: rows = np.concatenate([patient_row_list[i] for i in BOOT_IDX[b]]).",
+    "N_BOOT": 2000,
+    "BOOT_SEED": 7,
+    "n_patients": 1904,
+    "sharing": "BOOT_IDX is generated ONCE and shared by every comparison, every seed and both architectures (fully paired)",
+    "per_draw": "macro-AUROC of each arm = mean over NORM, MI, STTC, CD, HYP of fast_auc (v0.2.1 function) on the drawn rows; delta = arm_B - arm_A (H3: arm_B = signal_plus_all, arm_A = signal_plus_physio)",
+    "nan_rule": "if a class has no positives or no negatives in a draw, that draw's macro delta is NaN; it is excluded (not redrawn) and the count is reported; if > 1% of draws are NaN this is flagged in the report",
+    "point_estimate": "delta on the full fold 10 (not the bootstrap mean)",
+    "ci": "percentile, np.percentile(valid_deltas, q, method='linear'); 95% = [2.5, 97.5], 90% = [5, 95]; no rounding before any comparison",
+    "primary_input": "per-record probabilities averaged (arithmetic mean) over seeds 42, 123, 2024 per arm and per architecture, then macro-AUROC. Per-seed deltas (same BOOT_IDX) are secondary.",
+    "locked_hashes": {
+      "fold10_ids_file_order_sha256": "1196970d92da54ed0e24b47483509b10f66d6bce27b21c852a35ddd83330b228",
+      "fold10_patients_sorted_sha256": "4235648ae1c5de15f3e92b4cf7efbf9639a2241daaded8a325c75d4bd59f11ac",
+      "boot_idx_sha256": "70b771a356d30f1109bb2b44dc177d412d4562238ab9dc02dc4a601651b1c6dd",
+      "perm_idx_sha256": "ab9b45fb96161985864f3a2a0a819ff6a3ba6bcb5e67950b221b1025fbcc3a73",
+      "serialization": "fold10_ids: (n, 2) array [ecg_id, patient_id] in fold-10 file order, cast to '<i8', C-order bytes; fold10_patients: np.unique(patient_id) as '<i8' bytes; boot_idx: BOOT_IDX (2000 x 1904) as '<i8' C-order bytes; perm_idx: PERM_IDX (20 x 2198) as '<i8' C-order bytes",
+      "v0.9_rule": "v0.9 regenerates all four with reference_implementation and asserts equality before any metric"
+    },
+    "deviation_from_v0.3": "v0.3 excluded a NaN class from the macro mean (per-class nan-skip); this protocol excludes the whole draw. In v0.3 (fold 9) no draw was affected (0 invalid replicates).",
+    "implementation_check_in_v0.6": {
+      "fold9_patients": 1942,
+      "n_nan_draws": 0,
+      "max_abs_diff_per_draw_vs_v0.3": 9.974659986866641e-17,
+      "tolerance": 0.0001,
+      "point_delta": 0.00819595333310752,
+      "ci95": [
+        -0.00011587489117776397,
+        0.016753300327342055
+      ],
+      "ci90": [
+        0.0012949891857372998,
+        0.015339306876725932
+      ],
+      "v0.3_ci95_rounded": [
+        -0.0001,
+        0.0168
+      ],
+      "v0.3_ci90_rounded": [
+        0.0013,
+        0.0153
+      ]
+    }
+  },
+  "H3_decision": {
+    "status": "resolution of the overlap between sealed rules a and b; written before fold 10 is opened",
+    "definitions": {
+      "a_holds": "95% CI excludes 0 (lo95 > 0 or hi95 < 0)",
+      "b_holds": "90% CI entirely within the CLOSED interval [-0.01, +0.01] (lo90 >= -0.01 and hi90 <= 0.01)",
+      "material": "95% CI entirely outside [-0.01, +0.01] (lo95 > 0.01 or hi95 < -0.01)",
+      "sign": "'+' if lo95 > 0, '-' if hi95 < 0 (the side of 0 the 95% CI lies on)"
+    },
+    "verdict_table": {
+      "a and b": "statistically detectable, below the materiality threshold",
+      "a and not b, material": "acquisition metadata materially changes performance (sign: +/-)",
+      "a and not b, not material": "acquisition metadata changes performance (sign: +/-); magnitude relative to SESOI undetermined",
+      "not a and b": "no material change",
+      "not a and not b": "inconclusive"
+    },
+    "SESOI_H3": 0.01,
+    "rationale": {
+      "materiality": "materiality uses the 95% CI because H3 is two-sided and a materiality claim is a union over two directions (alpha split 0.025 per side)",
+      "equivalence": "the equivalence condition (b) uses the 90% CI because TOST is an intersection-union test"
+    },
+    "reporting_rule": "the sealed labels a/b/c are always reported verbatim (sealed_H3_protocol_verbatim.decision) next to the verdict, together with a_holds, b_holds, material, the point estimate and both CIs",
+    "implementation": "reference_implementation.h3_verdict (truth table self-tested in v0.6)"
+  },
+  "reporting_order": [
+    "1. Primary verdict: resnet1d_wang, seed-averaged probabilities.",
+    "2. Robustness: inception1d, same procedure, same verdict table.",
+    "3. Secondary: per-seed deltas for both architectures.",
+    "4. Disagreements between architectures or between seed-averaged and per-seed results are reported as they are; none is resolved by selection.",
+    "5. Exploratory results after all of the above."
+  ],
+  "exploratory_fold10_comparisons": {
+    "rule": "closed list; anything else is post-hoc and labelled so",
+    "physio_minus_signal_only": "signal_plus_physio - signal_only: both architectures, seed-averaged probabilities, same BOOT_IDX, point estimate, 95% and 90% percentile CIs; no decision label. Purpose: unbiased estimate of the age/sex effect. (No signal_plus_all - signal_only comparison.)",
+    "per_class_deltas": "per-class deltas (NORM, MI, STTC, CD, HYP) for the H3 pair (signal_plus_all - signal_plus_physio), both architectures, seed-averaged, same BOOT_IDX, point estimate and 95% percentile CI per class (a per-class draw is NaN only if that class is degenerate in the draw); no multiplicity correction, no decision label",
+    "acquisition_permutation": {
+      "what": "signal_plus_all, both architectures; joint permutation of the device + site + nurse one-hot block across fold-10 records (rows of the block are permuted together; age_imputed, age_censored and sex stay fixed); permuted metadata row i = acquisition block of record PERM_IDX[r, i]",
+      "repetitions": "N_PERM = 20 sequential rng.permutation(2198) calls on one default_rng(PERM_SEED = 42) (reference_implementation.build_perm_idx); PERM_IDX hash locked in bootstrap.locked_hashes",
+      "seeds": "in each repetition the SAME permutation is applied to all three seed models; their probabilities are averaged, then macro-AUROC",
+      "report": "mean and range (min, max) over the 20 repetitions of drop = macro-AUROC(unpermuted) - macro-AUROC(permuted); no CI, no decision label",
+      "timing": "inference only, on the saved v0.8 state_dicts (post_fold10_rules 4)"
+    }
+  },
+  "disclosures": [
+    "Fold-10 metadata (device/site/nurse distributions) was examined in the audit stages (details in disclosures_fold10_exposure); v0.6 kept only ecg_id, patient_id, device, site and nurse of the fold-10 rows in a variable (pd.read_csv parsed every column once; the other fold-10 columns were dropped immediately and never used).",
+    "Selected lr 0.01 is the upper edge of the grid for both architectures; lr values differed by at most 0.0023 (resnet) / 0.0045 (inception) on one seed, i.e. within plausible seed noise.",
+    "The models are re-implementations from memory of helme/ecg_ptbxl_benchmarking; they will be compared to the repository before writing, and deviations reported as limitations; the architecture is NOT changed.",
+    "Per-record aggregation is the mean over windows (reference may use max), fixed a priori in dev_protocol.json.",
+    "torch.use_deterministic_algorithms is not enabled."
+  ],
+  "disclosures_fold10_exposure": {
+    "summary": "No metadata-label relationship and no model performance was ever computed on fold 10. Every whole-dataset or per-fold statistic in v0.1.1/v0.1.2 includes fold-10 rows. v0.1 (whose code would have computed superclass prevalence by device/site on the pooled dataset incl. fold 10) was revised into v0.1.1 before it was ever executed (confirmed by the user). v0.2 was never executed on real data; the death experiment ran as v0.2.1 with fold 10 asserted absent.",
+    "fold10_labels": [
+      "marginal superclass counts/prevalence on fold 10 (NORM 963, MI 550, STTC 521, CD 496, HYP 262 of 2198), computed and printed in v0.1.1 and v0.1.2 and stored in both manifests",
+      "v0.1.1_labels.csv and v0.1.2_labels.csv contain per-record superclass labels for all 21799 records incl. fold 10 (with patient_id, strat_fold); never analysed for fold 10. File sha256: v0.1.1 = 236dc3d8d608ca96554b3a974834b00b522a28746e37b3f514d878facf3e437b (from its manifest; asserted in v0.6); v0.1.2 = 236dc3d8d608ca96554b3a974834b00b522a28746e37b3f514d878facf3e437b (computed in v0.6 by sha256_of() on the file bytes only; the file was NOT parsed)",
+      "whole-dataset label statistics: superclass counts (NORM 9514, MI 5469, STTC 5235, CD 4898, HYP 2649), 411 records without superclass, labels-per-record distribution (5144 multi-label), scp_codes likelihood distribution, likelihood>0 sensitivity (127 records; STTC 5235 -> 5108)",
+      "PTB-XL v1.0.2/v1.0.3 changelogs printed in full (public dataset documentation), which list SCP-code changes/consensus labels for a few fold-10 ecg_ids (e.g. 7783)"
+    ],
+    "fold10_metadata_only": [
+      "device / site / nurse x strat_fold crosstabs incl. fold 10, with Cramer's V (v0.1.1, v0.1.2)",
+      "recording_year x strat_fold incl. fold 10, with Cramer's V (v0.1.2)",
+      "validated_by_human x strat_fold (folds 9 and 10: 100% True)",
+      "fold sizes and patient counts (fold 10: 2198 records, 1904 patients); patient-disjointness check over all folds",
+      "unseen-category check: site_049 has 1 fold-10 record (absent in folds 1-8; 2 records in fold 9)"
+    ],
+    "whole_dataset_metadata": [
+      "distributions of device, site, nurse, recording year, sex, age (sentinel 300: 293 records overall vs 259 in folds 1-9), height/weight (missing 68.0% / 56.8%), column missingness, records per patient, metadata-patient entanglement, effective cardinality, device x recording_year"
+    ],
+    "not_computed_on_fold10": "superclass prevalence by device/site and the metadata-label permutation test (v0.1.1 s7.4, v0.1.2 s7.4/7.7) are restricted to folds 1-9; no age/sex statistic by fold; no model output",
+    "rerun_note": "v0.1.2 was re-executed on 2026-10-02 (03:35 local) to supply outputs for this review; identical computations, no new fold-10 quantity; its manifest sha256 is now cfcb071691c25fe7aa5db6b6cb71bce4848dba7ae541de2ca335d51458572c0d",
+    "v0.1.x_file_hashes": {
+      "v0.1.1_labels.csv": "236dc3d8d608ca96554b3a974834b00b522a28746e37b3f514d878facf3e437b",
+      "v0.1.1_manifest.json": "823f1925d6014402dc7053cd39bf7dd434c3131cb68be48868de1604b73fff3b",
+      "v0.1.2_labels.csv": "236dc3d8d608ca96554b3a974834b00b522a28746e37b3f514d878facf3e437b",
+      "v0.1.2_manifest.json": "cfcb071691c25fe7aa5db6b6cb71bce4848dba7ae541de2ca335d51458572c0d",
+      "v0.1.2_manifest_records_labels_sha256": true
+    }
+  },
+  "reference_implementation": {
+    "sha256_of_utf8_code": "48ac837c07880f0bd88a7bd01475e7da3edbeab46019f8288976884ad7662856",
+    "usage": "v0.9 executes this exact string (asserting sha256 of its UTF-8 bytes) and uses its functions for every fold-10 number: fast_auc (v0.2.1, verbatim), patient grouping, BOOT_IDX, PERM_IDX, paired bootstrap, percentile CIs, H3 verdict",
+    "code": "\nimport numpy as np\nfrom scipy.stats import rankdata\n\n\ndef fast_auc(y, s):\n    \"\"\"Binary AUROC via the Mann-Whitney U statistic (average-rank tie handling).\n    Used instead of sklearn.metrics.roc_auc_score for speed inside the bootstrap\n    loop; both compute the identical quantity.\"\"\"\n    y = np.asarray(y)\n    n1 = int(y.sum())\n    n0 = len(y) - n1\n    if n1 == 0 or n0 == 0:\n        return float(\"nan\")\n    ranks = rankdata(np.asarray(s))\n    return float((ranks[y == 1].sum() - n1 * (n1 + 1) / 2.0) / (n1 * n0))\n\n\ndef patient_rows_in_file_order(patient_ids):\n    \"\"\"patient_ids: 1-D integer array, one entry per evaluation record, in file order\n    (ptbxl_database.csv row order). Returns (patients, patient_row_list): patients =\n    np.unique(patient_ids) (sorted); patient_row_list[i] = row positions of patients[i].\"\"\"\n    patient_ids = np.asarray(patient_ids, dtype=np.int64)\n    patients = np.unique(patient_ids)\n    patient_row_list = [np.where(patient_ids == p)[0] for p in patients]\n    return patients, patient_row_list\n\n\ndef build_boot_idx(n_patients, n_boot, boot_seed):\n    \"\"\"N_BOOT sequential calls rng.integers(0, n_patients, size=n_patients) on ONE\n    Generator(boot_seed); row b = call b (exactly as v0.3). A single call with\n    size=(n_boot, n_patients) is NOT used.\"\"\"\n    rng = np.random.default_rng(boot_seed)\n    boot_idx = np.empty((n_boot, n_patients), dtype=np.int64)\n    for b in range(n_boot):\n        boot_idx[b] = rng.integers(0, n_patients, size=n_patients)\n    return boot_idx\n\n\ndef build_perm_idx(n_records, n_perm, perm_seed):\n    \"\"\"n_perm sequential calls rng.permutation(n_records) on ONE Generator(perm_seed).\"\"\"\n    rng = np.random.default_rng(perm_seed)\n    perm_idx = np.empty((n_perm, n_records), dtype=np.int64)\n    for r in range(n_perm):\n        perm_idx[r] = rng.permutation(n_records)\n    return perm_idx\n\n\ndef boot_rows(patient_row_list, idx_row):\n    return np.concatenate([patient_row_list[i] for i in idx_row])\n\n\ndef per_class_auroc(Y, P, rows=None):\n    \"\"\"Y: (n, 5) 0/1 labels, P: (n, 5) probabilities, columns NORM, MI, STTC, CD, HYP.\"\"\"\n    if rows is not None:\n        Y = Y[rows]\n        P = P[rows]\n    return np.array([fast_auc(Y[:, k], P[:, k]) for k in range(Y.shape[1])], dtype=np.float64)\n\n\ndef macro_auroc_strict(Y, P, rows=None):\n    \"\"\"Mean of the 5 per-class AUROCs; NaN if ANY class AUROC is undefined (no positives\n    or no negatives) - the whole draw is then excluded (NOT a per-class nan-skip).\"\"\"\n    per = per_class_auroc(Y, P, rows)\n    if np.isnan(per).any():\n        return float(\"nan\")\n    return float(per.mean())\n\n\ndef paired_bootstrap(Y, P_a, P_b, patient_row_list, boot_idx):\n    \"\"\"Fully paired: both arms are evaluated on the SAME drawn rows. Returns\n    (macro_delta (n_boot,), per_class_delta (n_boot, 5)); delta = arm_B - arm_A.\"\"\"\n    n_boot = boot_idx.shape[0]\n    macro_delta = np.empty(n_boot, dtype=np.float64)\n    class_delta = np.empty((n_boot, Y.shape[1]), dtype=np.float64)\n    for b in range(n_boot):\n        rows = boot_rows(patient_row_list, boot_idx[b])\n        pa = per_class_auroc(Y, P_a, rows)\n        pb = per_class_auroc(Y, P_b, rows)\n        class_delta[b] = pb - pa\n        if np.isnan(pa).any() or np.isnan(pb).any():\n            macro_delta[b] = float(\"nan\")\n        else:\n            macro_delta[b] = float(pb.mean()) - float(pa.mean())\n    return macro_delta, class_delta\n\n\ndef summarize_deltas(point_delta, deltas, nan_flag_fraction=0.01):\n    \"\"\"Percentile CIs over the valid (non-NaN) draws; np.percentile method='linear';\n    no rounding before any comparison.\"\"\"\n    deltas = np.asarray(deltas, dtype=np.float64)\n    valid = deltas[~np.isnan(deltas)]\n    n_nan = int(len(deltas) - len(valid))\n    lo95, hi95 = np.percentile(valid, [2.5, 97.5], method=\"linear\")\n    lo90, hi90 = np.percentile(valid, [5.0, 95.0], method=\"linear\")\n    return {\"point_delta\": float(point_delta), \"lo95\": float(lo95), \"hi95\": float(hi95),\n            \"lo90\": float(lo90), \"hi90\": float(hi90), \"n_valid\": int(len(valid)), \"n_nan\": n_nan,\n            \"nan_fraction\": n_nan / len(deltas), \"nan_flag\": bool(n_nan / len(deltas) > nan_flag_fraction)}\n\n\ndef h3_verdict(lo95, hi95, lo90, hi90, sesoi=0.01):\n    \"\"\"Four-state H3 verdict resolving the overlap of sealed rules a and b.\"\"\"\n    a_holds = bool(lo95 > 0.0 or hi95 < 0.0)\n    b_holds = bool(lo90 >= -sesoi and hi90 <= sesoi)\n    material = bool(lo95 > sesoi or hi95 < -sesoi)\n    sign = \"+\" if lo95 > 0.0 else (\"-\" if hi95 < 0.0 else None)\n    if a_holds and b_holds:\n        verdict = \"statistically detectable, below the materiality threshold\"\n    elif a_holds and material:\n        verdict = \"acquisition metadata materially changes performance (sign: {})\".format(sign)\n    elif a_holds:\n        verdict = (\"acquisition metadata changes performance (sign: {}); magnitude relative to \"\n                   \"SESOI undetermined\".format(sign))\n    elif b_holds:\n        verdict = \"no material change\"\n    else:\n        verdict = \"inconclusive\"\n    sealed_rules_holding = [r for r, h in ((\"a\", a_holds), (\"b\", b_holds)) if h] or [\"c\"]\n    return {\"a_holds\": a_holds, \"b_holds\": b_holds, \"material\": material, \"sign\": sign,\n            \"verdict\": verdict, \"sealed_rules_holding\": sealed_rules_holding}\n"
+  },
+  "documents_to_timestamp": [
+    "D:\\ptbxl-metadata-audit\\preregistration\\pre_registration.json",
+    "D:\\ptbxl-metadata-audit\\preregistration\\dev_protocol.json",
+    "D:\\ptbxl-metadata-audit\\preregistration\\v0.5_training_details.json",
+    "D:\\ptbxl-metadata-audit\\preregistration\\lr_selection.json",
+    "D:\\ptbxl-metadata-audit\\preregistration\\final_run_protocol.json"
+  ],
+  "hashes_note": "every document has two hashes: self_sha256 (canonical JSON without the key) and file sha256 (bytes on disk, what OpenTimestamps stamps). Both are recorded.",
+  "self_sha256_procedure": "Load the JSON file; remove the key 'self_sha256' (the key must be absent, not empty); serialize the remaining dict with json.dumps(d, sort_keys=True, ensure_ascii=False, separators=(',', ':')); compute SHA-256 of the UTF-8 bytes; the hex digest must equal the stored 'self_sha256'. (At write time numpy scalars were converted to plain JSON types first, so the loaded file hashes identically.)",
+  "write_once": true,
+  "self_sha256": "834acddec288862d0418e9ee70204898c9d371788eed7eb362f4c0d63d305c6b"
+}

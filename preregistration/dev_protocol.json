@@ -1,0 +1,45 @@
+{
+  "document": "development protocol for H3 (weeks 4-5)",
+  "timestamp": "2026-10-02T01:09:58.968063+03:30",
+  "code_version": "v0.4",
+  "parent_seal_self_sha256": "5183f54569f3358a5339b16a2c3c3be49f5c7798eabe6b0bb25946119c2ba469",
+  "parent_seal_path": "D:\\ptbxl-metadata-audit\\preregistration\\pre_registration.json",
+  "input_files_sha256": {
+    "ptbxl_database.csv": "7600de9c1b27d181d850b3c6038a35d7c3ddb6bb33b702e3a20252a6859d216b",
+    "scp_statements.csv": "ad05b0b1fcae83bb1230755ad9cfc7c96f303feddc08a4a9ad5bdc9ca63bac8f"
+  },
+  "written_before_any_signal_model_result": true,
+  "training_recipe": {
+    "source": "reference defaults (Strodthoff et al., ecg_ptbxl_benchmarking)",
+    "optimizer": "AdamW",
+    "weight_decay": 0.01,
+    "lr_schedule": "one-cycle",
+    "batch_size": {
+      "resnet1d_wang": 128,
+      "inception1d": 128
+    },
+    "batch_size_source": "Part E benchmark of v0.4 (reference default 128; halved only on OOM)",
+    "train_input": "random 250-sample crops (2.5 s at 100 Hz)",
+    "evaluation": "sliding windows of 250 samples, stride 125 (window starts [0, 125, 250, 375, 500, 625, 750]); per-record probability = mean over windows",
+    "epochs": 50,
+    "epochs_note": "fixed for every development and final run; the one-cycle schedule spans all 50 epochs; no epoch selection, no early stopping, no checkpoint selection",
+    "loss": "BCEWithLogits over 5 superclasses (NORM, MI, STTC, CD, HYP)"
+  },
+  "normalization": "per-lead mean/std from training folds only",
+  "tuning_grid": {
+    "learning_rate": [
+      0.001,
+      0.003,
+      0.01
+    ]
+  },
+  "tuning_note": "learning rate is the only tuned hyperparameter -- nothing else is tuned",
+  "selection_rule": "Only the learning rate is tuned. lr is chosen ONLY by the fold-9 macro-AUROC, computed once at the end of epoch 50, of the signal_plus_physio arm, seed 42, per architecture; the chosen lr is applied IDENTICALLY to signal_only and signal_plus_all. No setting may be chosen, changed, or re-run based on the between-arm delta. The selected lr is recorded in a later write-once file before the final fold 1-9 run.",
+  "pipeline_sanity_gate": "signal_only (resnet1d_wang, selected settings, seed 42) must reach fold-9 macro-AUROC >= 0.90 before any between-arm comparison is computed; if it fails, stop and debug, and report the failure -- do not tune further to pass it.",
+  "metadata_fusion": "location: the metadata vector is concatenated to the network's global-pooled embedding (the 2*nf = 256-dim AdaptiveConcatPool1d [max, avg] output, after that embedding's BatchNorm1d + Dropout(0.25)) and the concatenation is the input of the head's first Linear (256 + meta_dim -> 128), followed by ReLU, BatchNorm1d(128), Dropout(0.5), Linear(128 -> 5); metadata enters RAW (age_imputed standardized with training-fold statistics, all other columns 0/1): no BatchNorm and no dropout is applied to the metadata; identical across arms: backbone, global pooling and the embedding's BatchNorm + Dropout (same seed -> identical initial weights, asserted in v0.4); differs across arms by design: only the input width of the head's first Linear (256 / 259 / 338 for signal_only / signal_plus_physio / signal_plus_all)",
+  "evaluation_aggregation_note": "per-record probability = MEAN over sliding windows, chosen a priori; the reference implementation may use max -- stated deviation, not to be changed after results are seen",
+  "status": "signal_only and all fold-9 comparisons are EXPLORATORY / development; only the week-8 fold-10 analysis is confirmatory.",
+  "self_sha256_procedure": "Load the JSON file; remove the key 'self_sha256' (the key must be absent, not empty); serialize the remaining dict with json.dumps(d, sort_keys=True, ensure_ascii=False, separators=(',', ':')); compute SHA-256 of the UTF-8 bytes; the hex digest must equal the stored 'self_sha256'. (At write time numpy scalars were converted to plain JSON types first, so the loaded file hashes identically.)",
+  "write_once": true,
+  "self_sha256": "c967ac38c8cc9382bf41fdd3785c8bbd730db196e349846b8052d856bbac5fc6"
+}

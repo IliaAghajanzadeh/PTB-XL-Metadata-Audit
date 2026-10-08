@@ -1,0 +1,37 @@
+{
+  "document": "ph1 frozen fold-10 probabilities - written BEFORE any fold-10 metric was computed",
+  "label": "POST-HOC (ph1): not pre-registered; reported separately from pre-registered results",
+  "code_version": "ph1",
+  "code_revision": "r2",
+  "timestamp": "2026-10-05T23:26:08.637335+03:30",
+  "plan_self_sha256": "34effc0fda5cb2b7fda1bce1fc43de0e17aa55f566a0902de75455e33a31c5c0",
+  "statement": "no fold-10 metric has been computed when this file is written",
+  "outputs": {
+    "ph1_fold10_probs.csv": {
+      "sha256": "4519b99c90c6e9e575f12b15819c42ca25cf391c3577760e0a4f3a60ea30f29b",
+      "bytes": 11627253,
+      "n_rows": 79128,
+      "columns": [
+        "ecg_id",
+        "patient_id",
+        "block",
+        "learner",
+        "seed",
+        "p_NORM",
+        "p_MI",
+        "p_STTC",
+        "p_CD",
+        "p_HYP"
+      ]
+    }
+  },
+  "row_order": "block (B0_intercept .. B5_all), learner (LogisticRegression, HistGradientBoosting), seed (42, 123, 2024), fold-10 records in ptbxl_database.csv file order",
+  "n_configurations": 36,
+  "training_rows": "folds 1-9 (19601 records)",
+  "fold10_lock_hashes": {
+    "fold10_ids_file_order_sha256": "1196970d92da54ed0e24b47483509b10f66d6bce27b21c852a35ddd83330b228",
+    "fold10_patients_sorted_sha256": "4235648ae1c5de15f3e92b4cf7efbf9639a2241daaded8a325c75d4bd59f11ac",
+    "boot_idx_sha256": "70b771a356d30f1109bb2b44dc177d412d4562238ab9dc02dc4a601651b1c6dd"
+  },
+  "self_sha256": "a3183532cfb48ada58e299ce77df2484df59c3e607181d9c5012f59acb7d8fff"
+}

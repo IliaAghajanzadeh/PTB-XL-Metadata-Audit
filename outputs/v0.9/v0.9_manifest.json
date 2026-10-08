@@ -1,0 +1,967 @@
+{
+  "code_version": "v0.9",
+  "code_revision": "r1",
+  "state_at_start": "fresh",
+  "run_started": "2026-10-04T17:12:07.547310+03:30",
+  "run_finished": "2026-10-04T17:19:14.741118+03:30",
+  "versions": {
+    "python": "3.10.20",
+    "numpy": "1.26.4",
+    "pandas": "2.3.3",
+    "scipy": "1.15.3",
+    "sklearn": "1.7.2",
+    "torch": "2.7.1+cu118",
+    "torch_cuda": "11.8",
+    "os": "Windows-10-10.0.19045-SP0"
+  },
+  "wfdb": "4.3.1",
+  "gpu": "NVIDIA GeForce RTX 3050 6GB Laptop GPU",
+  "cudnn": 90100,
+  "parent_documents": {
+    "pre_registration": {
+      "self_sha256": "5183f54569f3358a5339b16a2c3c3be49f5c7798eabe6b0bb25946119c2ba469",
+      "file_sha256": "11dd446272654fc80d65b2fdd40259fa674bbb419a44fde84e589b6e297cde32"
+    },
+    "dev_protocol": {
+      "self_sha256": "c967ac38c8cc9382bf41fdd3785c8bbd730db196e349846b8052d856bbac5fc6",
+      "file_sha256": "babf101c1d69b322daef6907175fdc4c17b5a53755a68f13a998eefa0148dc2d"
+    },
+    "training_details": {
+      "self_sha256": "c12c33a2f649984fb1b70a46445823c46b57d1b024d87655e16661789f04b46f",
+      "file_sha256": "6480c191aeaed9ff1e6b1da5caa0c1e46908d453d30106a32beb7cf83678be11"
+    },
+    "lr_selection": {
+      "self_sha256": "c70cbfa65e0ab75321dfef9c64714a64705c60a967685d79a878a1d40450749d",
+      "file_sha256": "358d783b37bba6fcf61237a43817c1fd8594fe192f8ecdfca2c25b871a21415b"
+    },
+    "final_run_protocol": {
+      "self_sha256": "834acddec288862d0418e9ee70204898c9d371788eed7eb362f4c0d63d305c6b",
+      "file_sha256": "e1a5260e72d2e8b0d27dc709639468b7f9a48a7c8e2f8af2d663e105dbd329d4"
+    }
+  },
+  "ots_files": {
+    "pre_registration.json.ots": {
+      "sha256": "bb0c254734c52588bdfa5d4c1c4fa574eaa860f628c3f5c6b5402502acfba428",
+      "bytes": 516
+    },
+    "dev_protocol.json.ots": {
+      "sha256": "70c0ddb918108467cea97bddea0893ffa879aeeece8c941ea4fbdb46343a7a98",
+      "bytes": 516
+    },
+    "v0.5_training_details.json.ots": {
+      "sha256": "497b7246a751a2d555aaee23f7c1b3ccf93b215893e13b3da82b7efdd59526d5",
+      "bytes": 446
+    },
+    "lr_selection.json.ots": {
+      "sha256": "7819486a0d2afe5cec2351fd71012d5c30512b6cf23c70acf4ae447419fa2463",
+      "bytes": 481
+    },
+    "final_run_protocol.json.ots": {
+      "sha256": "585ea85d2d99dcb8c5060303def8dd8c20a5e72fa7f7df74b7d61fe66905719b",
+      "bytes": 656
+    }
+  },
+  "ots_note": "Bitcoin attestation of all five .ots files confirmed by the user on 2026-10-02 (not re-verified from Python)",
+  "v0.8_manifest_ots": {
+    "sha256": "8312c563a8abed128fc5117ebc9fe7c1043a7afeb091c57147d36be80c070aca",
+    "bytes": 411,
+    "note": "recorded only; not compared with a constant ('ots upgrade' changes the file)"
+  },
+  "earlier_manifests_sha256": {
+    "v0.3_manifest.json (from final_run_protocol, not opened)": "c7e1bec283d11a3d4cd94a3f2509640651e8069d26424cfd14b5d6b975053e35",
+    "v0.4_manifest.json": "3781f90c4cf5a85ea612efabb1fd81cc61b77cbeb38a54cc644c10c66afe1d9b",
+    "v0.5_manifest.json": "59968bfb50d8c919de0e8004ef878a44a115560de438b7e74582877495e95f87",
+    "v0.6_manifest.json": "2cb7a1b023e03aad85bb11150ad38e203624300170bc0fa197014c727758c61a",
+    "v0.7_manifest.json": "b443264cb1096ebd35dec5340f27e31d2a4f09795165f1aaca27070c673c2dc6",
+    "v0.8_manifest.json": "9725a0ee502784ffc267b1021ec3cb427966708205db9a09ce7e8c1fc8f30415"
+  },
+  "input_files_sha256": {
+    "ptbxl_database.csv": "7600de9c1b27d181d850b3c6038a35d7c3ddb6bb33b702e3a20252a6859d216b",
+    "scp_statements.csv": "ad05b0b1fcae83bb1230755ad9cfc7c96f303feddc08a4a9ad5bdc9ca63bac8f"
+  },
+  "v0.4_signal_cache_sha256": {
+    "v0.4_signals_folds1to9_100hz.npy": "17558f9d09b39b990d7f3a5ca2ea10e1527980288a49a6828c89b7c3df61745a",
+    "v0.4_signals_index.csv": "06b49ecdafc6a74c9bdbcfa0177bb357eb845ece187b40e3a777496a8cf72203",
+    "v0.4_lead_norm_params.csv": "07fb6d6dc8f0f1e2379fdd45b6462f1102518621eb242ba585fb8600acff35aa"
+  },
+  "reference_implementation_sha256": "48ac837c07880f0bd88a7bd01475e7da3edbeab46019f8288976884ad7662856",
+  "v0.8_state_dict_sha256": {
+    "resnet1d_wang_signal_only_seed42": "8ba7cc6deb15a254a5ff2ab23e67145885889028afd1c81a0e916ac4372075e9",
+    "resnet1d_wang_signal_plus_physio_seed42": "7e6982058018af1362a187aa5efc24468bef80af2496850773fb88cc46543f26",
+    "resnet1d_wang_signal_plus_all_seed42": "4945be6dfb618d479861d30dcd1d64c73b933d1d4934e65683f422321315f56c",
+    "resnet1d_wang_signal_only_seed123": "dacd5a8a76df032862460c868501a8d67dc1843d0a5ad2d9e60768561f2fe274",
+    "resnet1d_wang_signal_plus_physio_seed123": "5d66fcac2f248896f1e462a5505fc8b81e5c142efa1712a9c29d77f1540eec36",
+    "resnet1d_wang_signal_plus_all_seed123": "baec2698937bf9dfd5a5c4c76507314221a600ef361e7654dc21a4e4eb221266",
+    "resnet1d_wang_signal_only_seed2024": "2a7ba4b0b821564b5a693abf01238e015eea3e3d111e2f53613c14a8972687f8",
+    "resnet1d_wang_signal_plus_physio_seed2024": "ab09eae795c0d87e2a77e68adf850bdac302f562b008776007ed00ea03cba456",
+    "resnet1d_wang_signal_plus_all_seed2024": "407f844f779aab4eca0f35f76f6d993eb9cc6e7f5c17ef6b4b47a82e9322465b",
+    "inception1d_signal_only_seed42": "aa535a50f26a56b40dc82f894a24deed5efdc92415951a2099eef3d46d5406b4",
+    "inception1d_signal_plus_physio_seed42": "b9fa59bcf4d92cc445e1faf8990493341a87e024a95734db7d6f17cf7a2fe7a2",
+    "inception1d_signal_plus_all_seed42": "426bb8ab09d1bf4536c5bd7b63b53f573a9b758c3019012e1d05ce5738ddcbf2",
+    "inception1d_signal_only_seed123": "d96d99a55c5c89820802c17a63ae300322c944f09677ad2255299fcccae95a73",
+    "inception1d_signal_plus_physio_seed123": "d7a1004b1a434d80935d2b3232bd5ef02cb68f8513fc50bf6345fdf652a662c8",
+    "inception1d_signal_plus_all_seed123": "df8de596cc427d0693882687c264a0902d8f997b41296c927b5ff652675ddc2d",
+    "inception1d_signal_only_seed2024": "6cac376233ba008fdec39d6cc8f34b6f6412cec81180d13ccab948fcffee3837",
+    "inception1d_signal_plus_physio_seed2024": "8822b07d8bb93e46e382bcfdcea1141ce0eda96c848d7da997df9f0e75b6d6fb",
+    "inception1d_signal_plus_all_seed2024": "3996779e36ea78e90cc8a5939335de55f6ee96493bccc7053652fa69b38e3c0f"
+  },
+  "prereg_snapshot": [
+    [
+      "dev_protocol.json",
+      "babf101c1d69b322daef6907175fdc4c17b5a53755a68f13a998eefa0148dc2d"
+    ],
+    [
+      "dev_protocol.json.ots",
+      "70c0ddb918108467cea97bddea0893ffa879aeeece8c941ea4fbdb46343a7a98"
+    ],
+    [
+      "final_run_protocol.json",
+      "e1a5260e72d2e8b0d27dc709639468b7f9a48a7c8e2f8af2d663e105dbd329d4"
+    ],
+    [
+      "final_run_protocol.json.ots",
+      "585ea85d2d99dcb8c5060303def8dd8c20a5e72fa7f7df74b7d61fe66905719b"
+    ],
+    [
+      "lr_selection.json",
+      "358d783b37bba6fcf61237a43817c1fd8594fe192f8ecdfca2c25b871a21415b"
+    ],
+    [
+      "lr_selection.json.ots",
+      "7819486a0d2afe5cec2351fd71012d5c30512b6cf23c70acf4ae447419fa2463"
+    ],
+    [
+      "pre_registration.json",
+      "11dd446272654fc80d65b2fdd40259fa674bbb419a44fde84e589b6e297cde32"
+    ],
+    [
+      "pre_registration.json.ots",
+      "bb0c254734c52588bdfa5d4c1c4fa574eaa860f628c3f5c6b5402502acfba428"
+    ],
+    [
+      "v0.5_training_details.json",
+      "6480c191aeaed9ff1e6b1da5caa0c1e46908d453d30106a32beb7cf83678be11"
+    ],
+    [
+      "v0.5_training_details.json.ots",
+      "497b7246a751a2d555aaee23f7c1b3ccf93b215893e13b3da82b7efdd59526d5"
+    ]
+  ],
+  "outputs_v0.8_snapshot": [
+    [
+      "v0.8_attempt_log.jsonl",
+      "76d04c6c94ae4b9837d02fb4803ebb8e3001cd8d08647da9cf064e6cfcf10ad7"
+    ],
+    [
+      "v0.8_inception1d_signal_only_seed123_lr0.01_state_dict.pt",
+      "d96d99a55c5c89820802c17a63ae300322c944f09677ad2255299fcccae95a73"
+    ],
+    [
+      "v0.8_inception1d_signal_only_seed123_lr0.01_train_loss.csv",
+      "96ec2956240c0a6f59b91295123f21817edfd69c63d7fd5d8ea8ec5d0eb421c9"
+    ],
+    [
+      "v0.8_inception1d_signal_only_seed2024_lr0.01_state_dict.pt",
+      "6cac376233ba008fdec39d6cc8f34b6f6412cec81180d13ccab948fcffee3837"
+    ],
+    [
+      "v0.8_inception1d_signal_only_seed2024_lr0.01_train_loss.csv",
+      "7e1b3ed697135f4cde1418e1b7d042ac337b400adce89a3f683025627c761676"
+    ],
+    [
+      "v0.8_inception1d_signal_only_seed42_lr0.01_state_dict.pt",
+      "aa535a50f26a56b40dc82f894a24deed5efdc92415951a2099eef3d46d5406b4"
+    ],
+    [
+      "v0.8_inception1d_signal_only_seed42_lr0.01_train_loss.csv",
+      "b2392d899e7b0115558e15496daafb36f48b99a6f4d5e295e3491153fb33e0f3"
+    ],
+    [
+      "v0.8_inception1d_signal_plus_all_seed123_lr0.01_state_dict.pt",
+      "df8de596cc427d0693882687c264a0902d8f997b41296c927b5ff652675ddc2d"
+    ],
+    [
+      "v0.8_inception1d_signal_plus_all_seed123_lr0.01_train_loss.csv",
+      "c1ec60a9b12e33b6534067763ba1f68a88c2de635d38c71eed3007facc5c4c48"
+    ],
+    [
+      "v0.8_inception1d_signal_plus_all_seed2024_lr0.01_state_dict.pt",
+      "3996779e36ea78e90cc8a5939335de55f6ee96493bccc7053652fa69b38e3c0f"
+    ],
+    [
+      "v0.8_inception1d_signal_plus_all_seed2024_lr0.01_train_loss.csv",
+      "07d1233160f570163b8a374fe067b2bc8e787db9b9fe858818b505f50993e084"
+    ],
+    [
+      "v0.8_inception1d_signal_plus_all_seed42_lr0.01_state_dict.pt",
+      "426bb8ab09d1bf4536c5bd7b63b53f573a9b758c3019012e1d05ce5738ddcbf2"
+    ],
+    [
+      "v0.8_inception1d_signal_plus_all_seed42_lr0.01_train_loss.csv",
+      "697f8152e996ab9199d1828d52629883c7d0226b61869ca8f773166be9fabf9b"
+    ],
+    [
+      "v0.8_inception1d_signal_plus_physio_seed123_lr0.01_state_dict.pt",
+      "d7a1004b1a434d80935d2b3232bd5ef02cb68f8513fc50bf6345fdf652a662c8"
+    ],
+    [
+      "v0.8_inception1d_signal_plus_physio_seed123_lr0.01_train_loss.csv",
+      "ae3e23879943d86b09b3ace4c6945e439dae60ff8578370d4e847dc63b51c72b"
+    ],
+    [
+      "v0.8_inception1d_signal_plus_physio_seed2024_lr0.01_state_dict.pt",
+      "8822b07d8bb93e46e382bcfdcea1141ce0eda96c848d7da997df9f0e75b6d6fb"
+    ],
+    [
+      "v0.8_inception1d_signal_plus_physio_seed2024_lr0.01_train_loss.csv",
+      "34387a4e441e703abc7362ef40f6e640f998ca52fd6b0d216d26dad5a88a91a2"
+    ],
+    [
+      "v0.8_inception1d_signal_plus_physio_seed42_lr0.01_state_dict.pt",
+      "b9fa59bcf4d92cc445e1faf8990493341a87e024a95734db7d6f17cf7a2fe7a2"
+    ],
+    [
+      "v0.8_inception1d_signal_plus_physio_seed42_lr0.01_train_loss.csv",
+      "a6817d8cdac80a911a0e239310351fb2ad1571a18f33d42d88949d6df1f7bd29"
+    ],
+    [
+      "v0.8_manifest.json",
+      "9725a0ee502784ffc267b1021ec3cb427966708205db9a09ce7e8c1fc8f30415"
+    ],
+    [
+      "v0.8_manifest.json.ots",
+      "8312c563a8abed128fc5117ebc9fe7c1043a7afeb091c57147d36be80c070aca"
+    ],
+    [
+      "v0.8_preflight_init_hashes.csv",
+      "8e3f770d867b83230afc76b6ef869dcc361957d664bda5008a3658a3f8e69868"
+    ],
+    [
+      "v0.8_resnet1d_wang_signal_only_seed123_lr0.01_state_dict.pt",
+      "dacd5a8a76df032862460c868501a8d67dc1843d0a5ad2d9e60768561f2fe274"
+    ],
+    [
+      "v0.8_resnet1d_wang_signal_only_seed123_lr0.01_train_loss.csv",
+      "674815e647f178a7fb22fb5b2aaa18db9f23d99c475d95827434b00cbe3a903d"
+    ],
+    [
+      "v0.8_resnet1d_wang_signal_only_seed2024_lr0.01_state_dict.pt",
+      "2a7ba4b0b821564b5a693abf01238e015eea3e3d111e2f53613c14a8972687f8"
+    ],
+    [
+      "v0.8_resnet1d_wang_signal_only_seed2024_lr0.01_train_loss.csv",
+      "59b31dd34052cbc98e79161f1d2ca3e3c51c00b979daa584f87bb48e12646dfc"
+    ],
+    [
+      "v0.8_resnet1d_wang_signal_only_seed42_lr0.01_state_dict.pt",
+      "8ba7cc6deb15a254a5ff2ab23e67145885889028afd1c81a0e916ac4372075e9"
+    ],
+    [
+      "v0.8_resnet1d_wang_signal_only_seed42_lr0.01_train_loss.csv",
+      "bea0c08971a91312c05515da28d84cebbf43f8fd5c3db47649af4925e2c36cc8"
+    ],
+    [
+      "v0.8_resnet1d_wang_signal_plus_all_seed123_lr0.01_state_dict.pt",
+      "baec2698937bf9dfd5a5c4c76507314221a600ef361e7654dc21a4e4eb221266"
+    ],
+    [
+      "v0.8_resnet1d_wang_signal_plus_all_seed123_lr0.01_train_loss.csv",
+      "9b2cc7be9645461c6f64e71358cd0466e925cf9a531a503778ee46bda28f3976"
+    ],
+    [
+      "v0.8_resnet1d_wang_signal_plus_all_seed2024_lr0.01_state_dict.pt",
+      "407f844f779aab4eca0f35f76f6d993eb9cc6e7f5c17ef6b4b47a82e9322465b"
+    ],
+    [
+      "v0.8_resnet1d_wang_signal_plus_all_seed2024_lr0.01_train_loss.csv",
+      "b4f9542e8e035e3032e4eeb1d8547600dd6cc6f1587758cd3aa12f6ae7a1d464"
+    ],
+    [
+      "v0.8_resnet1d_wang_signal_plus_all_seed42_lr0.01_state_dict.pt",
+      "4945be6dfb618d479861d30dcd1d64c73b933d1d4934e65683f422321315f56c"
+    ],
+    [
+      "v0.8_resnet1d_wang_signal_plus_all_seed42_lr0.01_train_loss.csv",
+      "7fa16c3743d3af84ad588d716d7abf278f6299b72e829366a890e69c393537a1"
+    ],
+    [
+      "v0.8_resnet1d_wang_signal_plus_physio_seed123_lr0.01_state_dict.pt",
+      "5d66fcac2f248896f1e462a5505fc8b81e5c142efa1712a9c29d77f1540eec36"
+    ],
+    [
+      "v0.8_resnet1d_wang_signal_plus_physio_seed123_lr0.01_train_loss.csv",
+      "d96450630cec57c532d9c1ed7dce89632981324fa4d0ebcf7193530de7edbd74"
+    ],
+    [
+      "v0.8_resnet1d_wang_signal_plus_physio_seed2024_lr0.01_state_dict.pt",
+      "ab09eae795c0d87e2a77e68adf850bdac302f562b008776007ed00ea03cba456"
+    ],
+    [
+      "v0.8_resnet1d_wang_signal_plus_physio_seed2024_lr0.01_train_loss.csv",
+      "e4d82ab8b7bdefd8c61c642bc99987ac4991efec5e60d4eabc0252f1184b817d"
+    ],
+    [
+      "v0.8_resnet1d_wang_signal_plus_physio_seed42_lr0.01_state_dict.pt",
+      "7e6982058018af1362a187aa5efc24468bef80af2496850773fb88cc46543f26"
+    ],
+    [
+      "v0.8_resnet1d_wang_signal_plus_physio_seed42_lr0.01_train_loss.csv",
+      "67313c2a033d2b5b6854cd0e6ca13f7c6a9cb79e19dc055441077318f5fdfa88"
+    ],
+    [
+      "v0.8_training_summary.csv",
+      "f7fff4b790be11b144e2e50a72d819c40cfba1427fa3e61ffd9b38495bac456f"
+    ]
+  ],
+  "fold10_access": "fold-10 access: before FREEZE, pd.read_csv parsed ptbxl_database.csv once with usecols=['ecg_id', 'patient_id', 'age', 'sex', 'device', 'site', 'nurse', 'filename_lr', 'strat_fold'] (the CSV tokenizer scans every byte of a row, but only these columns are converted and stored; no scp_codes, report or other diagnostic column enters memory); of the 2198 fold-10 rows, ecg_id (index), patient_id, age, sex, device, site, nurse, filename_lr were copied into fold10_meta (strat_fold used only as the row filter) and the unrestricted frame was deleted. Fold-10 signals are read in Part B; fold-10 labels are first read in Part C, after the freeze file exists and verifies.",
+  "locked_quantity_checks": {
+    "categorical_encoder": {
+      "categories_equal_frp": true,
+      "widths": {
+        "device": 13,
+        "site": 53,
+        "nurse": 14
+      },
+      "new_levels_vs_folds1to8": {
+        "device": [],
+        "site": [
+          "049"
+        ],
+        "nurse": []
+      },
+      "signal_plus_all_column_order_equal_frp": true,
+      "allzero_training_columns_folds1to9": [
+        "device=__MISSING__",
+        "device=__UNKNOWN__",
+        "nurse=__UNKNOWN__",
+        "site=__UNKNOWN__"
+      ]
+    },
+    "meta_dim": {
+      "signal_only": 0,
+      "signal_plus_physio": 3,
+      "signal_plus_all": 83
+    },
+    "head_first_linear_in_features": {
+      "signal_only": 256,
+      "signal_plus_physio": 259,
+      "signal_plus_all": 339
+    },
+    "age_scaler": {
+      "mean": 59.8140400999949,
+      "scale": 16.943345119479446,
+      "var": 287.07694383778795,
+      "n_samples_seen": 19601,
+      "max_abs_diff_vs_frp": {
+        "mean": 0.0,
+        "scale": 0.0,
+        "var": 0.0
+      },
+      "tolerances": {
+        "mean": 1e-12,
+        "scale": 1e-12,
+        "var": 1e-09
+      }
+    },
+    "lead_normalization": {
+      "max_abs_diff_vs_frp": {
+        "mean": 0.0,
+        "std": 0.0
+      },
+      "atol": 1e-12,
+      "values_used": "FRP locked_quantities.lead_normalization (float64 -> float32)"
+    },
+    "age_sentinel_count_folds1to9": 259,
+    "fold10_rows_in_source_csv": 2198
+  },
+  "lock_hashes": {
+    "fold10_ids_file_order_sha256": "1196970d92da54ed0e24b47483509b10f66d6bce27b21c852a35ddd83330b228",
+    "fold10_patients_sorted_sha256": "4235648ae1c5de15f3e92b4cf7efbf9639a2241daaded8a325c75d4bd59f11ac",
+    "boot_idx_sha256": "70b771a356d30f1109bb2b44dc177d412d4562238ab9dc02dc4a601651b1c6dd",
+    "perm_idx_sha256": "ab9b45fb96161985864f3a2a0a819ff6a3ba6bcb5e67950b221b1025fbcc3a73"
+  },
+  "pre_opening_validation": {
+    "A1_reader": {
+      "n_records": 19601,
+      "chunk": 1000,
+      "n_chunks": 20,
+      "bitwise_equal_to_v0.4_cache": true,
+      "lead_order": [
+        "I",
+        "II",
+        "III",
+        "AVR",
+        "AVL",
+        "AVF",
+        "V1",
+        "V2",
+        "V3",
+        "V4",
+        "V5",
+        "V6"
+      ],
+      "fs": 100,
+      "seconds": 83.1
+    },
+    "A2_inference": [
+      {
+        "arch": "resnet1d_wang",
+        "arm": "signal_only",
+        "seed": 42,
+        "source": "v0.5",
+        "max_abs_diff": 1.1102230246251565e-16,
+        "tolerance": 1e-05,
+        "state_dict_sha256": "4e7504ecfaebb62eca9723e62171d1c7cc1b44cab94d7c8aa46150d0d5d02a64",
+        "probs_sha256": "ca886d3b45d837ca7ca6c1a93f2540e6188d5b2b1265db6090b63aea20885da0"
+      },
+      {
+        "arch": "resnet1d_wang",
+        "arm": "signal_only",
+        "seed": 123,
+        "source": "v0.7",
+        "max_abs_diff": 1.1102230246251565e-16,
+        "tolerance": 1e-05,
+        "state_dict_sha256": "ec28c2c68300179d9be83340e85609cfee4cc8d82f6de45fb903d940018c4907",
+        "probs_sha256": "7f3f2277d69d7f9934c420b720ccf12a9c925c1e8357de794f157f5770d10fc5"
+      },
+      {
+        "arch": "resnet1d_wang",
+        "arm": "signal_only",
+        "seed": 2024,
+        "source": "v0.7",
+        "max_abs_diff": 1.1102230246251565e-16,
+        "tolerance": 1e-05,
+        "state_dict_sha256": "550ffe2222ad4e60459a493e669b60f8ed2de0c82ffbc554a6f18c0bbb122a8c",
+        "probs_sha256": "3eeb64f51f99e5ba857e9af4356a787cdaa3038d9f75b69805120bdb7464cc1d"
+      },
+      {
+        "arch": "resnet1d_wang",
+        "arm": "signal_plus_physio",
+        "seed": 42,
+        "source": "v0.5",
+        "max_abs_diff": 1.1102230246251565e-16,
+        "tolerance": 1e-05,
+        "state_dict_sha256": "61582d68eee3ccda6e742883d0daa1ec3272acdec92c763173551bdaadc398f0",
+        "probs_sha256": "0191f0aa0a0b2d00113da706843213fd8b622a18d679693c745676a204ad6f32"
+      },
+      {
+        "arch": "resnet1d_wang",
+        "arm": "signal_plus_physio",
+        "seed": 123,
+        "source": "v0.7",
+        "max_abs_diff": 1.1102230246251565e-16,
+        "tolerance": 1e-05,
+        "state_dict_sha256": "8b74ae39b743555e95d2ef56a352a2538accec3035a30e32a28648ec377d2188",
+        "probs_sha256": "d5ddef406d74f938813d59bc3b06d65cf72f5e034b3475de6c7f74e0503f6219"
+      },
+      {
+        "arch": "resnet1d_wang",
+        "arm": "signal_plus_physio",
+        "seed": 2024,
+        "source": "v0.7",
+        "max_abs_diff": 1.1102230246251565e-16,
+        "tolerance": 1e-05,
+        "state_dict_sha256": "9de499d14500291fad06631db88b70dfaa4a3a7b2301bf309050af46b50a8823",
+        "probs_sha256": "81bfc9514716e25809055ad4b748bf272c9e9f83ca9ee3c0d34cd6ece39c7e23"
+      },
+      {
+        "arch": "resnet1d_wang",
+        "arm": "signal_plus_all",
+        "seed": 42,
+        "source": "v0.7",
+        "max_abs_diff": 1.1102230246251565e-16,
+        "tolerance": 1e-05,
+        "state_dict_sha256": "827adf4337973b8b21bdff03c906bb07d70b03afed1b412623bcfa5401555afc",
+        "probs_sha256": "87fdedb5c3264f72665298841003e2d29d93543add859bbd5126728e2b4efd85"
+      },
+      {
+        "arch": "resnet1d_wang",
+        "arm": "signal_plus_all",
+        "seed": 123,
+        "source": "v0.7",
+        "max_abs_diff": 1.1102230246251565e-16,
+        "tolerance": 1e-05,
+        "state_dict_sha256": "7b01f95225bc3435ffd84f6e64e21274d7a67364168e6590c1a8564709cf5616",
+        "probs_sha256": "e61dc25b425e47e38e353ebdf89222c3243ada98888a011c102947cc6b9b5cca"
+      },
+      {
+        "arch": "resnet1d_wang",
+        "arm": "signal_plus_all",
+        "seed": 2024,
+        "source": "v0.7",
+        "max_abs_diff": 1.1102230246251565e-16,
+        "tolerance": 1e-05,
+        "state_dict_sha256": "5e9726053c3f1f9cbaff733f8ecf0bc9c82efa5296cb8527b783acaa4019adf6",
+        "probs_sha256": "bb36f8cb71db1e529b4a056e9df7fb2af547f666db15709c73b8d60ef24b5ea2"
+      },
+      {
+        "arch": "inception1d",
+        "arm": "signal_only",
+        "seed": 42,
+        "source": "v0.7",
+        "max_abs_diff": 1.1102230246251565e-16,
+        "tolerance": 1e-05,
+        "state_dict_sha256": "8e5a929de0486b6fec1dca2361926181b67c40a856678fe6fd7faa2f2cbf74e6",
+        "probs_sha256": "e0a8f4ccdd645b034826133b80c0b036194451c1becfbfbb4e3a5fbdf96eb007"
+      },
+      {
+        "arch": "inception1d",
+        "arm": "signal_only",
+        "seed": 123,
+        "source": "v0.7",
+        "max_abs_diff": 1.1102230246251565e-16,
+        "tolerance": 1e-05,
+        "state_dict_sha256": "8bc5b57b7d3b1aeb443c1a58362a22c9425b3d1970f77f6c771b80d1815ca8bc",
+        "probs_sha256": "283e8c8167fb82540706c1d3167a81a3ba81d390c1a602466785a5ea2851314c"
+      },
+      {
+        "arch": "inception1d",
+        "arm": "signal_only",
+        "seed": 2024,
+        "source": "v0.7",
+        "max_abs_diff": 1.1102230246251565e-16,
+        "tolerance": 1e-05,
+        "state_dict_sha256": "d517acf0c43a22f657c458e96c5cd4b2d19d1e00e537a74caabc113460eb4719",
+        "probs_sha256": "9b21ed2a5476329c26ee74304f5aa241d4394ab07110d4f823063ec91b736047"
+      },
+      {
+        "arch": "inception1d",
+        "arm": "signal_plus_physio",
+        "seed": 42,
+        "source": "v0.5",
+        "max_abs_diff": 1.1102230246251565e-16,
+        "tolerance": 1e-05,
+        "state_dict_sha256": "d198d219cbf0b2167079dd9785d6e3c3dfe6e58f0452c1642c9e0fb4b80c2438",
+        "probs_sha256": "5d9573e2fee1486147a2ef73a8cc206abf1a2c8cdaf9a3a65a4b8791afb1e517"
+      },
+      {
+        "arch": "inception1d",
+        "arm": "signal_plus_physio",
+        "seed": 123,
+        "source": "v0.7",
+        "max_abs_diff": 1.1102230246251565e-16,
+        "tolerance": 1e-05,
+        "state_dict_sha256": "b930b2bbefd839ae7f0b9daf4cfa0364016b3511092fa95936be8a311b289295",
+        "probs_sha256": "65b50c778d06d8b4e179c5568c4b8f0713819e6ffa9cfb2351796f6b979109da"
+      },
+      {
+        "arch": "inception1d",
+        "arm": "signal_plus_physio",
+        "seed": 2024,
+        "source": "v0.7",
+        "max_abs_diff": 1.1102230246251565e-16,
+        "tolerance": 1e-05,
+        "state_dict_sha256": "0b56de62bcc82999640600eacf7437354abf23196bb39e2250170d66a7668aab",
+        "probs_sha256": "b0b881eebe61950ce924c5a102a288b68b28b185963ae1fc5eb217425d48e2a1"
+      },
+      {
+        "arch": "inception1d",
+        "arm": "signal_plus_all",
+        "seed": 42,
+        "source": "v0.7",
+        "max_abs_diff": 1.1102230246251565e-16,
+        "tolerance": 1e-05,
+        "state_dict_sha256": "273045faddbee59b5d454705879f1bdf15d5d5e9891f688cb47c21eb37aae5c3",
+        "probs_sha256": "4cd6f2ccf2d25856e9a8da09a1db164e70c2b4f6b5fb7e95fa2a3cd6fa270943"
+      },
+      {
+        "arch": "inception1d",
+        "arm": "signal_plus_all",
+        "seed": 123,
+        "source": "v0.7",
+        "max_abs_diff": 1.1102230246251565e-16,
+        "tolerance": 1e-05,
+        "state_dict_sha256": "cfa19d0fb5e0bfc867d7e60b4617a86bbdc3bfd5e0ba321e940064785d91b04f",
+        "probs_sha256": "c353689a6be9970962776b36226d8d155458a846b6e922c7045fb671d0da5554"
+      },
+      {
+        "arch": "inception1d",
+        "arm": "signal_plus_all",
+        "seed": 2024,
+        "source": "v0.7",
+        "max_abs_diff": 1.1102230246251565e-16,
+        "tolerance": 1e-05,
+        "state_dict_sha256": "441844312dc4e1a23695f161285541f3807a289303728ca0806860f3fec5e994",
+        "probs_sha256": "f57352391a0fe11c7263c1b6145ae67dd4daa1fefc55d6b112b53e80a77b7fd7"
+      }
+    ],
+    "A3_metadata_encoding": {
+      "n_onehot_columns": 79,
+      "dummies_equal": true,
+      "meta18_fold9_equal": true,
+      "n_fold9_rows": 2183
+    },
+    "A4_final_models_load": [
+      {
+        "arch": "resnet1d_wang",
+        "arm": "signal_only",
+        "seed": 42,
+        "in_features": 256,
+        "state_dict_sha256": "8ba7cc6deb15a254a5ff2ab23e67145885889028afd1c81a0e916ac4372075e9"
+      },
+      {
+        "arch": "resnet1d_wang",
+        "arm": "signal_plus_physio",
+        "seed": 42,
+        "in_features": 259,
+        "state_dict_sha256": "7e6982058018af1362a187aa5efc24468bef80af2496850773fb88cc46543f26"
+      },
+      {
+        "arch": "resnet1d_wang",
+        "arm": "signal_plus_all",
+        "seed": 42,
+        "in_features": 339,
+        "state_dict_sha256": "4945be6dfb618d479861d30dcd1d64c73b933d1d4934e65683f422321315f56c"
+      },
+      {
+        "arch": "resnet1d_wang",
+        "arm": "signal_only",
+        "seed": 123,
+        "in_features": 256,
+        "state_dict_sha256": "dacd5a8a76df032862460c868501a8d67dc1843d0a5ad2d9e60768561f2fe274"
+      },
+      {
+        "arch": "resnet1d_wang",
+        "arm": "signal_plus_physio",
+        "seed": 123,
+        "in_features": 259,
+        "state_dict_sha256": "5d66fcac2f248896f1e462a5505fc8b81e5c142efa1712a9c29d77f1540eec36"
+      },
+      {
+        "arch": "resnet1d_wang",
+        "arm": "signal_plus_all",
+        "seed": 123,
+        "in_features": 339,
+        "state_dict_sha256": "baec2698937bf9dfd5a5c4c76507314221a600ef361e7654dc21a4e4eb221266"
+      },
+      {
+        "arch": "resnet1d_wang",
+        "arm": "signal_only",
+        "seed": 2024,
+        "in_features": 256,
+        "state_dict_sha256": "2a7ba4b0b821564b5a693abf01238e015eea3e3d111e2f53613c14a8972687f8"
+      },
+      {
+        "arch": "resnet1d_wang",
+        "arm": "signal_plus_physio",
+        "seed": 2024,
+        "in_features": 259,
+        "state_dict_sha256": "ab09eae795c0d87e2a77e68adf850bdac302f562b008776007ed00ea03cba456"
+      },
+      {
+        "arch": "resnet1d_wang",
+        "arm": "signal_plus_all",
+        "seed": 2024,
+        "in_features": 339,
+        "state_dict_sha256": "407f844f779aab4eca0f35f76f6d993eb9cc6e7f5c17ef6b4b47a82e9322465b"
+      },
+      {
+        "arch": "inception1d",
+        "arm": "signal_only",
+        "seed": 42,
+        "in_features": 256,
+        "state_dict_sha256": "aa535a50f26a56b40dc82f894a24deed5efdc92415951a2099eef3d46d5406b4"
+      },
+      {
+        "arch": "inception1d",
+        "arm": "signal_plus_physio",
+        "seed": 42,
+        "in_features": 259,
+        "state_dict_sha256": "b9fa59bcf4d92cc445e1faf8990493341a87e024a95734db7d6f17cf7a2fe7a2"
+      },
+      {
+        "arch": "inception1d",
+        "arm": "signal_plus_all",
+        "seed": 42,
+        "in_features": 339,
+        "state_dict_sha256": "426bb8ab09d1bf4536c5bd7b63b53f573a9b758c3019012e1d05ce5738ddcbf2"
+      },
+      {
+        "arch": "inception1d",
+        "arm": "signal_only",
+        "seed": 123,
+        "in_features": 256,
+        "state_dict_sha256": "d96d99a55c5c89820802c17a63ae300322c944f09677ad2255299fcccae95a73"
+      },
+      {
+        "arch": "inception1d",
+        "arm": "signal_plus_physio",
+        "seed": 123,
+        "in_features": 259,
+        "state_dict_sha256": "d7a1004b1a434d80935d2b3232bd5ef02cb68f8513fc50bf6345fdf652a662c8"
+      },
+      {
+        "arch": "inception1d",
+        "arm": "signal_plus_all",
+        "seed": 123,
+        "in_features": 339,
+        "state_dict_sha256": "df8de596cc427d0693882687c264a0902d8f997b41296c927b5ff652675ddc2d"
+      },
+      {
+        "arch": "inception1d",
+        "arm": "signal_only",
+        "seed": 2024,
+        "in_features": 256,
+        "state_dict_sha256": "6cac376233ba008fdec39d6cc8f34b6f6412cec81180d13ccab948fcffee3837"
+      },
+      {
+        "arch": "inception1d",
+        "arm": "signal_plus_physio",
+        "seed": 2024,
+        "in_features": 259,
+        "state_dict_sha256": "8822b07d8bb93e46e382bcfdcea1141ce0eda96c848d7da997df9f0e75b6d6fb"
+      },
+      {
+        "arch": "inception1d",
+        "arm": "signal_plus_all",
+        "seed": 2024,
+        "in_features": 339,
+        "state_dict_sha256": "3996779e36ea78e90cc8a5939335de55f6ee96493bccc7053652fa69b38e3c0f"
+      }
+    ],
+    "A5_h3_verdict_truth_table": {
+      "n_cases": 9,
+      "pass": true,
+      "function": "REF['h3_verdict']",
+      "sesoi": 0.01
+    },
+    "all_pass": true
+  },
+  "identity_guard": [
+    {
+      "where": "immediately before the first fold-10 file is opened",
+      "checks": {
+        "LEAD_MEAN_F32 bitwise == float32(FRP mean)": true,
+        "LEAD_STD_F32 bitwise == float32(FRP std)": true,
+        "age_scaler mean_ / scale_ / n_samples_seen_ == FRP": true,
+        "CATS19 == FRP categories": true,
+        "META10 column order == FRP": true,
+        "META10 unchanged since STEP 0": true,
+        "META10 age_imputed == (age - FRP mean) / FRP scale": true,
+        "no folds 1-8 object (*18) exists": true
+      }
+    },
+    {
+      "where": "before FREEZE",
+      "checks": {
+        "LEAD_MEAN_F32 bitwise == float32(FRP mean)": true,
+        "LEAD_STD_F32 bitwise == float32(FRP std)": true,
+        "age_scaler mean_ / scale_ / n_samples_seen_ == FRP": true,
+        "CATS19 == FRP categories": true,
+        "META10 column order == FRP": true,
+        "META10 unchanged since STEP 0": true,
+        "META10 age_imputed == (age - FRP mean) / FRP scale": true,
+        "no folds 1-8 object (*18) exists": true
+      }
+    }
+  ],
+  "fold10_signal_checks": {
+    "n_records": 2198,
+    "n_nonfinite_values": 0,
+    "n_allzero_leads": 0,
+    "n_records_with_allzero_lead": 0,
+    "std_ratio_to_frp_folds1to9": {
+      "I": 0.9772524787634076,
+      "II": 1.0066576461884276,
+      "III": 1.0006596142280453,
+      "AVR": 0.9894750228348489,
+      "AVL": 0.9836621640796717,
+      "AVF": 1.0112421840534442,
+      "V1": 0.999091042957472,
+      "V2": 1.0142028967865735,
+      "V3": 1.0051710701652565,
+      "V4": 0.9742063188855647,
+      "V5": 1.0046758060257277,
+      "V6": 0.9340932285338523
+    },
+    "std_ratio_warn_range": [
+      0.5,
+      2.0
+    ],
+    "seconds_to_read": 7.5
+  },
+  "frozen_outputs": {
+    "self_sha256": "8dfa1ebdfede5b3a9a3360bcac1c161be475758ffe7cd7219854ee3b6f9ee95f",
+    "file_sha256": "133ca5fe9c9faf299cec5270483eb6ac2abf568a1c6fcc6bb5998d351528867f",
+    "attempt": 1
+  },
+  "results": {
+    "self_sha256": "77c9cae439edf7e0b31757c392853354033470c3fc154578d953b5f7a4b8e3ba",
+    "file_sha256": "8996ac975f7091fd07d0127521d8413e14e957f878a930334fdf69983bbc506f"
+  },
+  "labels_csv_sha256": "29051bd87676a59b70b3a79a91075f70a7cddd028b2c297461c7bbae3f15b3b0",
+  "bootstrap_deltas_csv_sha256": "8ecee19cb0b2fa9393fee74636af1682c6b3692cfbf81da56d8d21ee88b6a5e9",
+  "crash_and_rerun_rule_v0.9": "re-execution only as in post_fold10_rules 2",
+  "post_fold10_rules": [
+    "1. No model that enters the H3 analysis or any comparison listed in this file is trained after fold 10 is opened.",
+    "2. Any re-execution of v0.9 uses only the saved, sha256-verified v0.8 state_dicts and the saved, sha256-verified fold-10 probability files.",
+    "3. Ablations listed in the project plan that require training (random-split ablation; height/weight sensitivity) are POST-HOC studies: they run under their own version ids, never modify or overwrite any H3 / listed-comparison artifact, and are reported separately from pre-registered results.",
+    "4. The device/site permutation ablation (device + site + nurse one-hot block; specification in exploratory_fold10_comparisons) is done at inference time on the saved v0.8 state_dicts (permutation of metadata input), exploratory."
+  ],
+  "interpretation_post_fold10_rule_2": "post_fold10_rules 2 constrains where MODEL OUTPUTS come from: the saved, sha256-verified v0.8 state_dicts and, after FREEZE, the frozen fold-10 probability files. It does not forbid reading ptbxl_database.csv to derive labels. Before FREEZE (no label read, no metric computed) a crash may be followed by re-reading the fold-10 signals to regenerate the probabilities from the same state_dicts (at most 2 pre-freeze attempts). Fixed before fold 10 was opened (supervisor answer 1, 2026-10-04).",
+  "post_opening_policy": "After fold 10 has been opened:\n1. The v0.9 outputs are never modified or overwritten.\n2. A bug is only a demonstrable deviation of the v0.9 code from the locked documents or from the behaviour validated in Part A, shown by a test that uses no fold-10 label and no fold-10 result. A different method, setting or threshold is never a bug fix: it is a post-hoc analysis (post_fold10_rules 3) and is reported as such. No locked setting (SESOI, CI levels, bootstrap, verdict table, closed list) is ever changed.\n3. A bug fix runs under a new version id (v0.9.1) in its own folder, and the fix is written down before the corrected code is run. Probabilities are regenerated from the same hash-verified v0.8 state_dicts only if the bug is in the inference path; otherwise the frozen v0.9 probability files are reused.\n4. Both the original and the corrected results are reported, together with the deviation and whether any metric had been computed before the bug was found.\n5. No model is ever retrained.",
+  "attempt_log_entries": [
+    {
+      "run": "v0.9_fold10",
+      "attempt": 1,
+      "event": "started",
+      "time": "2026-10-04T17:14:22.712978+03:30",
+      "state": "fresh",
+      "code_revision": "r1"
+    },
+    {
+      "run": "v0.9_fold10",
+      "attempt": 1,
+      "event": "frozen",
+      "time": "2026-10-04T17:18:17.634460+03:30",
+      "freeze_self_sha256": "8dfa1ebdfede5b3a9a3360bcac1c161be475758ffe7cd7219854ee3b6f9ee95f",
+      "freeze_file_sha256": "133ca5fe9c9faf299cec5270483eb6ac2abf568a1c6fcc6bb5998d351528867f"
+    },
+    {
+      "run": "v0.9_fold10",
+      "attempt": 1,
+      "event": "results_written",
+      "time": "2026-10-04T17:19:14.657614+03:30",
+      "results_self_sha256": "77c9cae439edf7e0b31757c392853354033470c3fc154578d953b5f7a4b8e3ba",
+      "results_file_sha256": "8996ac975f7091fd07d0127521d8413e14e957f878a930334fdf69983bbc506f"
+    }
+  ],
+  "warnings": [],
+  "part_b_warnings_from_freeze_file": [],
+  "flags": {
+    "fold10_opened": true,
+    "training_performed": false,
+    "labels_read_only_after_freeze": true,
+    "prereg_dir_unchanged": true,
+    "outputs_v0.8_unchanged": true,
+    "closed_output_list_respected": true
+  },
+  "outputs": [
+    {
+      "file": "D:\\ptbxl-metadata-audit\\outputs\\v0.9\\v0.9_attempt_log.jsonl",
+      "bytes": 716,
+      "sha256": "a83b1f03d36ec5a68a1f7808836372ed18d9951532b3fdc020bdfa7be2833dc6"
+    },
+    {
+      "file": "D:\\ptbxl-metadata-audit\\outputs\\v0.9\\v0.9_bootstrap_deltas.csv",
+      "bytes": 880436,
+      "sha256": "8ecee19cb0b2fa9393fee74636af1682c6b3692cfbf81da56d8d21ee88b6a5e9"
+    },
+    {
+      "file": "D:\\ptbxl-metadata-audit\\outputs\\v0.9\\v0.9_fold10_labels.csv",
+      "bytes": 46099,
+      "sha256": "29051bd87676a59b70b3a79a91075f70a7cddd028b2c297461c7bbae3f15b3b0"
+    },
+    {
+      "file": "D:\\ptbxl-metadata-audit\\outputs\\v0.9\\v0.9_frozen_outputs.json",
+      "bytes": 27664,
+      "sha256": "133ca5fe9c9faf299cec5270483eb6ac2abf568a1c6fcc6bb5998d351528867f"
+    },
+    {
+      "file": "D:\\ptbxl-metadata-audit\\outputs\\v0.9\\v0.9_inception1d_perm_probs.npy",
+      "bytes": 5275328,
+      "sha256": "0f9473d12cc991b4e5e53b7c73e7d467ea8e95f525c0cf49d78d830f78cae823"
+    },
+    {
+      "file": "D:\\ptbxl-metadata-audit\\outputs\\v0.9\\v0.9_inception1d_signal_only_seed123_lr0.01_fold10_probs.csv",
+      "bytes": 249380,
+      "sha256": "640c3a338684a875dd3750b6edf208427f49cefb2a14e26ab90ffc0c06f17932"
+    },
+    {
+      "file": "D:\\ptbxl-metadata-audit\\outputs\\v0.9\\v0.9_inception1d_signal_only_seed2024_lr0.01_fold10_probs.csv",
+      "bytes": 249271,
+      "sha256": "6b33ec108e7def389e70c63d70d7e297f9987eaa7ba21088a72db89ec30bd5a5"
+    },
+    {
+      "file": "D:\\ptbxl-metadata-audit\\outputs\\v0.9\\v0.9_inception1d_signal_only_seed42_lr0.01_fold10_probs.csv",
+      "bytes": 249428,
+      "sha256": "007f2f97a18278c2df69178f85b1ef123844ebdd7e3c2374ce1d68e8cc9465ef"
+    },
+    {
+      "file": "D:\\ptbxl-metadata-audit\\outputs\\v0.9\\v0.9_inception1d_signal_plus_all_seed123_lr0.01_fold10_probs.csv",
+      "bytes": 249532,
+      "sha256": "6b16a16e74e0737b457a2163f2ba08a4b11a69d7c17045cca491392f2c018ae1"
+    },
+    {
+      "file": "D:\\ptbxl-metadata-audit\\outputs\\v0.9\\v0.9_inception1d_signal_plus_all_seed2024_lr0.01_fold10_probs.csv",
+      "bytes": 249176,
+      "sha256": "a81a8e8359cdfe7e3a2fa5c105269a60cf3d55b436c957343e811644c028a253"
+    },
+    {
+      "file": "D:\\ptbxl-metadata-audit\\outputs\\v0.9\\v0.9_inception1d_signal_plus_all_seed42_lr0.01_fold10_probs.csv",
+      "bytes": 249395,
+      "sha256": "75e4d31b9bd30f1369685ee62279f1c56ba7c7e80617240449b212a30108b672"
+    },
+    {
+      "file": "D:\\ptbxl-metadata-audit\\outputs\\v0.9\\v0.9_inception1d_signal_plus_physio_seed123_lr0.01_fold10_probs.csv",
+      "bytes": 249394,
+      "sha256": "60ed43822569865cf85abc1f3429005bb1ea4a602bf7fe04d87cf83646952dc8"
+    },
+    {
+      "file": "D:\\ptbxl-metadata-audit\\outputs\\v0.9\\v0.9_inception1d_signal_plus_physio_seed2024_lr0.01_fold10_probs.csv",
+      "bytes": 248917,
+      "sha256": "06edbf2ee26ef680059eeed8af3ca19fb23b0bd8e929116bf8daded7299ee6d4"
+    },
+    {
+      "file": "D:\\ptbxl-metadata-audit\\outputs\\v0.9\\v0.9_inception1d_signal_plus_physio_seed42_lr0.01_fold10_probs.csv",
+      "bytes": 249631,
+      "sha256": "cb0d1c2391d6bb85f60034271eb6067d35e4b2bb5a7ae14bbda071b1840420bf"
+    },
+    {
+      "file": "D:\\ptbxl-metadata-audit\\outputs\\v0.9\\v0.9_resnet1d_wang_perm_probs.npy",
+      "bytes": 5275328,
+      "sha256": "2a6bfa0d093053483404a81ba3ec8b1eeb59cdfc38fd212800f92b077777645c"
+    },
+    {
+      "file": "D:\\ptbxl-metadata-audit\\outputs\\v0.9\\v0.9_resnet1d_wang_signal_only_seed123_lr0.01_fold10_probs.csv",
+      "bytes": 247538,
+      "sha256": "2e67bc8e18473d37e6466b626f8c0e11ab651a8e4a8398be3bf9d20e46388a1b"
+    },
+    {
+      "file": "D:\\ptbxl-metadata-audit\\outputs\\v0.9\\v0.9_resnet1d_wang_signal_only_seed2024_lr0.01_fold10_probs.csv",
+      "bytes": 247601,
+      "sha256": "e3018ea38d7467f93d9744be1035cbcd1e8349a6c745b20cad975c8f8c055324"
+    },
+    {
+      "file": "D:\\ptbxl-metadata-audit\\outputs\\v0.9\\v0.9_resnet1d_wang_signal_only_seed42_lr0.01_fold10_probs.csv",
+      "bytes": 247840,
+      "sha256": "8fb93dab079e15df9fdbaa3e40f8aaae843f38e0836c01fa20475df04dc80314"
+    },
+    {
+      "file": "D:\\ptbxl-metadata-audit\\outputs\\v0.9\\v0.9_resnet1d_wang_signal_plus_all_seed123_lr0.01_fold10_probs.csv",
+      "bytes": 247870,
+      "sha256": "a29388ed17452cc63e2f72008e61c282aab73514d9e444987f25c3bcbad71f17"
+    },
+    {
+      "file": "D:\\ptbxl-metadata-audit\\outputs\\v0.9\\v0.9_resnet1d_wang_signal_plus_all_seed2024_lr0.01_fold10_probs.csv",
+      "bytes": 247712,
+      "sha256": "ed00807c8b5967731a128615202496e613f680c1e4fafedc7c21352ee56679f6"
+    },
+    {
+      "file": "D:\\ptbxl-metadata-audit\\outputs\\v0.9\\v0.9_resnet1d_wang_signal_plus_all_seed42_lr0.01_fold10_probs.csv",
+      "bytes": 247774,
+      "sha256": "dbaefa86a56c423c84a0a201ef9e4a35833189dddd0fca6bec8f5bd45b8ce9ce"
+    },
+    {
+      "file": "D:\\ptbxl-metadata-audit\\outputs\\v0.9\\v0.9_resnet1d_wang_signal_plus_physio_seed123_lr0.01_fold10_probs.csv",
+      "bytes": 247500,
+      "sha256": "ebcfc87ce02069b6a0306a24ff0c7b3080885b8c9aa268d01d2d9d225ddd7715"
+    },
+    {
+      "file": "D:\\ptbxl-metadata-audit\\outputs\\v0.9\\v0.9_resnet1d_wang_signal_plus_physio_seed2024_lr0.01_fold10_probs.csv",
+      "bytes": 247359,
+      "sha256": "22cfabef1264eb3f47b0592de5d6a0bdbe1cf9bdd0f959f03332ae071bb852c7"
+    },
+    {
+      "file": "D:\\ptbxl-metadata-audit\\outputs\\v0.9\\v0.9_resnet1d_wang_signal_plus_physio_seed42_lr0.01_fold10_probs.csv",
+      "bytes": 247862,
+      "sha256": "ea82b33444bc5814fe5b87598cdc8d16fa705c199cecb7cd20e962703f9b356c"
+    },
+    {
+      "file": "D:\\ptbxl-metadata-audit\\outputs\\v0.9\\v0.9_results.json",
+      "bytes": 29464,
+      "sha256": "8996ac975f7091fd07d0127521d8413e14e957f878a930334fdf69983bbc506f"
+    }
+  ],
+  "self_sha256": "2007bee22651c8dc8cc9c9de6f47a5eb79d7bdfdbf523c377fd799fb2984c612"
+}

@@ -1,0 +1,259 @@
+{
+  "code_version": "v0.1.1",
+  "run_started": "2026-09-10T01:26:26.446353+03:30",
+  "run_finished": "2026-09-10T01:26:30.788092+03:30",
+  "dataset_root": "D:\\ptbxl-metadata-audit\\data\\ptb-xl-a-large-publicly-available-electrocardiography-dataset-1.0.3",
+  "dataset_folder_name": "ptb-xl-a-large-publicly-available-electrocardiography-dataset-1.0.3",
+  "output_dir": "D:\\ptbxl-metadata-audit\\outputs\\v0.1.1",
+  "input_files_sha256": {
+    "ptbxl_database.csv": "7600de9c1b27d181d850b3c6038a35d7c3ddb6bb33b702e3a20252a6859d216b",
+    "scp_statements.csv": "ad05b0b1fcae83bb1230755ad9cfc7c96f303feddc08a4a9ad5bdc9ca63bac8f"
+  },
+  "other_inputs_sha256": {
+    "RECORDS": "56d37274b0b02339e9c30bff8c9a9f2a6fb3cb2bb7bcd5d7c55355451d53896a",
+    "ptbxl_v102_changelog.txt": "331265c6900fad3d62c08f8df66eb2a4b724491a3c1975d6264385d6b57a72a4",
+    "ptbxl_v103_changelog.txt": "1874df343c4ceb706151fbb55bd60bd2954fba4372a445341343939524b2c34c"
+  },
+  "sha256sums_verification": {
+    "_file": "NOT_FOUND"
+  },
+  "library_versions": {
+    "python": "3.10.20 | packaged by Anaconda, Inc. | (main, Jun 11 2026, 15:13:20) [MSC v.1942 64 bit (AMD64)]",
+    "numpy": "1.26.4",
+    "pandas": "2.3.3",
+    "platform": "Windows-10-10.0.19045-SP0"
+  },
+  "dataset_summary": {
+    "n_records": 21799,
+    "n_patients": 18869,
+    "n_devices": 11,
+    "n_sites": 51,
+    "n_nurses": 12,
+    "superclass_counts": {
+      "NORM": 9514,
+      "MI": 5469,
+      "STTC": 5235,
+      "CD": 4898,
+      "HYP": 2649
+    },
+    "n_records_without_superclass": 411,
+    "n_age_sentinel_ge120": 293
+  },
+  "fold_tab": {
+    "1": {
+      "n_records": 2175,
+      "pct": 9.978,
+      "n_patients": 1878
+    },
+    "2": {
+      "n_records": 2181,
+      "pct": 10.005,
+      "n_patients": 1849
+    },
+    "3": {
+      "n_records": 2192,
+      "pct": 10.056,
+      "n_patients": 1887
+    },
+    "4": {
+      "n_records": 2174,
+      "pct": 9.973,
+      "n_patients": 1883
+    },
+    "5": {
+      "n_records": 2174,
+      "pct": 9.973,
+      "n_patients": 1890
+    },
+    "6": {
+      "n_records": 2173,
+      "pct": 9.968,
+      "n_patients": 1884
+    },
+    "7": {
+      "n_records": 2176,
+      "pct": 9.982,
+      "n_patients": 1871
+    },
+    "8": {
+      "n_records": 2173,
+      "pct": 9.968,
+      "n_patients": 1881
+    },
+    "9": {
+      "n_records": 2183,
+      "pct": 10.014,
+      "n_patients": 1942
+    },
+    "10": {
+      "n_records": 2198,
+      "pct": 10.083,
+      "n_patients": 1904
+    }
+  },
+  "label_convention": "all keys of scp_codes mapped via diagnostic==1 (no likelihood threshold)",
+  "label_likelihood_sensitivity": {
+    "alt_rule": "keep only codes with likelihood > 0",
+    "n_changed": 127,
+    "pct_changed": 0.5826
+  },
+  "cramers_v": {
+    "device_x_fold": {
+      "n": 21799,
+      "shape": [
+        11,
+        10
+      ],
+      "chi2": 2331.5595928453054,
+      "dof": 90,
+      "cramers_v": 0.10901436255725211,
+      "cramers_v_biascorrected": 0.10691161227014254
+    },
+    "site_x_fold": {
+      "n": 21799,
+      "shape": [
+        52,
+        10
+      ],
+      "chi2": 1701.6083100309536,
+      "dof": 459,
+      "cramers_v": 0.09313014057642918,
+      "cramers_v_biascorrected": 0.07960009413610875
+    },
+    "nurse_x_fold": {
+      "n": 21799,
+      "shape": [
+        13,
+        10
+      ],
+      "chi2": 1410.6952440351706,
+      "dof": 108,
+      "cramers_v": 0.08479633085082756,
+      "cramers_v_biascorrected": 0.08150246091536187
+    }
+  },
+  "auprc_chance_baseline_fold10": {
+    "n_records_fold10": 2198,
+    "prevalence": {
+      "NORM": 0.4381255686988171,
+      "MI": 0.2502274795268426,
+      "STTC": 0.2370336669699727,
+      "CD": 0.2256596906278435,
+      "HYP": 0.1191992720655141
+    },
+    "counts": {
+      "NORM": 963,
+      "MI": 550,
+      "STTC": 521,
+      "CD": 496,
+      "HYP": 262
+    }
+  },
+  "unseen_categories": {
+    "device": {
+      "n_categories_total": 11,
+      "n_categories_in_folds1to8": 11,
+      "in_fold9_not_in_folds1to8": [],
+      "in_fold10_not_in_folds1to8": [],
+      "single_fold_only": []
+    },
+    "site": {
+      "n_categories_total": 52,
+      "n_categories_in_folds1to8": 51,
+      "in_fold9_not_in_folds1to8": [
+        {
+          "category": "site_049",
+          "n_records_in_fold9": 2
+        }
+      ],
+      "in_fold10_not_in_folds1to8": [
+        {
+          "category": "site_049",
+          "n_records_in_fold10": 1
+        }
+      ],
+      "single_fold_only": []
+    },
+    "nurse": {
+      "n_categories_total": 13,
+      "n_categories_in_folds1to8": 13,
+      "in_fold9_not_in_folds1to8": [],
+      "in_fold10_not_in_folds1to8": [],
+      "single_fold_only": []
+    }
+  },
+  "checks": {
+    "patient_disjoint_folds": "PASS",
+    "n_patients_in_multiple_folds": 0,
+    "records_manifest_mismatch_csv_only": 2,
+    "records_manifest_mismatch_records_only": 1
+  },
+  "warnings": [
+    "SHA256SUMS در پوشه‌ی دیتاست پیدا نشد — راستی‌آزماییِ یکپارچگی انجام نشد.",
+    "عدمِ تطابقِ RECORDS با مسیرهای CSV — ممکن است صرفاً تفاوتِ قالبِ نام باشد؛ نمونه‌ها را ببین.",
+    "مقدارِ sentinel در age پیدا شد (293 رکورد با age>=120). این‌ها سنین سانسورشده‌اند و باید قبل از هر مدل‌سازی صریحاً مدیریت شوند.",
+    "site: دسته‌های دیده‌نشده در val/test وجود دارد — encoding باید دسته‌ی ناشناخته را صریحاً مدیریت کند وگرنه هنگام inference می‌شکند یا بی‌سروصدا صفر می‌شود."
+  ],
+  "outputs": [
+    {
+      "file": "v0.1.1_column_inventory.csv",
+      "bytes": 935,
+      "sha256": "edf4b0da7a96152e4e0a4cd39733769f807bebd9bea18a7e84a7e53188cced18"
+    },
+    {
+      "file": "v0.1.1_labels.csv",
+      "bytes": 569411,
+      "sha256": "236dc3d8d608ca96554b3a974834b00b522a28746e37b3f514d878facf3e437b"
+    },
+    {
+      "file": "v0.1.1_crosstab_device_fold.csv",
+      "bytes": 564,
+      "sha256": "641ec20e4bbf8fb06c2710c9829ab4eecdbc6503032f2994a8b092a3aa783dfd"
+    },
+    {
+      "file": "v0.1.1_crosstab_device_fold_rowshare_raw.csv",
+      "bytes": 2186,
+      "sha256": "ba1307d0ee704dfac01483a9ef89b24ff224e9edfceb26665a8542efb7cd2e45"
+    },
+    {
+      "file": "v0.1.1_crosstab_site_fold.csv",
+      "bytes": 1832,
+      "sha256": "c938acade57b1113510733ca359c9f3e3d04eb8beafbac48ff0710e552a74274"
+    },
+    {
+      "file": "v0.1.1_crosstab_site_fold_rowshare_raw.csv",
+      "bytes": 7834,
+      "sha256": "7d39da025ace14282c5accf71ab1891c1d67325b81bf52848dff387dbb888bfa"
+    },
+    {
+      "file": "v0.1.1_crosstab_nurse_fold.csv",
+      "bytes": 659,
+      "sha256": "5df712c06739aea66fe3cf49a59e25520b68880f34fbc5e1b3036cd7856f9c88"
+    },
+    {
+      "file": "v0.1.1_crosstab_nurse_fold_rowshare_raw.csv",
+      "bytes": 2761,
+      "sha256": "24a525b13b07c3fa32da0ddf19c4f5f83d1ccc9216c0e64d1a6110b6f287a590"
+    },
+    {
+      "file": "v0.1.1_prevalence_device_superclass_folds1to9.csv",
+      "bytes": 581,
+      "sha256": "56b14e16491aaf7fa89b6dc3cabf9ab1288760dbd67e89f7b36d6a726e187144"
+    },
+    {
+      "file": "v0.1.1_prevalence_device_superclass_folds1to9_raw.csv",
+      "bytes": 1275,
+      "sha256": "85e0b257718de63991e1d33bc06a4656694b430c72f445f58b50c6a4f56fd4d1"
+    },
+    {
+      "file": "v0.1.1_prevalence_site_superclass_folds1to9.csv",
+      "bytes": 2185,
+      "sha256": "bb2536fe0e0c541312830c762ae90b0336d61104477f36d79b9d9ae46d92cfe9"
+    },
+    {
+      "file": "v0.1.1_prevalence_site_superclass_folds1to9_raw.csv",
+      "bytes": 4328,
+      "sha256": "da7019748059bcdbaa94a5516033863db0b6f018242ec1d59a27f8160603b62a"
+    }
+  ]
+}

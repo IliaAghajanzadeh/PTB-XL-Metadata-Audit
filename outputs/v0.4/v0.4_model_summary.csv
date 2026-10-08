@@ -1,0 +1,7 @@
+﻿arch,arm,n_params,embedding_dim,meta_dim,fusion_layer_in_features,forward_backward_ok,shared_init_identical_to_signal_only
+resnet1d_wang,signal_only,473349,256,0,256,True,True
+resnet1d_wang,signal_plus_physio,473733,256,3,259,True,True
+resnet1d_wang,signal_plus_all,483845,256,82,338,True,True
+inception1d,signal_only,507653,256,0,256,True,True
+inception1d,signal_plus_physio,508037,256,3,259,True,True
+inception1d,signal_plus_all,518149,256,82,338,True,True

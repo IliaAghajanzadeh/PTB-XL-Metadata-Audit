@@ -1,0 +1,732 @@
+{
+  "document": "v0.9 fold-10 results (write-once; written LAST, after the freeze file, labels and bootstrap deltas)",
+  "timestamp": "2026-10-04T17:19:14.648637+03:30",
+  "code_version": "v0.9",
+  "code_revision": "r1",
+  "frozen_outputs_self_sha256": "8dfa1ebdfede5b3a9a3360bcac1c161be475758ffe7cd7219854ee3b6f9ee95f",
+  "reference_implementation_sha256": "48ac837c07880f0bd88a7bd01475e7da3edbeab46019f8288976884ad7662856",
+  "final_run_protocol": {
+    "self_sha256": "834acddec288862d0418e9ee70204898c9d371788eed7eb362f4c0d63d305c6b",
+    "file_sha256": "e1a5260e72d2e8b0d27dc709639468b7f9a48a7c8e2f8af2d663e105dbd329d4"
+  },
+  "sealed_decision_rules_verbatim": {
+    "a": "95% CI excludes 0 -> 'acquisition metadata changes performance' (report sign; either direction counts)",
+    "b": "90% CI entirely within [-0.01, +0.01] -> 'no material change'",
+    "c": "otherwise -> 'inconclusive'"
+  },
+  "H3_decision_verbatim": {
+    "status": "resolution of the overlap between sealed rules a and b; written before fold 10 is opened",
+    "definitions": {
+      "a_holds": "95% CI excludes 0 (lo95 > 0 or hi95 < 0)",
+      "b_holds": "90% CI entirely within the CLOSED interval [-0.01, +0.01] (lo90 >= -0.01 and hi90 <= 0.01)",
+      "material": "95% CI entirely outside [-0.01, +0.01] (lo95 > 0.01 or hi95 < -0.01)",
+      "sign": "'+' if lo95 > 0, '-' if hi95 < 0 (the side of 0 the 95% CI lies on)"
+    },
+    "verdict_table": {
+      "a and b": "statistically detectable, below the materiality threshold",
+      "a and not b, material": "acquisition metadata materially changes performance (sign: +/-)",
+      "a and not b, not material": "acquisition metadata changes performance (sign: +/-); magnitude relative to SESOI undetermined",
+      "not a and b": "no material change",
+      "not a and not b": "inconclusive"
+    },
+    "SESOI_H3": 0.01,
+    "rationale": {
+      "materiality": "materiality uses the 95% CI because H3 is two-sided and a materiality claim is a union over two directions (alpha split 0.025 per side)",
+      "equivalence": "the equivalence condition (b) uses the 90% CI because TOST is an intersection-union test"
+    },
+    "reporting_rule": "the sealed labels a/b/c are always reported verbatim (sealed_H3_protocol_verbatim.decision) next to the verdict, together with a_holds, b_holds, material, the point estimate and both CIs",
+    "implementation": "reference_implementation.h3_verdict (truth table self-tested in v0.6)"
+  },
+  "reporting_order_verbatim": [
+    "1. Primary verdict: resnet1d_wang, seed-averaged probabilities.",
+    "2. Robustness: inception1d, same procedure, same verdict table.",
+    "3. Secondary: per-seed deltas for both architectures.",
+    "4. Disagreements between architectures or between seed-averaged and per-seed results are reported as they are; none is resolved by selection.",
+    "5. Exploratory results after all of the above."
+  ],
+  "settings": {
+    "SESOI_H3": 0.01,
+    "N_BOOT": 2000,
+    "BOOT_SEED": 7,
+    "N_PERM": 20,
+    "PERM_SEED": 42,
+    "nan_flag_fraction": 0.01,
+    "seeds": [
+      42,
+      123,
+      2024
+    ],
+    "ci": "percentile, np.percentile method='linear' (REF summarize_deltas); 95% = [2.5, 97.5], 90% = [5, 95]"
+  },
+  "fold10": {
+    "n_records": 2198,
+    "n_patients": 1904,
+    "label_positives": {
+      "NORM": 963,
+      "MI": 550,
+      "STTC": 521,
+      "CD": 496,
+      "HYP": 262
+    },
+    "labels_csv_sha256": "29051bd87676a59b70b3a79a91075f70a7cddd028b2c297461c7bbae3f15b3b0"
+  },
+  "D0_metric_check": {
+    "input": "resnet1d_wang signal_plus_physio seed ensemble",
+    "tolerance": 1e-09,
+    "abs_diff": {
+      "NORM": 0.0,
+      "MI": 1.1102230246251565e-16,
+      "STTC": 0.0,
+      "CD": 0.0,
+      "HYP": 1.1102230246251565e-16
+    },
+    "max_abs_diff": 1.1102230246251565e-16
+  },
+  "1_primary": {
+    "arch": "resnet1d_wang",
+    "input": "seed ensemble (arithmetic mean over seeds [42, 123, 2024])",
+    "arm_A": "signal_plus_physio",
+    "arm_B": "signal_plus_all",
+    "macro_auroc_A": 0.9361913698723111,
+    "macro_auroc_B": 0.9389717694034339,
+    "point_delta": 0.002780399531122746,
+    "lo95": 0.0009588669405627914,
+    "hi95": 0.004752806367481346,
+    "lo90": 0.0012738938636371877,
+    "hi90": 0.0044401157996218354,
+    "n_valid": 2000,
+    "n_nan": 0,
+    "nan_fraction": 0.0,
+    "nan_flag": false,
+    "h3_verdict": {
+      "a_holds": true,
+      "b_holds": true,
+      "material": false,
+      "sign": "+",
+      "verdict": "statistically detectable, below the materiality threshold",
+      "sealed_rules_holding": [
+        "a",
+        "b"
+      ]
+    },
+    "sealed_rules_holding_texts": {
+      "a": "95% CI excludes 0 -> 'acquisition metadata changes performance' (report sign; either direction counts)",
+      "b": "90% CI entirely within [-0.01, +0.01] -> 'no material change'"
+    },
+    "sealed_decision_rules_verbatim": {
+      "a": "95% CI excludes 0 -> 'acquisition metadata changes performance' (report sign; either direction counts)",
+      "b": "90% CI entirely within [-0.01, +0.01] -> 'no material change'",
+      "c": "otherwise -> 'inconclusive'"
+    }
+  },
+  "2_robustness": {
+    "arch": "inception1d",
+    "input": "seed ensemble (arithmetic mean over seeds [42, 123, 2024])",
+    "arm_A": "signal_plus_physio",
+    "arm_B": "signal_plus_all",
+    "macro_auroc_A": 0.9339992471998497,
+    "macro_auroc_B": 0.9348738399253544,
+    "point_delta": 0.0008745927255047192,
+    "lo95": -0.0016252846156839529,
+    "hi95": 0.0033450914282506833,
+    "lo90": -0.001258363982861399,
+    "hi90": 0.0030187805001734513,
+    "n_valid": 2000,
+    "n_nan": 0,
+    "nan_fraction": 0.0,
+    "nan_flag": false,
+    "h3_verdict": {
+      "a_holds": false,
+      "b_holds": true,
+      "material": false,
+      "sign": null,
+      "verdict": "no material change",
+      "sealed_rules_holding": [
+        "b"
+      ]
+    },
+    "sealed_rules_holding_texts": {
+      "b": "90% CI entirely within [-0.01, +0.01] -> 'no material change'"
+    },
+    "sealed_decision_rules_verbatim": {
+      "a": "95% CI excludes 0 -> 'acquisition metadata changes performance' (report sign; either direction counts)",
+      "b": "90% CI entirely within [-0.01, +0.01] -> 'no material change'",
+      "c": "otherwise -> 'inconclusive'"
+    }
+  },
+  "3_secondary_per_seed": [
+    {
+      "arch": "resnet1d_wang",
+      "seed": 42,
+      "arm_A": "signal_plus_physio",
+      "arm_B": "signal_plus_all",
+      "macro_auroc_A": 0.934066546488479,
+      "macro_auroc_B": 0.9376105864810309,
+      "point_delta": 0.0035440399925519284,
+      "lo95": 0.0013170114490049234,
+      "hi95": 0.005913996160552082,
+      "lo90": 0.0016369851553324822,
+      "hi90": 0.005519857296493197,
+      "n_valid": 2000,
+      "n_nan": 0,
+      "nan_fraction": 0.0,
+      "nan_flag": false,
+      "h3_verdict_secondary": {
+        "a_holds": true,
+        "b_holds": true,
+        "material": false,
+        "sign": "+",
+        "verdict": "statistically detectable, below the materiality threshold",
+        "sealed_rules_holding": [
+          "a",
+          "b"
+        ],
+        "label": "secondary (per-seed); not the H3 verdict"
+      }
+    },
+    {
+      "arch": "resnet1d_wang",
+      "seed": 123,
+      "arm_A": "signal_plus_physio",
+      "arm_B": "signal_plus_all",
+      "macro_auroc_A": 0.934346972578821,
+      "macro_auroc_B": 0.9371237148402622,
+      "point_delta": 0.0027767422614412007,
+      "lo95": 7.14703710310988e-05,
+      "hi95": 0.005496863840102297,
+      "lo90": 0.0005300258104570576,
+      "hi90": 0.00512671356836576,
+      "n_valid": 2000,
+      "n_nan": 0,
+      "nan_fraction": 0.0,
+      "nan_flag": false,
+      "h3_verdict_secondary": {
+        "a_holds": true,
+        "b_holds": true,
+        "material": false,
+        "sign": "+",
+        "verdict": "statistically detectable, below the materiality threshold",
+        "sealed_rules_holding": [
+          "a",
+          "b"
+        ],
+        "label": "secondary (per-seed); not the H3 verdict"
+      }
+    },
+    {
+      "arch": "resnet1d_wang",
+      "seed": 2024,
+      "arm_A": "signal_plus_physio",
+      "arm_B": "signal_plus_all",
+      "macro_auroc_A": 0.9336733993447858,
+      "macro_auroc_B": 0.9353980252220181,
+      "point_delta": 0.001724625877232322,
+      "lo95": -0.0006851430907878486,
+      "hi95": 0.004314026336156303,
+      "lo90": -0.00032140390136130016,
+      "hi90": 0.00393332466733336,
+      "n_valid": 2000,
+      "n_nan": 0,
+      "nan_fraction": 0.0,
+      "nan_flag": false,
+      "h3_verdict_secondary": {
+        "a_holds": false,
+        "b_holds": true,
+        "material": false,
+        "sign": null,
+        "verdict": "no material change",
+        "sealed_rules_holding": [
+          "b"
+        ],
+        "label": "secondary (per-seed); not the H3 verdict"
+      }
+    },
+    {
+      "arch": "inception1d",
+      "seed": 42,
+      "arm_A": "signal_plus_physio",
+      "arm_B": "signal_plus_all",
+      "macro_auroc_A": 0.9273289318857065,
+      "macro_auroc_B": 0.9294271505582927,
+      "point_delta": 0.002098218672586194,
+      "lo95": -0.0015166785893651947,
+      "hi95": 0.005711545673593604,
+      "lo90": -0.0009727140062088412,
+      "hi90": 0.00517924452666979,
+      "n_valid": 2000,
+      "n_nan": 0,
+      "nan_fraction": 0.0,
+      "nan_flag": false,
+      "h3_verdict_secondary": {
+        "a_holds": false,
+        "b_holds": true,
+        "material": false,
+        "sign": null,
+        "verdict": "no material change",
+        "sealed_rules_holding": [
+          "b"
+        ],
+        "label": "secondary (per-seed); not the H3 verdict"
+      }
+    },
+    {
+      "arch": "inception1d",
+      "seed": 123,
+      "arm_A": "signal_plus_physio",
+      "arm_B": "signal_plus_all",
+      "macro_auroc_A": 0.9257417683583877,
+      "macro_auroc_B": 0.9280122231775014,
+      "point_delta": 0.0022704548191136986,
+      "lo95": -0.0010890918567946078,
+      "hi95": 0.0056397574716696595,
+      "lo90": -0.0005455030104395242,
+      "hi90": 0.005144802811910964,
+      "n_valid": 2000,
+      "n_nan": 0,
+      "nan_fraction": 0.0,
+      "nan_flag": false,
+      "h3_verdict_secondary": {
+        "a_holds": false,
+        "b_holds": true,
+        "material": false,
+        "sign": null,
+        "verdict": "no material change",
+        "sealed_rules_holding": [
+          "b"
+        ],
+        "label": "secondary (per-seed); not the H3 verdict"
+      }
+    },
+    {
+      "arch": "inception1d",
+      "seed": 2024,
+      "arm_A": "signal_plus_physio",
+      "arm_B": "signal_plus_all",
+      "macro_auroc_A": 0.9290893624437796,
+      "macro_auroc_B": 0.9310079328614094,
+      "point_delta": 0.0019185704176297724,
+      "lo95": -0.002064132590218862,
+      "hi95": 0.005672871000825311,
+      "lo90": -0.0012991190802171925,
+      "hi90": 0.0049907616611909065,
+      "n_valid": 2000,
+      "n_nan": 0,
+      "nan_fraction": 0.0,
+      "nan_flag": false,
+      "h3_verdict_secondary": {
+        "a_holds": false,
+        "b_holds": true,
+        "material": false,
+        "sign": null,
+        "verdict": "no material change",
+        "sealed_rules_holding": [
+          "b"
+        ],
+        "label": "secondary (per-seed); not the H3 verdict"
+      }
+    }
+  ],
+  "4_disagreements": {
+    "note": "reported as they are; none is resolved by selection (FRP reporting_order 4)",
+    "table": [
+      {
+        "item": "(i)",
+        "comparison": "H3 verdict: resnet1d_wang seed ensemble vs inception1d seed ensemble",
+        "value_1": "statistically detectable, below the materiality threshold",
+        "value_2": "no material change",
+        "disagreement": true
+      },
+      {
+        "item": "(ii)",
+        "comparison": "verdict: resnet1d_wang seed 42 (secondary (per-seed); not the H3 verdict) vs resnet1d_wang seed ensemble",
+        "value_1": "statistically detectable, below the materiality threshold",
+        "value_2": "statistically detectable, below the materiality threshold",
+        "disagreement": false
+      },
+      {
+        "item": "(ii)",
+        "comparison": "verdict: resnet1d_wang seed 123 (secondary (per-seed); not the H3 verdict) vs resnet1d_wang seed ensemble",
+        "value_1": "statistically detectable, below the materiality threshold",
+        "value_2": "statistically detectable, below the materiality threshold",
+        "disagreement": false
+      },
+      {
+        "item": "(ii)",
+        "comparison": "verdict: resnet1d_wang seed 2024 (secondary (per-seed); not the H3 verdict) vs resnet1d_wang seed ensemble",
+        "value_1": "no material change",
+        "value_2": "statistically detectable, below the materiality threshold",
+        "disagreement": true
+      },
+      {
+        "item": "(ii)",
+        "comparison": "verdict: inception1d seed 42 (secondary (per-seed); not the H3 verdict) vs inception1d seed ensemble",
+        "value_1": "no material change",
+        "value_2": "no material change",
+        "disagreement": false
+      },
+      {
+        "item": "(ii)",
+        "comparison": "verdict: inception1d seed 123 (secondary (per-seed); not the H3 verdict) vs inception1d seed ensemble",
+        "value_1": "no material change",
+        "value_2": "no material change",
+        "disagreement": false
+      },
+      {
+        "item": "(ii)",
+        "comparison": "verdict: inception1d seed 2024 (secondary (per-seed); not the H3 verdict) vs inception1d seed ensemble",
+        "value_1": "no material change",
+        "value_2": "no material change",
+        "disagreement": false
+      },
+      {
+        "item": "(iii)",
+        "comparison": "sign of the point estimate: resnet1d_wang seed 42 vs resnet1d_wang seed ensemble",
+        "value_1": 1,
+        "value_2": 1,
+        "disagreement": false
+      },
+      {
+        "item": "(iii)",
+        "comparison": "sign of the point estimate: resnet1d_wang seed 123 vs resnet1d_wang seed ensemble",
+        "value_1": 1,
+        "value_2": 1,
+        "disagreement": false
+      },
+      {
+        "item": "(iii)",
+        "comparison": "sign of the point estimate: resnet1d_wang seed 2024 vs resnet1d_wang seed ensemble",
+        "value_1": 1,
+        "value_2": 1,
+        "disagreement": false
+      },
+      {
+        "item": "(iii)",
+        "comparison": "sign of the point estimate: inception1d seed 42 vs inception1d seed ensemble",
+        "value_1": 1,
+        "value_2": 1,
+        "disagreement": false
+      },
+      {
+        "item": "(iii)",
+        "comparison": "sign of the point estimate: inception1d seed 123 vs inception1d seed ensemble",
+        "value_1": 1,
+        "value_2": 1,
+        "disagreement": false
+      },
+      {
+        "item": "(iii)",
+        "comparison": "sign of the point estimate: inception1d seed 2024 vs inception1d seed ensemble",
+        "value_1": 1,
+        "value_2": 1,
+        "disagreement": false
+      },
+      {
+        "item": "(iv)",
+        "comparison": "sign of the point estimate: resnet1d_wang seed ensemble vs inception1d seed ensemble",
+        "value_1": 1,
+        "value_2": 1,
+        "disagreement": false
+      }
+    ]
+  },
+  "5_exploratory": {
+    "label": "EXPLORATORY (FRP exploratory_fold10_comparisons, closed list)",
+    "E1_physio_minus_signal_only": [
+      {
+        "arch": "resnet1d_wang",
+        "input": "seed ensemble",
+        "arm_A": "signal_only",
+        "arm_B": "signal_plus_physio",
+        "macro_auroc_A": 0.9354833282549763,
+        "macro_auroc_B": 0.9361913698723111,
+        "point_delta": 0.0007080416173348425,
+        "lo95": -0.000815395249955883,
+        "hi95": 0.002322208028918967,
+        "lo90": -0.0005887051538666366,
+        "hi90": 0.0020823342723085944,
+        "n_valid": 2000,
+        "n_nan": 0,
+        "nan_fraction": 0.0,
+        "nan_flag": false,
+        "label": "EXPLORATORY; no decision label"
+      },
+      {
+        "arch": "inception1d",
+        "input": "seed ensemble",
+        "arm_A": "signal_only",
+        "arm_B": "signal_plus_physio",
+        "macro_auroc_A": 0.932655595933831,
+        "macro_auroc_B": 0.9339992471998497,
+        "point_delta": 0.0013436512660187638,
+        "lo95": -0.0008580444858330288,
+        "hi95": 0.0035664040154186204,
+        "lo90": -0.0005638806986157762,
+        "hi90": 0.003223704806546607,
+        "n_valid": 2000,
+        "n_nan": 0,
+        "nan_fraction": 0.0,
+        "nan_flag": false,
+        "label": "EXPLORATORY; no decision label"
+      }
+    ],
+    "E2_per_class_deltas_H3_pair": [
+      {
+        "arch": "resnet1d_wang",
+        "input": "seed ensemble",
+        "arm_A": "signal_plus_physio",
+        "arm_B": "signal_plus_all",
+        "per_class": {
+          "NORM": {
+            "point_delta": 0.0032506379776423566,
+            "lo95": 0.0014040459546186713,
+            "hi95": 0.005113837757710207,
+            "n_nan": 0,
+            "auroc_A": 0.9566503125775138,
+            "auroc_B": 0.9599009505551561
+          },
+          "MI": {
+            "point_delta": 0.003185127978817315,
+            "lo95": 0.00041173061047112267,
+            "hi95": 0.006128407049184947,
+            "n_nan": 0,
+            "auroc_A": 0.941063548102383,
+            "auroc_B": 0.9442486760812003
+          },
+          "STTC": {
+            "point_delta": 0.0029116979525407594,
+            "lo95": 0.0005617824837754582,
+            "hi95": 0.005382288068742712,
+            "n_nan": 0,
+            "auroc_A": 0.9361177589539862,
+            "auroc_B": 0.939029456906527
+          },
+          "CD": {
+            "point_delta": 0.005029661498806015,
+            "lo95": 0.0003870763220083451,
+            "hi95": 0.010179441778214178,
+            "n_nan": 0,
+            "auroc_A": 0.9288846613092756,
+            "auroc_B": 0.9339143228080816
+          },
+          "HYP": {
+            "point_delta": -0.00047512775219227255,
+            "lo95": -0.006298835771202366,
+            "hi95": 0.005242014404133712,
+            "n_nan": 0,
+            "auroc_A": 0.9182405684183963,
+            "auroc_B": 0.917765440666204
+          }
+        },
+        "label": "EXPLORATORY; point and 95% CI only; no multiplicity correction; no decision label"
+      },
+      {
+        "arch": "inception1d",
+        "input": "seed ensemble",
+        "arm_A": "signal_plus_physio",
+        "arm_B": "signal_plus_all",
+        "per_class": {
+          "NORM": {
+            "point_delta": 0.0004220952573141812,
+            "lo95": -0.002338528202930526,
+            "hi95": 0.0031924290958365176,
+            "n_nan": 0,
+            "auroc_A": 0.9533492249675231,
+            "auroc_B": 0.9537713202248372
+          },
+          "MI": {
+            "point_delta": 0.004738526037069701,
+            "lo95": 0.0004792030159521482,
+            "hi95": 0.009188594529392758,
+            "n_nan": 0,
+            "auroc_A": 0.9348157546337158,
+            "auroc_B": 0.9395542806707855
+          },
+          "STTC": {
+            "point_delta": -0.0006375061947976324,
+            "lo95": -0.004514656456913499,
+            "hi95": 0.0031359863667467943,
+            "n_nan": 0,
+            "auroc_A": 0.9381996687714672,
+            "auroc_B": 0.9375621625766696
+          },
+          "CD": {
+            "point_delta": 0.0020066525150677084,
+            "lo95": -0.004161990516247033,
+            "hi95": 0.007867877712849166,
+            "n_nan": 0,
+            "auroc_A": 0.929042208407566,
+            "auroc_B": 0.9310488609226337
+          },
+          "HYP": {
+            "point_delta": -0.0021568039871301403,
+            "lo95": -0.009747829417773256,
+            "hi95": 0.0048884251171167235,
+            "n_nan": 0,
+            "auroc_A": 0.9145893792189768,
+            "auroc_B": 0.9124325752318466
+          }
+        },
+        "label": "EXPLORATORY; point and 95% CI only; no multiplicity correction; no decision label"
+      }
+    ],
+    "E3_acquisition_permutation": [
+      {
+        "arch": "resnet1d_wang",
+        "arm": "signal_plus_all",
+        "n_perm": 20,
+        "perm_seed": 42,
+        "unpermuted_macro_auroc": 0.9389717694034339,
+        "permuted_macro_auroc": [
+          0.9330731279146866,
+          0.9353694787247427,
+          0.933272593660892,
+          0.9320769218525522,
+          0.9338172513091922,
+          0.9328198597116899,
+          0.93364047604184,
+          0.934762299506976,
+          0.9340810933454566,
+          0.9329280102656897,
+          0.9342152664116317,
+          0.9332014907400248,
+          0.932712903092009,
+          0.933999783643064,
+          0.9348649479241316,
+          0.9336017928589886,
+          0.9348422189151169,
+          0.9333849090746815,
+          0.9337608147325746,
+          0.9331992454570017
+        ],
+        "drop": [
+          0.005898641488747303,
+          0.0036022906786911113,
+          0.005699175742541862,
+          0.006894847550881655,
+          0.005154518094241611,
+          0.006151909691743951,
+          0.005331293361593881,
+          0.004209469896457874,
+          0.004890676057977217,
+          0.006043759137744131,
+          0.004756502991802192,
+          0.0057702786634090675,
+          0.006258866311424804,
+          0.004971985760369835,
+          0.004106821479302303,
+          0.005369976544445265,
+          0.00412955048831698,
+          0.00558686032875233,
+          0.005210954670859302,
+          0.005772523946432129
+        ],
+        "drop_mean": 0.00529054514428674,
+        "drop_min": 0.0036022906786911113,
+        "drop_max": 0.006894847550881655,
+        "label": "EXPLORATORY; same permutation for the three seed models, probabilities averaged, then macro-AUROC; summary = mean and range of drop; no CI; no decision label"
+      },
+      {
+        "arch": "inception1d",
+        "arm": "signal_plus_all",
+        "n_perm": 20,
+        "perm_seed": 42,
+        "unpermuted_macro_auroc": 0.9348738399253544,
+        "permuted_macro_auroc": [
+          0.9301084377704265,
+          0.931853328432147,
+          0.930346703644273,
+          0.9297497713260574,
+          0.930791542933525,
+          0.9299752421113183,
+          0.9307553294066414,
+          0.9314095478327182,
+          0.9313577015803531,
+          0.9299364963270655,
+          0.9307659807218324,
+          0.9308209411985594,
+          0.9297608592592642,
+          0.9312579133648319,
+          0.9320243614641205,
+          0.9303923123959731,
+          0.9312965649999745,
+          0.9303552075017482,
+          0.9303178803870502,
+          0.9306817432379209
+        ],
+        "drop": [
+          0.0047654021549279335,
+          0.0030205114932074784,
+          0.004527136281081479,
+          0.005124068599297038,
+          0.004082296991829493,
+          0.004898597814036121,
+          0.004118510518713037,
+          0.003464292092636212,
+          0.0035161383450013073,
+          0.004937343598288901,
+          0.0041078592035220796,
+          0.00405289872679504,
+          0.005112980666090228,
+          0.0036159265605225643,
+          0.0028494784612339563,
+          0.004481527529381357,
+          0.0035772749253799585,
+          0.004518632423606284,
+          0.004555959538304233,
+          0.0041920966874335885
+        ],
+        "drop_mean": 0.004175946630564415,
+        "drop_min": 0.0028494784612339563,
+        "drop_max": 0.005124068599297038,
+        "label": "EXPLORATORY; same permutation for the three seed models, probabilities averaged, then macro-AUROC; summary = mean and range of drop; no CI; no decision label"
+      }
+    ]
+  },
+  "D6_descriptive_components": "macro-AUROC of each arm: macro_auroc_A / macro_auroc_B in sections 1-3 and E1; per-class AUROC of signal_plus_physio / signal_plus_all (seed ensemble): E2 auroc_A / auroc_B",
+  "D7_sanity": {
+    "resnet1d_wang_signal_only_ensemble_macro_auroc": 0.9354833282549763,
+    "threshold": 0.9,
+    "below": false,
+    "note": "WARN-only; results are reported as they are"
+  },
+  "bootstrap_deltas_csv_sha256": "8ecee19cb0b2fa9393fee74636af1682c6b3692cfbf81da56d8d21ee88b6a5e9",
+  "probability_files_sha256": {
+    "v0.9_resnet1d_wang_signal_only_seed42_lr0.01_fold10_probs.csv": "8fb93dab079e15df9fdbaa3e40f8aaae843f38e0836c01fa20475df04dc80314",
+    "v0.9_resnet1d_wang_signal_plus_physio_seed42_lr0.01_fold10_probs.csv": "ea82b33444bc5814fe5b87598cdc8d16fa705c199cecb7cd20e962703f9b356c",
+    "v0.9_resnet1d_wang_signal_plus_all_seed42_lr0.01_fold10_probs.csv": "dbaefa86a56c423c84a0a201ef9e4a35833189dddd0fca6bec8f5bd45b8ce9ce",
+    "v0.9_resnet1d_wang_signal_only_seed123_lr0.01_fold10_probs.csv": "2e67bc8e18473d37e6466b626f8c0e11ab651a8e4a8398be3bf9d20e46388a1b",
+    "v0.9_resnet1d_wang_signal_plus_physio_seed123_lr0.01_fold10_probs.csv": "ebcfc87ce02069b6a0306a24ff0c7b3080885b8c9aa268d01d2d9d225ddd7715",
+    "v0.9_resnet1d_wang_signal_plus_all_seed123_lr0.01_fold10_probs.csv": "a29388ed17452cc63e2f72008e61c282aab73514d9e444987f25c3bcbad71f17",
+    "v0.9_resnet1d_wang_signal_only_seed2024_lr0.01_fold10_probs.csv": "e3018ea38d7467f93d9744be1035cbcd1e8349a6c745b20cad975c8f8c055324",
+    "v0.9_resnet1d_wang_signal_plus_physio_seed2024_lr0.01_fold10_probs.csv": "22cfabef1264eb3f47b0592de5d6a0bdbe1cf9bdd0f959f03332ae071bb852c7",
+    "v0.9_resnet1d_wang_signal_plus_all_seed2024_lr0.01_fold10_probs.csv": "ed00807c8b5967731a128615202496e613f680c1e4fafedc7c21352ee56679f6",
+    "v0.9_inception1d_signal_only_seed42_lr0.01_fold10_probs.csv": "007f2f97a18278c2df69178f85b1ef123844ebdd7e3c2374ce1d68e8cc9465ef",
+    "v0.9_inception1d_signal_plus_physio_seed42_lr0.01_fold10_probs.csv": "cb0d1c2391d6bb85f60034271eb6067d35e4b2bb5a7ae14bbda071b1840420bf",
+    "v0.9_inception1d_signal_plus_all_seed42_lr0.01_fold10_probs.csv": "75e4d31b9bd30f1369685ee62279f1c56ba7c7e80617240449b212a30108b672",
+    "v0.9_inception1d_signal_only_seed123_lr0.01_fold10_probs.csv": "640c3a338684a875dd3750b6edf208427f49cefb2a14e26ab90ffc0c06f17932",
+    "v0.9_inception1d_signal_plus_physio_seed123_lr0.01_fold10_probs.csv": "60ed43822569865cf85abc1f3429005bb1ea4a602bf7fe04d87cf83646952dc8",
+    "v0.9_inception1d_signal_plus_all_seed123_lr0.01_fold10_probs.csv": "6b16a16e74e0737b457a2163f2ba08a4b11a69d7c17045cca491392f2c018ae1",
+    "v0.9_inception1d_signal_only_seed2024_lr0.01_fold10_probs.csv": "6b33ec108e7def389e70c63d70d7e297f9987eaa7ba21088a72db89ec30bd5a5",
+    "v0.9_inception1d_signal_plus_physio_seed2024_lr0.01_fold10_probs.csv": "06edbf2ee26ef680059eeed8af3ca19fb23b0bd8e929116bf8daded7299ee6d4",
+    "v0.9_inception1d_signal_plus_all_seed2024_lr0.01_fold10_probs.csv": "a81a8e8359cdfe7e3a2fa5c105269a60cf3d55b436c957343e811644c028a253",
+    "v0.9_resnet1d_wang_perm_probs.npy": "2a6bfa0d093053483404a81ba3ec8b1eeb59cdfc38fd212800f92b077777645c",
+    "v0.9_inception1d_perm_probs.npy": "0f9473d12cc991b4e5e53b7c73e7d467ea8e95f525c0cf49d78d830f78cae823"
+  },
+  "versions": {
+    "python": "3.10.20",
+    "numpy": "1.26.4",
+    "pandas": "2.3.3",
+    "scipy": "1.15.3",
+    "sklearn": "1.7.2",
+    "torch": "2.7.1+cu118",
+    "torch_cuda": "11.8",
+    "os": "Windows-10-10.0.19045-SP0"
+  },
+  "wfdb": "4.3.1",
+  "gpu": "NVIDIA GeForce RTX 3050 6GB Laptop GPU",
+  "cudnn": 90100,
+  "warnings": [],
+  "interpretation_post_fold10_rule_2": "post_fold10_rules 2 constrains where MODEL OUTPUTS come from: the saved, sha256-verified v0.8 state_dicts and, after FREEZE, the frozen fold-10 probability files. It does not forbid reading ptbxl_database.csv to derive labels. Before FREEZE (no label read, no metric computed) a crash may be followed by re-reading the fold-10 signals to regenerate the probabilities from the same state_dicts (at most 2 pre-freeze attempts). Fixed before fold 10 was opened (supervisor answer 1, 2026-10-04).",
+  "post_opening_policy": "After fold 10 has been opened:\n1. The v0.9 outputs are never modified or overwritten.\n2. A bug is only a demonstrable deviation of the v0.9 code from the locked documents or from the behaviour validated in Part A, shown by a test that uses no fold-10 label and no fold-10 result. A different method, setting or threshold is never a bug fix: it is a post-hoc analysis (post_fold10_rules 3) and is reported as such. No locked setting (SESOI, CI levels, bootstrap, verdict table, closed list) is ever changed.\n3. A bug fix runs under a new version id (v0.9.1) in its own folder, and the fix is written down before the corrected code is run. Probabilities are regenerated from the same hash-verified v0.8 state_dicts only if the bug is in the inference path; otherwise the frozen v0.9 probability files are reused.\n4. Both the original and the corrected results are reported, together with the deviation and whether any metric had been computed before the bug was found.\n5. No model is ever retrained.",
+  "self_sha256": "77c9cae439edf7e0b31757c392853354033470c3fc154578d953b5f7a4b8e3ba"
+}

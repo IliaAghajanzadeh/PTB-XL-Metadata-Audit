@@ -1,0 +1,39 @@
+{
+  "document": "ph1 analysis plan - written before any model is fit",
+  "label": "POST-HOC (ph1): not pre-registered; reported separately from pre-registered results",
+  "code_version": "ph1",
+  "code_revision": "r2",
+  "timestamp": "2026-10-05T23:24:14.352399+03:30",
+  "versions": {
+    "python": "3.10.20",
+    "numpy": "1.26.4",
+    "pandas": "2.3.3",
+    "scipy": "1.15.3",
+    "sklearn": "1.7.2",
+    "os": "Windows-10-10.0.19045-SP0"
+  },
+  "plan": "ph1 — POST-HOC analysis (not pre-registered). Question: does the metadata-only result of v0.2.1/v0.3 (H1, H2; fold 9; confirmatory-after-the-fact) hold on the test fold? Design: identical to v0.2.1 (decision table: blocks B0–B5, LogisticRegression and HistGradientBoosting, seeds as in v0.2.1) and v0.3 (H2 paired test: delta = macro-AUROC(B3) − macro-AUROC(B1); LogisticRegression primary, HistGradientBoosting seed 42 robustness), with exactly one change: training rows = folds 1–9 (instead of 1–8), evaluation rows = fold 10 (instead of 9). Encoder and scalers are fit on the training rows. Bootstrap: patient level, the locked fold-10 BOOT_IDX (N_BOOT 2000, BOOT_SEED 7) shared with the v0.9 analysis. Rules applied post hoc, unchanged: difference test (95% percentile CI of the paired delta excludes 0), TOST with SESOI_H2 = 0.02 (90% percentile CI within ±0.02), achieved equivalence bound; learner disagreement is reported, never resolved by selection. Nothing else is computed. All results are reported regardless of outcome, labelled post hoc, separately from the pre-registered results. Validation gate: before any fold-10 model is fit, the same code with training folds 1–8 and evaluation fold 9 must reproduce the v0.2.1 decision table and the v0.3 H2 results to within 1e-12; otherwise the run stops.",
+  "plan_utf8_sha256": "bb9669de4e54b0530db3eef0b42fe4fd8378da4a084d142df6750bc61b182c17",
+  "amendment_r2": "r2 (2026-10-05): the r1 run stopped at the Part A gate because the LogisticRegression B2_acquisition rows (all three seeds; classes MI, CD, HYP) differed from v0.2.1 by at most 2.9e-6 (AUROC) and 5.7e-5 (AUPRC), attributed to the scipy 1.11.4 -> 1.15.3 change of the L-BFGS-B implementation; every other metric row and decision-table row (all HistGradientBoosting rows, LogisticRegression B0/B1/B3/B4/B5) and all H2 fields and per-draw deltas reproduced to 1e-12. The gate tolerance for the LogisticRegression B2_acquisition rows only was set to 1e-5 (AUROC, CIs) and 1e-4 (AUPRC) before anything was computed on fold 10. r1 attempt: outputs\\ph1_failed_1.",
+  "input_files_sha256": {
+    "ptbxl_database.csv": "7600de9c1b27d181d850b3c6038a35d7c3ddb6bb33b702e3a20252a6859d216b",
+    "scp_statements.csv": "ad05b0b1fcae83bb1230755ad9cfc7c96f303feddc08a4a9ad5bdc9ca63bac8f",
+    "pre_registration.json": {
+      "file_sha256": "11dd446272654fc80d65b2fdd40259fa674bbb419a44fde84e589b6e297cde32",
+      "self_sha256": "5183f54569f3358a5339b16a2c3c3be49f5c7798eabe6b0bb25946119c2ba469"
+    },
+    "final_run_protocol.json": {
+      "file_sha256": "e1a5260e72d2e8b0d27dc709639468b7f9a48a7c8e2f8af2d663e105dbd329d4",
+      "self_sha256": "834acddec288862d0418e9ee70204898c9d371788eed7eb362f4c0d63d305c6b"
+    },
+    "reference_implementation_code_utf8": "48ac837c07880f0bd88a7bd01475e7da3edbeab46019f8288976884ad7662856",
+    "v0.2.1_decision_table.csv": "20bffb2c6df30e16a070184f91f7211bddc14ede9bc2de39273b5be1cc32359b",
+    "v0.2.1_metrics_full.csv": "be88778ac06f93fefc92dfd54fed79c15be580ff92cd8419c6b72e937971e09d",
+    "v0.2.1_manifest.json": "37ca9b785ac2c1d78dd3e28f729dc64d289d42ae80803adacbe8a406122b23f6",
+    "v0.3_bootstrap_deltas.csv": "a8a535d52ba068bac06afa5385c766c48c62b6e69f110fd34ce3fdf10298c1da",
+    "v0.3_manifest.json": "c7e1bec283d11a3d4cd94a3f2509640651e8069d26424cfd14b5d6b975053e35",
+    "v0.9_fold10_labels.csv": "29051bd87676a59b70b3a79a91075f70a7cddd028b2c297461c7bbae3f15b3b0"
+  },
+  "self_sha256_procedure": "Load the JSON file; remove the key 'self_sha256' (the key must be absent, not empty); serialize the remaining dict with json.dumps(d, sort_keys=True, ensure_ascii=False, separators=(',', ':')); compute SHA-256 of the UTF-8 bytes; the hex digest must equal the stored 'self_sha256'. (At write time numpy scalars were converted to plain JSON types first, so the loaded file hashes identically.)",
+  "self_sha256": "34effc0fda5cb2b7fda1bce1fc43de0e17aa55f566a0902de75455e33a31c5c0"
+}

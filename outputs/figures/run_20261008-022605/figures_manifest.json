@@ -1,0 +1,199 @@
+{
+  "document": "figures manifest",
+  "version": "figures-1.1",
+  "created": "2026-10-08T03:31:26.085192+03:30",
+  "paper_numbers": {
+    "path": "D:\\ptbxl-metadata-audit\\outputs\\verify\\run_20261008-022605\\paper_numbers.json",
+    "sha256": "e540d16d65d9247669e8488bcc834ea854cdd5bf94f0181f3c9ceb6ff49e524c",
+    "verify_run_id": "run_20261008-022605"
+  },
+  "font": {
+    "name": "Times New Roman",
+    "path": "C:\\Windows\\Fonts\\times.ttf",
+    "fallback": false
+  },
+  "versions": {
+    "python": "3.10.20",
+    "matplotlib": "3.10.9",
+    "pillow": "12.3.0",
+    "numpy": "1.26.4",
+    "os": "Windows-10-10.0.19045-SP0"
+  },
+  "warnings": [],
+  "layout_mm": {
+    "fig1": {
+      "left_mm": 27.67245833333333,
+      "right_mm": 2.2647708333333334,
+      "bottom_mm": 8.664666666666665,
+      "top_mm": 12.145260416666666,
+      "gap_mm": 5.59953125,
+      "panel_h_mm": 21.295270833333337,
+      "axes_w_mm": 55.86277083333333,
+      "longest_ytick_mm": 25.17245833333333,
+      "legend_h_mm": 6.045729166666666,
+      "header_h_mm": 2.5995312499999996
+    },
+    "fig2": {
+      "left_mm": 14.019833333333334,
+      "right_mm": 0.5,
+      "bottom_mm": 8.079797916666667,
+      "top_mm": 5.840111111111117,
+      "axes_w_mm": 71.28016666666666,
+      "axes_h_mm": 42.08009097222222,
+      "widest_ytick_mm": 7.9375,
+      "ylabel_mm": 2.5823333333333345
+    }
+  },
+  "preview": [
+    {
+      "figure": "fig1",
+      "pasted_mm": [
+        85.767,
+        68.961
+      ],
+      "caption_lines": 8,
+      "widest_caption_line_mm": 85.635
+    },
+    {
+      "figure": "fig2",
+      "pasted_mm": [
+        85.767,
+        55.965
+      ],
+      "caption_lines": 8,
+      "widest_caption_line_mm": 85.355
+    }
+  ],
+  "self_checks_1_to_5": [
+    {
+      "id": "1_size_fig1",
+      "description": "fig1: saved size == 85.8 x 69.0 mm (+/-0.1 mm) from PNG pixels at 600 dpi (also TIFF pixels, PDF MediaBox); RGB; TIFF LZW; PDF fonts embedded TrueType",
+      "status": "PASS",
+      "detail": "PNG 2026 x 1629 px = 85.767 x 68.961 mm | TIFF 85.767 x 68.961 mm (tiff_lzw) | PDF 85.8 x 69.0 mm | PDF TrueType embedded True"
+    },
+    {
+      "id": "1_size_fig2",
+      "description": "fig2: saved size == 85.8 x 56.0 mm (+/-0.1 mm) from PNG pixels at 600 dpi (also TIFF pixels, PDF MediaBox); RGB; TIFF LZW; PDF fonts embedded TrueType",
+      "status": "PASS",
+      "detail": "PNG 2026 x 1322 px = 85.767 x 55.965 mm | TIFF 85.767 x 55.965 mm (tiff_lzw) | PDF 85.8 x 56.0 mm | PDF TrueType embedded True"
+    },
+    {
+      "id": "2_text_fig1",
+      "description": "fig1: every visible text is 8.0 pt, regular, upright, in the resolved font (Times New Roman), every glyph present in that font, no mathtext",
+      "status": "PASS",
+      "detail": "17 texts checked; violations: []"
+    },
+    {
+      "id": "2_text_fig2",
+      "description": "fig2: every visible text is 8.0 pt, regular, upright, in the resolved font (Times New Roman), every glyph present in that font, no mathtext",
+      "status": "PASS",
+      "detail": "11 texts checked; violations: []"
+    },
+    {
+      "id": "3_overlap_fig1",
+      "description": "fig1: no two text boxes overlap (renderer extents, 0.5 pt tolerance); every text box inside the canvas",
+      "status": "PASS",
+      "detail": "17 texts | overlaps [] | outside []"
+    },
+    {
+      "id": "3_overlap_fig2",
+      "description": "fig2: no two text boxes overlap (renderer extents, 0.5 pt tolerance); every text box inside the canvas",
+      "status": "PASS",
+      "detail": "11 texts | overlaps [] | outside []"
+    },
+    {
+      "id": "4_legend_fig1",
+      "description": "fig1: no legend box contains a data marker (marker extent), a CI / range line point (sampled every 0.5 mm), a band edge, the zero line or the chance line",
+      "status": "PASS",
+      "detail": "1 legend(s), 172 points tested, hits []"
+    },
+    {
+      "id": "4_legend_fig2",
+      "description": "fig2: no legend box contains a data marker (marker extent), a CI / range line point (sampled every 0.5 mm), a band edge, the zero line or the chance line",
+      "status": "PASS",
+      "detail": "1 legend(s), 572 points tested, hits []"
+    },
+    {
+      "id": "5_values",
+      "description": "every plotted value (read back from the artists by gid) == paper_numbers.json exactly (Python ==); every expected artist present once; no value outside the axis range; band = h3.sesoi_h3 = 0.01",
+      "status": "PASS",
+      "detail": "40 artists compared | mismatches [] | clipped [] | sesoi_h3 0.01"
+    },
+    {
+      "id": "5b_labels",
+      "description": "row labels (Fig. 1), group labels and y tick labels (Fig. 2) sit at their specified positions",
+      "status": "PASS",
+      "detail": "14 labels | mismatches []"
+    },
+    {
+      "id": "5c_ci_visibility",
+      "description": "Fig. 1: in (b) both ends of each of the 6 CI lines lie within the extent of its own marker (incl. edge); in (a) at least one end of each of the 6 CI lines lies outside it",
+      "status": "PASS",
+      "detail": "marker half-extent 0.794 mm incl. edge (0.706 mm without edge) | failing [] | per artist [('fig1/a/B1_physio/HistGradientBoosting/ci95', [1.597, 1.662], [False, False], [False, False]), ('fig1/a/B1_physio/LogisticRegression/ci95', [1.61, 1.641], [False, False], [False, False]), ('fig1/a/B2_acquisition/HistGradientBoosting/ci95', [1.712, 1.664], [False, False], [False, False]), ('fig1/a/B2_acquisition/LogisticRegression/ci95', [1.741, 1.655], [False, False], [False, False]), ('fig1/a/B3_physio_plus_acquisition/HistGradientBoosting/ci95', [1.517, 1.491], [False, False], [False, False]), ('fig1/a/B3_physio_plus_acquisition/LogisticRegression/ci95', [1.58, 1.503], [False, False], [False, False]), ('fig1/b/signal_only/inception1d/ci95', [0.769, 0.69], [True, True], [False, True]), ('fig1/b/signal_only/resnet1d_wang/ci95', [0.725, 0.692], [True, True], [False, True]), ('fig1/b/signal_plus_all/inception1d/ci95', [0.683, 0.671], [True, True], [True, True]), ('fig1/b/signal_plus_all/resnet1d_wang/ci95', [0.681, 0.666], [True, True], [True, True]), ('fig1/b/signal_plus_physio/inception1d/ci95', [0.695, 0.628], [True, True], [True, True]), ('fig1/b/signal_plus_physio/resnet1d_wang/ci95', [0.712, 0.67], [True, True], [False, True])]"
+    },
+    {
+      "id": "5d_marker_overlap_fig1",
+      "description": "fig1: no two data markers overlap (marker extents incl. edge, intersection area zero)",
+      "status": "PASS",
+      "detail": "12 markers | overlaps [] | smallest gap between markers sharing an x-range: 0.400 mm incl. edge, 0.576 mm without edge (fig1/b/signal_only/resnet1d_wang/point / fig1/b/signal_only/inception1d/point) | smallest gap between any two markers: 0.400 mm (fig1/b/signal_only/resnet1d_wang/point / fig1/b/signal_only/inception1d/point)"
+    },
+    {
+      "id": "5d_marker_overlap_fig2",
+      "description": "fig2: no two data markers overlap (marker extents incl. edge, intersection area zero)",
+      "status": "PASS",
+      "detail": "6 markers | overlaps [] | smallest gap between markers sharing an x-range: none share an x-range | smallest gap between any two markers: 4.506 mm (fig2/e3/resnet1d_wang/mean / fig2/e3/inception1d/mean)"
+    }
+  ],
+  "outputs": [
+    {
+      "file": "fig1_auroc_levels.png",
+      "bytes": 190294,
+      "sha256": "82828ca551199ba6c9c4c4399df9a8e9387a377fcae5a108a082de0bc15207a9"
+    },
+    {
+      "file": "fig1_auroc_levels.tif",
+      "bytes": 208564,
+      "sha256": "87e552b28df2042cd5ab36e426d740fdd97ee8ceefb5419c6a6f1f0acafed6d0"
+    },
+    {
+      "file": "fig1_auroc_levels.pdf",
+      "bytes": 38672,
+      "sha256": "1d13b90c2c30d05c2961a2eb5d04f510346f0fcbe79ac89b5fe5dcb75bbd1aa6"
+    },
+    {
+      "file": "fig2_delta.png",
+      "bytes": 101930,
+      "sha256": "7383bccff43e813725cc4dbd57c99ff04ac2a77d45e95d4d5655ffce0056b5ce"
+    },
+    {
+      "file": "fig2_delta.tif",
+      "bytes": 150038,
+      "sha256": "3435f1ee293e0104ece41aed8591c02f0a1654a9bb6ea946ce17ffa5413297b4"
+    },
+    {
+      "file": "fig2_delta.pdf",
+      "bytes": 33310,
+      "sha256": "cc7c6f223231a25bbbfe0551723e433afa95b905a6faa3ec98fda2bb3c6cdc8c"
+    },
+    {
+      "file": "fig1_auroc_levels_gray.png",
+      "bytes": 96100,
+      "sha256": "ad18940a59cf4a8e5a8194e3b4ba89f1732a498af2cec3a569462ab519932cce"
+    },
+    {
+      "file": "fig2_delta_gray.png",
+      "bytes": 51252,
+      "sha256": "085c786c3daddd4313eb11b90f46535e3cbff1d83461bea0aefe542c5ccd357c"
+    },
+    {
+      "file": "figures_preview_A4.pdf",
+      "bytes": 334955,
+      "sha256": "c8523f55e458de6533bd6a575df5fcf36b076f44a9c657574fe09587a2fa67f6"
+    },
+    {
+      "file": "captions.txt",
+      "bytes": 1080,
+      "sha256": "18b1226e7ea2b8a525e3187d49c1b64236570ded95747bc2fe0f1ba218599fbe"
+    }
+  ]
+}

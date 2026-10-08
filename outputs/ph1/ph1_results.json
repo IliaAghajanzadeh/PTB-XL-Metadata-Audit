@@ -1,0 +1,1446 @@
+{
+  "document": "ph1 results - post-hoc metadata-only evaluation on fold 10 (train folds 1-9)",
+  "label": "POST-HOC (ph1): not pre-registered; reported separately from pre-registered results",
+  "code_version": "ph1",
+  "code_revision": "r2",
+  "run_started": "2026-10-05T23:24:14.257717+03:30",
+  "timestamp": "2026-10-05T23:27:14.492357+03:30",
+  "versions": {
+    "python": "3.10.20",
+    "numpy": "1.26.4",
+    "pandas": "2.3.3",
+    "scipy": "1.15.3",
+    "sklearn": "1.7.2",
+    "os": "Windows-10-10.0.19045-SP0"
+  },
+  "versions_note": "Assert python 3.10.20, numpy 1.26.4, pandas 2.3.3, scipy 1.15.3, scikit-learn 1.7.2. This is the environment of v0.4-v0.9. v0.2.1 and v0.3 ran with scipy 1.11.4; Part A is the test that their results reproduce under scipy 1.15.3.",
+  "cpu_count": 12,
+  "threadpool_info": [
+    {
+      "user_api": "blas",
+      "internal_api": "openblas",
+      "num_threads": 12,
+      "prefix": "libopenblas",
+      "filepath": "C:\\Users\\ILIA\\anaconda3\\envs\\medssl\\Lib\\site-packages\\numpy.libs\\libopenblas64__v0.3.23-293-gc2f4bdbb-gcc_10_3_0-2bde3a66a51006b2b53eb373ff767a3f.dll",
+      "version": "0.3.23.dev",
+      "threading_layer": "pthreads",
+      "architecture": "Prescott"
+    },
+    {
+      "user_api": "blas",
+      "internal_api": "openblas",
+      "num_threads": 12,
+      "prefix": "libscipy_openblas",
+      "filepath": "C:\\Users\\ILIA\\anaconda3\\envs\\medssl\\Lib\\site-packages\\scipy.libs\\libscipy_openblas-f07f5a5d207a3a47104dca54d6d0c86a.dll",
+      "version": "0.3.28",
+      "threading_layer": "pthreads",
+      "architecture": "Haswell"
+    },
+    {
+      "user_api": "openmp",
+      "internal_api": "openmp",
+      "num_threads": 12,
+      "prefix": "vcomp",
+      "filepath": "C:\\Users\\ILIA\\anaconda3\\envs\\medssl\\Lib\\site-packages\\sklearn\\.libs\\vcomp140.dll",
+      "version": null
+    }
+  ],
+  "plan": {
+    "file": "ph1_analysis_plan.json",
+    "self_sha256": "34effc0fda5cb2b7fda1bce1fc43de0e17aa55f566a0902de75455e33a31c5c0",
+    "file_sha256": "aaa18d93c5c18813cea2a31dcfc35d7cc604335dc2627cdb069e82228a52f20a",
+    "plan_utf8_sha256": "bb9669de4e54b0530db3eef0b42fe4fd8378da4a084d142df6750bc61b182c17",
+    "amendment_r2_utf8_sha256": "e0255ebbd7588f84523577bd5bb3d480fe52d8d0bbada4668e2e59d57f651094"
+  },
+  "amendment_r2": "r2 (2026-10-05): the r1 run stopped at the Part A gate because the LogisticRegression B2_acquisition rows (all three seeds; classes MI, CD, HYP) differed from v0.2.1 by at most 2.9e-6 (AUROC) and 5.7e-5 (AUPRC), attributed to the scipy 1.11.4 -> 1.15.3 change of the L-BFGS-B implementation; every other metric row and decision-table row (all HistGradientBoosting rows, LogisticRegression B0/B1/B3/B4/B5) and all H2 fields and per-draw deltas reproduced to 1e-12. The gate tolerance for the LogisticRegression B2_acquisition rows only was set to 1e-5 (AUROC, CIs) and 1e-4 (AUPRC) before anything was computed on fold 10. r1 attempt: outputs\\ph1_failed_1.",
+  "r1_attempt": {
+    "folder": "outputs\\ph1_failed_1",
+    "code_revision": "r1",
+    "timestamp": "2026-10-05T20:53:24.909308+03:30",
+    "outcome": "PartAFailure: Part A validation gate FAILED (2 check(s): ['A2_decision_table', 'A2_metric_rows']) - nothing is computed on fold 10.",
+    "failed_checks": [
+      "A2_decision_table",
+      "A2_metric_rows"
+    ],
+    "plan_self_sha256": "bacbd0b2a56f366add7416e38ff9181d7b50b2c05220a6eb84918a7078f0311f",
+    "partA_failure_file": "ph1_partA_failure.json",
+    "partA_failure_self_sha256": "d48b8c77ccbdc957d54f0907503e7463197fb2570e6ec26c7bb67e2c40c77807",
+    "partA_failure_file_sha256": "d7b7d5e1bbdb07f02ca58664a116b83ac1c7109c023f5d6b11f28e916d6e9415",
+    "expected_self_sha256": "d48b8c77ccbdc957d54f0907503e7463197fb2570e6ec26c7bb67e2c40c77807",
+    "expected_file_sha256": "d7b7d5e1bbdb07f02ca58664a116b83ac1c7109c023f5d6b11f28e916d6e9415",
+    "file_sha256_equals_expected": true,
+    "files": [
+      {
+        "file": "ph1_analysis_plan.json",
+        "sha256": "0b1ad3f68f0eb925e5ec2bf86db575198ecba6839d3a0c9e26be6705cbb72252"
+      },
+      {
+        "file": "ph1_partA_failure.json",
+        "sha256": "d7b7d5e1bbdb07f02ca58664a116b83ac1c7109c023f5d6b11f28e916d6e9415"
+      }
+    ]
+  },
+  "frozen_outputs": {
+    "file": "ph1_frozen_outputs.json",
+    "self_sha256": "a3183532cfb48ada58e299ce77df2484df59c3e607181d9c5012f59acb7d8fff",
+    "file_sha256": "1fdfc9bf06cd9aedd77fc265c72151707de12309af1772adb9cd72a657542381"
+  },
+  "input_files_sha256": {
+    "ptbxl_database.csv": "7600de9c1b27d181d850b3c6038a35d7c3ddb6bb33b702e3a20252a6859d216b",
+    "scp_statements.csv": "ad05b0b1fcae83bb1230755ad9cfc7c96f303feddc08a4a9ad5bdc9ca63bac8f",
+    "pre_registration.json": {
+      "file_sha256": "11dd446272654fc80d65b2fdd40259fa674bbb419a44fde84e589b6e297cde32",
+      "self_sha256": "5183f54569f3358a5339b16a2c3c3be49f5c7798eabe6b0bb25946119c2ba469"
+    },
+    "final_run_protocol.json": {
+      "file_sha256": "e1a5260e72d2e8b0d27dc709639468b7f9a48a7c8e2f8af2d663e105dbd329d4",
+      "self_sha256": "834acddec288862d0418e9ee70204898c9d371788eed7eb362f4c0d63d305c6b"
+    },
+    "reference_implementation_code_utf8": "48ac837c07880f0bd88a7bd01475e7da3edbeab46019f8288976884ad7662856",
+    "v0.2.1_decision_table.csv": "20bffb2c6df30e16a070184f91f7211bddc14ede9bc2de39273b5be1cc32359b",
+    "v0.2.1_metrics_full.csv": "be88778ac06f93fefc92dfd54fed79c15be580ff92cd8419c6b72e937971e09d",
+    "v0.2.1_manifest.json": "37ca9b785ac2c1d78dd3e28f729dc64d289d42ae80803adacbe8a406122b23f6",
+    "v0.3_bootstrap_deltas.csv": "a8a535d52ba068bac06afa5385c766c48c62b6e69f110fd34ce3fdf10298c1da",
+    "v0.3_manifest.json": "c7e1bec283d11a3d4cd94a3f2509640651e8069d26424cfd14b5d6b975053e35",
+    "v0.9_fold10_labels.csv": "29051bd87676a59b70b3a79a91075f70a7cddd028b2c297461c7bbae3f15b3b0"
+  },
+  "post_fold10_rules_3": "3. Ablations listed in the project plan that require training (random-split ablation; height/weight sensitivity) are POST-HOC studies: they run under their own version ids, never modify or overwrite any H3 / listed-comparison artifact, and are reported separately from pre-registered results.",
+  "previous_attempts": [
+    {
+      "folder": "ph1_failed_1",
+      "files": [
+        {
+          "file": "ph1_analysis_plan.json",
+          "sha256": "0b1ad3f68f0eb925e5ec2bf86db575198ecba6839d3a0c9e26be6705cbb72252"
+        },
+        {
+          "file": "ph1_partA_failure.json",
+          "sha256": "d7b7d5e1bbdb07f02ca58664a116b83ac1c7109c023f5d6b11f28e916d6e9415"
+        }
+      ]
+    }
+  ],
+  "previous_attempts_probability_files": [
+    {
+      "folder": "ph1_failed_1",
+      "identical_bytes": null,
+      "note": "no probability file in that attempt"
+    }
+  ],
+  "part_A": {
+    "tolerance": {
+      "A2": {
+        "default": 1e-12,
+        "relaxed_rows": {
+          "block": "B2_acquisition",
+          "learner": "LogisticRegression"
+        },
+        "relaxed_columns": {
+          "auroc": 1e-05,
+          "ci_low": 1e-05,
+          "ci_high": 1e-05,
+          "auprc": 0.0001,
+          "macro_auroc_mean": 1e-05,
+          "ci_low_mean": 1e-05,
+          "ci_high_mean": 1e-05,
+          "delta_vs_B1_physio": 1e-05
+        }
+      },
+      "A3": 1e-12
+    },
+    "all_pass": true,
+    "decision_table_max_abs_diff_per_column": {
+      "macro_auroc_mean": 6.972562557328033e-07,
+      "macro_auroc_std_across_seeds": 0.0,
+      "ci_low_mean": 1.242272428259028e-07,
+      "ci_high_mean": 1.5784986938660595e-06,
+      "delta_vs_B1_physio": 6.972562557328033e-07
+    },
+    "decision_table_max_abs_diff_by_tolerance": {
+      "1e-12": 0.0,
+      "1e-05": 1.5784986938660595e-06
+    },
+    "metric_rows_max_abs_diff_per_column": {
+      "auroc": 2.9227231985728963e-06,
+      "auroc_chance": 0.0,
+      "auprc": 5.653550429668419e-05,
+      "auprc_chance": 0.0,
+      "ci_low": 1.242272428259028e-07,
+      "ci_high": 1.5784986938660595e-06
+    },
+    "metric_rows_max_abs_diff_by_tolerance": {
+      "1e-12": 0.0,
+      "1e-05": 2.9227231985728963e-06,
+      "0.0001": 5.653550429668419e-05
+    },
+    "metric_rows_any_auroc_changed": true,
+    "metric_rows_n_auroc_changed": 9,
+    "h2_fields_max_abs_diff": 0.0,
+    "per_draw_deltas_max_abs_diff_per_column": {
+      "delta_LR": 0.0,
+      "delta_HGB": 0.0
+    },
+    "A2b": {
+      "status": "PASS",
+      "gating": false,
+      "rows": {
+        "decision_table": [
+          {
+            "block": "B2_acquisition",
+            "learner": "LogisticRegression",
+            "column": "macro_auroc_mean",
+            "v021": 0.6103784656077057,
+            "ph1": 0.61037776835145,
+            "v021_4dp": "0.6104",
+            "ph1_4dp": "0.6104",
+            "unchanged_4dp": true
+          }
+        ],
+        "metric_rows": [
+          {
+            "block": "B2_acquisition",
+            "learner": "LogisticRegression",
+            "seed": 42,
+            "class": "MI",
+            "column": "auroc",
+            "v021": 0.640436419377381,
+            "ph1": 0.6404358558193007,
+            "v021_4dp": "0.6404",
+            "ph1_4dp": "0.6404",
+            "unchanged_4dp": true
+          },
+          {
+            "block": "B2_acquisition",
+            "learner": "LogisticRegression",
+            "seed": 42,
+            "class": "CD",
+            "column": "auroc",
+            "v021": 0.5714383168174637,
+            "ph1": 0.5714383168174637,
+            "v021_4dp": "0.5714",
+            "ph1_4dp": "0.5714",
+            "unchanged_4dp": true
+          },
+          {
+            "block": "B2_acquisition",
+            "learner": "LogisticRegression",
+            "seed": 42,
+            "class": "HYP",
+            "column": "auroc",
+            "v021": 0.5800037021160516,
+            "ph1": 0.580000779392853,
+            "v021_4dp": "0.5800",
+            "ph1_4dp": "0.5800",
+            "unchanged_4dp": true
+          },
+          {
+            "block": "B2_acquisition",
+            "learner": "LogisticRegression",
+            "seed": 42,
+            "class": "MACRO",
+            "column": "auroc",
+            "v021": 0.6103784656077057,
+            "ph1": 0.61037776835145,
+            "v021_4dp": "0.6104",
+            "ph1_4dp": "0.6104",
+            "unchanged_4dp": true
+          },
+          {
+            "block": "B2_acquisition",
+            "learner": "LogisticRegression",
+            "seed": 123,
+            "class": "MI",
+            "column": "auroc",
+            "v021": 0.640436419377381,
+            "ph1": 0.6404358558193007,
+            "v021_4dp": "0.6404",
+            "ph1_4dp": "0.6404",
+            "unchanged_4dp": true
+          },
+          {
+            "block": "B2_acquisition",
+            "learner": "LogisticRegression",
+            "seed": 123,
+            "class": "CD",
+            "column": "auroc",
+            "v021": 0.5714383168174637,
+            "ph1": 0.5714383168174637,
+            "v021_4dp": "0.5714",
+            "ph1_4dp": "0.5714",
+            "unchanged_4dp": true
+          },
+          {
+            "block": "B2_acquisition",
+            "learner": "LogisticRegression",
+            "seed": 123,
+            "class": "HYP",
+            "column": "auroc",
+            "v021": 0.5800037021160516,
+            "ph1": 0.580000779392853,
+            "v021_4dp": "0.5800",
+            "ph1_4dp": "0.5800",
+            "unchanged_4dp": true
+          },
+          {
+            "block": "B2_acquisition",
+            "learner": "LogisticRegression",
+            "seed": 123,
+            "class": "MACRO",
+            "column": "auroc",
+            "v021": 0.6103784656077057,
+            "ph1": 0.61037776835145,
+            "v021_4dp": "0.6104",
+            "ph1_4dp": "0.6104",
+            "unchanged_4dp": true
+          },
+          {
+            "block": "B2_acquisition",
+            "learner": "LogisticRegression",
+            "seed": 2024,
+            "class": "MI",
+            "column": "auroc",
+            "v021": 0.640436419377381,
+            "ph1": 0.6404358558193007,
+            "v021_4dp": "0.6404",
+            "ph1_4dp": "0.6404",
+            "unchanged_4dp": true
+          },
+          {
+            "block": "B2_acquisition",
+            "learner": "LogisticRegression",
+            "seed": 2024,
+            "class": "CD",
+            "column": "auroc",
+            "v021": 0.5714383168174637,
+            "ph1": 0.5714383168174637,
+            "v021_4dp": "0.5714",
+            "ph1_4dp": "0.5714",
+            "unchanged_4dp": true
+          },
+          {
+            "block": "B2_acquisition",
+            "learner": "LogisticRegression",
+            "seed": 2024,
+            "class": "HYP",
+            "column": "auroc",
+            "v021": 0.5800037021160516,
+            "ph1": 0.580000779392853,
+            "v021_4dp": "0.5800",
+            "ph1_4dp": "0.5800",
+            "unchanged_4dp": true
+          },
+          {
+            "block": "B2_acquisition",
+            "learner": "LogisticRegression",
+            "seed": 2024,
+            "class": "MACRO",
+            "column": "auroc",
+            "v021": 0.6103784656077057,
+            "ph1": 0.61037776835145,
+            "v021_4dp": "0.6104",
+            "ph1_4dp": "0.6104",
+            "unchanged_4dp": true
+          }
+        ]
+      }
+    }
+  },
+  "checks": [
+    {
+      "id": "A1_fold9_positives",
+      "section": "A1",
+      "description": "fold-9 positives (v0.2.1 label code) == v0.2.1 counts",
+      "status": "PASS",
+      "kind": "exact",
+      "expected": {
+        "NORM": 955,
+        "MI": 540,
+        "STTC": 528,
+        "CD": 495,
+        "HYP": 268
+      },
+      "observed": {
+        "NORM": 955,
+        "MI": 540,
+        "STTC": 528,
+        "CD": 495,
+        "HYP": 268
+      }
+    },
+    {
+      "id": "A1_split_sizes",
+      "section": "A1",
+      "description": "train folds 1-8 / eval fold 9 records and patients == v0.2.1 / v0.3",
+      "status": "PASS",
+      "kind": "exact",
+      "expected": {
+        "n_train": 17418,
+        "n_eval": 2183,
+        "n_train_patients": 15023,
+        "n_eval_patients": 1942
+      },
+      "observed": {
+        "n_train": 17418,
+        "n_eval": 2183,
+        "n_train_patients": 15023,
+        "n_eval_patients": 1942
+      }
+    },
+    {
+      "id": "A1_encoder_folds1to8",
+      "section": "A1",
+      "description": "folds 1-8 categories == FRP folds 1-9 categories minus new_levels_vs_folds1to8 (widths == FRP widths_folds1to8_development)",
+      "status": "PASS",
+      "kind": "exact",
+      "expected": {
+        "device": 13,
+        "site": 52,
+        "nurse": 14
+      },
+      "observed": {
+        "device": 13,
+        "site": 52,
+        "nurse": 14
+      }
+    },
+    {
+      "id": "A2_decision_table",
+      "section": "A2",
+      "description": "12 rows x 5 numeric columns == v0.2.1_decision_table.csv",
+      "status": "PASS",
+      "kind": "numeric",
+      "max_abs_diff": 1.5784986938660595e-06,
+      "tolerance": {
+        "default": 1e-12,
+        "relaxed_rows": {
+          "block": "B2_acquisition",
+          "learner": "LogisticRegression"
+        },
+        "relaxed_columns": {
+          "auroc": 1e-05,
+          "ci_low": 1e-05,
+          "ci_high": 1e-05,
+          "auprc": 0.0001,
+          "macro_auroc_mean": 1e-05,
+          "ci_low_mean": 1e-05,
+          "ci_high_mean": 1e-05,
+          "delta_vs_B1_physio": 1e-05
+        }
+      },
+      "shape_equal": true,
+      "identifiers_equal": true,
+      "max_abs_diff_per_column": {
+        "macro_auroc_mean": 6.972562557328033e-07,
+        "macro_auroc_std_across_seeds": 0.0,
+        "ci_low_mean": 1.242272428259028e-07,
+        "ci_high_mean": 1.5784986938660595e-06,
+        "delta_vs_B1_physio": 6.972562557328033e-07
+      },
+      "max_abs_diff_by_tolerance": {
+        "1e-12": 0.0,
+        "1e-05": 1.5784986938660595e-06
+      },
+      "n_cells_over_tolerance": 0
+    },
+    {
+      "id": "A2_metric_rows",
+      "section": "A2",
+      "description": "all 216 metric rows == v0.2.1_metrics_full.csv",
+      "status": "PASS",
+      "kind": "numeric",
+      "max_abs_diff": 5.653550429668419e-05,
+      "tolerance": {
+        "default": 1e-12,
+        "relaxed_rows": {
+          "block": "B2_acquisition",
+          "learner": "LogisticRegression"
+        },
+        "relaxed_columns": {
+          "auroc": 1e-05,
+          "ci_low": 1e-05,
+          "ci_high": 1e-05,
+          "auprc": 0.0001,
+          "macro_auroc_mean": 1e-05,
+          "ci_low_mean": 1e-05,
+          "ci_high_mean": 1e-05,
+          "delta_vs_B1_physio": 1e-05
+        }
+      },
+      "shape_equal": true,
+      "identifiers_equal": true,
+      "max_abs_diff_per_column": {
+        "auroc": 2.9227231985728963e-06,
+        "auroc_chance": 0.0,
+        "auprc": 5.653550429668419e-05,
+        "auprc_chance": 0.0,
+        "ci_low": 1.242272428259028e-07,
+        "ci_high": 1.5784986938660595e-06
+      },
+      "max_abs_diff_by_tolerance": {
+        "1e-12": 0.0,
+        "1e-05": 2.9227231985728963e-06,
+        "0.0001": 5.653550429668419e-05
+      },
+      "n_cells_over_tolerance": 0
+    },
+    {
+      "id": "A2b_LR_auroc_4dp_unchanged",
+      "section": "A2b",
+      "description": "every LogisticRegression row that is not exact keeps its 4-decimal AUROC (metric rows: auroc; decision table: macro_auroc_mean); reported, does not stop the run",
+      "status": "PASS",
+      "gating": false,
+      "kind": "exact",
+      "observed": {
+        "decision_table": {
+          "n_LR_rows_not_exact": 1,
+          "rows_4dp_changed": []
+        },
+        "metric_rows": {
+          "n_LR_rows_not_exact": 12,
+          "rows_4dp_changed": []
+        }
+      }
+    },
+    {
+      "id": "A3_fields_LogisticRegression",
+      "section": "A3",
+      "description": "LogisticRegression: field set == pre_registration.json fields + n_patients",
+      "status": "PASS",
+      "kind": "exact",
+      "expected": [
+        "MDE",
+        "SE_delta",
+        "achieved_equivalence_bound",
+        "ci90_percentile",
+        "ci95_percentile",
+        "difference_test_verdict",
+        "mean_delta",
+        "n_boot_invalid",
+        "n_boot_valid",
+        "point_delta",
+        "point_macro_auroc_B1",
+        "point_macro_auroc_B3",
+        "tost_verdict"
+      ],
+      "observed": [
+        "MDE",
+        "SE_delta",
+        "achieved_equivalence_bound",
+        "ci90_percentile",
+        "ci95_percentile",
+        "difference_test_verdict",
+        "mean_delta",
+        "n_boot_invalid",
+        "n_boot_valid",
+        "n_patients",
+        "point_delta",
+        "point_macro_auroc_B1",
+        "point_macro_auroc_B3",
+        "tost_verdict"
+      ]
+    },
+    {
+      "id": "A3_LogisticRegression_point_macro_auroc_B1",
+      "section": "A3",
+      "description": "LogisticRegression point_macro_auroc_B1 == pre_registration.json",
+      "status": "PASS",
+      "kind": "numeric",
+      "expected": 0.6889687936822659,
+      "observed": 0.6889687936822659,
+      "max_abs_diff": 0.0,
+      "tolerance": 1e-12
+    },
+    {
+      "id": "A3_LogisticRegression_point_macro_auroc_B3",
+      "section": "A3",
+      "description": "LogisticRegression point_macro_auroc_B3 == pre_registration.json",
+      "status": "PASS",
+      "kind": "numeric",
+      "expected": 0.6971647470153735,
+      "observed": 0.6971647470153735,
+      "max_abs_diff": 0.0,
+      "tolerance": 1e-12
+    },
+    {
+      "id": "A3_LogisticRegression_point_delta",
+      "section": "A3",
+      "description": "LogisticRegression point_delta == pre_registration.json",
+      "status": "PASS",
+      "kind": "numeric",
+      "expected": 0.00819595333310752,
+      "observed": 0.00819595333310752,
+      "max_abs_diff": 0.0,
+      "tolerance": 1e-12
+    },
+    {
+      "id": "A3_LogisticRegression_mean_delta",
+      "section": "A3",
+      "description": "LogisticRegression mean_delta == pre_registration.json",
+      "status": "PASS",
+      "kind": "numeric",
+      "expected": 0.00833919366348715,
+      "observed": 0.00833919366348715,
+      "max_abs_diff": 0.0,
+      "tolerance": 1e-12
+    },
+    {
+      "id": "A3_LogisticRegression_SE_delta",
+      "section": "A3",
+      "description": "LogisticRegression SE_delta == pre_registration.json",
+      "status": "PASS",
+      "kind": "numeric",
+      "expected": 0.004298597691363125,
+      "observed": 0.004298597691363125,
+      "max_abs_diff": 0.0,
+      "tolerance": 1e-12
+    },
+    {
+      "id": "A3_LogisticRegression_ci95_percentile",
+      "section": "A3",
+      "description": "LogisticRegression ci95_percentile == pre_registration.json",
+      "status": "PASS",
+      "kind": "numeric",
+      "expected": [
+        -0.00011587489117776397,
+        0.016753300327342055
+      ],
+      "observed": [
+        -0.00011587489117776397,
+        0.016753300327342055
+      ],
+      "max_abs_diff": 0.0,
+      "tolerance": 1e-12
+    },
+    {
+      "id": "A3_LogisticRegression_ci90_percentile",
+      "section": "A3",
+      "description": "LogisticRegression ci90_percentile == pre_registration.json",
+      "status": "PASS",
+      "kind": "numeric",
+      "expected": [
+        0.0012949891857372998,
+        0.015339306876725932
+      ],
+      "observed": [
+        0.0012949891857372998,
+        0.015339306876725932
+      ],
+      "max_abs_diff": 0.0,
+      "tolerance": 1e-12
+    },
+    {
+      "id": "A3_LogisticRegression_n_boot_valid",
+      "section": "A3",
+      "description": "LogisticRegression n_boot_valid == pre_registration.json",
+      "status": "PASS",
+      "kind": "numeric",
+      "expected": 2000,
+      "observed": 2000,
+      "max_abs_diff": 0.0,
+      "tolerance": 1e-12
+    },
+    {
+      "id": "A3_LogisticRegression_n_boot_invalid",
+      "section": "A3",
+      "description": "LogisticRegression n_boot_invalid == pre_registration.json",
+      "status": "PASS",
+      "kind": "numeric",
+      "expected": 0,
+      "observed": 0,
+      "max_abs_diff": 0.0,
+      "tolerance": 1e-12
+    },
+    {
+      "id": "A3_LogisticRegression_MDE",
+      "section": "A3",
+      "description": "LogisticRegression MDE == pre_registration.json",
+      "status": "PASS",
+      "kind": "numeric",
+      "expected": 0.012,
+      "observed": 0.012,
+      "max_abs_diff": 0.0,
+      "tolerance": 1e-12
+    },
+    {
+      "id": "A3_LogisticRegression_difference_test_verdict",
+      "section": "A3",
+      "description": "LogisticRegression difference_test_verdict == pre_registration.json",
+      "status": "PASS",
+      "kind": "exact",
+      "expected": "no statistically significant difference between B1 and B3",
+      "observed": "no statistically significant difference between B1 and B3",
+      "max_abs_diff": null,
+      "tolerance": null
+    },
+    {
+      "id": "A3_LogisticRegression_tost_verdict",
+      "section": "A3",
+      "description": "LogisticRegression tost_verdict == pre_registration.json",
+      "status": "PASS",
+      "kind": "exact",
+      "expected": "practically negligible",
+      "observed": "practically negligible",
+      "max_abs_diff": null,
+      "tolerance": null
+    },
+    {
+      "id": "A3_LogisticRegression_achieved_equivalence_bound",
+      "section": "A3",
+      "description": "LogisticRegression achieved_equivalence_bound == pre_registration.json",
+      "status": "PASS",
+      "kind": "numeric",
+      "expected": 0.015339306876725932,
+      "observed": 0.015339306876725932,
+      "max_abs_diff": 0.0,
+      "tolerance": 1e-12
+    },
+    {
+      "id": "A3_n_patients_LogisticRegression",
+      "section": "A3",
+      "description": "LogisticRegression n_patients == 1942",
+      "status": "PASS",
+      "kind": "exact",
+      "expected": 1942,
+      "observed": 1942
+    },
+    {
+      "id": "A3_fields_HistGradientBoosting",
+      "section": "A3",
+      "description": "HistGradientBoosting: field set == pre_registration.json fields + n_patients",
+      "status": "PASS",
+      "kind": "exact",
+      "expected": [
+        "MDE",
+        "SE_delta",
+        "achieved_equivalence_bound",
+        "ci90_percentile",
+        "ci95_percentile",
+        "difference_test_verdict",
+        "mean_delta",
+        "n_boot_invalid",
+        "n_boot_valid",
+        "point_delta",
+        "point_macro_auroc_B1",
+        "point_macro_auroc_B3",
+        "tost_verdict"
+      ],
+      "observed": [
+        "MDE",
+        "SE_delta",
+        "achieved_equivalence_bound",
+        "ci90_percentile",
+        "ci95_percentile",
+        "difference_test_verdict",
+        "mean_delta",
+        "n_boot_invalid",
+        "n_boot_valid",
+        "n_patients",
+        "point_delta",
+        "point_macro_auroc_B1",
+        "point_macro_auroc_B3",
+        "tost_verdict"
+      ]
+    },
+    {
+      "id": "A3_HistGradientBoosting_point_macro_auroc_B1",
+      "section": "A3",
+      "description": "HistGradientBoosting point_macro_auroc_B1 == pre_registration.json",
+      "status": "PASS",
+      "kind": "numeric",
+      "expected": 0.6723847074341072,
+      "observed": 0.6723847074341072,
+      "max_abs_diff": 0.0,
+      "tolerance": 1e-12
+    },
+    {
+      "id": "A3_HistGradientBoosting_point_macro_auroc_B3",
+      "section": "A3",
+      "description": "HistGradientBoosting point_macro_auroc_B3 == pre_registration.json",
+      "status": "PASS",
+      "kind": "numeric",
+      "expected": 0.6923187581059075,
+      "observed": 0.6923187581059075,
+      "max_abs_diff": 0.0,
+      "tolerance": 1e-12
+    },
+    {
+      "id": "A3_HistGradientBoosting_point_delta",
+      "section": "A3",
+      "description": "HistGradientBoosting point_delta == pre_registration.json",
+      "status": "PASS",
+      "kind": "numeric",
+      "expected": 0.01993405067180032,
+      "observed": 0.01993405067180032,
+      "max_abs_diff": 0.0,
+      "tolerance": 1e-12
+    },
+    {
+      "id": "A3_HistGradientBoosting_mean_delta",
+      "section": "A3",
+      "description": "HistGradientBoosting mean_delta == pre_registration.json",
+      "status": "PASS",
+      "kind": "numeric",
+      "expected": 0.020167168392890858,
+      "observed": 0.020167168392890858,
+      "max_abs_diff": 0.0,
+      "tolerance": 1e-12
+    },
+    {
+      "id": "A3_HistGradientBoosting_SE_delta",
+      "section": "A3",
+      "description": "HistGradientBoosting SE_delta == pre_registration.json",
+      "status": "PASS",
+      "kind": "numeric",
+      "expected": 0.004940134426475028,
+      "observed": 0.004940134426475028,
+      "max_abs_diff": 0.0,
+      "tolerance": 1e-12
+    },
+    {
+      "id": "A3_HistGradientBoosting_ci95_percentile",
+      "section": "A3",
+      "description": "HistGradientBoosting ci95_percentile == pre_registration.json",
+      "status": "PASS",
+      "kind": "numeric",
+      "expected": [
+        0.010578999747639886,
+        0.029816994339120502
+      ],
+      "observed": [
+        0.010578999747639886,
+        0.029816994339120502
+      ],
+      "max_abs_diff": 0.0,
+      "tolerance": 1e-12
+    },
+    {
+      "id": "A3_HistGradientBoosting_ci90_percentile",
+      "section": "A3",
+      "description": "HistGradientBoosting ci90_percentile == pre_registration.json",
+      "status": "PASS",
+      "kind": "numeric",
+      "expected": [
+        0.012002730586778625,
+        0.02823543494791869
+      ],
+      "observed": [
+        0.012002730586778625,
+        0.02823543494791869
+      ],
+      "max_abs_diff": 0.0,
+      "tolerance": 1e-12
+    },
+    {
+      "id": "A3_HistGradientBoosting_n_boot_valid",
+      "section": "A3",
+      "description": "HistGradientBoosting n_boot_valid == pre_registration.json",
+      "status": "PASS",
+      "kind": "numeric",
+      "expected": 2000,
+      "observed": 2000,
+      "max_abs_diff": 0.0,
+      "tolerance": 1e-12
+    },
+    {
+      "id": "A3_HistGradientBoosting_n_boot_invalid",
+      "section": "A3",
+      "description": "HistGradientBoosting n_boot_invalid == pre_registration.json",
+      "status": "PASS",
+      "kind": "numeric",
+      "expected": 0,
+      "observed": 0,
+      "max_abs_diff": 0.0,
+      "tolerance": 1e-12
+    },
+    {
+      "id": "A3_HistGradientBoosting_MDE",
+      "section": "A3",
+      "description": "HistGradientBoosting MDE == pre_registration.json",
+      "status": "PASS",
+      "kind": "numeric",
+      "expected": 0.0138,
+      "observed": 0.0138,
+      "max_abs_diff": 0.0,
+      "tolerance": 1e-12
+    },
+    {
+      "id": "A3_HistGradientBoosting_difference_test_verdict",
+      "section": "A3",
+      "description": "HistGradientBoosting difference_test_verdict == pre_registration.json",
+      "status": "PASS",
+      "kind": "exact",
+      "expected": "significant difference: B3 higher than B1 by +0.0199 (point delta)",
+      "observed": "significant difference: B3 higher than B1 by +0.0199 (point delta)",
+      "max_abs_diff": null,
+      "tolerance": null
+    },
+    {
+      "id": "A3_HistGradientBoosting_tost_verdict",
+      "section": "A3",
+      "description": "HistGradientBoosting tost_verdict == pre_registration.json",
+      "status": "PASS",
+      "kind": "exact",
+      "expected": "inconclusive / not shown negligible",
+      "observed": "inconclusive / not shown negligible",
+      "max_abs_diff": null,
+      "tolerance": null
+    },
+    {
+      "id": "A3_HistGradientBoosting_achieved_equivalence_bound",
+      "section": "A3",
+      "description": "HistGradientBoosting achieved_equivalence_bound == pre_registration.json",
+      "status": "PASS",
+      "kind": "numeric",
+      "expected": 0.02823543494791869,
+      "observed": 0.02823543494791869,
+      "max_abs_diff": 0.0,
+      "tolerance": 1e-12
+    },
+    {
+      "id": "A3_n_patients_HistGradientBoosting",
+      "section": "A3",
+      "description": "HistGradientBoosting n_patients == 1942",
+      "status": "PASS",
+      "kind": "exact",
+      "expected": 1942,
+      "observed": 1942
+    },
+    {
+      "id": "A3_learner_disagreement",
+      "section": "A3",
+      "description": "learner disagreement list == pre_registration.json (exact strings)",
+      "status": "PASS",
+      "kind": "exact",
+      "expected": [
+        "difference test: LogisticRegression -> 'no statistically significant difference between B1 and B3'; HistGradientBoosting -> 'significant difference: B3 higher than B1 by +0.0199 (point delta)'",
+        "TOST: LogisticRegression -> 'practically negligible'; HistGradientBoosting -> 'inconclusive / not shown negligible'"
+      ],
+      "observed": [
+        "difference test: LogisticRegression -> 'no statistically significant difference between B1 and B3'; HistGradientBoosting -> 'significant difference: B3 higher than B1 by +0.0199 (point delta)'",
+        "TOST: LogisticRegression -> 'practically negligible'; HistGradientBoosting -> 'inconclusive / not shown negligible'"
+      ]
+    },
+    {
+      "id": "A3_per_draw_deltas",
+      "section": "A3",
+      "description": "2000 per-draw deltas (LR, HGB) == v0.3_bootstrap_deltas.csv",
+      "status": "PASS",
+      "kind": "numeric",
+      "max_abs_diff": 0.0,
+      "tolerance": 1e-12,
+      "shape_equal": true,
+      "identifiers_equal": true,
+      "max_abs_diff_per_column": {
+        "delta_LR": 0.0,
+        "delta_HGB": 0.0
+      },
+      "max_abs_diff_by_tolerance": {
+        "1e-12": 0.0
+      },
+      "n_cells_over_tolerance": 0
+    },
+    {
+      "id": "A3_v021_index_matrix_eq_REF",
+      "section": "A3",
+      "description": "v0.2.1 marginal-bootstrap index matrix on fold 9 == REF.build_boot_idx(1942, 2000, 7)",
+      "status": "PASS",
+      "kind": "exact"
+    },
+    {
+      "id": "B0_fold10_ids_file_order_sha256",
+      "section": "B0",
+      "description": "fold10_ids_file_order_sha256 == FRP bootstrap.locked_hashes (FRP serialization)",
+      "status": "PASS",
+      "kind": "exact",
+      "expected": "1196970d92da54ed0e24b47483509b10f66d6bce27b21c852a35ddd83330b228",
+      "observed": "1196970d92da54ed0e24b47483509b10f66d6bce27b21c852a35ddd83330b228"
+    },
+    {
+      "id": "B0_fold10_patients_sorted_sha256",
+      "section": "B0",
+      "description": "fold10_patients_sorted_sha256 == FRP bootstrap.locked_hashes (FRP serialization)",
+      "status": "PASS",
+      "kind": "exact",
+      "expected": "4235648ae1c5de15f3e92b4cf7efbf9639a2241daaded8a325c75d4bd59f11ac",
+      "observed": "4235648ae1c5de15f3e92b4cf7efbf9639a2241daaded8a325c75d4bd59f11ac"
+    },
+    {
+      "id": "B0_boot_idx_sha256",
+      "section": "B0",
+      "description": "boot_idx_sha256 == FRP bootstrap.locked_hashes (FRP serialization)",
+      "status": "PASS",
+      "kind": "exact",
+      "expected": "70b771a356d30f1109bb2b44dc177d412d4562238ab9dc02dc4a601651b1c6dd",
+      "observed": "70b771a356d30f1109bb2b44dc177d412d4562238ab9dc02dc4a601651b1c6dd"
+    },
+    {
+      "id": "B0_boot_idx_shape",
+      "section": "B0",
+      "description": "BOOT_IDX = REF.build_boot_idx(1904, 2000, 7)",
+      "status": "PASS",
+      "kind": "exact",
+      "observed": [
+        2000,
+        1904
+      ]
+    },
+    {
+      "id": "B0_fold10_patients_disjoint",
+      "section": "B0",
+      "description": "fold-10 patients disjoint from folds 1-9",
+      "status": "PASS",
+      "kind": "exact"
+    },
+    {
+      "id": "B0_eval_rows_file_order",
+      "section": "B0",
+      "description": "evaluation rows == fold-10 (ecg_id, patient_id) in ptbxl_database.csv file order (F10_IDS)",
+      "status": "PASS",
+      "kind": "exact"
+    },
+    {
+      "id": "B0_labels_eq_v09",
+      "section": "B0",
+      "description": "fold-10 labels (v0.2.1 code) == v0.9_fold10_labels.csv (same rows, order, values)",
+      "status": "PASS",
+      "kind": "exact",
+      "observed": {
+        "columns_equal": true,
+        "same_rows_and_order": true,
+        "n_differing_label_values": 0
+      }
+    },
+    {
+      "id": "B0_fold10_positives",
+      "section": "B0",
+      "description": "fold-10 positives == the counts disclosed in FRP",
+      "status": "PASS",
+      "kind": "exact",
+      "expected": {
+        "NORM": 963,
+        "MI": 550,
+        "STTC": 521,
+        "CD": 496,
+        "HYP": 262
+      },
+      "observed": {
+        "NORM": 963,
+        "MI": 550,
+        "STTC": 521,
+        "CD": 496,
+        "HYP": 262
+      }
+    },
+    {
+      "id": "B0_encoder_eq_FRP",
+      "section": "B0",
+      "description": "device / site / nurse categories fit on folds 1-9 == FRP locked_quantities.categorical_encoder.categories",
+      "status": "PASS",
+      "kind": "exact",
+      "expected": {
+        "device": 13,
+        "site": 53,
+        "nurse": 14
+      },
+      "observed": {
+        "device": 13,
+        "site": 53,
+        "nurse": 14
+      }
+    },
+    {
+      "id": "B0_fold10_unknown_zero",
+      "section": "B0",
+      "description": "fold-10 records mapped to __UNKNOWN__ == 0",
+      "status": "PASS",
+      "kind": "exact",
+      "expected": 0,
+      "observed": {
+        "device": 0,
+        "site": 0,
+        "nurse": 0
+      }
+    },
+    {
+      "id": "B0_untrained_columns",
+      "section": "B0",
+      "description": "all-zero training columns == FRP allzero_training_columns_folds1to9 and 0 fold-10 records on them",
+      "status": "PASS",
+      "kind": "exact",
+      "expected": [
+        "device=__MISSING__",
+        "device=__UNKNOWN__",
+        "nurse=__UNKNOWN__",
+        "site=__UNKNOWN__"
+      ],
+      "observed": {
+        "allzero": [
+          "device=__MISSING__",
+          "device=__UNKNOWN__",
+          "nurse=__UNKNOWN__",
+          "site=__UNKNOWN__"
+        ],
+        "fold10_records_on_them": {
+          "device": 0,
+          "site": 0,
+          "nurse": 0
+        }
+      }
+    },
+    {
+      "id": "B0_level_strings_unchanged",
+      "section": "B0",
+      "description": "level strings of the folds 1-9 rows are unchanged by the fold-10 values (FRP fold10_level_mapping)",
+      "status": "PASS",
+      "kind": "exact",
+      "observed": {
+        "device": true,
+        "site": true,
+        "nurse": true
+      }
+    },
+    {
+      "id": "B0_split_sizes",
+      "section": "B0",
+      "description": "train folds 1-9 / eval fold 10 records and patients (patient-disjoint)",
+      "status": "PASS",
+      "kind": "exact",
+      "expected": {
+        "n_train": 19601,
+        "n_eval": 2198,
+        "n_train_patients": 16965,
+        "n_eval_patients": 1904
+      },
+      "observed": {
+        "n_train": 19601,
+        "n_eval": 2198,
+        "n_train_patients": 16965,
+        "n_eval_patients": 1904
+      }
+    },
+    {
+      "id": "B1_no_partA_object_reused",
+      "section": "B1",
+      "description": "no scaler / model fitted in Part A is reused in Part B",
+      "status": "PASS",
+      "kind": "exact",
+      "expected": 184,
+      "observed": 184
+    },
+    {
+      "id": "B1_scalers_fit_on_training_rows",
+      "section": "B1",
+      "description": "every LR scaler was fit on the 19,601 training rows",
+      "status": "PASS",
+      "kind": "exact",
+      "observed": {
+        "B1_physio": 19601,
+        "B3_physio_plus_acquisition": 19601,
+        "B4_temporal": 19601,
+        "B5_all": 19601
+      }
+    },
+    {
+      "id": "B1_age_scaler_eq_FRP",
+      "section": "B1",
+      "description": "B1 age_imputed scaler (folds 1-9) == FRP locked age_scaler (tol {'mean': 1e-12, 'scale': 1e-12, 'var': 1e-09})",
+      "status": "PASS",
+      "kind": "numeric",
+      "observed": {
+        "mean": 0.0,
+        "scale": 0.0,
+        "var": 0.0
+      },
+      "max_abs_diff": 0.0,
+      "tolerance": {
+        "mean": 1e-12,
+        "scale": 1e-12,
+        "var": 1e-09
+      }
+    },
+    {
+      "id": "B1_probs_roundtrip",
+      "section": "B1",
+      "description": "ph1_fold10_probs.csv read back (float_precision='round_trip') == memory, bit for bit (columns, dtypes, values)",
+      "status": "PASS",
+      "kind": "exact",
+      "observed": null
+    },
+    {
+      "id": "B2_v021_index_matrix_eq_BOOT_IDX",
+      "section": "B2",
+      "description": "v0.2.1 marginal-bootstrap index matrix on fold 10 == BOOT_IDX",
+      "status": "PASS",
+      "kind": "exact"
+    },
+    {
+      "id": "B2_patient_rows_eq_REF",
+      "section": "B2",
+      "description": "v0.2.1 patient grouping on fold 10 == REF.patient_rows_in_file_order",
+      "status": "PASS",
+      "kind": "exact"
+    },
+    {
+      "id": "B3_n_patients",
+      "section": "B3",
+      "description": "H2-style test on 1904 fold-10 patients",
+      "status": "PASS",
+      "kind": "exact"
+    },
+    {
+      "id": "OUT_snapshots_before_results",
+      "section": "OUT",
+      "description": "preregistration\\, outputs\\v0.2.1, v0.3, v0.9 and the input CSVs are unchanged since STEP 0",
+      "status": "PASS",
+      "kind": "exact",
+      "observed": {}
+    }
+  ],
+  "split": {
+    "train": "folds 1-9",
+    "eval": "fold 10",
+    "n_train": 19601,
+    "n_eval": 2198,
+    "n_train_patients": 16965,
+    "n_eval_patients": 1904
+  },
+  "fold10_positives": {
+    "NORM": 963,
+    "MI": 550,
+    "STTC": 521,
+    "CD": 496,
+    "HYP": 262
+  },
+  "fold10_lock_hashes": {
+    "fold10_ids_file_order_sha256": "1196970d92da54ed0e24b47483509b10f66d6bce27b21c852a35ddd83330b228",
+    "fold10_patients_sorted_sha256": "4235648ae1c5de15f3e92b4cf7efbf9639a2241daaded8a325c75d4bd59f11ac",
+    "boot_idx_sha256": "70b771a356d30f1109bb2b44dc177d412d4562238ab9dc02dc4a601651b1c6dd"
+  },
+  "decision_table": [
+    {
+      "block": "B0_intercept",
+      "learner": "LogisticRegression",
+      "macro_auroc_mean": 0.5,
+      "macro_auroc_std_across_seeds": 0.0,
+      "ci_low_mean": 0.5,
+      "ci_high_mean": 0.5,
+      "delta_vs_B1_physio": -0.18459184815665208
+    },
+    {
+      "block": "B0_intercept",
+      "learner": "HistGradientBoosting",
+      "macro_auroc_mean": 0.5,
+      "macro_auroc_std_across_seeds": 0.0,
+      "ci_low_mean": 0.5,
+      "ci_high_mean": 0.5,
+      "delta_vs_B1_physio": -0.1738861101367789
+    },
+    {
+      "block": "B1_physio",
+      "learner": "LogisticRegression",
+      "macro_auroc_mean": 0.6845918481566521,
+      "macro_auroc_std_across_seeds": 1.1102230246251565e-16,
+      "ci_low_mean": 0.6687426909336333,
+      "ci_high_mean": 0.700749211985543,
+      "delta_vs_B1_physio": 0.0
+    },
+    {
+      "block": "B1_physio",
+      "learner": "HistGradientBoosting",
+      "macro_auroc_mean": 0.6738861101367789,
+      "macro_auroc_std_across_seeds": 0.0007245724414537651,
+      "ci_low_mean": 0.6581646811891584,
+      "ci_high_mean": 0.6902539524345487,
+      "delta_vs_B1_physio": 0.0
+    },
+    {
+      "block": "B2_acquisition",
+      "learner": "LogisticRegression",
+      "macro_auroc_mean": 0.6268728781538162,
+      "macro_auroc_std_across_seeds": 0.0,
+      "ci_low_mean": 0.6097309367272333,
+      "ci_high_mean": 0.6431630721391527,
+      "delta_vs_B1_physio": -0.05771897000283588
+    },
+    {
+      "block": "B2_acquisition",
+      "learner": "HistGradientBoosting",
+      "macro_auroc_mean": 0.6199779231812333,
+      "macro_auroc_std_across_seeds": 0.0010110511425535352,
+      "ci_low_mean": 0.6031226207887933,
+      "ci_high_mean": 0.6363594100190735,
+      "delta_vs_B1_physio": -0.053908186955545556
+    },
+    {
+      "block": "B3_physio_plus_acquisition",
+      "learner": "LogisticRegression",
+      "macro_auroc_mean": 0.7065236964836413,
+      "macro_auroc_std_across_seeds": 0.0,
+      "ci_low_mean": 0.6909689403402575,
+      "ci_high_mean": 0.7213182679151601,
+      "delta_vs_B1_physio": 0.021931848326989245
+    },
+    {
+      "block": "B3_physio_plus_acquisition",
+      "learner": "HistGradientBoosting",
+      "macro_auroc_mean": 0.7056549332441328,
+      "macro_auroc_std_across_seeds": 0.0012752697136183219,
+      "ci_low_mean": 0.690717923963978,
+      "ci_high_mean": 0.7203347245420461,
+      "delta_vs_B1_physio": 0.03176882310735385
+    },
+    {
+      "block": "B4_temporal",
+      "learner": "LogisticRegression",
+      "macro_auroc_mean": 0.5257038423093077,
+      "macro_auroc_std_across_seeds": 0.0,
+      "ci_low_mean": 0.5067839173371302,
+      "ci_high_mean": 0.5444191767478882,
+      "delta_vs_B1_physio": -0.15888800584734442
+    },
+    {
+      "block": "B4_temporal",
+      "learner": "HistGradientBoosting",
+      "macro_auroc_mean": 0.5145188929182926,
+      "macro_auroc_std_across_seeds": 0.001187680032957008,
+      "ci_low_mean": 0.4975647813848491,
+      "ci_high_mean": 0.5326228457641352,
+      "delta_vs_B1_physio": -0.15936721721848635
+    },
+    {
+      "block": "B5_all",
+      "learner": "LogisticRegression",
+      "macro_auroc_mean": 0.7061441111631904,
+      "macro_auroc_std_across_seeds": 1.1102230246251565e-16,
+      "ci_low_mean": 0.6905819663728089,
+      "ci_high_mean": 0.7210056045332762,
+      "delta_vs_B1_physio": 0.02155226300653834
+    },
+    {
+      "block": "B5_all",
+      "learner": "HistGradientBoosting",
+      "macro_auroc_mean": 0.7060195245282612,
+      "macro_auroc_std_across_seeds": 0.0007647953956372107,
+      "ci_low_mean": 0.6909030797764236,
+      "ci_high_mean": 0.7206648698121327,
+      "delta_vs_B1_physio": 0.03213341439148232
+    }
+  ],
+  "H1_posthoc": {
+    "label": "POST-HOC (ph1): not pre-registered; reported separately from pre-registered results",
+    "rule": "B3_physio_plus_acquisition macro_auroc_mean >= 0.60 (v0.2.1)",
+    "verdict": {
+      "LogisticRegression": {
+        "macro_auroc_mean": 0.7065236964836413,
+        "passes_threshold": true
+      },
+      "HistGradientBoosting": {
+        "macro_auroc_mean": 0.7056549332441328,
+        "passes_threshold": true
+      },
+      "overall_pass": true
+    }
+  },
+  "H2_posthoc": {
+    "label": "POST-HOC (ph1): not pre-registered; reported separately from pre-registered results",
+    "comparison": "B3_physio_plus_acquisition vs B1_physio, delta = B3 - B1, seed 42 (as v0.3); train folds 1-9, evaluate fold 10",
+    "tests": {
+      "difference_test": "0 inside the 95% percentile CI of the paired delta -> no statistically significant difference; otherwise significant difference (sign, magnitude)",
+      "equivalence_test_TOST": "'practically negligible' only if the ENTIRE 90% percentile CI of the paired delta lies within [-SESOI_H2, +SESOI_H2]; otherwise 'inconclusive / not shown negligible'",
+      "achieved_equivalence_bound": "max(|lower_90|, |upper_90|): smallest margin at which TOST passes"
+    },
+    "SESOI_H2": 0.02,
+    "MDE_constants": {
+      "z_alpha_2": 1.959964,
+      "z_power": 0.841621,
+      "formula": "MDE = (z_{1-alpha/2} + z_{power}) * SE_delta"
+    },
+    "bootstrap": "REF.paired_bootstrap on the locked fold-10 BOOT_IDX (N_BOOT 2000, BOOT_SEED 7, 1904 patients)",
+    "primary_learner": "LogisticRegression",
+    "robustness_learner": "HistGradientBoosting",
+    "results_per_learner": {
+      "LogisticRegression": {
+        "point_macro_auroc_B1": 0.684591848156652,
+        "point_macro_auroc_B3": 0.7065236964836413,
+        "point_delta": 0.021931848326989356,
+        "mean_delta": 0.021827809676326297,
+        "SE_delta": 0.004395076388626772,
+        "ci95_percentile": [
+          0.013246637939694276,
+          0.03039160371847723
+        ],
+        "ci90_percentile": [
+          0.014851917992601927,
+          0.02887897596042219
+        ],
+        "n_boot_valid": 2000,
+        "n_boot_invalid": 0,
+        "MDE": 0.0123,
+        "difference_test_verdict": "significant difference: B3 higher than B1 by +0.0219 (point delta)",
+        "tost_verdict": "inconclusive / not shown negligible",
+        "achieved_equivalence_bound": 0.02887897596042219,
+        "n_patients": 1904
+      },
+      "HistGradientBoosting": {
+        "point_macro_auroc_B1": 0.6732245166067298,
+        "point_macro_auroc_B3": 0.7041698179944498,
+        "point_delta": 0.030945301387720003,
+        "mean_delta": 0.030841226251033374,
+        "SE_delta": 0.005010617944748946,
+        "ci95_percentile": [
+          0.0210209402485235,
+          0.04053925478080226
+        ],
+        "ci90_percentile": [
+          0.02221303624780418,
+          0.03888355134124771
+        ],
+        "n_boot_valid": 2000,
+        "n_boot_invalid": 0,
+        "MDE": 0.014,
+        "difference_test_verdict": "significant difference: B3 higher than B1 by +0.0309 (point delta)",
+        "tost_verdict": "inconclusive / not shown negligible",
+        "achieved_equivalence_bound": 0.03888355134124771,
+        "n_patients": 1904
+      }
+    },
+    "learner_disagreement": [],
+    "learner_rule": "disagreement is reported, never resolved by selection",
+    "ref_summaries": {
+      "LogisticRegression": {
+        "point_delta": 0.021931848326989356,
+        "lo95": 0.013246637939694276,
+        "hi95": 0.03039160371847723,
+        "lo90": 0.014851917992601927,
+        "hi90": 0.02887897596042219,
+        "n_valid": 2000,
+        "n_nan": 0,
+        "nan_fraction": 0.0,
+        "nan_flag": false
+      },
+      "HistGradientBoosting": {
+        "point_delta": 0.030945301387720003,
+        "lo95": 0.0210209402485235,
+        "hi95": 0.04053925478080226,
+        "lo90": 0.02221303624780418,
+        "hi90": 0.03888355134124771,
+        "n_valid": 2000,
+        "n_nan": 0,
+        "nan_fraction": 0.0,
+        "nan_flag": false
+      }
+    }
+  },
+  "v021_index_matrix_equals_BOOT_IDX": true,
+  "outputs_before_results": {
+    "ph1_analysis_plan.json": "aaa18d93c5c18813cea2a31dcfc35d7cc604335dc2627cdb069e82228a52f20a",
+    "ph1_fold10_probs.csv": "4519b99c90c6e9e575f12b15819c42ca25cf391c3577760e0a4f3a60ea30f29b",
+    "ph1_frozen_outputs.json": "1fdfc9bf06cd9aedd77fc265c72151707de12309af1772adb9cd72a657542381",
+    "ph1_decision_table.csv": "517a9482264f6d234d2fb435565d176f7e60139e737016b774470d5804bbeb3e",
+    "ph1_bootstrap_deltas.csv": "139933ef584d83034082b19f941af918f078e15a75f548f4feadedba9f946165",
+    "ph1_metric_rows.csv": "f4eef7720ef29e1e7c13dce90ca371031e25fd315678d3fc09d52c2a596d75fb"
+  },
+  "warnings": [],
+  "self_sha256_procedure": "Load the JSON file; remove the key 'self_sha256' (the key must be absent, not empty); serialize the remaining dict with json.dumps(d, sort_keys=True, ensure_ascii=False, separators=(',', ':')); compute SHA-256 of the UTF-8 bytes; the hex digest must equal the stored 'self_sha256'. (At write time numpy scalars were converted to plain JSON types first, so the loaded file hashes identically.)",
+  "self_sha256": "f096bf9390c2cf5ee0d43a453482049ac07051ea4aeeb24b5aa01a6315f23b94"
+}

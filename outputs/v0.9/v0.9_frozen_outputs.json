@@ -1,0 +1,701 @@
+{
+  "document": "v0.9 frozen fold-10 model outputs (write-once; written before any label is read or any metric is computed)",
+  "timestamp": "2026-10-04T17:18:17.628488+03:30",
+  "code_version": "v0.9",
+  "code_revision": "r1",
+  "attempt": 1,
+  "statement": "no label of any fold has been read; no metric has been computed",
+  "outputs": {
+    "v0.9_resnet1d_wang_signal_only_seed42_lr0.01_fold10_probs.csv": {
+      "sha256": "8fb93dab079e15df9fdbaa3e40f8aaae843f38e0836c01fa20475df04dc80314",
+      "bytes": 247840,
+      "arch": "resnet1d_wang",
+      "arm": "signal_only",
+      "seed": 42,
+      "produced_from_v0.8_state_dict_sha256": "8ba7cc6deb15a254a5ff2ab23e67145885889028afd1c81a0e916ac4372075e9"
+    },
+    "v0.9_resnet1d_wang_signal_plus_physio_seed42_lr0.01_fold10_probs.csv": {
+      "sha256": "ea82b33444bc5814fe5b87598cdc8d16fa705c199cecb7cd20e962703f9b356c",
+      "bytes": 247862,
+      "arch": "resnet1d_wang",
+      "arm": "signal_plus_physio",
+      "seed": 42,
+      "produced_from_v0.8_state_dict_sha256": "7e6982058018af1362a187aa5efc24468bef80af2496850773fb88cc46543f26"
+    },
+    "v0.9_resnet1d_wang_signal_plus_all_seed42_lr0.01_fold10_probs.csv": {
+      "sha256": "dbaefa86a56c423c84a0a201ef9e4a35833189dddd0fca6bec8f5bd45b8ce9ce",
+      "bytes": 247774,
+      "arch": "resnet1d_wang",
+      "arm": "signal_plus_all",
+      "seed": 42,
+      "produced_from_v0.8_state_dict_sha256": "4945be6dfb618d479861d30dcd1d64c73b933d1d4934e65683f422321315f56c"
+    },
+    "v0.9_resnet1d_wang_signal_only_seed123_lr0.01_fold10_probs.csv": {
+      "sha256": "2e67bc8e18473d37e6466b626f8c0e11ab651a8e4a8398be3bf9d20e46388a1b",
+      "bytes": 247538,
+      "arch": "resnet1d_wang",
+      "arm": "signal_only",
+      "seed": 123,
+      "produced_from_v0.8_state_dict_sha256": "dacd5a8a76df032862460c868501a8d67dc1843d0a5ad2d9e60768561f2fe274"
+    },
+    "v0.9_resnet1d_wang_signal_plus_physio_seed123_lr0.01_fold10_probs.csv": {
+      "sha256": "ebcfc87ce02069b6a0306a24ff0c7b3080885b8c9aa268d01d2d9d225ddd7715",
+      "bytes": 247500,
+      "arch": "resnet1d_wang",
+      "arm": "signal_plus_physio",
+      "seed": 123,
+      "produced_from_v0.8_state_dict_sha256": "5d66fcac2f248896f1e462a5505fc8b81e5c142efa1712a9c29d77f1540eec36"
+    },
+    "v0.9_resnet1d_wang_signal_plus_all_seed123_lr0.01_fold10_probs.csv": {
+      "sha256": "a29388ed17452cc63e2f72008e61c282aab73514d9e444987f25c3bcbad71f17",
+      "bytes": 247870,
+      "arch": "resnet1d_wang",
+      "arm": "signal_plus_all",
+      "seed": 123,
+      "produced_from_v0.8_state_dict_sha256": "baec2698937bf9dfd5a5c4c76507314221a600ef361e7654dc21a4e4eb221266"
+    },
+    "v0.9_resnet1d_wang_signal_only_seed2024_lr0.01_fold10_probs.csv": {
+      "sha256": "e3018ea38d7467f93d9744be1035cbcd1e8349a6c745b20cad975c8f8c055324",
+      "bytes": 247601,
+      "arch": "resnet1d_wang",
+      "arm": "signal_only",
+      "seed": 2024,
+      "produced_from_v0.8_state_dict_sha256": "2a7ba4b0b821564b5a693abf01238e015eea3e3d111e2f53613c14a8972687f8"
+    },
+    "v0.9_resnet1d_wang_signal_plus_physio_seed2024_lr0.01_fold10_probs.csv": {
+      "sha256": "22cfabef1264eb3f47b0592de5d6a0bdbe1cf9bdd0f959f03332ae071bb852c7",
+      "bytes": 247359,
+      "arch": "resnet1d_wang",
+      "arm": "signal_plus_physio",
+      "seed": 2024,
+      "produced_from_v0.8_state_dict_sha256": "ab09eae795c0d87e2a77e68adf850bdac302f562b008776007ed00ea03cba456"
+    },
+    "v0.9_resnet1d_wang_signal_plus_all_seed2024_lr0.01_fold10_probs.csv": {
+      "sha256": "ed00807c8b5967731a128615202496e613f680c1e4fafedc7c21352ee56679f6",
+      "bytes": 247712,
+      "arch": "resnet1d_wang",
+      "arm": "signal_plus_all",
+      "seed": 2024,
+      "produced_from_v0.8_state_dict_sha256": "407f844f779aab4eca0f35f76f6d993eb9cc6e7f5c17ef6b4b47a82e9322465b"
+    },
+    "v0.9_inception1d_signal_only_seed42_lr0.01_fold10_probs.csv": {
+      "sha256": "007f2f97a18278c2df69178f85b1ef123844ebdd7e3c2374ce1d68e8cc9465ef",
+      "bytes": 249428,
+      "arch": "inception1d",
+      "arm": "signal_only",
+      "seed": 42,
+      "produced_from_v0.8_state_dict_sha256": "aa535a50f26a56b40dc82f894a24deed5efdc92415951a2099eef3d46d5406b4"
+    },
+    "v0.9_inception1d_signal_plus_physio_seed42_lr0.01_fold10_probs.csv": {
+      "sha256": "cb0d1c2391d6bb85f60034271eb6067d35e4b2bb5a7ae14bbda071b1840420bf",
+      "bytes": 249631,
+      "arch": "inception1d",
+      "arm": "signal_plus_physio",
+      "seed": 42,
+      "produced_from_v0.8_state_dict_sha256": "b9fa59bcf4d92cc445e1faf8990493341a87e024a95734db7d6f17cf7a2fe7a2"
+    },
+    "v0.9_inception1d_signal_plus_all_seed42_lr0.01_fold10_probs.csv": {
+      "sha256": "75e4d31b9bd30f1369685ee62279f1c56ba7c7e80617240449b212a30108b672",
+      "bytes": 249395,
+      "arch": "inception1d",
+      "arm": "signal_plus_all",
+      "seed": 42,
+      "produced_from_v0.8_state_dict_sha256": "426bb8ab09d1bf4536c5bd7b63b53f573a9b758c3019012e1d05ce5738ddcbf2"
+    },
+    "v0.9_inception1d_signal_only_seed123_lr0.01_fold10_probs.csv": {
+      "sha256": "640c3a338684a875dd3750b6edf208427f49cefb2a14e26ab90ffc0c06f17932",
+      "bytes": 249380,
+      "arch": "inception1d",
+      "arm": "signal_only",
+      "seed": 123,
+      "produced_from_v0.8_state_dict_sha256": "d96d99a55c5c89820802c17a63ae300322c944f09677ad2255299fcccae95a73"
+    },
+    "v0.9_inception1d_signal_plus_physio_seed123_lr0.01_fold10_probs.csv": {
+      "sha256": "60ed43822569865cf85abc1f3429005bb1ea4a602bf7fe04d87cf83646952dc8",
+      "bytes": 249394,
+      "arch": "inception1d",
+      "arm": "signal_plus_physio",
+      "seed": 123,
+      "produced_from_v0.8_state_dict_sha256": "d7a1004b1a434d80935d2b3232bd5ef02cb68f8513fc50bf6345fdf652a662c8"
+    },
+    "v0.9_inception1d_signal_plus_all_seed123_lr0.01_fold10_probs.csv": {
+      "sha256": "6b16a16e74e0737b457a2163f2ba08a4b11a69d7c17045cca491392f2c018ae1",
+      "bytes": 249532,
+      "arch": "inception1d",
+      "arm": "signal_plus_all",
+      "seed": 123,
+      "produced_from_v0.8_state_dict_sha256": "df8de596cc427d0693882687c264a0902d8f997b41296c927b5ff652675ddc2d"
+    },
+    "v0.9_inception1d_signal_only_seed2024_lr0.01_fold10_probs.csv": {
+      "sha256": "6b33ec108e7def389e70c63d70d7e297f9987eaa7ba21088a72db89ec30bd5a5",
+      "bytes": 249271,
+      "arch": "inception1d",
+      "arm": "signal_only",
+      "seed": 2024,
+      "produced_from_v0.8_state_dict_sha256": "6cac376233ba008fdec39d6cc8f34b6f6412cec81180d13ccab948fcffee3837"
+    },
+    "v0.9_inception1d_signal_plus_physio_seed2024_lr0.01_fold10_probs.csv": {
+      "sha256": "06edbf2ee26ef680059eeed8af3ca19fb23b0bd8e929116bf8daded7299ee6d4",
+      "bytes": 248917,
+      "arch": "inception1d",
+      "arm": "signal_plus_physio",
+      "seed": 2024,
+      "produced_from_v0.8_state_dict_sha256": "8822b07d8bb93e46e382bcfdcea1141ce0eda96c848d7da997df9f0e75b6d6fb"
+    },
+    "v0.9_inception1d_signal_plus_all_seed2024_lr0.01_fold10_probs.csv": {
+      "sha256": "a81a8e8359cdfe7e3a2fa5c105269a60cf3d55b436c957343e811644c028a253",
+      "bytes": 249176,
+      "arch": "inception1d",
+      "arm": "signal_plus_all",
+      "seed": 2024,
+      "produced_from_v0.8_state_dict_sha256": "3996779e36ea78e90cc8a5939335de55f6ee96493bccc7053652fa69b38e3c0f"
+    },
+    "v0.9_resnet1d_wang_perm_probs.npy": {
+      "sha256": "2a6bfa0d093053483404a81ba3ec8b1eeb59cdfc38fd212800f92b077777645c",
+      "bytes": 5275328,
+      "arch": "resnet1d_wang",
+      "arm": "signal_plus_all",
+      "shape": [
+        20,
+        3,
+        2198,
+        5
+      ],
+      "dtype": "float64",
+      "axes": "(repetition r = 0..19, seed in [42, 123, 2024], record in fold-10 file order, class ['NORM', 'MI', 'STTC', 'CD', 'HYP'])",
+      "produced_from_v0.8_state_dict_sha256": [
+        "4945be6dfb618d479861d30dcd1d64c73b933d1d4934e65683f422321315f56c",
+        "baec2698937bf9dfd5a5c4c76507314221a600ef361e7654dc21a4e4eb221266",
+        "407f844f779aab4eca0f35f76f6d993eb9cc6e7f5c17ef6b4b47a82e9322465b"
+      ]
+    },
+    "v0.9_inception1d_perm_probs.npy": {
+      "sha256": "0f9473d12cc991b4e5e53b7c73e7d467ea8e95f525c0cf49d78d830f78cae823",
+      "bytes": 5275328,
+      "arch": "inception1d",
+      "arm": "signal_plus_all",
+      "shape": [
+        20,
+        3,
+        2198,
+        5
+      ],
+      "dtype": "float64",
+      "axes": "(repetition r = 0..19, seed in [42, 123, 2024], record in fold-10 file order, class ['NORM', 'MI', 'STTC', 'CD', 'HYP'])",
+      "produced_from_v0.8_state_dict_sha256": [
+        "426bb8ab09d1bf4536c5bd7b63b53f573a9b758c3019012e1d05ce5738ddcbf2",
+        "df8de596cc427d0693882687c264a0902d8f997b41296c927b5ff652675ddc2d",
+        "3996779e36ea78e90cc8a5939335de55f6ee96493bccc7053652fa69b38e3c0f"
+      ]
+    }
+  },
+  "lock_hashes": {
+    "fold10_ids_file_order_sha256": "1196970d92da54ed0e24b47483509b10f66d6bce27b21c852a35ddd83330b228",
+    "fold10_patients_sorted_sha256": "4235648ae1c5de15f3e92b4cf7efbf9639a2241daaded8a325c75d4bd59f11ac",
+    "boot_idx_sha256": "70b771a356d30f1109bb2b44dc177d412d4562238ab9dc02dc4a601651b1c6dd",
+    "perm_idx_sha256": "ab9b45fb96161985864f3a2a0a819ff6a3ba6bcb5e67950b221b1025fbcc3a73"
+  },
+  "x10_sha256": "52e62cbf09c9a094b8f377f321d88a560a1289d1ef9bfe9558f6f5a1d3d3c479",
+  "x10_serialization": "X10 (2198, 12, 1000) as '<f4' C-order bytes, fold-10 file order",
+  "meta10_sha256": {
+    "signal_only": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "signal_plus_physio": "8af7fa653b353c555ae08199d2c2371d7443e73df2a2e7ad448b5b88093626a1",
+    "signal_plus_all": "ba319756dcf2f10cfa9e55929ac4166309a5c08e7b562a3789cd2fcdf81408e0"
+  },
+  "meta10_serialization": "META10[arm] as '<f4' C-order bytes",
+  "meta10_columns": [
+    "age_imputed",
+    "age_censored",
+    "sex",
+    "device=AT-6     6",
+    "device=AT-6 C",
+    "device=AT-6 C 5.0",
+    "device=AT-6 C 5.3",
+    "device=AT-6 C 5.5",
+    "device=AT-6 C 5.6",
+    "device=AT-6 C 5.8",
+    "device=AT-60    3",
+    "device=CS-12",
+    "device=CS-12   E",
+    "device=CS100    3",
+    "device=__MISSING__",
+    "device=__UNKNOWN__",
+    "site=000",
+    "site=001",
+    "site=002",
+    "site=003",
+    "site=004",
+    "site=005",
+    "site=006",
+    "site=007",
+    "site=008",
+    "site=009",
+    "site=010",
+    "site=011",
+    "site=012",
+    "site=013",
+    "site=014",
+    "site=015",
+    "site=016",
+    "site=017",
+    "site=018",
+    "site=019",
+    "site=020",
+    "site=021",
+    "site=022",
+    "site=023",
+    "site=024",
+    "site=025",
+    "site=026",
+    "site=027",
+    "site=028",
+    "site=029",
+    "site=030",
+    "site=031",
+    "site=032",
+    "site=033",
+    "site=034",
+    "site=035",
+    "site=036",
+    "site=037",
+    "site=038",
+    "site=039",
+    "site=040",
+    "site=041",
+    "site=042",
+    "site=043",
+    "site=044",
+    "site=045",
+    "site=046",
+    "site=047",
+    "site=048",
+    "site=049",
+    "site=050",
+    "site=__MISSING__",
+    "site=__UNKNOWN__",
+    "nurse=000",
+    "nurse=001",
+    "nurse=002",
+    "nurse=003",
+    "nurse=004",
+    "nurse=005",
+    "nurse=006",
+    "nurse=007",
+    "nurse=008",
+    "nurse=009",
+    "nurse=010",
+    "nurse=011",
+    "nurse=__MISSING__",
+    "nurse=__UNKNOWN__"
+  ],
+  "fold10_signal_checks": {
+    "n_records": 2198,
+    "n_nonfinite_values": 0,
+    "n_allzero_leads": 0,
+    "n_records_with_allzero_lead": 0,
+    "std_ratio_to_frp_folds1to9": {
+      "I": 0.9772524787634076,
+      "II": 1.0066576461884276,
+      "III": 1.0006596142280453,
+      "AVR": 0.9894750228348489,
+      "AVL": 0.9836621640796717,
+      "AVF": 1.0112421840534442,
+      "V1": 0.999091042957472,
+      "V2": 1.0142028967865735,
+      "V3": 1.0051710701652565,
+      "V4": 0.9742063188855647,
+      "V5": 1.0046758060257277,
+      "V6": 0.9340932285338523
+    },
+    "std_ratio_warn_range": [
+      0.5,
+      2.0
+    ],
+    "seconds_to_read": 7.5
+  },
+  "pre_opening_validation": {
+    "A1_reader": {
+      "n_records": 19601,
+      "chunk": 1000,
+      "n_chunks": 20,
+      "bitwise_equal_to_v0.4_cache": true,
+      "lead_order": [
+        "I",
+        "II",
+        "III",
+        "AVR",
+        "AVL",
+        "AVF",
+        "V1",
+        "V2",
+        "V3",
+        "V4",
+        "V5",
+        "V6"
+      ],
+      "fs": 100,
+      "seconds": 83.1
+    },
+    "A2_inference": [
+      {
+        "arch": "resnet1d_wang",
+        "arm": "signal_only",
+        "seed": 42,
+        "source": "v0.5",
+        "max_abs_diff": 1.1102230246251565e-16,
+        "tolerance": 1e-05,
+        "state_dict_sha256": "4e7504ecfaebb62eca9723e62171d1c7cc1b44cab94d7c8aa46150d0d5d02a64",
+        "probs_sha256": "ca886d3b45d837ca7ca6c1a93f2540e6188d5b2b1265db6090b63aea20885da0"
+      },
+      {
+        "arch": "resnet1d_wang",
+        "arm": "signal_only",
+        "seed": 123,
+        "source": "v0.7",
+        "max_abs_diff": 1.1102230246251565e-16,
+        "tolerance": 1e-05,
+        "state_dict_sha256": "ec28c2c68300179d9be83340e85609cfee4cc8d82f6de45fb903d940018c4907",
+        "probs_sha256": "7f3f2277d69d7f9934c420b720ccf12a9c925c1e8357de794f157f5770d10fc5"
+      },
+      {
+        "arch": "resnet1d_wang",
+        "arm": "signal_only",
+        "seed": 2024,
+        "source": "v0.7",
+        "max_abs_diff": 1.1102230246251565e-16,
+        "tolerance": 1e-05,
+        "state_dict_sha256": "550ffe2222ad4e60459a493e669b60f8ed2de0c82ffbc554a6f18c0bbb122a8c",
+        "probs_sha256": "3eeb64f51f99e5ba857e9af4356a787cdaa3038d9f75b69805120bdb7464cc1d"
+      },
+      {
+        "arch": "resnet1d_wang",
+        "arm": "signal_plus_physio",
+        "seed": 42,
+        "source": "v0.5",
+        "max_abs_diff": 1.1102230246251565e-16,
+        "tolerance": 1e-05,
+        "state_dict_sha256": "61582d68eee3ccda6e742883d0daa1ec3272acdec92c763173551bdaadc398f0",
+        "probs_sha256": "0191f0aa0a0b2d00113da706843213fd8b622a18d679693c745676a204ad6f32"
+      },
+      {
+        "arch": "resnet1d_wang",
+        "arm": "signal_plus_physio",
+        "seed": 123,
+        "source": "v0.7",
+        "max_abs_diff": 1.1102230246251565e-16,
+        "tolerance": 1e-05,
+        "state_dict_sha256": "8b74ae39b743555e95d2ef56a352a2538accec3035a30e32a28648ec377d2188",
+        "probs_sha256": "d5ddef406d74f938813d59bc3b06d65cf72f5e034b3475de6c7f74e0503f6219"
+      },
+      {
+        "arch": "resnet1d_wang",
+        "arm": "signal_plus_physio",
+        "seed": 2024,
+        "source": "v0.7",
+        "max_abs_diff": 1.1102230246251565e-16,
+        "tolerance": 1e-05,
+        "state_dict_sha256": "9de499d14500291fad06631db88b70dfaa4a3a7b2301bf309050af46b50a8823",
+        "probs_sha256": "81bfc9514716e25809055ad4b748bf272c9e9f83ca9ee3c0d34cd6ece39c7e23"
+      },
+      {
+        "arch": "resnet1d_wang",
+        "arm": "signal_plus_all",
+        "seed": 42,
+        "source": "v0.7",
+        "max_abs_diff": 1.1102230246251565e-16,
+        "tolerance": 1e-05,
+        "state_dict_sha256": "827adf4337973b8b21bdff03c906bb07d70b03afed1b412623bcfa5401555afc",
+        "probs_sha256": "87fdedb5c3264f72665298841003e2d29d93543add859bbd5126728e2b4efd85"
+      },
+      {
+        "arch": "resnet1d_wang",
+        "arm": "signal_plus_all",
+        "seed": 123,
+        "source": "v0.7",
+        "max_abs_diff": 1.1102230246251565e-16,
+        "tolerance": 1e-05,
+        "state_dict_sha256": "7b01f95225bc3435ffd84f6e64e21274d7a67364168e6590c1a8564709cf5616",
+        "probs_sha256": "e61dc25b425e47e38e353ebdf89222c3243ada98888a011c102947cc6b9b5cca"
+      },
+      {
+        "arch": "resnet1d_wang",
+        "arm": "signal_plus_all",
+        "seed": 2024,
+        "source": "v0.7",
+        "max_abs_diff": 1.1102230246251565e-16,
+        "tolerance": 1e-05,
+        "state_dict_sha256": "5e9726053c3f1f9cbaff733f8ecf0bc9c82efa5296cb8527b783acaa4019adf6",
+        "probs_sha256": "bb36f8cb71db1e529b4a056e9df7fb2af547f666db15709c73b8d60ef24b5ea2"
+      },
+      {
+        "arch": "inception1d",
+        "arm": "signal_only",
+        "seed": 42,
+        "source": "v0.7",
+        "max_abs_diff": 1.1102230246251565e-16,
+        "tolerance": 1e-05,
+        "state_dict_sha256": "8e5a929de0486b6fec1dca2361926181b67c40a856678fe6fd7faa2f2cbf74e6",
+        "probs_sha256": "e0a8f4ccdd645b034826133b80c0b036194451c1becfbfbb4e3a5fbdf96eb007"
+      },
+      {
+        "arch": "inception1d",
+        "arm": "signal_only",
+        "seed": 123,
+        "source": "v0.7",
+        "max_abs_diff": 1.1102230246251565e-16,
+        "tolerance": 1e-05,
+        "state_dict_sha256": "8bc5b57b7d3b1aeb443c1a58362a22c9425b3d1970f77f6c771b80d1815ca8bc",
+        "probs_sha256": "283e8c8167fb82540706c1d3167a81a3ba81d390c1a602466785a5ea2851314c"
+      },
+      {
+        "arch": "inception1d",
+        "arm": "signal_only",
+        "seed": 2024,
+        "source": "v0.7",
+        "max_abs_diff": 1.1102230246251565e-16,
+        "tolerance": 1e-05,
+        "state_dict_sha256": "d517acf0c43a22f657c458e96c5cd4b2d19d1e00e537a74caabc113460eb4719",
+        "probs_sha256": "9b21ed2a5476329c26ee74304f5aa241d4394ab07110d4f823063ec91b736047"
+      },
+      {
+        "arch": "inception1d",
+        "arm": "signal_plus_physio",
+        "seed": 42,
+        "source": "v0.5",
+        "max_abs_diff": 1.1102230246251565e-16,
+        "tolerance": 1e-05,
+        "state_dict_sha256": "d198d219cbf0b2167079dd9785d6e3c3dfe6e58f0452c1642c9e0fb4b80c2438",
+        "probs_sha256": "5d9573e2fee1486147a2ef73a8cc206abf1a2c8cdaf9a3a65a4b8791afb1e517"
+      },
+      {
+        "arch": "inception1d",
+        "arm": "signal_plus_physio",
+        "seed": 123,
+        "source": "v0.7",
+        "max_abs_diff": 1.1102230246251565e-16,
+        "tolerance": 1e-05,
+        "state_dict_sha256": "b930b2bbefd839ae7f0b9daf4cfa0364016b3511092fa95936be8a311b289295",
+        "probs_sha256": "65b50c778d06d8b4e179c5568c4b8f0713819e6ffa9cfb2351796f6b979109da"
+      },
+      {
+        "arch": "inception1d",
+        "arm": "signal_plus_physio",
+        "seed": 2024,
+        "source": "v0.7",
+        "max_abs_diff": 1.1102230246251565e-16,
+        "tolerance": 1e-05,
+        "state_dict_sha256": "0b56de62bcc82999640600eacf7437354abf23196bb39e2250170d66a7668aab",
+        "probs_sha256": "b0b881eebe61950ce924c5a102a288b68b28b185963ae1fc5eb217425d48e2a1"
+      },
+      {
+        "arch": "inception1d",
+        "arm": "signal_plus_all",
+        "seed": 42,
+        "source": "v0.7",
+        "max_abs_diff": 1.1102230246251565e-16,
+        "tolerance": 1e-05,
+        "state_dict_sha256": "273045faddbee59b5d454705879f1bdf15d5d5e9891f688cb47c21eb37aae5c3",
+        "probs_sha256": "4cd6f2ccf2d25856e9a8da09a1db164e70c2b4f6b5fb7e95fa2a3cd6fa270943"
+      },
+      {
+        "arch": "inception1d",
+        "arm": "signal_plus_all",
+        "seed": 123,
+        "source": "v0.7",
+        "max_abs_diff": 1.1102230246251565e-16,
+        "tolerance": 1e-05,
+        "state_dict_sha256": "cfa19d0fb5e0bfc867d7e60b4617a86bbdc3bfd5e0ba321e940064785d91b04f",
+        "probs_sha256": "c353689a6be9970962776b36226d8d155458a846b6e922c7045fb671d0da5554"
+      },
+      {
+        "arch": "inception1d",
+        "arm": "signal_plus_all",
+        "seed": 2024,
+        "source": "v0.7",
+        "max_abs_diff": 1.1102230246251565e-16,
+        "tolerance": 1e-05,
+        "state_dict_sha256": "441844312dc4e1a23695f161285541f3807a289303728ca0806860f3fec5e994",
+        "probs_sha256": "f57352391a0fe11c7263c1b6145ae67dd4daa1fefc55d6b112b53e80a77b7fd7"
+      }
+    ],
+    "A3_metadata_encoding": {
+      "n_onehot_columns": 79,
+      "dummies_equal": true,
+      "meta18_fold9_equal": true,
+      "n_fold9_rows": 2183
+    },
+    "A4_final_models_load": [
+      {
+        "arch": "resnet1d_wang",
+        "arm": "signal_only",
+        "seed": 42,
+        "in_features": 256,
+        "state_dict_sha256": "8ba7cc6deb15a254a5ff2ab23e67145885889028afd1c81a0e916ac4372075e9"
+      },
+      {
+        "arch": "resnet1d_wang",
+        "arm": "signal_plus_physio",
+        "seed": 42,
+        "in_features": 259,
+        "state_dict_sha256": "7e6982058018af1362a187aa5efc24468bef80af2496850773fb88cc46543f26"
+      },
+      {
+        "arch": "resnet1d_wang",
+        "arm": "signal_plus_all",
+        "seed": 42,
+        "in_features": 339,
+        "state_dict_sha256": "4945be6dfb618d479861d30dcd1d64c73b933d1d4934e65683f422321315f56c"
+      },
+      {
+        "arch": "resnet1d_wang",
+        "arm": "signal_only",
+        "seed": 123,
+        "in_features": 256,
+        "state_dict_sha256": "dacd5a8a76df032862460c868501a8d67dc1843d0a5ad2d9e60768561f2fe274"
+      },
+      {
+        "arch": "resnet1d_wang",
+        "arm": "signal_plus_physio",
+        "seed": 123,
+        "in_features": 259,
+        "state_dict_sha256": "5d66fcac2f248896f1e462a5505fc8b81e5c142efa1712a9c29d77f1540eec36"
+      },
+      {
+        "arch": "resnet1d_wang",
+        "arm": "signal_plus_all",
+        "seed": 123,
+        "in_features": 339,
+        "state_dict_sha256": "baec2698937bf9dfd5a5c4c76507314221a600ef361e7654dc21a4e4eb221266"
+      },
+      {
+        "arch": "resnet1d_wang",
+        "arm": "signal_only",
+        "seed": 2024,
+        "in_features": 256,
+        "state_dict_sha256": "2a7ba4b0b821564b5a693abf01238e015eea3e3d111e2f53613c14a8972687f8"
+      },
+      {
+        "arch": "resnet1d_wang",
+        "arm": "signal_plus_physio",
+        "seed": 2024,
+        "in_features": 259,
+        "state_dict_sha256": "ab09eae795c0d87e2a77e68adf850bdac302f562b008776007ed00ea03cba456"
+      },
+      {
+        "arch": "resnet1d_wang",
+        "arm": "signal_plus_all",
+        "seed": 2024,
+        "in_features": 339,
+        "state_dict_sha256": "407f844f779aab4eca0f35f76f6d993eb9cc6e7f5c17ef6b4b47a82e9322465b"
+      },
+      {
+        "arch": "inception1d",
+        "arm": "signal_only",
+        "seed": 42,
+        "in_features": 256,
+        "state_dict_sha256": "aa535a50f26a56b40dc82f894a24deed5efdc92415951a2099eef3d46d5406b4"
+      },
+      {
+        "arch": "inception1d",
+        "arm": "signal_plus_physio",
+        "seed": 42,
+        "in_features": 259,
+        "state_dict_sha256": "b9fa59bcf4d92cc445e1faf8990493341a87e024a95734db7d6f17cf7a2fe7a2"
+      },
+      {
+        "arch": "inception1d",
+        "arm": "signal_plus_all",
+        "seed": 42,
+        "in_features": 339,
+        "state_dict_sha256": "426bb8ab09d1bf4536c5bd7b63b53f573a9b758c3019012e1d05ce5738ddcbf2"
+      },
+      {
+        "arch": "inception1d",
+        "arm": "signal_only",
+        "seed": 123,
+        "in_features": 256,
+        "state_dict_sha256": "d96d99a55c5c89820802c17a63ae300322c944f09677ad2255299fcccae95a73"
+      },
+      {
+        "arch": "inception1d",
+        "arm": "signal_plus_physio",
+        "seed": 123,
+        "in_features": 259,
+        "state_dict_sha256": "d7a1004b1a434d80935d2b3232bd5ef02cb68f8513fc50bf6345fdf652a662c8"
+      },
+      {
+        "arch": "inception1d",
+        "arm": "signal_plus_all",
+        "seed": 123,
+        "in_features": 339,
+        "state_dict_sha256": "df8de596cc427d0693882687c264a0902d8f997b41296c927b5ff652675ddc2d"
+      },
+      {
+        "arch": "inception1d",
+        "arm": "signal_only",
+        "seed": 2024,
+        "in_features": 256,
+        "state_dict_sha256": "6cac376233ba008fdec39d6cc8f34b6f6412cec81180d13ccab948fcffee3837"
+      },
+      {
+        "arch": "inception1d",
+        "arm": "signal_plus_physio",
+        "seed": 2024,
+        "in_features": 259,
+        "state_dict_sha256": "8822b07d8bb93e46e382bcfdcea1141ce0eda96c848d7da997df9f0e75b6d6fb"
+      },
+      {
+        "arch": "inception1d",
+        "arm": "signal_plus_all",
+        "seed": 2024,
+        "in_features": 339,
+        "state_dict_sha256": "3996779e36ea78e90cc8a5939335de55f6ee96493bccc7053652fa69b38e3c0f"
+      }
+    ],
+    "A5_h3_verdict_truth_table": {
+      "n_cases": 9,
+      "pass": true,
+      "function": "REF['h3_verdict']",
+      "sesoi": 0.01
+    },
+    "all_pass": true
+  },
+  "identity_guard": [
+    {
+      "where": "immediately before the first fold-10 file is opened",
+      "checks": {
+        "LEAD_MEAN_F32 bitwise == float32(FRP mean)": true,
+        "LEAD_STD_F32 bitwise == float32(FRP std)": true,
+        "age_scaler mean_ / scale_ / n_samples_seen_ == FRP": true,
+        "CATS19 == FRP categories": true,
+        "META10 column order == FRP": true,
+        "META10 unchanged since STEP 0": true,
+        "META10 age_imputed == (age - FRP mean) / FRP scale": true,
+        "no folds 1-8 object (*18) exists": true
+      }
+    },
+    {
+      "where": "before FREEZE",
+      "checks": {
+        "LEAD_MEAN_F32 bitwise == float32(FRP mean)": true,
+        "LEAD_STD_F32 bitwise == float32(FRP std)": true,
+        "age_scaler mean_ / scale_ / n_samples_seen_ == FRP": true,
+        "CATS19 == FRP categories": true,
+        "META10 column order == FRP": true,
+        "META10 unchanged since STEP 0": true,
+        "META10 age_imputed == (age - FRP mean) / FRP scale": true,
+        "no folds 1-8 object (*18) exists": true
+      }
+    }
+  ],
+  "part_b_warnings": [],
+  "v0.8_manifest_sha256": "9725a0ee502784ffc267b1021ec3cb427966708205db9a09ce7e8c1fc8f30415",
+  "final_run_protocol": {
+    "self_sha256": "834acddec288862d0418e9ee70204898c9d371788eed7eb362f4c0d63d305c6b",
+    "file_sha256": "e1a5260e72d2e8b0d27dc709639468b7f9a48a7c8e2f8af2d663e105dbd329d4"
+  },
+  "reference_implementation_sha256": "48ac837c07880f0bd88a7bd01475e7da3edbeab46019f8288976884ad7662856",
+  "interpretation_post_fold10_rule_2": "post_fold10_rules 2 constrains where MODEL OUTPUTS come from: the saved, sha256-verified v0.8 state_dicts and, after FREEZE, the frozen fold-10 probability files. It does not forbid reading ptbxl_database.csv to derive labels. Before FREEZE (no label read, no metric computed) a crash may be followed by re-reading the fold-10 signals to regenerate the probabilities from the same state_dicts (at most 2 pre-freeze attempts). Fixed before fold 10 was opened (supervisor answer 1, 2026-10-04).",
+  "post_opening_policy": "After fold 10 has been opened:\n1. The v0.9 outputs are never modified or overwritten.\n2. A bug is only a demonstrable deviation of the v0.9 code from the locked documents or from the behaviour validated in Part A, shown by a test that uses no fold-10 label and no fold-10 result. A different method, setting or threshold is never a bug fix: it is a post-hoc analysis (post_fold10_rules 3) and is reported as such. No locked setting (SESOI, CI levels, bootstrap, verdict table, closed list) is ever changed.\n3. A bug fix runs under a new version id (v0.9.1) in its own folder, and the fix is written down before the corrected code is run. Probabilities are regenerated from the same hash-verified v0.8 state_dicts only if the bug is in the inference path; otherwise the frozen v0.9 probability files are reused.\n4. Both the original and the corrected results are reported, together with the deviation and whether any metric had been computed before the bug was found.\n5. No model is ever retrained.",
+  "self_sha256": "8dfa1ebdfede5b3a9a3360bcac1c161be475758ffe7cd7219854ee3b6f9ee95f"
+}

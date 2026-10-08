@@ -1,0 +1,373 @@
+verify verify-1.0 | run_20261008-022605 | root D:\ptbxl-metadata-audit
+checks 370 | FAIL 0 | SKIP 0 | WARN 0 | paper_final True
+
+[PASS] V0   V0_version_python - python version == the v0.4-v0.9 / ph1 environment
+[PASS] V0   V0_version_numpy - numpy version == the v0.4-v0.9 / ph1 environment
+[PASS] V0   V0_version_pandas - pandas version == the v0.4-v0.9 / ph1 environment
+[PASS] V0   V0_version_scipy - scipy version == the v0.4-v0.9 / ph1 environment
+[PASS] V0   V0_version_sklearn - sklearn version == the v0.4-v0.9 / ph1 environment
+[INFO] V0   V0_environment_note - v0.2.1 and v0.3 originally ran with scipy 1.11.4; their reproduction under scipy 1.15.3 is established by ph1 Part A (amendment_r2)
+[INFO] V0   V0_cpu_threads - os.cpu_count() and threadpoolctl.threadpool_info() (recorded; no thread setting is changed)
+[INFO] V0   V0_root - project root and run folder
+[INFO] V0   V0_own_source - source of the running verify code (sha256 of its UTF-8 text, LF line ends; compare with the sha256 delivered with verify.py)
+[PASS] V1   V1_ptbxl_database.csv - ptbxl_database.csv sha256
+[PASS] V1   V1_scp_statements.csv - scp_statements.csv sha256
+[PASS] V2   V2_pre_registration_file_sha256 - pre_registration.json file sha256
+[PASS] V2   V2_pre_registration_self_sha256 - pre_registration.json self_sha256 (stored == recomputed == expected)
+[PASS] V2   V2_dev_protocol_file_sha256 - dev_protocol.json file sha256
+[PASS] V2   V2_dev_protocol_self_sha256 - dev_protocol.json self_sha256 (stored == recomputed == expected)
+[PASS] V2   V2_training_details_file_sha256 - v0.5_training_details.json file sha256
+[PASS] V2   V2_training_details_self_sha256 - v0.5_training_details.json self_sha256 (stored == recomputed == expected)
+[PASS] V2   V2_lr_selection_file_sha256 - lr_selection.json file sha256
+[PASS] V2   V2_lr_selection_self_sha256 - lr_selection.json self_sha256 (stored == recomputed == expected)
+[PASS] V2   V2_final_run_protocol_file_sha256 - final_run_protocol.json file sha256
+[PASS] V2   V2_final_run_protocol_self_sha256 - final_run_protocol.json self_sha256 (stored == recomputed == expected)
+[PASS] V2   V2_frp_parent_hashes - final_run_protocol.parent_hashes == the four parent documents (self + file sha256 constants) | max |diff| 0.0
+[PASS] V2   V2_dev_protocol_parent - dev_protocol.parent_seal_self_sha256 == pre_registration self_sha256
+[PASS] V2   V2_training_details_parents - v0.5_training_details parents == pre_registration / dev_protocol self_sha256
+[PASS] V2   V2_lr_selection_parents - lr_selection.parent_hashes == the three parent self_sha256
+[PASS] V2   V2_frp_input_hashes - final_run_protocol.input_files_sha256 == the dataset input constants
+[PASS] V2   V2_reference_implementation - reference implementation code (UTF-8) sha256 == FRP field == constant
+[INFO] V2   V2_ots_files - OpenTimestamps proofs present (listed only, never asserted)
+[INFO] V3   V3_v021_manifest_sha256 - v0.2.1_manifest.json sha256 (the v0.2.1 run printed a hash starting 37ca9b78; recorded, WARN only)
+[PASS] V3   V3_v021_decision_table_sha256 - v0.2.1_decision_table.csv sha256 == constant
+[PASS] V3   V3_v021_decision_table_manifest - v0.2.1_decision_table.csv sha256 == its v0.2.1 manifest entry
+[PASS] V3   V3_v021_metrics_full_manifest - v0.2.1_metrics_full.csv sha256 == its v0.2.1 manifest entry
+[PASS] V3   V3_v03_manifest_sha256 - v0.3_manifest.json sha256 == constant
+[PASS] V3   V3_v03_output_v0.3_bootstrap_deltas.csv - v0.3 manifest entry v0.3_bootstrap_deltas.csv == file on disk
+[PASS] V3   V3_v03_output_v0.3_h2_summary.csv - v0.3 manifest entry v0.3_h2_summary.csv == file on disk
+[PASS] V3   V3_v03_output_pre_registration.json - v0.3 manifest entry pre_registration.json == file on disk
+[PASS] V4   V4_v08_manifest_sha256 - v0.8_manifest.json sha256 == constant
+[PASS] V4   V4_v08_output_v0.8_resnet1d_wang_signal_only_seed42_lr0.01_train_loss.csv - v0.8 manifest entry v0.8_resnet1d_wang_signal_only_seed42_lr0.01_train_loss.csv == file on disk
+[PASS] V4   V4_v08_output_v0.8_resnet1d_wang_signal_only_seed42_lr0.01_state_dict.pt - v0.8 manifest entry v0.8_resnet1d_wang_signal_only_seed42_lr0.01_state_dict.pt == file on disk
+[PASS] V4   V4_v08_output_v0.8_resnet1d_wang_signal_plus_physio_seed42_lr0.01_train_loss.csv - v0.8 manifest entry v0.8_resnet1d_wang_signal_plus_physio_seed42_lr0.01_train_loss.csv == file on disk
+[PASS] V4   V4_v08_output_v0.8_resnet1d_wang_signal_plus_physio_seed42_lr0.01_state_dict.pt - v0.8 manifest entry v0.8_resnet1d_wang_signal_plus_physio_seed42_lr0.01_state_dict.pt == file on disk
+[PASS] V4   V4_v08_output_v0.8_resnet1d_wang_signal_plus_all_seed42_lr0.01_train_loss.csv - v0.8 manifest entry v0.8_resnet1d_wang_signal_plus_all_seed42_lr0.01_train_loss.csv == file on disk
+[PASS] V4   V4_v08_output_v0.8_resnet1d_wang_signal_plus_all_seed42_lr0.01_state_dict.pt - v0.8 manifest entry v0.8_resnet1d_wang_signal_plus_all_seed42_lr0.01_state_dict.pt == file on disk
+[PASS] V4   V4_v08_output_v0.8_resnet1d_wang_signal_only_seed123_lr0.01_train_loss.csv - v0.8 manifest entry v0.8_resnet1d_wang_signal_only_seed123_lr0.01_train_loss.csv == file on disk
+[PASS] V4   V4_v08_output_v0.8_resnet1d_wang_signal_only_seed123_lr0.01_state_dict.pt - v0.8 manifest entry v0.8_resnet1d_wang_signal_only_seed123_lr0.01_state_dict.pt == file on disk
+[PASS] V4   V4_v08_output_v0.8_resnet1d_wang_signal_plus_physio_seed123_lr0.01_train_loss.csv - v0.8 manifest entry v0.8_resnet1d_wang_signal_plus_physio_seed123_lr0.01_train_loss.csv == file on disk
+[PASS] V4   V4_v08_output_v0.8_resnet1d_wang_signal_plus_physio_seed123_lr0.01_state_dict.pt - v0.8 manifest entry v0.8_resnet1d_wang_signal_plus_physio_seed123_lr0.01_state_dict.pt == file on disk
+[PASS] V4   V4_v08_output_v0.8_resnet1d_wang_signal_plus_all_seed123_lr0.01_train_loss.csv - v0.8 manifest entry v0.8_resnet1d_wang_signal_plus_all_seed123_lr0.01_train_loss.csv == file on disk
+[PASS] V4   V4_v08_output_v0.8_resnet1d_wang_signal_plus_all_seed123_lr0.01_state_dict.pt - v0.8 manifest entry v0.8_resnet1d_wang_signal_plus_all_seed123_lr0.01_state_dict.pt == file on disk
+[PASS] V4   V4_v08_output_v0.8_resnet1d_wang_signal_only_seed2024_lr0.01_train_loss.csv - v0.8 manifest entry v0.8_resnet1d_wang_signal_only_seed2024_lr0.01_train_loss.csv == file on disk
+[PASS] V4   V4_v08_output_v0.8_resnet1d_wang_signal_only_seed2024_lr0.01_state_dict.pt - v0.8 manifest entry v0.8_resnet1d_wang_signal_only_seed2024_lr0.01_state_dict.pt == file on disk
+[PASS] V4   V4_v08_output_v0.8_resnet1d_wang_signal_plus_physio_seed2024_lr0.01_train_loss.csv - v0.8 manifest entry v0.8_resnet1d_wang_signal_plus_physio_seed2024_lr0.01_train_loss.csv == file on disk
+[PASS] V4   V4_v08_output_v0.8_resnet1d_wang_signal_plus_physio_seed2024_lr0.01_state_dict.pt - v0.8 manifest entry v0.8_resnet1d_wang_signal_plus_physio_seed2024_lr0.01_state_dict.pt == file on disk
+[PASS] V4   V4_v08_output_v0.8_resnet1d_wang_signal_plus_all_seed2024_lr0.01_train_loss.csv - v0.8 manifest entry v0.8_resnet1d_wang_signal_plus_all_seed2024_lr0.01_train_loss.csv == file on disk
+[PASS] V4   V4_v08_output_v0.8_resnet1d_wang_signal_plus_all_seed2024_lr0.01_state_dict.pt - v0.8 manifest entry v0.8_resnet1d_wang_signal_plus_all_seed2024_lr0.01_state_dict.pt == file on disk
+[PASS] V4   V4_v08_output_v0.8_inception1d_signal_only_seed42_lr0.01_train_loss.csv - v0.8 manifest entry v0.8_inception1d_signal_only_seed42_lr0.01_train_loss.csv == file on disk
+[PASS] V4   V4_v08_output_v0.8_inception1d_signal_only_seed42_lr0.01_state_dict.pt - v0.8 manifest entry v0.8_inception1d_signal_only_seed42_lr0.01_state_dict.pt == file on disk
+[PASS] V4   V4_v08_output_v0.8_inception1d_signal_plus_physio_seed42_lr0.01_train_loss.csv - v0.8 manifest entry v0.8_inception1d_signal_plus_physio_seed42_lr0.01_train_loss.csv == file on disk
+[PASS] V4   V4_v08_output_v0.8_inception1d_signal_plus_physio_seed42_lr0.01_state_dict.pt - v0.8 manifest entry v0.8_inception1d_signal_plus_physio_seed42_lr0.01_state_dict.pt == file on disk
+[PASS] V4   V4_v08_output_v0.8_inception1d_signal_plus_all_seed42_lr0.01_train_loss.csv - v0.8 manifest entry v0.8_inception1d_signal_plus_all_seed42_lr0.01_train_loss.csv == file on disk
+[PASS] V4   V4_v08_output_v0.8_inception1d_signal_plus_all_seed42_lr0.01_state_dict.pt - v0.8 manifest entry v0.8_inception1d_signal_plus_all_seed42_lr0.01_state_dict.pt == file on disk
+[PASS] V4   V4_v08_output_v0.8_inception1d_signal_only_seed123_lr0.01_train_loss.csv - v0.8 manifest entry v0.8_inception1d_signal_only_seed123_lr0.01_train_loss.csv == file on disk
+[PASS] V4   V4_v08_output_v0.8_inception1d_signal_only_seed123_lr0.01_state_dict.pt - v0.8 manifest entry v0.8_inception1d_signal_only_seed123_lr0.01_state_dict.pt == file on disk
+[PASS] V4   V4_v08_output_v0.8_inception1d_signal_plus_physio_seed123_lr0.01_train_loss.csv - v0.8 manifest entry v0.8_inception1d_signal_plus_physio_seed123_lr0.01_train_loss.csv == file on disk
+[PASS] V4   V4_v08_output_v0.8_inception1d_signal_plus_physio_seed123_lr0.01_state_dict.pt - v0.8 manifest entry v0.8_inception1d_signal_plus_physio_seed123_lr0.01_state_dict.pt == file on disk
+[PASS] V4   V4_v08_output_v0.8_inception1d_signal_plus_all_seed123_lr0.01_train_loss.csv - v0.8 manifest entry v0.8_inception1d_signal_plus_all_seed123_lr0.01_train_loss.csv == file on disk
+[PASS] V4   V4_v08_output_v0.8_inception1d_signal_plus_all_seed123_lr0.01_state_dict.pt - v0.8 manifest entry v0.8_inception1d_signal_plus_all_seed123_lr0.01_state_dict.pt == file on disk
+[PASS] V4   V4_v08_output_v0.8_inception1d_signal_only_seed2024_lr0.01_train_loss.csv - v0.8 manifest entry v0.8_inception1d_signal_only_seed2024_lr0.01_train_loss.csv == file on disk
+[PASS] V4   V4_v08_output_v0.8_inception1d_signal_only_seed2024_lr0.01_state_dict.pt - v0.8 manifest entry v0.8_inception1d_signal_only_seed2024_lr0.01_state_dict.pt == file on disk
+[PASS] V4   V4_v08_output_v0.8_inception1d_signal_plus_physio_seed2024_lr0.01_train_loss.csv - v0.8 manifest entry v0.8_inception1d_signal_plus_physio_seed2024_lr0.01_train_loss.csv == file on disk
+[PASS] V4   V4_v08_output_v0.8_inception1d_signal_plus_physio_seed2024_lr0.01_state_dict.pt - v0.8 manifest entry v0.8_inception1d_signal_plus_physio_seed2024_lr0.01_state_dict.pt == file on disk
+[PASS] V4   V4_v08_output_v0.8_inception1d_signal_plus_all_seed2024_lr0.01_train_loss.csv - v0.8 manifest entry v0.8_inception1d_signal_plus_all_seed2024_lr0.01_train_loss.csv == file on disk
+[PASS] V4   V4_v08_output_v0.8_inception1d_signal_plus_all_seed2024_lr0.01_state_dict.pt - v0.8 manifest entry v0.8_inception1d_signal_plus_all_seed2024_lr0.01_state_dict.pt == file on disk
+[PASS] V4   V4_v08_output_v0.8_preflight_init_hashes.csv - v0.8 manifest entry v0.8_preflight_init_hashes.csv == file on disk
+[PASS] V4   V4_v08_output_v0.8_attempt_log.jsonl - v0.8 manifest entry v0.8_attempt_log.jsonl == file on disk
+[PASS] V4   V4_v08_output_v0.8_training_summary.csv - v0.8 manifest entry v0.8_training_summary.csv == file on disk
+[INFO] V4   V4_v08_outputs_count - v0.8 manifest outputs verified (state_dicts, loss CSVs, logs; hashed only, never loaded)
+[PASS] V5   V5_v09_cell_sha256 - notebooks\v0.9_cell.py sha256 == constant
+[PASS] V5   V5_v0.9_frozen_outputs_file_sha256 - v0.9_frozen_outputs.json file sha256
+[PASS] V5   V5_v0.9_frozen_outputs_self_sha256 - v0.9_frozen_outputs.json self_sha256 (stored == recomputed == expected)
+[PASS] V5   V5_v0.9_results_file_sha256 - v0.9_results.json file sha256
+[PASS] V5   V5_v0.9_results_self_sha256 - v0.9_results.json self_sha256 (stored == recomputed == expected)
+[PASS] V5   V5_v0.9_manifest_file_sha256 - v0.9_manifest.json file sha256
+[PASS] V5   V5_v0.9_manifest_self_sha256 - v0.9_manifest.json self_sha256 (stored == recomputed == expected)
+[PASS] V5   V5_v0.9_fold10_labels.csv - v0.9_fold10_labels.csv sha256 == constant
+[PASS] V5   V5_v0.9_bootstrap_deltas.csv - v0.9_bootstrap_deltas.csv sha256 == constant
+[PASS] V5   V5_v0.9_resnet1d_wang_perm_probs.npy - v0.9_resnet1d_wang_perm_probs.npy sha256 == constant
+[PASS] V5   V5_v0.9_inception1d_perm_probs.npy - v0.9_inception1d_perm_probs.npy sha256 == constant
+[PASS] V5   V5_v0.9_attempt_log.jsonl - v0.9_attempt_log.jsonl sha256 == constant
+[PASS] V5   V5_frozen_eq_results_list - probability / permutation files: frozen list == results probability_files_sha256
+[PASS] V5   V5_n_probability_csvs - 18 probability CSVs + 2 permutation arrays in the frozen list
+[PASS] V5   V5_prob_file_v0.9_inception1d_perm_probs.npy - v0.9_inception1d_perm_probs.npy on disk == frozen list
+[PASS] V5   V5_prob_file_v0.9_inception1d_signal_only_seed123_lr0.01_fold10_probs.csv - v0.9_inception1d_signal_only_seed123_lr0.01_fold10_probs.csv on disk == frozen list
+[PASS] V5   V5_prob_file_v0.9_inception1d_signal_only_seed2024_lr0.01_fold10_probs.csv - v0.9_inception1d_signal_only_seed2024_lr0.01_fold10_probs.csv on disk == frozen list
+[PASS] V5   V5_prob_file_v0.9_inception1d_signal_only_seed42_lr0.01_fold10_probs.csv - v0.9_inception1d_signal_only_seed42_lr0.01_fold10_probs.csv on disk == frozen list
+[PASS] V5   V5_prob_file_v0.9_inception1d_signal_plus_all_seed123_lr0.01_fold10_probs.csv - v0.9_inception1d_signal_plus_all_seed123_lr0.01_fold10_probs.csv on disk == frozen list
+[PASS] V5   V5_prob_file_v0.9_inception1d_signal_plus_all_seed2024_lr0.01_fold10_probs.csv - v0.9_inception1d_signal_plus_all_seed2024_lr0.01_fold10_probs.csv on disk == frozen list
+[PASS] V5   V5_prob_file_v0.9_inception1d_signal_plus_all_seed42_lr0.01_fold10_probs.csv - v0.9_inception1d_signal_plus_all_seed42_lr0.01_fold10_probs.csv on disk == frozen list
+[PASS] V5   V5_prob_file_v0.9_inception1d_signal_plus_physio_seed123_lr0.01_fold10_probs.csv - v0.9_inception1d_signal_plus_physio_seed123_lr0.01_fold10_probs.csv on disk == frozen list
+[PASS] V5   V5_prob_file_v0.9_inception1d_signal_plus_physio_seed2024_lr0.01_fold10_probs.csv - v0.9_inception1d_signal_plus_physio_seed2024_lr0.01_fold10_probs.csv on disk == frozen list
+[PASS] V5   V5_prob_file_v0.9_inception1d_signal_plus_physio_seed42_lr0.01_fold10_probs.csv - v0.9_inception1d_signal_plus_physio_seed42_lr0.01_fold10_probs.csv on disk == frozen list
+[PASS] V5   V5_prob_file_v0.9_resnet1d_wang_perm_probs.npy - v0.9_resnet1d_wang_perm_probs.npy on disk == frozen list
+[PASS] V5   V5_prob_file_v0.9_resnet1d_wang_signal_only_seed123_lr0.01_fold10_probs.csv - v0.9_resnet1d_wang_signal_only_seed123_lr0.01_fold10_probs.csv on disk == frozen list
+[PASS] V5   V5_prob_file_v0.9_resnet1d_wang_signal_only_seed2024_lr0.01_fold10_probs.csv - v0.9_resnet1d_wang_signal_only_seed2024_lr0.01_fold10_probs.csv on disk == frozen list
+[PASS] V5   V5_prob_file_v0.9_resnet1d_wang_signal_only_seed42_lr0.01_fold10_probs.csv - v0.9_resnet1d_wang_signal_only_seed42_lr0.01_fold10_probs.csv on disk == frozen list
+[PASS] V5   V5_prob_file_v0.9_resnet1d_wang_signal_plus_all_seed123_lr0.01_fold10_probs.csv - v0.9_resnet1d_wang_signal_plus_all_seed123_lr0.01_fold10_probs.csv on disk == frozen list
+[PASS] V5   V5_prob_file_v0.9_resnet1d_wang_signal_plus_all_seed2024_lr0.01_fold10_probs.csv - v0.9_resnet1d_wang_signal_plus_all_seed2024_lr0.01_fold10_probs.csv on disk == frozen list
+[PASS] V5   V5_prob_file_v0.9_resnet1d_wang_signal_plus_all_seed42_lr0.01_fold10_probs.csv - v0.9_resnet1d_wang_signal_plus_all_seed42_lr0.01_fold10_probs.csv on disk == frozen list
+[PASS] V5   V5_prob_file_v0.9_resnet1d_wang_signal_plus_physio_seed123_lr0.01_fold10_probs.csv - v0.9_resnet1d_wang_signal_plus_physio_seed123_lr0.01_fold10_probs.csv on disk == frozen list
+[PASS] V5   V5_prob_file_v0.9_resnet1d_wang_signal_plus_physio_seed2024_lr0.01_fold10_probs.csv - v0.9_resnet1d_wang_signal_plus_physio_seed2024_lr0.01_fold10_probs.csv on disk == frozen list
+[PASS] V5   V5_prob_file_v0.9_resnet1d_wang_signal_plus_physio_seed42_lr0.01_fold10_probs.csv - v0.9_resnet1d_wang_signal_plus_physio_seed42_lr0.01_fold10_probs.csv on disk == frozen list
+[PASS] V5   V5_frozen_perm_resnet - v0.9_resnet1d_wang_perm_probs.npy frozen hash == constant
+[PASS] V5   V5_frozen_perm_inception - v0.9_inception1d_perm_probs.npy frozen hash == constant
+[PASS] V5   V5_results_frozen_self - results.frozen_outputs_self_sha256 == frozen self_sha256 constant
+[PASS] V5   V5_results_frp - results.final_run_protocol == FRP constants
+[PASS] V5   V5_results_ref - results.reference_implementation_sha256 == constant
+[PASS] V5   V5_results_labels_bootstrap - results labels / bootstrap CSV hashes == constants
+[PASS] V5   V5_manifest_frozen_results - v0.9 manifest frozen_outputs / results hashes == constants
+[PASS] V5   V5_v09_manifest_output_v0.9_attempt_log.jsonl - v0.9 manifest entry v0.9_attempt_log.jsonl == file on disk
+[PASS] V5   V5_v09_manifest_output_v0.9_bootstrap_deltas.csv - v0.9 manifest entry v0.9_bootstrap_deltas.csv == file on disk
+[PASS] V5   V5_v09_manifest_output_v0.9_fold10_labels.csv - v0.9 manifest entry v0.9_fold10_labels.csv == file on disk
+[PASS] V5   V5_v09_manifest_output_v0.9_frozen_outputs.json - v0.9 manifest entry v0.9_frozen_outputs.json == file on disk
+[PASS] V5   V5_v09_manifest_output_v0.9_inception1d_perm_probs.npy - v0.9 manifest entry v0.9_inception1d_perm_probs.npy == file on disk
+[PASS] V5   V5_v09_manifest_output_v0.9_inception1d_signal_only_seed123_lr0.01_fold10_probs.csv - v0.9 manifest entry v0.9_inception1d_signal_only_seed123_lr0.01_fold10_probs.csv == file on disk
+[PASS] V5   V5_v09_manifest_output_v0.9_inception1d_signal_only_seed2024_lr0.01_fold10_probs.csv - v0.9 manifest entry v0.9_inception1d_signal_only_seed2024_lr0.01_fold10_probs.csv == file on disk
+[PASS] V5   V5_v09_manifest_output_v0.9_inception1d_signal_only_seed42_lr0.01_fold10_probs.csv - v0.9 manifest entry v0.9_inception1d_signal_only_seed42_lr0.01_fold10_probs.csv == file on disk
+[PASS] V5   V5_v09_manifest_output_v0.9_inception1d_signal_plus_all_seed123_lr0.01_fold10_probs.csv - v0.9 manifest entry v0.9_inception1d_signal_plus_all_seed123_lr0.01_fold10_probs.csv == file on disk
+[PASS] V5   V5_v09_manifest_output_v0.9_inception1d_signal_plus_all_seed2024_lr0.01_fold10_probs.csv - v0.9 manifest entry v0.9_inception1d_signal_plus_all_seed2024_lr0.01_fold10_probs.csv == file on disk
+[PASS] V5   V5_v09_manifest_output_v0.9_inception1d_signal_plus_all_seed42_lr0.01_fold10_probs.csv - v0.9 manifest entry v0.9_inception1d_signal_plus_all_seed42_lr0.01_fold10_probs.csv == file on disk
+[PASS] V5   V5_v09_manifest_output_v0.9_inception1d_signal_plus_physio_seed123_lr0.01_fold10_probs.csv - v0.9 manifest entry v0.9_inception1d_signal_plus_physio_seed123_lr0.01_fold10_probs.csv == file on disk
+[PASS] V5   V5_v09_manifest_output_v0.9_inception1d_signal_plus_physio_seed2024_lr0.01_fold10_probs.csv - v0.9 manifest entry v0.9_inception1d_signal_plus_physio_seed2024_lr0.01_fold10_probs.csv == file on disk
+[PASS] V5   V5_v09_manifest_output_v0.9_inception1d_signal_plus_physio_seed42_lr0.01_fold10_probs.csv - v0.9 manifest entry v0.9_inception1d_signal_plus_physio_seed42_lr0.01_fold10_probs.csv == file on disk
+[PASS] V5   V5_v09_manifest_output_v0.9_resnet1d_wang_perm_probs.npy - v0.9 manifest entry v0.9_resnet1d_wang_perm_probs.npy == file on disk
+[PASS] V5   V5_v09_manifest_output_v0.9_resnet1d_wang_signal_only_seed123_lr0.01_fold10_probs.csv - v0.9 manifest entry v0.9_resnet1d_wang_signal_only_seed123_lr0.01_fold10_probs.csv == file on disk
+[PASS] V5   V5_v09_manifest_output_v0.9_resnet1d_wang_signal_only_seed2024_lr0.01_fold10_probs.csv - v0.9 manifest entry v0.9_resnet1d_wang_signal_only_seed2024_lr0.01_fold10_probs.csv == file on disk
+[PASS] V5   V5_v09_manifest_output_v0.9_resnet1d_wang_signal_only_seed42_lr0.01_fold10_probs.csv - v0.9 manifest entry v0.9_resnet1d_wang_signal_only_seed42_lr0.01_fold10_probs.csv == file on disk
+[PASS] V5   V5_v09_manifest_output_v0.9_resnet1d_wang_signal_plus_all_seed123_lr0.01_fold10_probs.csv - v0.9 manifest entry v0.9_resnet1d_wang_signal_plus_all_seed123_lr0.01_fold10_probs.csv == file on disk
+[PASS] V5   V5_v09_manifest_output_v0.9_resnet1d_wang_signal_plus_all_seed2024_lr0.01_fold10_probs.csv - v0.9 manifest entry v0.9_resnet1d_wang_signal_plus_all_seed2024_lr0.01_fold10_probs.csv == file on disk
+[PASS] V5   V5_v09_manifest_output_v0.9_resnet1d_wang_signal_plus_all_seed42_lr0.01_fold10_probs.csv - v0.9 manifest entry v0.9_resnet1d_wang_signal_plus_all_seed42_lr0.01_fold10_probs.csv == file on disk
+[PASS] V5   V5_v09_manifest_output_v0.9_resnet1d_wang_signal_plus_physio_seed123_lr0.01_fold10_probs.csv - v0.9 manifest entry v0.9_resnet1d_wang_signal_plus_physio_seed123_lr0.01_fold10_probs.csv == file on disk
+[PASS] V5   V5_v09_manifest_output_v0.9_resnet1d_wang_signal_plus_physio_seed2024_lr0.01_fold10_probs.csv - v0.9 manifest entry v0.9_resnet1d_wang_signal_plus_physio_seed2024_lr0.01_fold10_probs.csv == file on disk
+[PASS] V5   V5_v09_manifest_output_v0.9_resnet1d_wang_signal_plus_physio_seed42_lr0.01_fold10_probs.csv - v0.9 manifest entry v0.9_resnet1d_wang_signal_plus_physio_seed42_lr0.01_fold10_probs.csv == file on disk
+[PASS] V5   V5_v09_manifest_output_v0.9_results.json - v0.9 manifest entry v0.9_results.json == file on disk
+[PASS] VP   VP_ph1_cell_sha256 - notebooks\ph1_cell.py sha256 == APPROVED_PH1_CELL_SHA256 (r2)
+[PASS] VP   VP_block_01_ph1 - verbatim from ph1 (constants: classes, seeds, learners, blocks, A2_TOLERANCE, environment; 60 lines) occurs in ph1_cell.py
+[PASS] VP   VP_block_02_ph1 - verbatim from ph1 (fold-9 / fold-10 counts and split sizes; 20 lines) occurs in ph1_cell.py
+[PASS] VP   VP_block_03_ph1 - verbatim from ph1 (helpers: sha256_of, hdr, warn, note, _json_default, fast_auc, to_level_string, encode_categorical, canonical JSON, verify_self_sha256, plain, manifest_entry, write-once writers, csv_bytes; 200 lines) occurs in ph1_cell.py
+[PASS] VP   VP_block_04_ph1 - verbatim from ph1 (abs_diff_matrix, cell_tolerance; 23 lines) occurs in ph1_cell.py
+[PASS] VP   VP_block_05_v0.9 - verbatim from v0.9 (sklearn check tolerance; 1 lines) occurs in v0.9_cell.py
+[PASS] VP   VP_block_06_v0.9 - verbatim from v0.9 (architectures, arms; 2 lines) occurs in v0.9_cell.py
+[PASS] VP   VP_block_07_v0.9 - verbatim from v0.9 (NaN flag fraction; 1 lines) occurs in v0.9_cell.py
+[PASS] VP   VP_block_08_v0.9 - verbatim from v0.9 (sanity gate, secondary verdict label; 2 lines) occurs in v0.9_cell.py
+[PASS] VP   VP_block_09_ph1 - verbatim from ph1 (fit_predict and metrics_from_probs; 509 lines) occurs in ph1_cell.py
+[PASS] VP   VP_block_10_v0.9 - verbatim from v0.9 (load_saved_probs10; 6 lines) occurs in v0.9_cell.py
+[PASS] VP   VP_block_11_v0.9 - adapted from v0.9 (Part D: D0, D1-D4, E1-E3, D7, bootstrap-delta frame; 112 lines, indent 4) occurs in v0.9_cell.py
+[PASS] VP   VP_block_12_v0.9 - adapted from v0.9 (Part C: fold-10 label frame; 2 lines, indent 4) occurs in v0.9_cell.py
+[PASS] VP   VP_block_13_v0.9 - adapted from v0.9 (Part C: Y10; 1 lines, indent 4) occurs in v0.9_cell.py
+[PASS] VP   VP_block_14_v0.9 - adapted from v0.9 (Part D: seed ensembles; 1 lines, indent 4) occurs in v0.9_cell.py
+[PASS] VP   VP_blocks_present - every copied block of this code was found in its source (5 from ph1, 9 from v0.9)
+[PASS] V6   V6_fold10_ids_sha256 - fold-10 (ecg_id, patient_id) in file order, FRP serialization == FRP locked hash
+[PASS] V6   V6_fold10_patients_sha256 - fold-10 patients (sorted, '<i8') == FRP locked hash
+[PASS] V6   V6_labels_eq_v09_file - fold-10 labels (v0.2.1 label code) == v0.9_fold10_labels.csv (rows, order, values)
+[PASS] V6   V6_labels_bytes - v0.9_fold10_labels.csv == csv_bytes(recomputed label frame), byte for byte (v0.9 writer csv_bytes, verbatim)
+[PASS] V6   V6_fold10_positives - fold-10 positives == {963, 550, 521, 496, 262}
+[PASS] V7   V7_boot_idx_sha256 - REF.build_boot_idx(1904, 2000, 7) == FRP locked hash
+[PASS] V7   V7_perm_idx_sha256 - REF.build_perm_idx(2198, 20, 42) == FRP locked hash
+[PASS] V8   V8_results_fold10 - v0.9_results.json['fold10'] == recomputation (REF, BOOT_IDX, frozen probabilities; every leaf) | max |diff| 0.0
+[PASS] V8   V8_results_D0_metric_check - v0.9_results.json['D0_metric_check'] == recomputation (REF, BOOT_IDX, frozen probabilities; every leaf) | max |diff| 0.0
+[PASS] V8   V8_results_1_primary - v0.9_results.json['1_primary'] == recomputation (REF, BOOT_IDX, frozen probabilities; every leaf) | max |diff| 0.0
+[PASS] V8   V8_results_2_robustness - v0.9_results.json['2_robustness'] == recomputation (REF, BOOT_IDX, frozen probabilities; every leaf) | max |diff| 0.0
+[PASS] V8   V8_results_3_secondary_per_seed - v0.9_results.json['3_secondary_per_seed'] == recomputation (REF, BOOT_IDX, frozen probabilities; every leaf) | max |diff| 0.0
+[PASS] V8   V8_results_4_disagreements - v0.9_results.json['4_disagreements'] == recomputation (REF, BOOT_IDX, frozen probabilities; every leaf) | max |diff| 0.0
+[PASS] V8   V8_results_5_exploratory - v0.9_results.json['5_exploratory'] == recomputation (REF, BOOT_IDX, frozen probabilities; every leaf) | max |diff| 0.0
+[PASS] V8   V8_results_D7_sanity - v0.9_results.json['D7_sanity'] == recomputation (REF, BOOT_IDX, frozen probabilities; every leaf) | max |diff| 0.0
+[PASS] V8   V8_results_warnings - v0.9 results warnings == the warnings of the recomputation
+[PASS] V8   V8_bootstrap_deltas - 21 per-draw delta columns == v0.9_bootstrap_deltas.csv | max |diff| 0.0
+[PASS] V8   V8_bootstrap_deltas_bytes - v0.9_bootstrap_deltas.csv == csv_bytes(recomputed frame), byte for byte
+[INFO] V9   V9_resnet1d_wang_signal_only - descriptive, not pre-specified: resnet1d_wang signal_only seed-ensemble macro-AUROC and 95% percentile CI over the BOOT_IDX draws
+[INFO] V9   V9_resnet1d_wang_signal_plus_physio - descriptive, not pre-specified: resnet1d_wang signal_plus_physio seed-ensemble macro-AUROC and 95% percentile CI over the BOOT_IDX draws
+[INFO] V9   V9_resnet1d_wang_signal_plus_all - descriptive, not pre-specified: resnet1d_wang signal_plus_all seed-ensemble macro-AUROC and 95% percentile CI over the BOOT_IDX draws
+[INFO] V9   V9_inception1d_signal_only - descriptive, not pre-specified: inception1d signal_only seed-ensemble macro-AUROC and 95% percentile CI over the BOOT_IDX draws
+[INFO] V9   V9_inception1d_signal_plus_physio - descriptive, not pre-specified: inception1d signal_plus_physio seed-ensemble macro-AUROC and 95% percentile CI over the BOOT_IDX draws
+[INFO] V9   V9_inception1d_signal_plus_all - descriptive, not pre-specified: inception1d signal_plus_all seed-ensemble macro-AUROC and 95% percentile CI over the BOOT_IDX draws
+[PASS] V9   V9_points_eq_v8 - descriptive point estimates == the arm macro-AUROC values of V8 | max |diff| 0.0
+[PASS] V10  V10_A1_fold9_positives - fold-9 positives (v0.2.1 label code) == v0.2.1 counts
+[PASS] V10  V10_A1_split_sizes - train folds 1-8 / eval fold 9 records and patients
+[PASS] V10  V10_A1_encoder_folds1to8 - folds 1-8 categories == FRP categories minus new_levels_vs_folds1to8 (widths == widths_folds1to8_development)
+[PASS] V10  V10_decision_table_strict - decision table vs v0.2.1_decision_table.csv (12 rows x 5 columns): identifiers exact; every cell outside the ph1 r2 relaxed cells within 1e-12 | max |diff| 0.0
+[PASS] V10  V10_decision_table_relaxed_B2_acquisition_LogisticRegression_macro_auroc_mean - decision table vs v0.2.1_decision_table.csv (12 rows x 5 columns): {'block': 'B2_acquisition', 'learner': 'LogisticRegression'} macro_auroc_mean (relaxed cell) | max |diff| 6.972562557328033e-07
+[PASS] V10  V10_decision_table_relaxed_B2_acquisition_LogisticRegression_ci_low_mean - decision table vs v0.2.1_decision_table.csv (12 rows x 5 columns): {'block': 'B2_acquisition', 'learner': 'LogisticRegression'} ci_low_mean (relaxed cell) | max |diff| 1.242272428259028e-07
+[PASS] V10  V10_decision_table_relaxed_B2_acquisition_LogisticRegression_ci_high_mean - decision table vs v0.2.1_decision_table.csv (12 rows x 5 columns): {'block': 'B2_acquisition', 'learner': 'LogisticRegression'} ci_high_mean (relaxed cell) | max |diff| 1.5784986938660595e-06
+[PASS] V10  V10_decision_table_relaxed_B2_acquisition_LogisticRegression_delta_vs_B1_physio - decision table vs v0.2.1_decision_table.csv (12 rows x 5 columns): {'block': 'B2_acquisition', 'learner': 'LogisticRegression'} delta_vs_B1_physio (relaxed cell) | max |diff| 6.972562557328033e-07
+[PASS] V10  V10_metric_rows_strict - metric rows vs v0.2.1_metrics_full.csv (216 rows): identifiers exact; every cell outside the ph1 r2 relaxed cells within 1e-12 | max |diff| 0.0
+[PASS] V10  V10_metric_rows_relaxed_B2_acquisition_LogisticRegression_42_NORM_auroc - metric rows vs v0.2.1_metrics_full.csv (216 rows): {'block': 'B2_acquisition', 'learner': 'LogisticRegression', 'seed': 42, 'class': 'NORM'} auroc (relaxed cell) | max |diff| 0.0
+[PASS] V10  V10_metric_rows_relaxed_B2_acquisition_LogisticRegression_42_NORM_auprc - metric rows vs v0.2.1_metrics_full.csv (216 rows): {'block': 'B2_acquisition', 'learner': 'LogisticRegression', 'seed': 42, 'class': 'NORM'} auprc (relaxed cell) | max |diff| 0.0
+[PASS] V10  V10_metric_rows_relaxed_B2_acquisition_LogisticRegression_42_NORM_ci_low - metric rows vs v0.2.1_metrics_full.csv (216 rows): {'block': 'B2_acquisition', 'learner': 'LogisticRegression', 'seed': 42, 'class': 'NORM'} ci_low (relaxed cell) | max |diff| 0.0
+[PASS] V10  V10_metric_rows_relaxed_B2_acquisition_LogisticRegression_42_NORM_ci_high - metric rows vs v0.2.1_metrics_full.csv (216 rows): {'block': 'B2_acquisition', 'learner': 'LogisticRegression', 'seed': 42, 'class': 'NORM'} ci_high (relaxed cell) | max |diff| 0.0
+[PASS] V10  V10_metric_rows_relaxed_B2_acquisition_LogisticRegression_42_MI_auroc - metric rows vs v0.2.1_metrics_full.csv (216 rows): {'block': 'B2_acquisition', 'learner': 'LogisticRegression', 'seed': 42, 'class': 'MI'} auroc (relaxed cell) | max |diff| 5.635580803131646e-07
+[PASS] V10  V10_metric_rows_relaxed_B2_acquisition_LogisticRegression_42_MI_auprc - metric rows vs v0.2.1_metrics_full.csv (216 rows): {'block': 'B2_acquisition', 'learner': 'LogisticRegression', 'seed': 42, 'class': 'MI'} auprc (relaxed cell) | max |diff| 0.0
+[PASS] V10  V10_metric_rows_relaxed_B2_acquisition_LogisticRegression_42_MI_ci_low - metric rows vs v0.2.1_metrics_full.csv (216 rows): {'block': 'B2_acquisition', 'learner': 'LogisticRegression', 'seed': 42, 'class': 'MI'} ci_low (relaxed cell) | max |diff| 0.0
+[PASS] V10  V10_metric_rows_relaxed_B2_acquisition_LogisticRegression_42_MI_ci_high - metric rows vs v0.2.1_metrics_full.csv (216 rows): {'block': 'B2_acquisition', 'learner': 'LogisticRegression', 'seed': 42, 'class': 'MI'} ci_high (relaxed cell) | max |diff| 0.0
+[PASS] V10  V10_metric_rows_relaxed_B2_acquisition_LogisticRegression_42_STTC_auroc - metric rows vs v0.2.1_metrics_full.csv (216 rows): {'block': 'B2_acquisition', 'learner': 'LogisticRegression', 'seed': 42, 'class': 'STTC'} auroc (relaxed cell) | max |diff| 0.0
+[PASS] V10  V10_metric_rows_relaxed_B2_acquisition_LogisticRegression_42_STTC_auprc - metric rows vs v0.2.1_metrics_full.csv (216 rows): {'block': 'B2_acquisition', 'learner': 'LogisticRegression', 'seed': 42, 'class': 'STTC'} auprc (relaxed cell) | max |diff| 0.0
+[PASS] V10  V10_metric_rows_relaxed_B2_acquisition_LogisticRegression_42_STTC_ci_low - metric rows vs v0.2.1_metrics_full.csv (216 rows): {'block': 'B2_acquisition', 'learner': 'LogisticRegression', 'seed': 42, 'class': 'STTC'} ci_low (relaxed cell) | max |diff| 0.0
+[PASS] V10  V10_metric_rows_relaxed_B2_acquisition_LogisticRegression_42_STTC_ci_high - metric rows vs v0.2.1_metrics_full.csv (216 rows): {'block': 'B2_acquisition', 'learner': 'LogisticRegression', 'seed': 42, 'class': 'STTC'} ci_high (relaxed cell) | max |diff| 0.0
+[PASS] V10  V10_metric_rows_relaxed_B2_acquisition_LogisticRegression_42_CD_auroc - metric rows vs v0.2.1_metrics_full.csv (216 rows): {'block': 'B2_acquisition', 'learner': 'LogisticRegression', 'seed': 42, 'class': 'CD'} auroc (relaxed cell) | max |diff| 0.0
+[PASS] V10  V10_metric_rows_relaxed_B2_acquisition_LogisticRegression_42_CD_auprc - metric rows vs v0.2.1_metrics_full.csv (216 rows): {'block': 'B2_acquisition', 'learner': 'LogisticRegression', 'seed': 42, 'class': 'CD'} auprc (relaxed cell) | max |diff| 3.2002956579235686e-07
+[PASS] V10  V10_metric_rows_relaxed_B2_acquisition_LogisticRegression_42_CD_ci_low - metric rows vs v0.2.1_metrics_full.csv (216 rows): {'block': 'B2_acquisition', 'learner': 'LogisticRegression', 'seed': 42, 'class': 'CD'} ci_low (relaxed cell) | max |diff| 0.0
+[PASS] V10  V10_metric_rows_relaxed_B2_acquisition_LogisticRegression_42_CD_ci_high - metric rows vs v0.2.1_metrics_full.csv (216 rows): {'block': 'B2_acquisition', 'learner': 'LogisticRegression', 'seed': 42, 'class': 'CD'} ci_high (relaxed cell) | max |diff| 0.0
+[PASS] V10  V10_metric_rows_relaxed_B2_acquisition_LogisticRegression_42_HYP_auroc - metric rows vs v0.2.1_metrics_full.csv (216 rows): {'block': 'B2_acquisition', 'learner': 'LogisticRegression', 'seed': 42, 'class': 'HYP'} auroc (relaxed cell) | max |diff| 2.9227231985728963e-06
+[PASS] V10  V10_metric_rows_relaxed_B2_acquisition_LogisticRegression_42_HYP_auprc - metric rows vs v0.2.1_metrics_full.csv (216 rows): {'block': 'B2_acquisition', 'learner': 'LogisticRegression', 'seed': 42, 'class': 'HYP'} auprc (relaxed cell) | max |diff| 5.653550429668419e-05
+[PASS] V10  V10_metric_rows_relaxed_B2_acquisition_LogisticRegression_42_HYP_ci_low - metric rows vs v0.2.1_metrics_full.csv (216 rows): {'block': 'B2_acquisition', 'learner': 'LogisticRegression', 'seed': 42, 'class': 'HYP'} ci_low (relaxed cell) | max |diff| 0.0
+[PASS] V10  V10_metric_rows_relaxed_B2_acquisition_LogisticRegression_42_HYP_ci_high - metric rows vs v0.2.1_metrics_full.csv (216 rows): {'block': 'B2_acquisition', 'learner': 'LogisticRegression', 'seed': 42, 'class': 'HYP'} ci_high (relaxed cell) | max |diff| 0.0
+[PASS] V10  V10_metric_rows_relaxed_B2_acquisition_LogisticRegression_42_MACRO_auroc - metric rows vs v0.2.1_metrics_full.csv (216 rows): {'block': 'B2_acquisition', 'learner': 'LogisticRegression', 'seed': 42, 'class': 'MACRO'} auroc (relaxed cell) | max |diff| 6.972562557328033e-07
+[PASS] V10  V10_metric_rows_relaxed_B2_acquisition_LogisticRegression_42_MACRO_auprc - metric rows vs v0.2.1_metrics_full.csv (216 rows): {'block': 'B2_acquisition', 'learner': 'LogisticRegression', 'seed': 42, 'class': 'MACRO'} auprc (relaxed cell) | max |diff| 1.1243094946156162e-05
+[PASS] V10  V10_metric_rows_relaxed_B2_acquisition_LogisticRegression_42_MACRO_ci_low - metric rows vs v0.2.1_metrics_full.csv (216 rows): {'block': 'B2_acquisition', 'learner': 'LogisticRegression', 'seed': 42, 'class': 'MACRO'} ci_low (relaxed cell) | max |diff| 1.242272428259028e-07
+[PASS] V10  V10_metric_rows_relaxed_B2_acquisition_LogisticRegression_42_MACRO_ci_high - metric rows vs v0.2.1_metrics_full.csv (216 rows): {'block': 'B2_acquisition', 'learner': 'LogisticRegression', 'seed': 42, 'class': 'MACRO'} ci_high (relaxed cell) | max |diff| 1.5784986938660595e-06
+[PASS] V10  V10_metric_rows_relaxed_B2_acquisition_LogisticRegression_123_NORM_auroc - metric rows vs v0.2.1_metrics_full.csv (216 rows): {'block': 'B2_acquisition', 'learner': 'LogisticRegression', 'seed': 123, 'class': 'NORM'} auroc (relaxed cell) | max |diff| 0.0
+[PASS] V10  V10_metric_rows_relaxed_B2_acquisition_LogisticRegression_123_NORM_auprc - metric rows vs v0.2.1_metrics_full.csv (216 rows): {'block': 'B2_acquisition', 'learner': 'LogisticRegression', 'seed': 123, 'class': 'NORM'} auprc (relaxed cell) | max |diff| 0.0
+[PASS] V10  V10_metric_rows_relaxed_B2_acquisition_LogisticRegression_123_NORM_ci_low - metric rows vs v0.2.1_metrics_full.csv (216 rows): {'block': 'B2_acquisition', 'learner': 'LogisticRegression', 'seed': 123, 'class': 'NORM'} ci_low (relaxed cell) | max |diff| 0.0
+[PASS] V10  V10_metric_rows_relaxed_B2_acquisition_LogisticRegression_123_NORM_ci_high - metric rows vs v0.2.1_metrics_full.csv (216 rows): {'block': 'B2_acquisition', 'learner': 'LogisticRegression', 'seed': 123, 'class': 'NORM'} ci_high (relaxed cell) | max |diff| 0.0
+[PASS] V10  V10_metric_rows_relaxed_B2_acquisition_LogisticRegression_123_MI_auroc - metric rows vs v0.2.1_metrics_full.csv (216 rows): {'block': 'B2_acquisition', 'learner': 'LogisticRegression', 'seed': 123, 'class': 'MI'} auroc (relaxed cell) | max |diff| 5.635580803131646e-07
+[PASS] V10  V10_metric_rows_relaxed_B2_acquisition_LogisticRegression_123_MI_auprc - metric rows vs v0.2.1_metrics_full.csv (216 rows): {'block': 'B2_acquisition', 'learner': 'LogisticRegression', 'seed': 123, 'class': 'MI'} auprc (relaxed cell) | max |diff| 0.0
+[PASS] V10  V10_metric_rows_relaxed_B2_acquisition_LogisticRegression_123_MI_ci_low - metric rows vs v0.2.1_metrics_full.csv (216 rows): {'block': 'B2_acquisition', 'learner': 'LogisticRegression', 'seed': 123, 'class': 'MI'} ci_low (relaxed cell) | max |diff| 0.0
+[PASS] V10  V10_metric_rows_relaxed_B2_acquisition_LogisticRegression_123_MI_ci_high - metric rows vs v0.2.1_metrics_full.csv (216 rows): {'block': 'B2_acquisition', 'learner': 'LogisticRegression', 'seed': 123, 'class': 'MI'} ci_high (relaxed cell) | max |diff| 0.0
+[PASS] V10  V10_metric_rows_relaxed_B2_acquisition_LogisticRegression_123_STTC_auroc - metric rows vs v0.2.1_metrics_full.csv (216 rows): {'block': 'B2_acquisition', 'learner': 'LogisticRegression', 'seed': 123, 'class': 'STTC'} auroc (relaxed cell) | max |diff| 0.0
+[PASS] V10  V10_metric_rows_relaxed_B2_acquisition_LogisticRegression_123_STTC_auprc - metric rows vs v0.2.1_metrics_full.csv (216 rows): {'block': 'B2_acquisition', 'learner': 'LogisticRegression', 'seed': 123, 'class': 'STTC'} auprc (relaxed cell) | max |diff| 0.0
+[PASS] V10  V10_metric_rows_relaxed_B2_acquisition_LogisticRegression_123_STTC_ci_low - metric rows vs v0.2.1_metrics_full.csv (216 rows): {'block': 'B2_acquisition', 'learner': 'LogisticRegression', 'seed': 123, 'class': 'STTC'} ci_low (relaxed cell) | max |diff| 0.0
+[PASS] V10  V10_metric_rows_relaxed_B2_acquisition_LogisticRegression_123_STTC_ci_high - metric rows vs v0.2.1_metrics_full.csv (216 rows): {'block': 'B2_acquisition', 'learner': 'LogisticRegression', 'seed': 123, 'class': 'STTC'} ci_high (relaxed cell) | max |diff| 0.0
+[PASS] V10  V10_metric_rows_relaxed_B2_acquisition_LogisticRegression_123_CD_auroc - metric rows vs v0.2.1_metrics_full.csv (216 rows): {'block': 'B2_acquisition', 'learner': 'LogisticRegression', 'seed': 123, 'class': 'CD'} auroc (relaxed cell) | max |diff| 0.0
+[PASS] V10  V10_metric_rows_relaxed_B2_acquisition_LogisticRegression_123_CD_auprc - metric rows vs v0.2.1_metrics_full.csv (216 rows): {'block': 'B2_acquisition', 'learner': 'LogisticRegression', 'seed': 123, 'class': 'CD'} auprc (relaxed cell) | max |diff| 3.2002956579235686e-07
+[PASS] V10  V10_metric_rows_relaxed_B2_acquisition_LogisticRegression_123_CD_ci_low - metric rows vs v0.2.1_metrics_full.csv (216 rows): {'block': 'B2_acquisition', 'learner': 'LogisticRegression', 'seed': 123, 'class': 'CD'} ci_low (relaxed cell) | max |diff| 0.0
+[PASS] V10  V10_metric_rows_relaxed_B2_acquisition_LogisticRegression_123_CD_ci_high - metric rows vs v0.2.1_metrics_full.csv (216 rows): {'block': 'B2_acquisition', 'learner': 'LogisticRegression', 'seed': 123, 'class': 'CD'} ci_high (relaxed cell) | max |diff| 0.0
+[PASS] V10  V10_metric_rows_relaxed_B2_acquisition_LogisticRegression_123_HYP_auroc - metric rows vs v0.2.1_metrics_full.csv (216 rows): {'block': 'B2_acquisition', 'learner': 'LogisticRegression', 'seed': 123, 'class': 'HYP'} auroc (relaxed cell) | max |diff| 2.9227231985728963e-06
+[PASS] V10  V10_metric_rows_relaxed_B2_acquisition_LogisticRegression_123_HYP_auprc - metric rows vs v0.2.1_metrics_full.csv (216 rows): {'block': 'B2_acquisition', 'learner': 'LogisticRegression', 'seed': 123, 'class': 'HYP'} auprc (relaxed cell) | max |diff| 5.653550429668419e-05
+[PASS] V10  V10_metric_rows_relaxed_B2_acquisition_LogisticRegression_123_HYP_ci_low - metric rows vs v0.2.1_metrics_full.csv (216 rows): {'block': 'B2_acquisition', 'learner': 'LogisticRegression', 'seed': 123, 'class': 'HYP'} ci_low (relaxed cell) | max |diff| 0.0
+[PASS] V10  V10_metric_rows_relaxed_B2_acquisition_LogisticRegression_123_HYP_ci_high - metric rows vs v0.2.1_metrics_full.csv (216 rows): {'block': 'B2_acquisition', 'learner': 'LogisticRegression', 'seed': 123, 'class': 'HYP'} ci_high (relaxed cell) | max |diff| 0.0
+[PASS] V10  V10_metric_rows_relaxed_B2_acquisition_LogisticRegression_123_MACRO_auroc - metric rows vs v0.2.1_metrics_full.csv (216 rows): {'block': 'B2_acquisition', 'learner': 'LogisticRegression', 'seed': 123, 'class': 'MACRO'} auroc (relaxed cell) | max |diff| 6.972562557328033e-07
+[PASS] V10  V10_metric_rows_relaxed_B2_acquisition_LogisticRegression_123_MACRO_auprc - metric rows vs v0.2.1_metrics_full.csv (216 rows): {'block': 'B2_acquisition', 'learner': 'LogisticRegression', 'seed': 123, 'class': 'MACRO'} auprc (relaxed cell) | max |diff| 1.1243094946156162e-05
+[PASS] V10  V10_metric_rows_relaxed_B2_acquisition_LogisticRegression_123_MACRO_ci_low - metric rows vs v0.2.1_metrics_full.csv (216 rows): {'block': 'B2_acquisition', 'learner': 'LogisticRegression', 'seed': 123, 'class': 'MACRO'} ci_low (relaxed cell) | max |diff| 1.242272428259028e-07
+[PASS] V10  V10_metric_rows_relaxed_B2_acquisition_LogisticRegression_123_MACRO_ci_high - metric rows vs v0.2.1_metrics_full.csv (216 rows): {'block': 'B2_acquisition', 'learner': 'LogisticRegression', 'seed': 123, 'class': 'MACRO'} ci_high (relaxed cell) | max |diff| 1.5784986938660595e-06
+[PASS] V10  V10_metric_rows_relaxed_B2_acquisition_LogisticRegression_2024_NORM_auroc - metric rows vs v0.2.1_metrics_full.csv (216 rows): {'block': 'B2_acquisition', 'learner': 'LogisticRegression', 'seed': 2024, 'class': 'NORM'} auroc (relaxed cell) | max |diff| 0.0
+[PASS] V10  V10_metric_rows_relaxed_B2_acquisition_LogisticRegression_2024_NORM_auprc - metric rows vs v0.2.1_metrics_full.csv (216 rows): {'block': 'B2_acquisition', 'learner': 'LogisticRegression', 'seed': 2024, 'class': 'NORM'} auprc (relaxed cell) | max |diff| 0.0
+[PASS] V10  V10_metric_rows_relaxed_B2_acquisition_LogisticRegression_2024_NORM_ci_low - metric rows vs v0.2.1_metrics_full.csv (216 rows): {'block': 'B2_acquisition', 'learner': 'LogisticRegression', 'seed': 2024, 'class': 'NORM'} ci_low (relaxed cell) | max |diff| 0.0
+[PASS] V10  V10_metric_rows_relaxed_B2_acquisition_LogisticRegression_2024_NORM_ci_high - metric rows vs v0.2.1_metrics_full.csv (216 rows): {'block': 'B2_acquisition', 'learner': 'LogisticRegression', 'seed': 2024, 'class': 'NORM'} ci_high (relaxed cell) | max |diff| 0.0
+[PASS] V10  V10_metric_rows_relaxed_B2_acquisition_LogisticRegression_2024_MI_auroc - metric rows vs v0.2.1_metrics_full.csv (216 rows): {'block': 'B2_acquisition', 'learner': 'LogisticRegression', 'seed': 2024, 'class': 'MI'} auroc (relaxed cell) | max |diff| 5.635580803131646e-07
+[PASS] V10  V10_metric_rows_relaxed_B2_acquisition_LogisticRegression_2024_MI_auprc - metric rows vs v0.2.1_metrics_full.csv (216 rows): {'block': 'B2_acquisition', 'learner': 'LogisticRegression', 'seed': 2024, 'class': 'MI'} auprc (relaxed cell) | max |diff| 0.0
+[PASS] V10  V10_metric_rows_relaxed_B2_acquisition_LogisticRegression_2024_MI_ci_low - metric rows vs v0.2.1_metrics_full.csv (216 rows): {'block': 'B2_acquisition', 'learner': 'LogisticRegression', 'seed': 2024, 'class': 'MI'} ci_low (relaxed cell) | max |diff| 0.0
+[PASS] V10  V10_metric_rows_relaxed_B2_acquisition_LogisticRegression_2024_MI_ci_high - metric rows vs v0.2.1_metrics_full.csv (216 rows): {'block': 'B2_acquisition', 'learner': 'LogisticRegression', 'seed': 2024, 'class': 'MI'} ci_high (relaxed cell) | max |diff| 0.0
+[PASS] V10  V10_metric_rows_relaxed_B2_acquisition_LogisticRegression_2024_STTC_auroc - metric rows vs v0.2.1_metrics_full.csv (216 rows): {'block': 'B2_acquisition', 'learner': 'LogisticRegression', 'seed': 2024, 'class': 'STTC'} auroc (relaxed cell) | max |diff| 0.0
+[PASS] V10  V10_metric_rows_relaxed_B2_acquisition_LogisticRegression_2024_STTC_auprc - metric rows vs v0.2.1_metrics_full.csv (216 rows): {'block': 'B2_acquisition', 'learner': 'LogisticRegression', 'seed': 2024, 'class': 'STTC'} auprc (relaxed cell) | max |diff| 0.0
+[PASS] V10  V10_metric_rows_relaxed_B2_acquisition_LogisticRegression_2024_STTC_ci_low - metric rows vs v0.2.1_metrics_full.csv (216 rows): {'block': 'B2_acquisition', 'learner': 'LogisticRegression', 'seed': 2024, 'class': 'STTC'} ci_low (relaxed cell) | max |diff| 0.0
+[PASS] V10  V10_metric_rows_relaxed_B2_acquisition_LogisticRegression_2024_STTC_ci_high - metric rows vs v0.2.1_metrics_full.csv (216 rows): {'block': 'B2_acquisition', 'learner': 'LogisticRegression', 'seed': 2024, 'class': 'STTC'} ci_high (relaxed cell) | max |diff| 0.0
+[PASS] V10  V10_metric_rows_relaxed_B2_acquisition_LogisticRegression_2024_CD_auroc - metric rows vs v0.2.1_metrics_full.csv (216 rows): {'block': 'B2_acquisition', 'learner': 'LogisticRegression', 'seed': 2024, 'class': 'CD'} auroc (relaxed cell) | max |diff| 0.0
+[PASS] V10  V10_metric_rows_relaxed_B2_acquisition_LogisticRegression_2024_CD_auprc - metric rows vs v0.2.1_metrics_full.csv (216 rows): {'block': 'B2_acquisition', 'learner': 'LogisticRegression', 'seed': 2024, 'class': 'CD'} auprc (relaxed cell) | max |diff| 3.2002956579235686e-07
+[PASS] V10  V10_metric_rows_relaxed_B2_acquisition_LogisticRegression_2024_CD_ci_low - metric rows vs v0.2.1_metrics_full.csv (216 rows): {'block': 'B2_acquisition', 'learner': 'LogisticRegression', 'seed': 2024, 'class': 'CD'} ci_low (relaxed cell) | max |diff| 0.0
+[PASS] V10  V10_metric_rows_relaxed_B2_acquisition_LogisticRegression_2024_CD_ci_high - metric rows vs v0.2.1_metrics_full.csv (216 rows): {'block': 'B2_acquisition', 'learner': 'LogisticRegression', 'seed': 2024, 'class': 'CD'} ci_high (relaxed cell) | max |diff| 0.0
+[PASS] V10  V10_metric_rows_relaxed_B2_acquisition_LogisticRegression_2024_HYP_auroc - metric rows vs v0.2.1_metrics_full.csv (216 rows): {'block': 'B2_acquisition', 'learner': 'LogisticRegression', 'seed': 2024, 'class': 'HYP'} auroc (relaxed cell) | max |diff| 2.9227231985728963e-06
+[PASS] V10  V10_metric_rows_relaxed_B2_acquisition_LogisticRegression_2024_HYP_auprc - metric rows vs v0.2.1_metrics_full.csv (216 rows): {'block': 'B2_acquisition', 'learner': 'LogisticRegression', 'seed': 2024, 'class': 'HYP'} auprc (relaxed cell) | max |diff| 5.653550429668419e-05
+[PASS] V10  V10_metric_rows_relaxed_B2_acquisition_LogisticRegression_2024_HYP_ci_low - metric rows vs v0.2.1_metrics_full.csv (216 rows): {'block': 'B2_acquisition', 'learner': 'LogisticRegression', 'seed': 2024, 'class': 'HYP'} ci_low (relaxed cell) | max |diff| 0.0
+[PASS] V10  V10_metric_rows_relaxed_B2_acquisition_LogisticRegression_2024_HYP_ci_high - metric rows vs v0.2.1_metrics_full.csv (216 rows): {'block': 'B2_acquisition', 'learner': 'LogisticRegression', 'seed': 2024, 'class': 'HYP'} ci_high (relaxed cell) | max |diff| 0.0
+[PASS] V10  V10_metric_rows_relaxed_B2_acquisition_LogisticRegression_2024_MACRO_auroc - metric rows vs v0.2.1_metrics_full.csv (216 rows): {'block': 'B2_acquisition', 'learner': 'LogisticRegression', 'seed': 2024, 'class': 'MACRO'} auroc (relaxed cell) | max |diff| 6.972562557328033e-07
+[PASS] V10  V10_metric_rows_relaxed_B2_acquisition_LogisticRegression_2024_MACRO_auprc - metric rows vs v0.2.1_metrics_full.csv (216 rows): {'block': 'B2_acquisition', 'learner': 'LogisticRegression', 'seed': 2024, 'class': 'MACRO'} auprc (relaxed cell) | max |diff| 1.1243094946156162e-05
+[PASS] V10  V10_metric_rows_relaxed_B2_acquisition_LogisticRegression_2024_MACRO_ci_low - metric rows vs v0.2.1_metrics_full.csv (216 rows): {'block': 'B2_acquisition', 'learner': 'LogisticRegression', 'seed': 2024, 'class': 'MACRO'} ci_low (relaxed cell) | max |diff| 1.242272428259028e-07
+[PASS] V10  V10_metric_rows_relaxed_B2_acquisition_LogisticRegression_2024_MACRO_ci_high - metric rows vs v0.2.1_metrics_full.csv (216 rows): {'block': 'B2_acquisition', 'learner': 'LogisticRegression', 'seed': 2024, 'class': 'MACRO'} ci_high (relaxed cell) | max |diff| 1.5784986938660595e-06
+[INFO] V10  V10_A2b_LR_4dp - LogisticRegression rows that are not exact keep their 4-decimal AUROC (ph1 A2b; reported, not gating)
+[PASS] V10  V10_h1_verdict_vs_v021 - H1 verdict (B3 >= 0.60 per learner, values) == v0.2.1 manifest verdict | max |diff| 0.0
+[PASS] V10  V10_h1_vs_prereg - H1 B3 macro-AUROC, 4 decimals == pre_registration.json H1.values (stored rounded to 4 decimals)
+[PASS] V10  V10_h1_pass_vs_prereg - H1 passes for both learners; pre_registration H1.status 'already PASSED'
+[PASS] V10  V10_h2_results_per_learner - H2 results_per_learner == pre_registration.json H2 (every field) | max |diff| 0.0
+[PASS] V10  V10_h2_n_patients - H2 on 1942 fold-9 patients
+[PASS] V10  V10_h2_learner_disagreement - learner disagreement list == pre_registration.json (exact strings)
+[PASS] V10  V10_h2_per_draw_deltas - 2000 per-draw deltas (LR, HGB) == v0.3_bootstrap_deltas.csv (byte comparison not applicable: v0.3 wrote it with its own save_csv) | max |diff| 0.0
+[PASS] V10  V10_boot_index_matrix - v0.2.1 marginal-bootstrap index matrix on fold 9 == REF.build_boot_idx(1942, 2000, 7)
+[PASS] V11  V11_ph1_analysis_plan_file_sha256 - ph1 ph1_analysis_plan.json file sha256
+[PASS] V11  V11_ph1_analysis_plan_self_sha256 - ph1 ph1_analysis_plan.json self_sha256 (stored == recomputed == expected)
+[PASS] V11  V11_ph1_frozen_outputs_file_sha256 - ph1 ph1_frozen_outputs.json file sha256
+[PASS] V11  V11_ph1_frozen_outputs_self_sha256 - ph1 ph1_frozen_outputs.json self_sha256 (stored == recomputed == expected)
+[PASS] V11  V11_ph1_results_file_sha256 - ph1 ph1_results.json file sha256
+[PASS] V11  V11_ph1_results_self_sha256 - ph1 ph1_results.json self_sha256 (stored == recomputed == expected)
+[PASS] V11  V11_ph1_manifest_file_sha256 - ph1 ph1_manifest.json file sha256
+[PASS] V11  V11_ph1_manifest_self_sha256 - ph1 ph1_manifest.json self_sha256 (stored == recomputed == expected)
+[PASS] V11  V11_ph1_fold10_probs.csv - ph1 ph1_fold10_probs.csv sha256 == constant
+[PASS] V11  V11_ph1_decision_table.csv - ph1 ph1_decision_table.csv sha256 == constant
+[PASS] V11  V11_ph1_bootstrap_deltas.csv - ph1 ph1_bootstrap_deltas.csv sha256 == constant
+[PASS] V11  V11_ph1_metric_rows.csv - ph1 ph1_metric_rows.csv sha256 == constant
+[INFO] V11  V11_ph1_manifest_file_sha256_listed - ph1_manifest.json file sha256 (recorded and listed)
+[PASS] V11  V11_manifest_list - ph1 manifest lists the 7 output files
+[PASS] V11  V11_manifest_output_ph1_analysis_plan.json - ph1 manifest entry ph1_analysis_plan.json == file on disk
+[PASS] V11  V11_manifest_output_ph1_fold10_probs.csv - ph1 manifest entry ph1_fold10_probs.csv == file on disk
+[PASS] V11  V11_manifest_output_ph1_frozen_outputs.json - ph1 manifest entry ph1_frozen_outputs.json == file on disk
+[PASS] V11  V11_manifest_output_ph1_decision_table.csv - ph1 manifest entry ph1_decision_table.csv == file on disk
+[PASS] V11  V11_manifest_output_ph1_bootstrap_deltas.csv - ph1 manifest entry ph1_bootstrap_deltas.csv == file on disk
+[PASS] V11  V11_manifest_output_ph1_metric_rows.csv - ph1 manifest entry ph1_metric_rows.csv == file on disk
+[PASS] V11  V11_manifest_output_ph1_results.json - ph1 manifest entry ph1_results.json == file on disk
+[PASS] V11  V11_manifest_self_links - ph1 manifest plan / frozen / results self_sha256 == constants
+[PASS] V11  V11_folder_contents - outputs\ph1 holds exactly the 8 write-once files
+[PASS] V11  V11_plan_text_sha256 - ph1 plan text (UTF-8) sha256 == locked plan hash
+[PASS] V11  V11_amendment_r2_sha256 - plan amendment_r2 (UTF-8) sha256 == constant; results amendment_r2 == plan amendment_r2
+[PASS] V11  V11_revision_labels - plan / frozen / results / manifest: code_version ph1, code_revision r2
+[PASS] V11  V11_frozen_links - frozen: probability-file hash == constant, plan_self_sha256 == plan, lock hashes == FRP
+[PASS] V11  V11_results_links - results.plan / frozen_outputs / outputs_before_results == the file hashes
+[PASS] V11  V11_input_hashes - ph1 results.input_files_sha256 == the current input files / constants
+[PASS] V11  V11_ph1_checks_pass - every check recorded in ph1_results.json is PASS
+[INFO] V11  V11_ph1_warnings - warnings recorded by ph1
+[PASS] V11  V11_r1_folder_contents - outputs\ph1_failed_1 holds exactly the r1 plan and the Part A failure file (no probability file)
+[PASS] V11  V11_r1_ph1_analysis_plan_file_sha256 - r1 ph1_analysis_plan.json file sha256
+[PASS] V11  V11_r1_ph1_analysis_plan_self_sha256 - r1 ph1_analysis_plan.json self_sha256 (stored == recomputed == expected)
+[PASS] V11  V11_r1_ph1_partA_failure_file_sha256 - r1 ph1_partA_failure.json file sha256
+[PASS] V11  V11_r1_ph1_partA_failure_self_sha256 - r1 ph1_partA_failure.json self_sha256 (stored == recomputed == expected)
+[PASS] V11  V11_r1_files_eq_record - ph1_results.r1_attempt.files == the files of outputs\ph1_failed_1 (name, sha256)
+[PASS] V11  V11_r1_fields - r1_attempt fields == the failure file (code_revision, timestamp, exception, failed_checks, plan_self_sha256)
+[PASS] V11  V11_r1_hashes - r1_attempt failure-file hashes == constants
+[PASS] V11  V11_r1_plan_link - r1 plan self_sha256 == r1_attempt.plan_self_sha256 == failure-file plan_self_sha256
+[PASS] V11  V11_r1_plan_text - r1 plan text == r2 plan text; the r1 plan has no amendment_r2; r1 revision 'r1'
+[PASS] V11  V11_r1_previous_attempts - ph1_results.previous_attempts == [ph1_failed_1 with these files]
+[PASS] V11  V11_probs_columns_rows - ph1_fold10_probs.csv columns and 79,128 rows
+[PASS] V11  V11_ph1_decision_table - ph1_decision_table.csv == recomputation from ph1_fold10_probs.csv (function b) | max |diff| 0.0
+[PASS] V11  V11_ph1_decision_table_bytes - ph1_decision_table.csv == csv_bytes(recomputed frame), byte for byte (ph1 writer, verbatim)
+[PASS] V11  V11_ph1_metric_rows - ph1_metric_rows.csv == recomputation from ph1_fold10_probs.csv (function b) | max |diff| 0.0
+[PASS] V11  V11_ph1_metric_rows_bytes - ph1_metric_rows.csv == csv_bytes(recomputed frame), byte for byte (ph1 writer, verbatim)
+[PASS] V11  V11_ph1_bootstrap_deltas - ph1_bootstrap_deltas.csv == recomputation from ph1_fold10_probs.csv (function b) | max |diff| 0.0
+[PASS] V11  V11_ph1_bootstrap_deltas_bytes - ph1_bootstrap_deltas.csv == csv_bytes(recomputed frame), byte for byte (ph1 writer, verbatim)
+[PASS] V11  V11_results_decision_table - ph1_results.decision_table == recomputation | max |diff| 0.0
+[PASS] V11  V11_results_H1_posthoc - ph1_results.H1_posthoc.verdict == recomputation | max |diff| 0.0
+[PASS] V11  V11_results_H2_posthoc - ph1_results.H2_posthoc (results_per_learner, learner_disagreement, ref_summaries) == recomputation | max |diff| 0.0
+[PASS] V11  V11_B2_index_matrix - v0.2.1 marginal-bootstrap index matrix on fold 10 == BOOT_IDX; patient grouping == REF
+[PASS] V11  V11_partA_vs_V10 - ph1_results.part_A max |diff| per column == the V10 recomputation (within 1e-15) | max |diff| 0.0
+[PASS] V11  V11_B0_eval_rows_file_order - evaluation rows == fold-10 (ecg_id, patient_id) in file order
+[PASS] V11  V11_B0_labels_eq_v09 - fold-10 labels (v0.2.1 code) == v0.9_fold10_labels.csv
+[PASS] V11  V11_B0_fold10_positives - fold-10 positives == FRP disclosure
+[PASS] V11  V11_B0_encoder_eq_FRP - device / site / nurse categories fit on folds 1-9 == FRP locked categories
+[PASS] V11  V11_B0_fold10_unknown_zero - fold-10 records mapped to __UNKNOWN__
+[PASS] V11  V11_B0_untrained_columns - all-zero training columns == FRP list, 0 fold-10 records on them
+[PASS] V11  V11_B0_level_strings_unchanged - folds 1-9 level strings unchanged by the fold-10 values
+[PASS] V11  V11_B0_split_sizes - train folds 1-9 / eval fold 10 records and patients
+[PASS] V11  V11_refit_probabilities - refit of all 36 configurations (folds 1-9 -> fold 10) == ph1_fold10_probs.csv | max |diff| 0.0
+[PASS] V11  V11_B1_scalers_rows - every LR scaler fit on the 19,601 training rows
+[PASS] V11  V11_B1_age_scaler_eq_FRP - B1 age_imputed scaler (folds 1-9) == FRP locked age_scaler | max |diff| 0.0
+[INFO] V12  V12_lr_grid - locked setting lr_grid (lr_selection.json : lr_grid)
+[INFO] V12  V12_lr_grid_dev_protocol - locked setting lr_grid_dev_protocol (dev_protocol.json : tuning_grid.learning_rate)
+[INFO] V12  V12_selected_lr - locked setting selected_lr (lr_selection.json : selected_lr)
+[INFO] V12  V12_epochs - locked setting epochs (dev_protocol.json : training_recipe.epochs)
+[INFO] V12  V12_SESOI_H2 - locked setting SESOI_H2 (pre_registration.json : SESOI_H2)
+[INFO] V12  V12_SESOI_H3 - locked setting SESOI_H3 (final_run_protocol.json : H3_decision.SESOI_H3)
+[INFO] V12  V12_N_BOOT - locked setting N_BOOT (final_run_protocol.json : bootstrap.N_BOOT)
+[INFO] V12  V12_BOOT_SEED - locked setting BOOT_SEED (final_run_protocol.json : bootstrap.BOOT_SEED)
+[INFO] V12  V12_seeds_signal_models - locked setting seeds_signal_models (final_run_protocol.json : sealed_H3_protocol_verbatim.seeds)
+[INFO] V12  V12_seeds_metadata_only - locked setting seeds_metadata_only (v0.2.1_manifest.json : seeds)
+[INFO] V12  V12_N_PERM - locked setting N_PERM (final_run_protocol.json : exploratory_fold10_comparisons.acquisition_permutation.repetitions (text))
+[INFO] V12  V12_PERM_SEED - locked setting PERM_SEED (final_run_protocol.json : exploratory_fold10_comparisons.acquisition_permutation.repetitions (text))
+[PASS] V12  V12_lr_grid_equal - lr grid: lr_selection.json lr_grid == dev_protocol.json tuning_grid
+[PASS] V12  V12_sesoi_h3_sealed - SESOI_H3: H3_decision == sealed H3 protocol == pre_registration H3_protocol
+[PASS] V12  V12_v09_settings - v0.9 results settings == the locked values
+[INFO] V13  V13_dataset - dataset descriptives (v0.2.1 label code)
+[PASS] V13  V13_n_records_patients - 21,799 records, 18,869 patients
+[PASS] V13  V13_patient_disjoint_folds - every patient is in exactly one fold
+[PASS] V13  V13_splits_vs_ph1_constants - split sizes == the v0.2.1 / v0.3 (A) and FRP (B) split sizes
+[PASS] V13  V13_splits_vs_v021_manifest - folds 1-8 / fold 9 / fold 10 sizes == v0.2.1 manifest split_protocol
+[PASS] V13  V13_fold9_positives_vs_v021 - fold-9 positives == v0.2.1 fold9_chance_baseline n_positive
+[PASS] V13  V13_fold10_vs_frp - fold-10 positives and size == FRP disclosure
+[PASS] V13  V13_whole_dataset_vs_frp - whole-dataset superclass counts and records without superclass == FRP disclosure (v0.1.x audit)
+[PASS] V13  V13_age_sentinel_vs_frp - age-300 sentinel counts (all, folds 1-9) == FRP disclosure
+[PASS] V13  V13_ph1_split_positives - ph1_results.split and fold10_positives == V13
+[INFO] V14  V14_anchor_969577 - Bitcoin anchor (verified manually on opentimestamps.org; not machine-checked)
+[INFO] V14  V14_anchor_969584 - Bitcoin anchor (verified manually on opentimestamps.org; not machine-checked)
+[INFO] V14  V14_anchor_969763 - Bitcoin anchor (verified manually on opentimestamps.org; not machine-checked)
+[INFO] V14  V14_anchor_969863 - Bitcoin anchor (verified manually on opentimestamps.org; not machine-checked)
+[PASS] V15  V15_snapshot_unchanged - every protected file is unchanged since the start of the run
+[PASS] V15  V15_unique_check_ids - every check id is unique

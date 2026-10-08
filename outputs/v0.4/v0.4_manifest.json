@@ -1,0 +1,326 @@
+{
+  "code_version": "v0.4",
+  "run_started": "2026-10-02T01:07:29.858831+03:30",
+  "run_finished": "2026-10-02T01:09:58.970654+03:30",
+  "dataset_root": "D:\\ptbxl-metadata-audit\\data\\ptb-xl-a-large-publicly-available-electrocardiography-dataset-1.0.3",
+  "output_dir": "D:\\ptbxl-metadata-audit\\outputs\\v0.4",
+  "input_files_sha256": {
+    "ptbxl_database.csv": "7600de9c1b27d181d850b3c6038a35d7c3ddb6bb33b702e3a20252a6859d216b",
+    "scp_statements.csv": "ad05b0b1fcae83bb1230755ad9cfc7c96f303feddc08a4a9ad5bdc9ca63bac8f"
+  },
+  "parent_seal_self_sha256": "5183f54569f3358a5339b16a2c3c3be49f5c7798eabe6b0bb25946119c2ba469",
+  "dev_protocol_self_sha256": "c967ac38c8cc9382bf41fdd3785c8bbd730db196e349846b8052d856bbac5fc6",
+  "dev_protocol_written_this_run": true,
+  "split_protocol": {
+    "folds_loaded": "1-9",
+    "fold10_opened": false,
+    "n_fold10_records_in_source_never_opened": 2198,
+    "n_train_records": 17418,
+    "n_eval_records": 2183,
+    "n_train_patients": 15023,
+    "n_eval_patients": 1942,
+    "n_record_files_opened_this_run": 19601,
+    "signal_cache_reused": false
+  },
+  "lead_order": [
+    "I",
+    "II",
+    "III",
+    "AVR",
+    "AVL",
+    "AVF",
+    "V1",
+    "V2",
+    "V3",
+    "V4",
+    "V5",
+    "V6"
+  ],
+  "environment": {
+    "python": "3.10.20 | packaged by Anaconda, Inc. | (main, Jun 11 2026, 15:13:20) [MSC v.1942 64 bit (AMD64)]",
+    "os": "Windows-10-10.0.19045-SP0",
+    "numpy": "1.26.4",
+    "pandas": "2.3.3",
+    "sklearn": "1.7.2",
+    "torch": "2.7.1+cu118",
+    "torch_cuda": "11.8",
+    "cudnn": 90100,
+    "gpu_name": "NVIDIA GeForce RTX 3050 6GB Laptop GPU",
+    "gpu_total_vram_gb": 6.0,
+    "wfdb": "4.3.1",
+    "determinism": {
+      "seed": 42,
+      "seeded": [
+        "python random",
+        "numpy",
+        "torch",
+        "torch.cuda (all devices)"
+      ],
+      "cudnn_deterministic": true,
+      "cudnn_benchmark": false,
+      "torch_use_deterministic_algorithms": false,
+      "note": "cudnn.deterministic=True and cudnn.benchmark=False; torch.use_deterministic_algorithms is NOT enabled, so a few CUDA kernels (e.g. some pooling backward passes) may remain non-bitwise-reproducible"
+    },
+    "dataloader_num_workers": 0
+  },
+  "metadata_arms": {
+    "signal_only": [],
+    "signal_plus_physio": [
+      "age_imputed",
+      "age_censored",
+      "sex"
+    ],
+    "signal_plus_all": [
+      "age_imputed",
+      "age_censored",
+      "sex",
+      "device=AT-6     6",
+      "device=AT-6 C",
+      "device=AT-6 C 5.0",
+      "device=AT-6 C 5.3",
+      "device=AT-6 C 5.5",
+      "device=AT-6 C 5.6",
+      "device=AT-6 C 5.8",
+      "device=AT-60    3",
+      "device=CS-12",
+      "device=CS-12   E",
+      "device=CS100    3",
+      "device=__MISSING__",
+      "device=__UNKNOWN__",
+      "site=000",
+      "site=001",
+      "site=002",
+      "site=003",
+      "site=004",
+      "site=005",
+      "site=006",
+      "site=007",
+      "site=008",
+      "site=009",
+      "site=010",
+      "site=011",
+      "site=012",
+      "site=013",
+      "site=014",
+      "site=015",
+      "site=016",
+      "site=017",
+      "site=018",
+      "site=019",
+      "site=020",
+      "site=021",
+      "site=022",
+      "site=023",
+      "site=024",
+      "site=025",
+      "site=026",
+      "site=027",
+      "site=028",
+      "site=029",
+      "site=030",
+      "site=031",
+      "site=032",
+      "site=033",
+      "site=034",
+      "site=035",
+      "site=036",
+      "site=037",
+      "site=038",
+      "site=039",
+      "site=040",
+      "site=041",
+      "site=042",
+      "site=043",
+      "site=044",
+      "site=045",
+      "site=046",
+      "site=047",
+      "site=048",
+      "site=050",
+      "site=__MISSING__",
+      "site=__UNKNOWN__",
+      "nurse=000",
+      "nurse=001",
+      "nurse=002",
+      "nurse=003",
+      "nurse=004",
+      "nurse=005",
+      "nurse=006",
+      "nurse=007",
+      "nurse=008",
+      "nurse=009",
+      "nurse=010",
+      "nurse=011",
+      "nurse=__MISSING__",
+      "nurse=__UNKNOWN__"
+    ]
+  },
+  "metadata_scaling": "StandardScaler on age_imputed only, fit on folds 1-8; all other columns raw 0/1",
+  "final_run_refit_note": "For the final run (week 8) the categorical encoder, the age_imputed scaler and the per-lead signal normalization are refit on folds 1-9, as the sealed protocol states (encoder fit on training folds only). v0.4 fits them on folds 1-8.",
+  "metadata_fusion_implementation": "location: the metadata vector is concatenated to the network's global-pooled embedding (the 2*nf = 256-dim AdaptiveConcatPool1d [max, avg] output, after that embedding's BatchNorm1d + Dropout(0.25)) and the concatenation is the input of the head's first Linear (256 + meta_dim -> 128), followed by ReLU, BatchNorm1d(128), Dropout(0.5), Linear(128 -> 5); metadata enters RAW (age_imputed standardized with training-fold statistics, all other columns 0/1): no BatchNorm and no dropout is applied to the metadata; identical across arms: backbone, global pooling and the embedding's BatchNorm + Dropout (same seed -> identical initial weights, asserted in v0.4); differs across arms by design: only the input width of the head's first Linear (256 / 259 / 338 for signal_only / signal_plus_physio / signal_plus_all)",
+  "model_summary": [
+    {
+      "arch": "resnet1d_wang",
+      "arm": "signal_only",
+      "n_params": 473349,
+      "embedding_dim": 256,
+      "meta_dim": 0,
+      "fusion_layer_in_features": 256,
+      "forward_backward_ok": true,
+      "shared_init_identical_to_signal_only": true
+    },
+    {
+      "arch": "resnet1d_wang",
+      "arm": "signal_plus_physio",
+      "n_params": 473733,
+      "embedding_dim": 256,
+      "meta_dim": 3,
+      "fusion_layer_in_features": 259,
+      "forward_backward_ok": true,
+      "shared_init_identical_to_signal_only": true
+    },
+    {
+      "arch": "resnet1d_wang",
+      "arm": "signal_plus_all",
+      "n_params": 483845,
+      "embedding_dim": 256,
+      "meta_dim": 82,
+      "fusion_layer_in_features": 338,
+      "forward_backward_ok": true,
+      "shared_init_identical_to_signal_only": true
+    },
+    {
+      "arch": "inception1d",
+      "arm": "signal_only",
+      "n_params": 507653,
+      "embedding_dim": 256,
+      "meta_dim": 0,
+      "fusion_layer_in_features": 256,
+      "forward_backward_ok": true,
+      "shared_init_identical_to_signal_only": true
+    },
+    {
+      "arch": "inception1d",
+      "arm": "signal_plus_physio",
+      "n_params": 508037,
+      "embedding_dim": 256,
+      "meta_dim": 3,
+      "fusion_layer_in_features": 259,
+      "forward_backward_ok": true,
+      "shared_init_identical_to_signal_only": true
+    },
+    {
+      "arch": "inception1d",
+      "arm": "signal_plus_all",
+      "n_params": 518149,
+      "embedding_dim": 256,
+      "meta_dim": 82,
+      "fusion_layer_in_features": 338,
+      "forward_backward_ok": true,
+      "shared_init_identical_to_signal_only": true
+    }
+  ],
+  "benchmark": [
+    {
+      "arch": "resnet1d_wang",
+      "arm": "signal_plus_all",
+      "batch_size": 128,
+      "oom_events": 0,
+      "n_train_records": 17418,
+      "n_batches": 137,
+      "crop_samples": 250,
+      "seconds_per_epoch": 5.14,
+      "max_memory_allocated_mb": 193.5,
+      "training_loss_finite": true
+    },
+    {
+      "arch": "inception1d",
+      "arm": "signal_plus_all",
+      "batch_size": 128,
+      "oom_events": 0,
+      "n_train_records": 17418,
+      "n_batches": 137,
+      "crop_samples": 250,
+      "seconds_per_epoch": 10.2,
+      "max_memory_allocated_mb": 593.0,
+      "training_loss_finite": true
+    }
+  ],
+  "budget": {
+    "rows": [
+      {
+        "arch": "resnet1d_wang",
+        "seconds_per_epoch": 5.14,
+        "dev_runs": 27,
+        "final_runs": 6,
+        "max_epochs": 50,
+        "dev_hours": 1.93,
+        "final_hours": 0.48,
+        "total_hours": 2.41
+      },
+      {
+        "arch": "inception1d",
+        "seconds_per_epoch": 10.2,
+        "dev_runs": 27,
+        "final_runs": 6,
+        "max_epochs": 50,
+        "dev_hours": 3.82,
+        "final_hours": 0.96,
+        "total_hours": 4.78
+      }
+    ],
+    "total_hours": 7.19,
+    "budget_hours": 30.0,
+    "verdict": "PASS",
+    "suggestion": null
+  },
+  "no_performance_metric_computed": true,
+  "warnings": [],
+  "outputs": [
+    {
+      "file": "D:\\ptbxl-metadata-audit\\outputs\\v0.4\\v0.4_env_report.json",
+      "bytes": 915,
+      "sha256": "b7d4cb19e388b0013dd700fd0bace25948a6e546f21e8c2ec84a41a7aec08761"
+    },
+    {
+      "file": "D:\\ptbxl-metadata-audit\\outputs\\v0.4\\v0.4_signals_folds1to9_100hz.npy",
+      "bytes": 940848128,
+      "sha256": "17558f9d09b39b990d7f3a5ca2ea10e1527980288a49a6828c89b7c3df61745a"
+    },
+    {
+      "file": "D:\\ptbxl-metadata-audit\\outputs\\v0.4\\v0.4_signals_index.csv",
+      "bytes": 314135,
+      "sha256": "06b49ecdafc6a74c9bdbcfa0177bb357eb845ece187b40e3a777496a8cf72203"
+    },
+    {
+      "file": "D:\\ptbxl-metadata-audit\\outputs\\v0.4\\v0.4_signal_integrity.csv",
+      "bytes": 393,
+      "sha256": "876a3d7cef28bc8e73f56e1482f2ff8a9626c981fc0823658acc68fa6ce0e8e4"
+    },
+    {
+      "file": "D:\\ptbxl-metadata-audit\\outputs\\v0.4\\v0.4_lead_norm_params.csv",
+      "bytes": 921,
+      "sha256": "07fb6d6dc8f0f1e2379fdd45b6462f1102518621eb242ba585fb8600acff35aa"
+    },
+    {
+      "file": "D:\\ptbxl-metadata-audit\\outputs\\v0.4\\v0.4_model_summary.csv",
+      "bytes": 469,
+      "sha256": "cea5f82eda0cc8451a96bad271a5354c1e44ca3a9dd97251a90cbbc56799e873"
+    },
+    {
+      "file": "D:\\ptbxl-metadata-audit\\outputs\\v0.4\\v0.4_benchmark.csv",
+      "bytes": 269,
+      "sha256": "10da08624eb538076f5a45950a0a503726f1ce32f8ec0665bda6fbacbc8ba856"
+    },
+    {
+      "file": "D:\\ptbxl-metadata-audit\\outputs\\v0.4\\v0.4_budget_projection.csv",
+      "bytes": 212,
+      "sha256": "48376a3688793d4a89eb0addc0d774e1bdb3aff2deee5c19f1e85723f3d3ecf4"
+    },
+    {
+      "file": "D:\\ptbxl-metadata-audit\\preregistration\\dev_protocol.json",
+      "bytes": 4135,
+      "sha256": "babf101c1d69b322daef6907175fdc4c17b5a53755a68f13a998eefa0148dc2d"
+    }
+  ]
+}

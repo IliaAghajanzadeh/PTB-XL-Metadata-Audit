@@ -1,0 +1,25 @@
+cff-version: 1.2.0
+message: "If you use this code or these documents, please cite the paper below."
+title: "PTB-XL acquisition metadata audit: Code, locked protocol documents and verification script"
+type: software
+authors:
+  - family-names: Aghajanzadeh
+    given-names: Ilia
+    affiliation: "Department of Computer Engineering, Arak University"
+  - family-names: Sepahvand
+    given-names: Majid
+    affiliation: "Department of Computer Engineering, Arak University"
+repository-code: "https://github.com/IliaAghajanzadeh/PTB-XL-Metadata-Audit"
+license: MIT
+date-released: "2026-10-20"
+preferred-citation:
+  type: conference-paper
+  title: "Auditing Acquisition Metadata Effects on ECG Classification in PTB-XL"
+  authors:
+    - family-names: Aghajanzadeh
+      given-names: Ilia
+    - family-names: Sepahvand
+      given-names: Majid
+  conference:
+    name: "12th International Conference on Signal Processing and Intelligent Systems (ICSPIS 2026)"
+  year: 2026
