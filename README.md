@@ -1,6 +1,8 @@
 # Auditing Acquisition Metadata Effects on ECG Classification in PTB-XL
 
-Code, write-once protocol documents with Bitcoin timestamp proofs, and the verification script for the paper
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE) ![Python 3.10](https://img.shields.io/badge/Python-3.10-blue.svg) [![Data: PTB-XL v1.0.3](https://img.shields.io/badge/Data-PTB--XL%20v1.0.3-lightgrey.svg)](https://physionet.org/content/ptb-xl/1.0.3/) [![verify.py: 370 of 370 checks passed](https://img.shields.io/badge/verify.py-370%2F370%20checks%20passed-brightgreen.svg)](outputs/verify/run_20261008-022605/verify_report.txt)
+
+Code, write-once protocol documents with Bitcoin timestamp proofs, and the verification script for the paper:
 
 > I. Aghajanzadeh and M. Sepahvand, "Auditing Acquisition Metadata Effects on ECG Classification in PTB-XL," submitted to the 12th International Conference on Signal Processing and Intelligent Systems (ICSPIS 2026), Shahrood University of Technology, Iran.
 
@@ -60,6 +62,7 @@ outputs/figures/flowchart-1.1_20261009-202513/
                    Fig. 1, the study-design flowchart (PDF, PNG), its layout and manifest
 tools/             check_locked_hashes.py
 RESULTS.md         all tables, generated from paper_numbers.json
+requirements.txt   package versions of the project environment
 ```
 
 | stage | code (`notebooks/`) | what it does |
@@ -139,9 +142,10 @@ The analysis ran on Windows 10 with:
 - Python 3.10.20
 - numpy 1.26.4, pandas 2.3.3, scipy 1.15.3, scikit-learn 1.7.2
 - matplotlib 3.10.9 and Pillow 12.3.0 (figures)
+- wfdb 4.3.1 (reading the ECG records)
 - PyTorch 2.7.1 (CUDA 11.8) for the ECG networks; training used a single 6-GB laptop GPU
 
-`requirements.txt` lists the packages of the project environment.
+`requirements.txt` pins these package versions; install them with `pip install -r requirements.txt` in a Python 3.10 environment. For GPU training, install the CUDA 11.8 build of PyTorch as noted in the file. The stage notebooks run in Jupyter.
 
 ## Deviations and disclosures
 
@@ -160,4 +164,16 @@ The code is released under the MIT License (see `LICENSE`). Model outputs on PTB
 
 ## Citation
 
-See `CITATION.cff`. The paper reference will be updated after review.
+If you use this code or these documents, please cite the paper (see also `CITATION.cff`; the reference will be updated after review):
+
+```bibtex
+@inproceedings{aghajanzadeh2026auditing,
+  author    = {Aghajanzadeh, Ilia and Sepahvand, Majid},
+  title     = {Auditing Acquisition Metadata Effects on {ECG} Classification in {PTB-XL}},
+  booktitle = {12th International Conference on Signal Processing and Intelligent Systems (ICSPIS 2026)},
+  year      = {2026},
+  note      = {Submitted}
+}
+```
+
+Questions and problems: please open an [issue](https://github.com/IliaAghajanzadeh/PTB-XL-Metadata-Audit/issues).
