@@ -16,7 +16,7 @@ Macro-AUROC is the unweighted mean of the five per-class AUROCs (NORM, MI, STTC,
 
 Positives per superclass: fold 9 — NORM 955, MI 540, STTC 528, CD 495, HYP 268; fold 10 — NORM 963, MI 550, STTC 521, CD 496, HYP 262. Records without any superclass statement: 411 (kept as all-negative).
 
-## Metadata-only models: macro-AUROC [95% CI] (paper Table II, Fig. 1a)
+## Metadata-only models: macro-AUROC [95% CI] (paper Table II, Fig. 2a)
 
 Fold 9: trained on folds 1–8 (development run). Fold 10: trained on folds 1–9, **post hoc**. LR: logistic regression (deterministic). HGB: histogram gradient boosting, value and interval are means over seeds 42, 123, 2024. Note from the verification script: *ci95 = mean of the three per-seed marginal 95% percentile CIs (v0.2.1 convention); for LogisticRegression the three seeds are identical*.
 
@@ -47,7 +47,7 @@ Difference test: 95% CI excludes 0. Equivalence: two one-sided tests at ±0.02 (
 | 10 (post hoc) | LR | 0.6846 | 0.7065 | +0.0219 | 0.0044 | [+0.0132, +0.0304] | [+0.0149, +0.0289] | significant difference: B3 higher than B1 by +0.0219 (point delta) | inconclusive / not shown negligible | 0.0289 |
 | 10 (post hoc) | HGB | 0.6732 | 0.7042 | +0.0309 | 0.0050 | [+0.0210, +0.0405] | [+0.0222, +0.0389] | significant difference: B3 higher than B1 by +0.0309 (point delta) | inconclusive / not shown negligible | 0.0389 |
 
-## ECG networks on fold 10: macro-AUROC [95% CI] (three-seed ensembles; paper Fig. 1b)
+## ECG networks on fold 10: macro-AUROC [95% CI] (three-seed ensembles; paper Fig. 2b)
 
 Intervals are descriptive (marginal bootstrap). Published reference results (not directly comparable): ResNet1d-Wang 0.93, Inception1d 0.921.
 
@@ -58,7 +58,7 @@ Intervals are descriptive (marginal bootstrap). Published reference results (not
 
 No bootstrap draw was excluded (all arms: n_valid = 2000, n_nan = 0).
 
-## H3 (pre-registered): Δ = AUROC(signal + all) − AUROC(signal + age/sex) on fold 10 (paper Table III, Fig. 2)
+## H3 (pre-registered): Δ = AUROC(signal + all) − AUROC(signal + age/sex) on fold 10 (paper Table III, Fig. 3)
 
 Rule (a): 95% CI excludes 0. Rule (b): 90% CI inside ±0.01. Material: 95% CI entirely outside ±0.01.
 

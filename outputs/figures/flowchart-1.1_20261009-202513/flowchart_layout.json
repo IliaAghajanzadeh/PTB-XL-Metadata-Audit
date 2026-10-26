@@ -1,0 +1,1167 @@
+{
+  "document": "flowchart layout",
+  "version": "flowchart-1.1",
+  "units": "mm, y downward from the top edge",
+  "canvas": {
+    "W": 85.8,
+    "H": 122.60222222222222,
+    "M": 0.4,
+    "GAP": 3.6,
+    "LANE_GAP": 4.2,
+    "LANE_W": 40.4,
+    "Lc": 20.599999999999998,
+    "Rc": 65.2,
+    "PITCH": 3.2455555555555553,
+    "VPAD": 1.4,
+    "HEAD_L": 1.2,
+    "HEAD_W": 1.0
+  },
+  "rows": [
+    {
+      "row": 0,
+      "y_top": 0.4,
+      "height": 9.29111111111111
+    },
+    {
+      "row": 1,
+      "y_top": 13.29111111111111,
+      "height": 15.78222222222222
+    },
+    {
+      "row": 2,
+      "y_top": 32.67333333333333,
+      "height": 12.536666666666665
+    },
+    {
+      "row": 3,
+      "y_top": 48.81,
+      "height": 9.29111111111111
+    },
+    {
+      "row": 4,
+      "y_top": 61.70111111111111,
+      "height": 9.29111111111111
+    },
+    {
+      "row": 5,
+      "y_top": 74.59222222222222,
+      "height": 9.29111111111111
+    },
+    {
+      "row": 6,
+      "y_top": 87.48333333333333,
+      "height": 21.827777777777776
+    },
+    {
+      "row": 7,
+      "y_top": 112.91111111111111,
+      "height": 9.29111111111111
+    }
+  ],
+  "boxes": [
+    {
+      "id": "data",
+      "row": 0,
+      "lane": "full",
+      "fill": "white",
+      "x0": 0.4,
+      "x1": 85.39999999999999,
+      "y_top": 0.4,
+      "y_bottom": 9.69111111111111,
+      "divider_y": null,
+      "lines": [
+        {
+          "section": 0,
+          "text": "PTB-XL v1.0.3 (100 Hz): 21,799 ECGs from 18,869 patients",
+          "italic": false,
+          "baseline_y": 4.121277777777777,
+          "extent_mm": [
+            8.3243,
+            77.4758,
+            2.1316,
+            4.7311
+          ]
+        },
+        {
+          "section": 0,
+          "text": "five diagnostic superclasses; patient-disjoint folds 1–10",
+          "italic": false,
+          "baseline_y": 7.366833333333332,
+          "extent_mm": [
+            11.5971,
+            74.2029,
+            5.3772,
+            7.9595
+          ]
+        }
+      ]
+    },
+    {
+      "id": "meta_head",
+      "row": 1,
+      "lane": "left",
+      "fill": "white",
+      "x0": 0.4,
+      "x1": 40.8,
+      "y_top": 13.29111111111111,
+      "y_bottom": 29.07333333333333,
+      "divider_y": null,
+      "lines": [
+        {
+          "section": 0,
+          "text": "Metadata-only models",
+          "italic": false,
+          "baseline_y": 17.003789930555556,
+          "extent_mm": [
+            7.9476,
+            33.2524,
+            15.0141,
+            17.5965
+          ]
+        },
+        {
+          "section": 0,
+          "text": "logistic regression and",
+          "italic": false,
+          "baseline_y": 20.24934548611111,
+          "extent_mm": [
+            7.9106,
+            33.2894,
+            18.2597,
+            20.842
+          ]
+        },
+        {
+          "section": 0,
+          "text": "gradient boosting",
+          "italic": false,
+          "baseline_y": 23.494901041666665,
+          "extent_mm": [
+            10.7734,
+            30.4266,
+            21.5052,
+            24.0876
+          ]
+        },
+        {
+          "section": 0,
+          "text": "(blocks B1–B5)",
+          "italic": false,
+          "baseline_y": 26.74045659722222,
+          "extent_mm": [
+            11.6359,
+            29.5641,
+            24.7508,
+            27.3503
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ecg_head",
+      "row": 1,
+      "lane": "right",
+      "fill": "white",
+      "x0": 45.0,
+      "x1": 85.39999999999999,
+      "y_top": 13.29111111111111,
+      "y_bottom": 29.07333333333333,
+      "divider_y": null,
+      "lines": [
+        {
+          "section": 0,
+          "text": "ECG networks",
+          "italic": false,
+          "baseline_y": 17.012388888888886,
+          "extent_mm": [
+            56.8603,
+            73.5397,
+            15.0227,
+            17.6051
+          ]
+        },
+        {
+          "section": 0,
+          "text": "ResNet1d-Wang, Inception1d",
+          "italic": false,
+          "baseline_y": 20.25794444444444,
+          "extent_mm": [
+            48.473,
+            81.927,
+            18.2683,
+            20.8506
+          ]
+        },
+        {
+          "section": 0,
+          "text": "with no metadata; + age, sex;",
+          "italic": false,
+          "baseline_y": 23.503499999999995,
+          "extent_mm": [
+            48.6635,
+            81.7365,
+            21.5138,
+            24.0962
+          ]
+        },
+        {
+          "section": 0,
+          "text": "+ age, sex, acquisition",
+          "italic": false,
+          "baseline_y": 26.74905555555555,
+          "extent_mm": [
+            52.6138,
+            77.7862,
+            24.7594,
+            27.3417
+          ]
+        }
+      ]
+    },
+    {
+      "id": "h1h2",
+      "row": 2,
+      "lane": "left",
+      "fill": "white",
+      "x0": 0.4,
+      "x1": 40.8,
+      "y_top": 32.67333333333333,
+      "y_bottom": 45.209999999999994,
+      "divider_y": null,
+      "lines": [
+        {
+          "section": 0,
+          "text": "H1, H2 evaluated on fold 9",
+          "italic": false,
+          "baseline_y": 36.37344444444444,
+          "extent_mm": [
+            5.2462,
+            35.9538,
+            34.3838,
+            36.9661
+          ]
+        },
+        {
+          "section": 0,
+          "text": "(trained on folds 1–8)",
+          "italic": false,
+          "baseline_y": 39.61899999999999,
+          "extent_mm": [
+            8.3392,
+            32.8608,
+            37.6293,
+            40.2289
+          ]
+        },
+        {
+          "section": 0,
+          "text": "confirmatory after the fact",
+          "italic": true,
+          "baseline_y": 42.86455555555555,
+          "extent_mm": [
+            5.6696,
+            35.5304,
+            40.8749,
+            43.4996
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lr",
+      "row": 2,
+      "lane": "right",
+      "fill": "white",
+      "x0": 45.0,
+      "x1": 85.39999999999999,
+      "y_top": 32.67333333333333,
+      "y_bottom": 45.209999999999994,
+      "divider_y": null,
+      "lines": [
+        {
+          "section": 0,
+          "text": "Learning rate tuned on fold 9",
+          "italic": false,
+          "baseline_y": 36.394611111111104,
+          "extent_mm": [
+            48.7138,
+            81.6862,
+            34.4049,
+            36.9873
+          ]
+        },
+        {
+          "section": 0,
+          "text": "(trained on folds 1–8)",
+          "italic": false,
+          "baseline_y": 39.64016666666666,
+          "extent_mm": [
+            52.9392,
+            77.4608,
+            37.6505,
+            40.25
+          ]
+        },
+        {
+          "section": 0,
+          "text": "with the + age, sex arm",
+          "italic": false,
+          "baseline_y": 42.88572222222221,
+          "extent_mm": [
+            52.0317,
+            78.3683,
+            40.8961,
+            43.4784
+          ]
+        }
+      ]
+    },
+    {
+      "id": "frp",
+      "row": 3,
+      "lane": "right",
+      "fill": "#e9e9e9",
+      "x0": 45.0,
+      "x1": 85.39999999999999,
+      "y_top": 48.81,
+      "y_bottom": 58.10111111111111,
+      "divider_y": null,
+      "lines": [
+        {
+          "section": 0,
+          "text": "Final-run protocol sealed",
+          "italic": false,
+          "baseline_y": 52.531277777777774,
+          "extent_mm": [
+            51.021,
+            79.379,
+            50.5416,
+            53.1239
+          ]
+        },
+        {
+          "section": 0,
+          "text": "and anchored in Bitcoin",
+          "italic": false,
+          "baseline_y": 55.77683333333333,
+          "extent_mm": [
+            51.6983,
+            78.7017,
+            53.7872,
+            56.3695
+          ]
+        }
+      ]
+    },
+    {
+      "id": "final",
+      "row": 4,
+      "lane": "right",
+      "fill": "white",
+      "x0": 45.0,
+      "x1": 85.39999999999999,
+      "y_top": 61.70111111111111,
+      "y_bottom": 70.99222222222222,
+      "divider_y": null,
+      "lines": [
+        {
+          "section": 0,
+          "text": "18 final models (folds 1–9);",
+          "italic": false,
+          "baseline_y": 65.42238888888888,
+          "extent_mm": [
+            49.452,
+            80.948,
+            63.4327,
+            66.0323
+          ]
+        },
+        {
+          "section": 0,
+          "text": "manifest anchored in Bitcoin",
+          "italic": false,
+          "baseline_y": 68.66794444444443,
+          "extent_mm": [
+            48.8779,
+            81.5221,
+            66.6783,
+            69.2606
+          ]
+        }
+      ]
+    },
+    {
+      "id": "open",
+      "row": 5,
+      "lane": "full",
+      "fill": "#e9e9e9",
+      "x0": 0.4,
+      "x1": 85.39999999999999,
+      "y_top": 74.59222222222222,
+      "y_bottom": 83.88333333333333,
+      "divider_y": null,
+      "lines": [
+        {
+          "section": 0,
+          "text": "Fold 10 opened once; outputs hashed before any label was read;",
+          "italic": false,
+          "baseline_y": 78.31349999999999,
+          "extent_mm": [
+            6.7923,
+            79.0077,
+            76.3238,
+            78.9062
+          ]
+        },
+        {
+          "section": 0,
+          "text": "no ECG network trained afterwards",
+          "italic": false,
+          "baseline_y": 81.55905555555555,
+          "extent_mm": [
+            22.7705,
+            63.0295,
+            79.5694,
+            82.1517
+          ]
+        }
+      ]
+    },
+    {
+      "id": "meta_f10",
+      "row": 6,
+      "lane": "left",
+      "fill": "white",
+      "x0": 0.4,
+      "x1": 40.8,
+      "y_top": 87.48333333333333,
+      "y_bottom": 109.3111111111111,
+      "divider_y": 100.02,
+      "lines": [
+        {
+          "section": 0,
+          "text": "Metadata-only models",
+          "italic": false,
+          "baseline_y": 91.18344444444443,
+          "extent_mm": [
+            7.9476,
+            33.2524,
+            89.1938,
+            91.7761
+          ]
+        },
+        {
+          "section": 0,
+          "text": "(trained on folds 1–9)",
+          "italic": false,
+          "baseline_y": 94.42899999999999,
+          "extent_mm": [
+            8.3419,
+            32.8581,
+            92.4393,
+            95.0389
+          ]
+        },
+        {
+          "section": 0,
+          "text": "post hoc",
+          "italic": true,
+          "baseline_y": 97.67455555555554,
+          "extent_mm": [
+            15.856,
+            25.344,
+            95.6882,
+            98.3096
+          ]
+        },
+        {
+          "section": 1,
+          "text": "H2 contrast (B3 − B1)",
+          "italic": false,
+          "baseline_y": 103.71481944444444,
+          "extent_mm": [
+            7.9794,
+            33.2206,
+            101.7357,
+            104.3247
+          ]
+        },
+        {
+          "section": 1,
+          "text": "post hoc",
+          "italic": true,
+          "baseline_y": 106.960375,
+          "extent_mm": [
+            15.856,
+            25.344,
+            104.974,
+            107.5954
+          ]
+        }
+      ]
+    },
+    {
+      "id": "h3e",
+      "row": 6,
+      "lane": "right",
+      "fill": "white",
+      "x0": 45.0,
+      "x1": 85.39999999999999,
+      "y_top": 87.48333333333333,
+      "y_bottom": 109.3111111111111,
+      "divider_y": 100.02,
+      "lines": [
+        {
+          "section": 0,
+          "text": "H3: + age, sex, acquisition",
+          "italic": false,
+          "baseline_y": 91.18344444444443,
+          "extent_mm": [
+            50.1452,
+            80.2548,
+            89.1938,
+            91.7761
+          ]
+        },
+        {
+          "section": 0,
+          "text": "vs. + age, sex; margin ±0.01",
+          "italic": false,
+          "baseline_y": 94.42899999999999,
+          "extent_mm": [
+            49.2403,
+            81.1597,
+            92.4393,
+            95.0217
+          ]
+        },
+        {
+          "section": 0,
+          "text": "pre-registered",
+          "italic": true,
+          "baseline_y": 97.67455555555554,
+          "extent_mm": [
+            57.2863,
+            73.1137,
+            95.6763,
+            98.3096
+          ]
+        },
+        {
+          "section": 1,
+          "text": "E1–E3",
+          "italic": false,
+          "baseline_y": 103.72011111111111,
+          "extent_mm": [
+            61.3609,
+            69.0391,
+            101.7304,
+            104.3128
+          ]
+        },
+        {
+          "section": 1,
+          "text": "exploratory",
+          "italic": true,
+          "baseline_y": 106.96566666666666,
+          "extent_mm": [
+            58.6145,
+            71.7855,
+            104.9806,
+            107.6007
+          ]
+        }
+      ]
+    },
+    {
+      "id": "verify",
+      "row": 7,
+      "lane": "full",
+      "fill": "white",
+      "x0": 0.4,
+      "x1": 85.39999999999999,
+      "y_top": 112.91111111111111,
+      "y_bottom": 122.20222222222222,
+      "divider_y": null,
+      "lines": [
+        {
+          "section": 0,
+          "text": "Read-only script recomputes every reported statistic",
+          "italic": false,
+          "baseline_y": 116.62378993055556,
+          "extent_mm": [
+            13.4863,
+            72.3137,
+            114.6341,
+            117.2165
+          ]
+        },
+        {
+          "section": 0,
+          "text": "from the locked artifacts (370 checks)",
+          "italic": false,
+          "baseline_y": 119.86934548611111,
+          "extent_mm": [
+            21.4873,
+            64.3127,
+            117.8797,
+            120.4792
+          ]
+        }
+      ]
+    }
+  ],
+  "arrows": [
+    {
+      "id": "a1",
+      "source": "data",
+      "target": "meta_head",
+      "x": 20.599999999999998,
+      "y_start": 9.69111111111111,
+      "y_head_base": 12.091111111111111,
+      "y_tip": 13.29111111111111
+    },
+    {
+      "id": "a2",
+      "source": "data",
+      "target": "ecg_head",
+      "x": 65.2,
+      "y_start": 9.69111111111111,
+      "y_head_base": 12.091111111111111,
+      "y_tip": 13.29111111111111
+    },
+    {
+      "id": "a3",
+      "source": "meta_head",
+      "target": "h1h2",
+      "x": 20.599999999999998,
+      "y_start": 29.07333333333333,
+      "y_head_base": 31.473333333333333,
+      "y_tip": 32.67333333333333
+    },
+    {
+      "id": "a4",
+      "source": "ecg_head",
+      "target": "lr",
+      "x": 65.2,
+      "y_start": 29.07333333333333,
+      "y_head_base": 31.473333333333333,
+      "y_tip": 32.67333333333333
+    },
+    {
+      "id": "a5",
+      "source": "lr",
+      "target": "frp",
+      "x": 65.2,
+      "y_start": 45.209999999999994,
+      "y_head_base": 47.61,
+      "y_tip": 48.81
+    },
+    {
+      "id": "a6",
+      "source": "frp",
+      "target": "final",
+      "x": 65.2,
+      "y_start": 58.10111111111111,
+      "y_head_base": 60.50111111111111,
+      "y_tip": 61.70111111111111
+    },
+    {
+      "id": "a7",
+      "source": "final",
+      "target": "open",
+      "x": 65.2,
+      "y_start": 70.99222222222222,
+      "y_head_base": 73.39222222222222,
+      "y_tip": 74.59222222222222
+    },
+    {
+      "id": "a8",
+      "source": "h1h2",
+      "target": "open",
+      "x": 20.599999999999998,
+      "y_start": 45.209999999999994,
+      "y_head_base": 73.39222222222222,
+      "y_tip": 74.59222222222222
+    },
+    {
+      "id": "a9",
+      "source": "open",
+      "target": "meta_f10",
+      "x": 20.599999999999998,
+      "y_start": 83.88333333333333,
+      "y_head_base": 86.28333333333333,
+      "y_tip": 87.48333333333333
+    },
+    {
+      "id": "a10",
+      "source": "open",
+      "target": "h3e",
+      "x": 65.2,
+      "y_start": 83.88333333333333,
+      "y_head_base": 86.28333333333333,
+      "y_tip": 87.48333333333333
+    },
+    {
+      "id": "a11",
+      "source": "meta_f10",
+      "target": "verify",
+      "x": 20.599999999999998,
+      "y_start": 109.3111111111111,
+      "y_head_base": 111.71111111111111,
+      "y_tip": 112.91111111111111
+    },
+    {
+      "id": "a12",
+      "source": "h3e",
+      "target": "verify",
+      "x": 65.2,
+      "y_start": 109.3111111111111,
+      "y_head_base": 111.71111111111111,
+      "y_tip": 112.91111111111111
+    }
+  ],
+  "preview": {
+    "figure_left_mm": 16.0,
+    "figure_top_mm": 30.0,
+    "figure_size_mm": [
+      85.8,
+      122.602222
+    ],
+    "guides_x_mm": [
+      16.0,
+      101.8
+    ],
+    "deterministic": true
+  },
+  "self_checks": [
+    {
+      "id": "C1",
+      "description": "input: sha256 pinned, all_checks_passed and paper_final true; the number substrings are built from paper_numbers.json and the resulting lines equal the specified strings",
+      "status": "PASS",
+      "detail": {
+        "sha256": "e540d16d65d9247669e8488bcc834ea854cdd5bf94f0181f3c9ceb6ff49e524c",
+        "numbers": {
+          "n_records": "21,799",
+          "n_patients": "18,869",
+          "n_checks": "370",
+          "sesoi_h3": "0.01",
+          "n_final_models": "18"
+        },
+        "lines": [
+          {
+            "box": "data",
+            "built": "PTB-XL v1.0.3 (100 Hz): 21,799 ECGs from 18,869 patients",
+            "specified": "PTB-XL v1.0.3 (100 Hz): 21,799 ECGs from 18,869 patients",
+            "equal": true
+          },
+          {
+            "box": "final",
+            "built": "18 final models (folds 1–9);",
+            "specified": "18 final models (folds 1–9);",
+            "equal": true
+          },
+          {
+            "box": "h3e",
+            "built": "vs. + age, sex; margin ±0.01",
+            "specified": "vs. + age, sex; margin ±0.01",
+            "equal": true
+          },
+          {
+            "box": "verify",
+            "built": "from the locked artifacts (370 checks)",
+            "specified": "from the locked artifacts (370 checks)",
+            "equal": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "C2",
+      "description": "text inventory: the visible Text artists, in drawing order, equal the 34 specified lines (string, box, order); no other text, legend or title; the axis is off",
+      "status": "PASS",
+      "detail": {
+        "n_drawn": 34,
+        "n_expected": 34,
+        "axis_off": true,
+        "other_texts": [],
+        "stray_texts": [],
+        "first_mismatch": null
+      }
+    },
+    {
+      "id": "C3",
+      "description": "font: every text 8.0 pt, weight normal; exactly the lines whose text is a status string italic (5 instances: 'post hoc' twice; italic face of the same family), all others normal; glyph coverage complete (incl. U+2013, U+2212, U+00B1, ';')",
+      "status": "PASS",
+      "detail": {
+        "font": "Times New Roman",
+        "upright": "C:\\Windows\\Fonts\\times.ttf",
+        "italic": "C:\\Windows\\Fonts\\timesi.ttf",
+        "n_italic": 5,
+        "violations": [],
+        "n_distinct_characters": 62
+      }
+    },
+    {
+      "id": "C4",
+      "description": "grid: left-lane boxes share x0/x1, right-lane boxes share x0/x1, full boxes span M..W-M (<= 1e-9 mm); boxes in a row share y_top / y_bottom; every row gap == GAP; both dividers at identical y (<= 1e-9) and spanning exactly their box x0..x1",
+      "status": "PASS",
+      "detail": {
+        "lanes": {
+          "left": [
+            0.4,
+            40.8
+          ],
+          "right": [
+            45.0,
+            85.4
+          ],
+          "full": [
+            0.4,
+            85.4
+          ]
+        },
+        "violations": [],
+        "row_gaps_mm": [
+          3.6,
+          3.6,
+          3.6,
+          3.6,
+          3.6,
+          3.6,
+          3.6
+        ],
+        "dividers": {
+          "meta_f10": {
+            "y": 100.02,
+            "x": [
+              0.4,
+              40.8
+            ]
+          },
+          "h3e": {
+            "y": 100.02,
+            "x": [
+              45.0,
+              85.39999999999999
+            ]
+          }
+        }
+      }
+    },
+    {
+      "id": "C5",
+      "description": "text fit (rendered extents, mm): every line >= 2.0 mm from both box edges and centred (|left - right| <= 0.10); every box / section: top and bottom padding >= 1.0 and differing by <= 0.20; in both divided boxes (meta_f10, h3e) every line >= 1.0 from the divider",
+      "status": "PASS",
+      "detail": {
+        "min_horizontal_pad_mm": 3.473,
+        "max_horizontal_asymmetry_mm": 0.0,
+        "min_vertical_pad_mm": 1.7104,
+        "max_vertical_pad_difference_mm": 0.0,
+        "min_distance_to_divider_mm": 1.7104,
+        "sections": [
+          {
+            "box": "data",
+            "section": 0,
+            "top_mm": 1.7316,
+            "bottom_mm": 1.7316
+          },
+          {
+            "box": "meta_head",
+            "section": 0,
+            "top_mm": 1.723,
+            "bottom_mm": 1.723
+          },
+          {
+            "box": "ecg_head",
+            "section": 0,
+            "top_mm": 1.7316,
+            "bottom_mm": 1.7316
+          },
+          {
+            "box": "h1h2",
+            "section": 0,
+            "top_mm": 1.7104,
+            "bottom_mm": 1.7104
+          },
+          {
+            "box": "lr",
+            "section": 0,
+            "top_mm": 1.7316,
+            "bottom_mm": 1.7316
+          },
+          {
+            "box": "frp",
+            "section": 0,
+            "top_mm": 1.7316,
+            "bottom_mm": 1.7316
+          },
+          {
+            "box": "final",
+            "section": 0,
+            "top_mm": 1.7316,
+            "bottom_mm": 1.7316
+          },
+          {
+            "box": "open",
+            "section": 0,
+            "top_mm": 1.7316,
+            "bottom_mm": 1.7316
+          },
+          {
+            "box": "meta_f10",
+            "section": 0,
+            "top_mm": 1.7104,
+            "bottom_mm": 1.7104
+          },
+          {
+            "box": "meta_f10",
+            "section": 1,
+            "top_mm": 1.7157,
+            "bottom_mm": 1.7157
+          },
+          {
+            "box": "h3e",
+            "section": 0,
+            "top_mm": 1.7104,
+            "bottom_mm": 1.7104
+          },
+          {
+            "box": "h3e",
+            "section": 1,
+            "top_mm": 1.7104,
+            "bottom_mm": 1.7104
+          },
+          {
+            "box": "verify",
+            "section": 0,
+            "top_mm": 1.723,
+            "bottom_mm": 1.723
+          }
+        ],
+        "violations": []
+      }
+    },
+    {
+      "id": "C6",
+      "description": "no collisions: no two text extents overlap; no text extent within 0.3 mm of any box edge, either divider, any arrow shaft or head (stroke half-widths included)",
+      "status": "PASS",
+      "detail": {
+        "text_overlaps": [],
+        "too_close": [],
+        "min_clearance_mm": 1.6046,
+        "at": [
+          [
+            "meta_f10",
+            0,
+            0
+          ],
+          "box meta_f10 top"
+        ]
+      }
+    },
+    {
+      "id": "C7",
+      "description": "arrows: exactly 12, vertical, shaft and head x == centre (x0 + x1)/2 of the lane box(es) among source and target (from GEOM, not from the drawing table); X_LC / X_RC == lane centres from LANE_X; x >= HEAD_W/2 + 0.5 mm inside both source and target boxes; shaft starts at the source bottom edge and the head tip lies on the target top edge (<= 1e-9), visible shaft >= 2.0 mm, no arrow enters any box interior, no two arrows overlap or cross, all heads identical",
+      "status": "PASS",
+      "detail": {
+        "violations": [],
+        "lane_centres_mm": {
+          "left": 20.599999999999998,
+          "right": 65.19999999999999,
+          "full": 42.9
+        },
+        "required_x_mm": {
+          "a1": [
+            20.6
+          ],
+          "a2": [
+            65.2
+          ],
+          "a3": [
+            20.6,
+            20.6
+          ],
+          "a4": [
+            65.2,
+            65.2
+          ],
+          "a5": [
+            65.2,
+            65.2
+          ],
+          "a6": [
+            65.2,
+            65.2
+          ],
+          "a7": [
+            65.2
+          ],
+          "a8": [
+            20.6
+          ],
+          "a9": [
+            20.6
+          ],
+          "a10": [
+            65.2
+          ],
+          "a11": [
+            20.6
+          ],
+          "a12": [
+            65.2
+          ]
+        },
+        "drawn_x_mm": {
+          "a1": [
+            20.599999999999998,
+            20.599999999999998
+          ],
+          "a2": [
+            65.2,
+            65.2
+          ],
+          "a3": [
+            20.599999999999998,
+            20.599999999999998
+          ],
+          "a4": [
+            65.2,
+            65.2
+          ],
+          "a5": [
+            65.2,
+            65.2
+          ],
+          "a6": [
+            65.2,
+            65.2
+          ],
+          "a7": [
+            65.2,
+            65.2
+          ],
+          "a8": [
+            20.599999999999998,
+            20.599999999999998
+          ],
+          "a9": [
+            20.599999999999998,
+            20.599999999999998
+          ],
+          "a10": [
+            65.2,
+            65.2
+          ],
+          "a11": [
+            20.599999999999998,
+            20.599999999999998
+          ],
+          "a12": [
+            65.2,
+            65.2
+          ]
+        },
+        "head_sizes_mm": [
+          [
+            1.0,
+            1.2
+          ]
+        ],
+        "visible_shaft_mm": {
+          "a1": 2.4,
+          "a2": 2.4,
+          "a3": 2.4,
+          "a4": 2.4,
+          "a5": 2.4,
+          "a6": 2.4,
+          "a7": 2.4,
+          "a8": 28.1822,
+          "a9": 2.4,
+          "a10": 2.4,
+          "a11": 2.4,
+          "a12": 2.4
+        },
+        "min_visible_shaft_mm": 2.4
+      }
+    },
+    {
+      "id": "C8",
+      "description": "canvas: W == 85.8, H <= 125.0; every artist extent (box strokes incl. half width) >= 0.2 mm inside the canvas; one axes [0, 0, 1, 1] with equal aspect (mm data units)",
+      "status": "PASS",
+      "detail": {
+        "W_mm": 85.8,
+        "H_mm": 122.602222,
+        "min_inside_margin_mm": 0.2942,
+        "at": "box data",
+        "axes_position": [
+          0.0,
+          0.0,
+          1.0,
+          1.0
+        ],
+        "px_per_mm_x": 23.62204724409449,
+        "px_per_mm_y": 23.622047244094574
+      }
+    },
+    {
+      "id": "C9",
+      "description": "raster: PNG at 600 dpi, RGB, pixel size == W x H mm (+/-1 px); the outer 0.15 mm frame is pure white",
+      "status": "PASS",
+      "detail": {
+        "pixels": [
+          2026,
+          2896
+        ],
+        "expected_px": [
+          2026.772,
+          2896.115
+        ],
+        "dpi": [
+          599.999,
+          599.999
+        ],
+        "mode": "RGB",
+        "frame_px": 4,
+        "frame_all_white": true
+      }
+    },
+    {
+      "id": "C10",
+      "description": "PDF: MediaBox == W x H mm (+/-0.05); all fonts embedded as TrueType; no image XObjects; two in-memory renders byte-identical",
+      "status": "PASS",
+      "detail": {
+        "mediabox_mm": [
+          85.8,
+          122.6022
+        ],
+        "truetype_embedded": true,
+        "image_xobjects": 0,
+        "deterministic": true,
+        "sha256": "54aa9cd7c488d16321a12f0bbf8b19096351247c8f0345ad686cd314301b63bb"
+      }
+    },
+    {
+      "id": "C11",
+      "description": "counts: 11 boxes (9 white, 2 grey), 2 dividers, 12 arrows (12 shafts, 12 heads); no other artist; only the colours #1a1a1a, #333333, #e9e9e9 and white",
+      "status": "PASS",
+      "detail": {
+        "boxes": 11,
+        "white": 9,
+        "grey": 2,
+        "dividers": 2,
+        "shafts": 12,
+        "heads": 12,
+        "lines": 14,
+        "patches": 23,
+        "colours": [
+          "#1a1a1a",
+          "#333333",
+          "#e9e9e9",
+          "#ffffff"
+        ]
+      }
+    }
+  ]
+}
