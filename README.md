@@ -21,6 +21,28 @@ PTB-XL gives every ECG the patient's age and sex as well as the recording **devi
 
 Every value reported in the paper, including all intervals that the paper refers to the repository for, is listed in [`RESULTS.md`](RESULTS.md).
 
+## Figures
+
+Figure numbers follow the paper. Each PNG is the 600-dpi raster written next to the vector PDF that the paper uses. The files of Fig. 2 and Fig. 3 keep their original names (`fig1_auroc_levels`, `fig2_delta`) because their hashes are recorded; the flowchart was added to the paper later.
+
+<p align="center">
+  <img src="outputs/figures/flowchart-1.1_20261009-202513/flowchart.png" width="560" alt="Flowchart of the study design in two lanes, metadata-only models on the left and ECG networks on the right. Both lanes run from PTB-XL through development on fold 9 and a single opening of fold 10 to a read-only verification script; the ECG lane also passes the anchored final-run protocol and the 18 final models. Each analysis box carries its status label.">
+</p>
+
+**Fig. 1.** Study design. Left: metadata-only models; right: ECG networks. Shaded boxes are the two provenance gates: the final-run protocol was anchored before the first network with acquisition metadata was trained, and fold 10 was opened once, after the manifest of the 18 final models had been anchored. Italic lines give the status of each analysis. B1–B5: metadata blocks; E1–E3: exploratory analyses (both are listed in [`RESULTS.md`](RESULTS.md)). Vector version: [`flowchart.pdf`](outputs/figures/flowchart-1.1_20261009-202513/flowchart.pdf).
+
+<p align="center">
+  <img src="outputs/figures/run_20261008-022605/fig1_auroc_levels.png" width="560" alt="Dot plot of test-fold macro-AUROC with 95% bootstrap intervals: (a) logistic regression and gradient boosting on age and sex, on acquisition metadata, and on both, (b) ResNet1d-Wang and Inception1d without metadata, with age and sex, and with age, sex and acquisition metadata.">
+</p>
+
+**Fig. 2.** Macro-AUROC over the five diagnostic superclasses on the test fold (fold 10). (a) Metadata-only models trained on folds 1–9 (post hoc); gradient boosting values and intervals are means over three seeds. Acquisition metadata: recording device, site and nurse. (b) ECG networks (three-seed ensembles) without metadata, with age and sex, and with age, sex and acquisition metadata. Horizontal lines: 95% patient-level bootstrap intervals (2,000 resamples); in (b) they are narrower than the markers. Vertical line: chance level. Vector version: [`fig1_auroc_levels.pdf`](outputs/figures/run_20261008-022605/fig1_auroc_levels.pdf).
+
+<p align="center">
+  <img src="outputs/figures/run_20261008-022605/fig2_delta.png" width="560" alt="Changes in test-fold macro-AUROC with 90% and 95% bootstrap intervals and the shaded ±0.01 margin: the pre-registered H3 contrast for both networks, adding age and sex to the ECG-only network, and correct minus shuffled acquisition metadata.">
+</p>
+
+**Fig. 3.** Change in test-fold macro-AUROC. Left: adding acquisition metadata to an ECG network that already receives age and sex (pre-registered H3; ResNet1d-Wang primary, Inception1d robustness). Middle: adding age and sex to the ECG-only network (exploratory). Right: correct minus shuffled acquisition metadata, mean (hollow marker) and range over 20 shuffles (exploratory). Thick and thin bars: 90% and 95% patient-level bootstrap intervals (2,000 resamples). Shaded band: ±0.01, the pre-registered smallest effect size of interest for H3. Vector version: [`fig2_delta.pdf`](outputs/figures/run_20261008-022605/fig2_delta.pdf).
+
 ## Repository layout
 
 The repository mirrors the project folder as it was run, so the relative paths used by the code and recorded in the manifests remain valid.
@@ -33,7 +55,9 @@ outputs/<stage>/   the outputs of each stage, including its manifest; the remain
                    outputs/v0.8/v0.8_manifest.json, outputs/v0.9/v0.9_{frozen_outputs,results,manifest}.json (+ .ots)
 outputs/ph1_failed_1/  a failed attempt kept on purpose (see Deviations)
 outputs/verify/run_20261008-022605/   verify.py output: paper_numbers.json, tables, report
-outputs/figures/run_20261008-022605/  Fig. 1 and Fig. 2 (PDF, PNG, TIFF) and their manifest
+outputs/figures/run_20261008-022605/  Fig. 2 and Fig. 3 (files fig1_*, fig2_*: PDF, PNG, TIFF) and their manifest
+outputs/figures/flowchart-1.1_20261009-202513/
+                   Fig. 1, the study-design flowchart (PDF, PNG), its layout and manifest
 tools/             check_locked_hashes.py
 RESULTS.md         all tables, generated from paper_numbers.json
 ```
@@ -51,7 +75,8 @@ RESULTS.md         all tables, generated from paper_numbers.json
 | v0.9 | `ptbxl_v0.9_fold10_evaluation.ipynb`, `v0.9_cell.py` (+ `.ots`) | the single opening of fold 10: H3, E1–E3 |
 | ph1 | `ph1_cell.py`, `ptbxl_ph1_posthoc_metadata_fold10.ipynb`, `ptbxl_ph1_posthoc_metadata_fold10 new.ipynb`, `ph1_synthetic_harness.py` | post hoc metadata-only models on fold 10. `ph1_cell.py` is the reported revision r2 (its hash is checked by verify.py). The two notebooks hold the two runs of the cell: the first attempt (r1, stopped at the reproduction gate) and the reported run (r2); the `CODE_REVISION` line in each identifies it. The harness tests the cell on synthetic data. |
 | verify | `verify.ipynb`, `verify.py` | read-only recomputation of every reported statistic (370 checks) |
-| figures | `make_figures.ipynb`, `make_figures.py` | Fig. 1 and Fig. 2 from paper_numbers.json |
+| figures | `make_figures.ipynb`, `make_figures.py` | Fig. 2 and Fig. 3 from paper_numbers.json |
+| flowchart | `make_flowchart.ipynb`, `make_flowchart.py` | Fig. 1, the study-design flowchart; the numbers in its boxes are read from paper_numbers.json, and nothing is written if one of its layout self-checks fails |
 
 Not included: PTB-XL itself (see *Data*), the cached signal array `outputs/v0.4/v0.4_signals_folds1to9_100hz.npy` (regenerated by the v0.4 notebook from PTB-XL), and internal working notes.
 
@@ -91,7 +116,9 @@ Each document below is a write-once JSON file. Its SHA-256 hash is anchored in t
 
      It takes about 5 minutes on a laptop CPU and writes a new folder `outputs/verify/run_<timestamp>/` (it never overwrites anything). The expected last line is `ALL CHECKS PASSED (370) | SKIP 0 | paper_final True`.
    - The paper's run is `outputs/verify/run_20261008-022605/`; its `paper_numbers.json` has SHA-256 `e540d16d65d9247669e8488bcc834ea854cdd5bf94f0181f3c9ceb6ff49e524c`. On 8 Oct 2026, `verify.py` was re-run on a fresh copy of this repository, with only the two CSV files added, and again passed all 370 checks.
-4. **Figures.** `python notebooks/make_figures.py --root <path-to-this-repository> --run run_<timestamp>` redraws Fig. 1 and Fig. 2 from the `paper_numbers.json` of that verify run into `outputs/figures/run_<timestamp>/`. It uses the Times New Roman font file (`C:\Windows\Fonts\times.ttf`).
+4. **Figures.** `python notebooks/make_figures.py --root <path-to-this-repository> --run run_<timestamp>` redraws Fig. 2 and Fig. 3 from the `paper_numbers.json` of that verify run into `outputs/figures/run_<timestamp>/`. It uses the Times New Roman font file (`C:\Windows\Fonts\times.ttf`).
+
+   `python notebooks/make_flowchart.py --root <path-to-this-repository>` redraws Fig. 1 into a new folder `outputs/figures/flowchart-1.1_<timestamp>/`. It reads only the paper's `paper_numbers.json` and checks its hash. It uses Times New Roman when installed and otherwise a similar serif font, with a warning. The paper's run, `outputs/figures/flowchart-1.1_20261009-202513/`, records in `flowchart_manifest.json` the SHA-256 of `make_flowchart.py`, of `paper_numbers.json` and of every output file.
 
 **Re-running a stage.** Each stage cell sets `PROJECT_ROOT = r"D:\ptbxl-metadata-audit"` near its top; change it to your copy. Stages write once into their own output folder and stop rather than overwrite, so move the existing outputs of that stage aside first. Stages that use the ECG signal need the records (`records100/`) and, for training, a GPU.
 

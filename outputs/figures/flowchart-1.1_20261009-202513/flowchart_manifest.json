@@ -1,0 +1,480 @@
+{
+  "document": "flowchart manifest",
+  "version": "flowchart-1.1",
+  "created": "2026-10-09T20:25:13.360170+03:30",
+  "versions": {
+    "python": "3.10.20",
+    "matplotlib": "3.10.9",
+    "pillow": "12.3.0",
+    "numpy": "1.26.4",
+    "os": "Windows-10-10.0.19045-SP0"
+  },
+  "warnings": [],
+  "font": {
+    "name": "Times New Roman",
+    "upright": "C:\\Windows\\Fonts\\times.ttf",
+    "italic": "C:\\Windows\\Fonts\\timesi.ttf",
+    "fallback": false
+  },
+  "paper_numbers": {
+    "path": "D:\\ptbxl-metadata-audit\\outputs\\verify\\run_20261008-022605\\paper_numbers.json",
+    "sha256": "e540d16d65d9247669e8488bcc834ea854cdd5bf94f0181f3c9ceb6ff49e524c"
+  },
+  "script": {
+    "path": "D:\\ptbxl-metadata-audit\\notebooks\\make_flowchart.py",
+    "sha256": "b12992014d05d3a48988ee9beefa03c16c887bcce692dc83c8dc1e2c6e72f365",
+    "note": null
+  },
+  "self_checks_C1_to_C11": [
+    {
+      "id": "C1",
+      "description": "input: sha256 pinned, all_checks_passed and paper_final true; the number substrings are built from paper_numbers.json and the resulting lines equal the specified strings",
+      "status": "PASS",
+      "detail": {
+        "sha256": "e540d16d65d9247669e8488bcc834ea854cdd5bf94f0181f3c9ceb6ff49e524c",
+        "numbers": {
+          "n_records": "21,799",
+          "n_patients": "18,869",
+          "n_checks": "370",
+          "sesoi_h3": "0.01",
+          "n_final_models": "18"
+        },
+        "lines": [
+          {
+            "box": "data",
+            "built": "PTB-XL v1.0.3 (100 Hz): 21,799 ECGs from 18,869 patients",
+            "specified": "PTB-XL v1.0.3 (100 Hz): 21,799 ECGs from 18,869 patients",
+            "equal": true
+          },
+          {
+            "box": "final",
+            "built": "18 final models (folds 1–9);",
+            "specified": "18 final models (folds 1–9);",
+            "equal": true
+          },
+          {
+            "box": "h3e",
+            "built": "vs. + age, sex; margin ±0.01",
+            "specified": "vs. + age, sex; margin ±0.01",
+            "equal": true
+          },
+          {
+            "box": "verify",
+            "built": "from the locked artifacts (370 checks)",
+            "specified": "from the locked artifacts (370 checks)",
+            "equal": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "C2",
+      "description": "text inventory: the visible Text artists, in drawing order, equal the 34 specified lines (string, box, order); no other text, legend or title; the axis is off",
+      "status": "PASS",
+      "detail": {
+        "n_drawn": 34,
+        "n_expected": 34,
+        "axis_off": true,
+        "other_texts": [],
+        "stray_texts": [],
+        "first_mismatch": null
+      }
+    },
+    {
+      "id": "C3",
+      "description": "font: every text 8.0 pt, weight normal; exactly the lines whose text is a status string italic (5 instances: 'post hoc' twice; italic face of the same family), all others normal; glyph coverage complete (incl. U+2013, U+2212, U+00B1, ';')",
+      "status": "PASS",
+      "detail": {
+        "font": "Times New Roman",
+        "upright": "C:\\Windows\\Fonts\\times.ttf",
+        "italic": "C:\\Windows\\Fonts\\timesi.ttf",
+        "n_italic": 5,
+        "violations": [],
+        "n_distinct_characters": 62
+      }
+    },
+    {
+      "id": "C4",
+      "description": "grid: left-lane boxes share x0/x1, right-lane boxes share x0/x1, full boxes span M..W-M (<= 1e-9 mm); boxes in a row share y_top / y_bottom; every row gap == GAP; both dividers at identical y (<= 1e-9) and spanning exactly their box x0..x1",
+      "status": "PASS",
+      "detail": {
+        "lanes": {
+          "left": [
+            0.4,
+            40.8
+          ],
+          "right": [
+            45.0,
+            85.4
+          ],
+          "full": [
+            0.4,
+            85.4
+          ]
+        },
+        "violations": [],
+        "row_gaps_mm": [
+          3.6,
+          3.6,
+          3.6,
+          3.6,
+          3.6,
+          3.6,
+          3.6
+        ],
+        "dividers": {
+          "meta_f10": {
+            "y": 100.02,
+            "x": [
+              0.4,
+              40.8
+            ]
+          },
+          "h3e": {
+            "y": 100.02,
+            "x": [
+              45.0,
+              85.39999999999999
+            ]
+          }
+        }
+      }
+    },
+    {
+      "id": "C5",
+      "description": "text fit (rendered extents, mm): every line >= 2.0 mm from both box edges and centred (|left - right| <= 0.10); every box / section: top and bottom padding >= 1.0 and differing by <= 0.20; in both divided boxes (meta_f10, h3e) every line >= 1.0 from the divider",
+      "status": "PASS",
+      "detail": {
+        "min_horizontal_pad_mm": 3.473,
+        "max_horizontal_asymmetry_mm": 0.0,
+        "min_vertical_pad_mm": 1.7104,
+        "max_vertical_pad_difference_mm": 0.0,
+        "min_distance_to_divider_mm": 1.7104,
+        "sections": [
+          {
+            "box": "data",
+            "section": 0,
+            "top_mm": 1.7316,
+            "bottom_mm": 1.7316
+          },
+          {
+            "box": "meta_head",
+            "section": 0,
+            "top_mm": 1.723,
+            "bottom_mm": 1.723
+          },
+          {
+            "box": "ecg_head",
+            "section": 0,
+            "top_mm": 1.7316,
+            "bottom_mm": 1.7316
+          },
+          {
+            "box": "h1h2",
+            "section": 0,
+            "top_mm": 1.7104,
+            "bottom_mm": 1.7104
+          },
+          {
+            "box": "lr",
+            "section": 0,
+            "top_mm": 1.7316,
+            "bottom_mm": 1.7316
+          },
+          {
+            "box": "frp",
+            "section": 0,
+            "top_mm": 1.7316,
+            "bottom_mm": 1.7316
+          },
+          {
+            "box": "final",
+            "section": 0,
+            "top_mm": 1.7316,
+            "bottom_mm": 1.7316
+          },
+          {
+            "box": "open",
+            "section": 0,
+            "top_mm": 1.7316,
+            "bottom_mm": 1.7316
+          },
+          {
+            "box": "meta_f10",
+            "section": 0,
+            "top_mm": 1.7104,
+            "bottom_mm": 1.7104
+          },
+          {
+            "box": "meta_f10",
+            "section": 1,
+            "top_mm": 1.7157,
+            "bottom_mm": 1.7157
+          },
+          {
+            "box": "h3e",
+            "section": 0,
+            "top_mm": 1.7104,
+            "bottom_mm": 1.7104
+          },
+          {
+            "box": "h3e",
+            "section": 1,
+            "top_mm": 1.7104,
+            "bottom_mm": 1.7104
+          },
+          {
+            "box": "verify",
+            "section": 0,
+            "top_mm": 1.723,
+            "bottom_mm": 1.723
+          }
+        ],
+        "violations": []
+      }
+    },
+    {
+      "id": "C6",
+      "description": "no collisions: no two text extents overlap; no text extent within 0.3 mm of any box edge, either divider, any arrow shaft or head (stroke half-widths included)",
+      "status": "PASS",
+      "detail": {
+        "text_overlaps": [],
+        "too_close": [],
+        "min_clearance_mm": 1.6046,
+        "at": [
+          [
+            "meta_f10",
+            0,
+            0
+          ],
+          "box meta_f10 top"
+        ]
+      }
+    },
+    {
+      "id": "C7",
+      "description": "arrows: exactly 12, vertical, shaft and head x == centre (x0 + x1)/2 of the lane box(es) among source and target (from GEOM, not from the drawing table); X_LC / X_RC == lane centres from LANE_X; x >= HEAD_W/2 + 0.5 mm inside both source and target boxes; shaft starts at the source bottom edge and the head tip lies on the target top edge (<= 1e-9), visible shaft >= 2.0 mm, no arrow enters any box interior, no two arrows overlap or cross, all heads identical",
+      "status": "PASS",
+      "detail": {
+        "violations": [],
+        "lane_centres_mm": {
+          "left": 20.599999999999998,
+          "right": 65.19999999999999,
+          "full": 42.9
+        },
+        "required_x_mm": {
+          "a1": [
+            20.6
+          ],
+          "a2": [
+            65.2
+          ],
+          "a3": [
+            20.6,
+            20.6
+          ],
+          "a4": [
+            65.2,
+            65.2
+          ],
+          "a5": [
+            65.2,
+            65.2
+          ],
+          "a6": [
+            65.2,
+            65.2
+          ],
+          "a7": [
+            65.2
+          ],
+          "a8": [
+            20.6
+          ],
+          "a9": [
+            20.6
+          ],
+          "a10": [
+            65.2
+          ],
+          "a11": [
+            20.6
+          ],
+          "a12": [
+            65.2
+          ]
+        },
+        "drawn_x_mm": {
+          "a1": [
+            20.599999999999998,
+            20.599999999999998
+          ],
+          "a2": [
+            65.2,
+            65.2
+          ],
+          "a3": [
+            20.599999999999998,
+            20.599999999999998
+          ],
+          "a4": [
+            65.2,
+            65.2
+          ],
+          "a5": [
+            65.2,
+            65.2
+          ],
+          "a6": [
+            65.2,
+            65.2
+          ],
+          "a7": [
+            65.2,
+            65.2
+          ],
+          "a8": [
+            20.599999999999998,
+            20.599999999999998
+          ],
+          "a9": [
+            20.599999999999998,
+            20.599999999999998
+          ],
+          "a10": [
+            65.2,
+            65.2
+          ],
+          "a11": [
+            20.599999999999998,
+            20.599999999999998
+          ],
+          "a12": [
+            65.2,
+            65.2
+          ]
+        },
+        "head_sizes_mm": [
+          [
+            1.0,
+            1.2
+          ]
+        ],
+        "visible_shaft_mm": {
+          "a1": 2.4,
+          "a2": 2.4,
+          "a3": 2.4,
+          "a4": 2.4,
+          "a5": 2.4,
+          "a6": 2.4,
+          "a7": 2.4,
+          "a8": 28.1822,
+          "a9": 2.4,
+          "a10": 2.4,
+          "a11": 2.4,
+          "a12": 2.4
+        },
+        "min_visible_shaft_mm": 2.4
+      }
+    },
+    {
+      "id": "C8",
+      "description": "canvas: W == 85.8, H <= 125.0; every artist extent (box strokes incl. half width) >= 0.2 mm inside the canvas; one axes [0, 0, 1, 1] with equal aspect (mm data units)",
+      "status": "PASS",
+      "detail": {
+        "W_mm": 85.8,
+        "H_mm": 122.602222,
+        "min_inside_margin_mm": 0.2942,
+        "at": "box data",
+        "axes_position": [
+          0.0,
+          0.0,
+          1.0,
+          1.0
+        ],
+        "px_per_mm_x": 23.62204724409449,
+        "px_per_mm_y": 23.622047244094574
+      }
+    },
+    {
+      "id": "C9",
+      "description": "raster: PNG at 600 dpi, RGB, pixel size == W x H mm (+/-1 px); the outer 0.15 mm frame is pure white",
+      "status": "PASS",
+      "detail": {
+        "pixels": [
+          2026,
+          2896
+        ],
+        "expected_px": [
+          2026.772,
+          2896.115
+        ],
+        "dpi": [
+          599.999,
+          599.999
+        ],
+        "mode": "RGB",
+        "frame_px": 4,
+        "frame_all_white": true
+      }
+    },
+    {
+      "id": "C10",
+      "description": "PDF: MediaBox == W x H mm (+/-0.05); all fonts embedded as TrueType; no image XObjects; two in-memory renders byte-identical",
+      "status": "PASS",
+      "detail": {
+        "mediabox_mm": [
+          85.8,
+          122.6022
+        ],
+        "truetype_embedded": true,
+        "image_xobjects": 0,
+        "deterministic": true,
+        "sha256": "54aa9cd7c488d16321a12f0bbf8b19096351247c8f0345ad686cd314301b63bb"
+      }
+    },
+    {
+      "id": "C11",
+      "description": "counts: 11 boxes (9 white, 2 grey), 2 dividers, 12 arrows (12 shafts, 12 heads); no other artist; only the colours #1a1a1a, #333333, #e9e9e9 and white",
+      "status": "PASS",
+      "detail": {
+        "boxes": 11,
+        "white": 9,
+        "grey": 2,
+        "dividers": 2,
+        "shafts": 12,
+        "heads": 12,
+        "lines": 14,
+        "patches": 23,
+        "colours": [
+          "#1a1a1a",
+          "#333333",
+          "#e9e9e9",
+          "#ffffff"
+        ]
+      }
+    }
+  ],
+  "outputs": [
+    {
+      "file": "flowchart.pdf",
+      "bytes": 59020,
+      "sha256": "54aa9cd7c488d16321a12f0bbf8b19096351247c8f0345ad686cd314301b63bb"
+    },
+    {
+      "file": "flowchart.png",
+      "bytes": 531279,
+      "sha256": "8d43645873e7d2df3da586001d3286867719de5bc659739ad8020d669c3f5b12"
+    },
+    {
+      "file": "flowchart_preview_A4.pdf",
+      "bytes": 59111,
+      "sha256": "0bff4f1939787582cc06bf8bce6e50ff38f1a930cf60d01b9c8e106e8704f9cb"
+    },
+    {
+      "file": "flowchart_layout.json",
+      "bytes": 27735,
+      "sha256": "63064c5891e70e6f0dd264e7adf084089aabcf4a0788caa47983662cc635d5ec"
+    }
+  ]
+}

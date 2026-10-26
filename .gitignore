@@ -8,6 +8,8 @@ outputs/verify/run_*/
 !outputs/verify/run_20261008-022605/
 outputs/figures/run_*/
 !outputs/figures/run_20261008-022605/
+outputs/figures/flowchart-*/
+!outputs/figures/flowchart-1.1_20261009-202513/
 # local working folders of the project that are not part of the repository
 cache/
 docs/
