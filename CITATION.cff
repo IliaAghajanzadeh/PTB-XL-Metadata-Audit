@@ -11,7 +11,15 @@ authors:
     affiliation: "Department of Computer Engineering, Arak University"
 repository-code: "https://github.com/IliaAghajanzadeh/PTB-XL-Metadata-Audit"
 license: MIT
-date-released: "2026-10-20"
+date-released: "2026-10-09"
+keywords:
+  - ECG
+  - PTB-XL
+  - acquisition metadata
+  - shortcut learning
+  - pre-registration
+  - reproducibility
+  - OpenTimestamps
 preferred-citation:
   type: conference-paper
   title: "Auditing Acquisition Metadata Effects on ECG Classification in PTB-XL"
@@ -22,4 +30,6 @@ preferred-citation:
       given-names: Majid
   conference:
     name: "12th International Conference on Signal Processing and Intelligent Systems (ICSPIS 2026)"
+    city: Shahrood
+    country: IR
   year: 2026
